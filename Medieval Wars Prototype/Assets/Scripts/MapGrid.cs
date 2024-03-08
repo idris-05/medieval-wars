@@ -8,8 +8,10 @@ public class MapGrid : MonoBehaviour
 {
 
     public GridCell[,] grid;
+
     public static int Vertical, Horizontal, Columns, Rows;
-    public void initialiseMapGrid()
+    
+    public void declareMapGrid()
     {
         Vertical = (int)Camera.main.orthographicSize;         //  unite de calcul : metres
         Horizontal = Vertical * Screen.width / Screen.height; //  unite de calcul : metres
