@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6074141851441042306}
   - component: {fileID: -8740393964230367777}
   - component: {fileID: 2654075239046433566}
-  - component: {fileID: 6508936576220258853}
   - component: {fileID: -2080499793171882692}
+  - component: {fileID: -6857914708629168600}
   m_Layer: 0
-  m_Name: Unit
+  m_Name: Infantry1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,27 +99,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da1919fc36067d46aed2db47b7c561c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitType: 4
+  spriteRenderer: {fileID: 0}
   selected: 0
   row: 0
   col: 0
-  moveRange: 3
   mapGrid: {fileID: 0}
   moveSpeed: 6
   playerNumber: 1
   hasMoved: 0
---- !u!114 &6508936576220258853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5265668595456362624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 873822b55360c634e9a732ff9352106e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverAmount: 0.3
+  occupiedCell: {fileID: 0}
+  healthPoints: 0
+  AttackBoost: 0
+  SpecialAttackBoost: 0
+  moveRange: 3
+  energy: 99
+  energyPerDay: 0
+  vision: 2
+  cost: 1000
+  attackRange: 1
+  minAttackRange: 0
+  ammo: 0
+  moveType: foot
+  hasAttacked: 0
 --- !u!61 &-2080499793171882692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,3 +167,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &-6857914708629168600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265668595456362624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873822b55360c634e9a732ff9352106e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverAmount: 1

@@ -246,8 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGrid: {fileID: 2079233363}
   GridCellPrefab: {fileID: -3587581034812915052, guid: df91c92e29b3f2a40b52fbc0a3d2ebe6, type: 3}
-  UnitPrefab: {fileID: 2654075239046433566, guid: e3b6cb70c23b96d47a8fff974a9f4b45, type: 3}
-  EnemyUnitPrefab: {fileID: 1658767173122458536, guid: 946610c404d20b949b232d1b22a84f58, type: 3}
+  Infantry1Prefab: {fileID: 2654075239046433566, guid: e3b6cb70c23b96d47a8fff974a9f4b45, type: 3}
+  Infantry2Prefab: {fileID: 2654075239046433566, guid: f59bae1b4fcb1614c8e49fa00a52fd5c, type: 3}
   selectedUnit: {fileID: 0}
   playerTurn: 1
 --- !u!4 &961498743

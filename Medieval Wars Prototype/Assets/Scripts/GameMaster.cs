@@ -9,10 +9,11 @@ public class GameMaster : MonoBehaviour
 
     public MapGrid mapGrid;
     public GridCell GridCellPrefab;
-    public Unit UnitPrefab;
-    public Unit EnemyUnitPrefab;
+    public Unit Infantry1Prefab;
+    public Unit Infantry2Prefab;
     public Unit selectedUnit;
     public int playerTurn = 1;
+
 
 
     // This method is called when the object is first enabled in the scene.
@@ -43,13 +44,13 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        SpawnUnitPlayer1(5, 5); // test 
-        SpawnUnitPlayer2(8, 8);
+        SpawnUnit(1,5,5,Infantry1Prefab); // test 
+        SpawnUnit(2,8,8,Infantry2Prefab);
     }
 
 
 
-    private void Update()
+    void Update()
     {
         CheckEndTurnInput();
     }
@@ -64,29 +65,32 @@ public class GameMaster : MonoBehaviour
     }
 
     // this function is used to end the turn of the current player and start the turn of the other player
-    void EndTurn()
+    private void EndTurn()
     {
-        playerTurn = (playerTurn == 1) ? 2 : 1;  // if playerTurn == 1, then playerTurn = 2, else playerTurn = 1
+        
 
-        if (selectedUnit != null)               // if there is a selected unit then unselect it 
-        {                                       // and reset the grid cells to their original state 
+         playerTurn = (playerTurn == 1) ? 2 : 1;  // if playerTurn == 1, then playerTurn = 2, else playerTurn = 1
+
+         if (selectedUnit != null)
+         {
             selectedUnit.selected = false;      // unselect the unit
-            selectedUnit = null;                // set the selected unit to null (no unit is selected)
-        }
+            selectedUnit = null;               // set the selected unit to null (no unit is selected)
+         }
 
-        ResetGridCells();  // reset the grid cells to their original state (white color) and isWalkable = false for all cells
+          ResetGridCells();  // reset the grid cells to their original state (white color) and isWalkable = false for all cells
 
-        foreach (Unit unit in FindObjectsOfType<Unit>()) // FindObjectsOfType<Unit>() returns an array of all the units in the scene
-        {
+          foreach (Unit unit in FindObjectsOfType<Unit>()) // FindObjectsOfType<Unit>() returns an array of all the units in the scene
+          {
             unit.hasMoved = false;   // reset the hasMoved and hasAttacked variables to false  
-            /* unit.weaponIcon.SetActive(false);
-            unit.hasAttacked = false; */
+            unit.hasAttacked = false;
+            unit.spriteRenderer.color = Color.white;
+            unit.hasAttacked = false;
         }
 
     }
 
     // this function is used to spawn a unit on the map
-    public void SpawnUnit(int playerNumber, int row, int column, Unit unitPrefab)
+    private void SpawnUnit(int playerNumber, int row, int column, Unit unitPrefab)
     {
 
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
@@ -110,18 +114,7 @@ public class GameMaster : MonoBehaviour
         // mapGrid.grid[row, column].occupantUnit.col = column;
 
         unit.playerNumber = playerNumber;
-    }
 
-    // Spawn a unit for player 1 at the specified position
-    public void SpawnUnitPlayer1(int row, int column)
-    {
-        SpawnUnit(1, row, column, UnitPrefab);
-    }
-
-    // Spawn a unit for player 2 at the specified position
-    public void SpawnUnitPlayer2(int row, int column)
-    {
-        SpawnUnit(2, row, column, EnemyUnitPrefab);
     }
 
     // this function is used to reset the grid cells to their original state (white color) and isWalkable = false for all cells 

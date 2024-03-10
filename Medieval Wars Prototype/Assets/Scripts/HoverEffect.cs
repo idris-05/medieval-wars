@@ -5,6 +5,9 @@ using UnityEngine;
 public class HoverEffect : MonoBehaviour
 {
 
+    // the hover effect is working well but sometimes it just gets crazy 
+    // i dont know why yet , we'll be looking further to fix that later , its not a priority
+
     // The amount by which the object should scale when hovered
     public float hoverAmount ;
 

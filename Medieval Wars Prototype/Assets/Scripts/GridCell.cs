@@ -7,16 +7,15 @@ using UnityEngine;
 public class GridCell : MonoBehaviour
 {
     public bool isHighlighted;
-    public SpriteRenderer rend;
-    // can the selected unit move to this cell 
-    public bool isWalkable;
+    public SpriteRenderer rend;  
+    public bool isWalkable; // can the selected unit move to this cell 
     public int row;
     public int column;
     public Color highlightedColor;
     GameMaster gm;
     public Unit occupantUnit;
 
-    public void Start()
+    void Start()
     {
         // Get the SpriteRenderer component of the GridCell from the scene
         rend = GetComponent<SpriteRenderer>();
@@ -25,11 +24,12 @@ public class GridCell : MonoBehaviour
     }
 
     // Method to highlight the GridCell when the mouse hovers over it
-    private void OnMouseDown()
+    void OnMouseDown()
     {
         // If the GridCell is walkable and a unit is selected 
         if (gm.selectedUnit != null && isWalkable == false)
         {
+            gm.selectedUnit.selected = false;
             gm.selectedUnit = null;
             // Reset the grid cells to their original state
             gm.ResetGridCells();
@@ -39,9 +39,13 @@ public class GridCell : MonoBehaviour
         {
             // Move the selected unit to the GridCell
             gm.selectedUnit.Move(this.row, this.column);
+            gm.selectedUnit.row = this.row;
+            gm.selectedUnit.col = this.column;
+            gm.selectedUnit.occupiedCell = this;
             // Set the selected unit's hasMoved property to true to prevent it from moving again in the same turn 
             gm.selectedUnit.hasMoved = true;
             // Unselect the unit 
+            gm.selectedUnit.selected = false;
             gm.selectedUnit = null;
             // Reset the grid cells to their original state 
             gm.ResetGridCells();

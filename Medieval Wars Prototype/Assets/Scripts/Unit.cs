@@ -2,33 +2,82 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TestTools;
 using UnityEngine.UIElements;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Unit : MonoBehaviour
 {
+    public int unitType;
+    
+    public SpriteRenderer spriteRenderer;
+
     public bool selected;
     GameMaster gm;
     public int row;
     public int col;
-    public int moveRange;
     public MapGrid mapGrid;
     public float moveSpeed;
     public int playerNumber;
     public bool hasMoved;
     public GridCell occupiedCell;
 
-    public void Start()
+    public int healthPoints;
+
+
+    public int AttackBoost; 
+    public int SpecialAttackBoost;
+     
+    public int moveRange;
+    public int energy;
+    public int energyPerDay;
+    public int vision;
+    public int cost;
+
+    public int attackRange;
+
+    public int minAttackRange;
+    public int ammo;
+
+    public string moveType; //attention au nom des move type car on va utiliser des strings
+
+    // "foot"
+    // "sea"
+    // "tires"
+    // "lander"
+    // "horses"
+
+    List<Unit> enemiesInRange = new List<Unit>(); // this list will contain enemies that ca be attacked by a unit
+    public bool hasAttacked;
+    
+
+
+
+    void Start()
     {
         // Get the GameMaster component from the scene
         gm = FindObjectOfType<GameMaster>();
         // Get the MapGrid component from the scene
         mapGrid = FindObjectOfType<MapGrid>();
+        // Get the spriteRenderer Component
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
     // Method to highlight the GridCell when the mouse hovers over it 
+    // there is a problem with OnMouseDown , it is way too sensitive , you click once and it considers as if you clicked n times
+    // and then it depends on your luck , if n is "impair" then your unit will be selected
+    // if n is is "pair" then your unit will not be selected
+    // and this is why you can observe it is buggy when you try to select your unit 
+
     private void OnMouseDown()
     {
+        
+        Debug.Log("just selected the character");
+
+        ResetRedEffectOnAttackbleEnemies();
+
+
         // If the unit has moved, return
         if (hasMoved  == true) return;
 
@@ -39,7 +88,7 @@ public class Unit : MonoBehaviour
             selected = false;
             // Set the selectedUnit property of the GameMaster to null 
             gm.selectedUnit = null;
-            // gm.ResetTiles();
+            gm.ResetGridCells();
         }
         else
         {
@@ -52,20 +101,23 @@ public class Unit : MonoBehaviour
                 selected = true;
                 gm.selectedUnit = this;
 
-                //gm.ResetTiles();
-                //GetEnemies();
-
-                // get te actual position (i,j) where the clicked unit was .
-                //int x = gm.selectedUnit.transform.position.x;
-                //int y = gm.selectedUnit.transform.position.y;
-
+                gm.ResetGridCells();
+                GetEnemies();
                 GetWalkableTiles(row, col);
             }
+        }
+
+        if(gm.selectedUnit != null)
+        {
+            /* if(gm.selectedUnit.enemiesInRange.Contains(unit) && gm.selectedUnit.hasAttacked = false)
+            {
+                Attack
+            } */
         }
     }
 
     // Method to get the walkable tiles for the selected unit 
-    void GetWalkableTiles(int startRow, int startCol)
+    private void GetWalkableTiles(int startRow, int startCol)
     {
         // Get the current position of the selected unit
         Vector2Int currentPos = new Vector2Int(startRow, startCol);
@@ -92,15 +144,12 @@ public class Unit : MonoBehaviour
         }
     }
 
-
-
     public void Move(int row, int column)
     {
         // gm.ResetTiles();
-        Debug.Log($"Position: ({row}, {column})");
+        // Debug.Log($"Position: ({row}, {column})");
         Vector2 position = new Vector2(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f);
         StartCoroutine(StartMovement(position));
-
     }
 
     // Method to move the unit to the specified position
@@ -119,9 +168,114 @@ public class Unit : MonoBehaviour
             yield return null;
         }
 
-        // hasMoved = true;
-        // ResetWeaponIcons();
-        // GetEnemies();
+        hasMoved = true;
+        ResetRedEffectOnAttackbleEnemies();
+        GetEnemies();
     }
 
+
+
+
+    // for whoever is revewing the code , its totally normal that get enemies goes through all of the units 
+    // we should stop caring about optimising that much because this is not even that consuming for the machine
+    // and i think going threw the units is better then going through the gridcells 
+    // let me explain my self further
+    // let's say you want to make this optimized
+    // you will start from your unit and explore the close gridcells to the unit , just like we did with walkable tiles
+    // it will litteraly be the same as walkable tiles , you explore from -attackRange to +attackRange for columns and for rows
+    // and if there is an enemy there , you add him to the list of enemiesInRange
+    // I mean this method can be done quite easily and if you want to do it this way ok 
+    // but remember , in case of big ranges , going threw the units is definitely better then going through the whole map 
+    // when i say the whole map im abusing , but you will go through a lot of GridCells
+    // i'm okay with you chaging how GetEnemies works inside , either like GetWalkableTiles or just exploring all the units
+    // if u want to change come discuss with "Ishak" , but dont make it too long , go straight to the point 
+
+    // now about GetEnemies i ve got 2 choices
+    // either I have a list of Enemies that are attackble for each of my units ( which seems like the better solution for me )
+    // else i just create a boolean variable on each unit , and if the unit is attackable i will assign the value true to it
+    // i will opt for the first solution ( you can discuss this with "Ishak" but don't debate too much 
+
+
+    // I NOTICED THAT IN ADVANCE WARS , the unit aknowleges the enemies it can attack only after moving
+    // if you dont move the unit eventhough the enemy is in range you can not attack it 
+    // i don't think we'll be doing that here
+    // as soon as you select a unit , you will be able to attack ( seems much better right ? )
+
+    // if you want to see where GetEnemies will be called you can just search for it 
+    // you will understand immediatly why it was called at those places
+
+    void GetEnemies()
+    {
+        if (hasAttacked == false)
+        {
+            enemiesInRange.Clear(); // Clear the List
+
+            foreach (Unit unit in FindObjectsOfType<Unit>())
+            {
+                // if it's an [ enemy unit ] and [ enemy unit in range ]
+
+                if ((unit.playerNumber != gm.playerTurn) && (MathF.Abs(unit.row - row) + MathF.Abs(unit.col - col) <= attackRange))
+                {
+                    enemiesInRange.Add(unit); // add this attackble enemy to the list of attackble enemies
+
+                    // no visuals for the moment , just pure code
+                    unit.spriteRenderer.color = Color.red;
+                }
+            }
+        }
+    }
+
+    public void ResetRedEffectOnAttackbleEnemies()
+    {
+        foreach( Unit unit in FindObjectsOfType<Unit>())
+        {
+            unit.spriteRenderer.color = Color.white;
+        }
+    }
+
+// EXPLICATION ASSEZ DETAILLEE DE LA DAMAGE FORMULA
+
+    /*
+     * // On changera peut etre le systeme de Luck ( Cout Critique)
+
+    AttackValue = ( Base . AttackBoost . SpecialAttackBoost )
+
+    Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
+
+    Total Damage =  (HP / 100) . Attack . Vulnerabity . Critical Hit
+
+
+    // Critical Hit ( <=> Luck ) : proba(critical Hit) = 1/16 , if critical hit then critical_hit = 1.5 else critical hit = 1
+
+    // AttackBoost est un boost passif qui agit durant toute la partie ( superier a 1 )  // can be used as nerf if picked < 1
+
+    // SpecialAttackBoost est un boost actif qui agit seulement lors du round ou le super pouvoir est actif ( entre 0 et 1 ) // same comment as the above
+
+    // Terrain Stars ( entre 0 et 5 )
+
+    // DefenseBoost et SpecialDefenseBoost analogues a AttackBoost et SpecialAttackBoost respectivement ( must be used negative in case of nerf ) ( between 0 and 1 in case of boost )
+
+    // total damage ( HP PLAYS A MAJOR ROLE IN TERMS OF DAMAGE INFLIGATED )
+
+
+    //! LES HP SONT TOUS SUR 100 : entier pour l affichage
+                                 : float pour les calculs
+
+    */
+
+
+    void Attack(Unit enemy)
+    {
+        hasAttacked = true;
+
+        int inflictedDamage; // this is the damage that the attacking unit inflics to the enemy unit
+        int recievedDamage;  // this is the damage that the attacing unit concedes when the enemy unit counterattacks
+
+
+    }
+
+    private float CalculateDamage(Unit AttackingUnit, Unit Defending);
+    {
+
+    }
 }
