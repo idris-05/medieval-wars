@@ -249,6 +249,7 @@ MonoBehaviour:
   Infantry1Prefab: {fileID: 2654075239046433566, guid: e3b6cb70c23b96d47a8fff974a9f4b45, type: 3}
   Infantry2Prefab: {fileID: 2654075239046433566, guid: f59bae1b4fcb1614c8e49fa00a52fd5c, type: 3}
   selectedUnit: {fileID: 0}
+  TerrainGrassPrefab: {fileID: 0}
   playerTurn: 1
 --- !u!4 &961498743
 Transform:

@@ -109,9 +109,11 @@ MonoBehaviour:
   playerNumber: 1
   hasMoved: 0
   occupiedCell: {fileID: 0}
-  healthPoints: 0
-  AttackBoost: 0
-  SpecialAttackBoost: 0
+  healthPoints: 100
+  AttackBoost: 1
+  SpecialAttackBoost: 1
+  DefenseBoost: 1
+  SpecialDefenseBoost: 1
   moveRange: 3
   energy: 99
   energyPerDay: 0

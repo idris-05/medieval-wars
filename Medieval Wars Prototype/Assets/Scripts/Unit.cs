@@ -22,7 +22,7 @@ public class Unit : MonoBehaviour
     public bool hasMoved;
     public GridCell occupiedCell;
 
-    public int healthPoints;
+    public float healthPoints;
 
 
     public int AttackBoost; 
@@ -110,12 +110,26 @@ public class Unit : MonoBehaviour
             }
         }
 
-        if(gm.selectedUnit != null)
+        if(gm.selectedUnit != null && playerNumber != gm.playerTurn)
         {
-            /* if(gm.selectedUnit.enemiesInRange.Contains(unit) && gm.selectedUnit.hasAttacked = false)
-            {
-                Attack
-            } */
+             if(gm.selectedUnit.enemiesInRange.Contains(this) && gm.selectedUnit.hasAttacked == false)
+             {
+                Attack(gm.selectedUnit,this);
+
+                if ( this.healthPoints <= 0)
+                {
+                    Destroy(this);
+                }
+
+                Attack(this, gm.selectedUnit);
+
+                if ( gm.selectedUnit.healthPoints <= 0)
+                {
+                    gm.ResetGridCells();
+                    Destroy(gm.selectedUnit);
+                    gm.selectedUnit = null;
+                }
+             } 
         }
     }
 
@@ -242,11 +256,9 @@ public class Unit : MonoBehaviour
 
         //   public static float CalculateDamage(Unit AttackingUnit , Unit DefendingUnit)
 
+        float inflictedDamage = GameUtil.CalculateDamage(AttackingUnit, DefendingUnit);
 
-
-
-
-
+        DefendingUnit.healthPoints -= inflictedDamage;
 
     }
 
