@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
@@ -7,8 +8,9 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public static class GameUtil
 {
+    // base damage[Defender,Attacker]
 
-    public static int[,] basedammage = {
+    public static int[,] baseDamage = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
     {70, 75, 40, 65, 90, 55, 85, 15, 80, 80, 80, 60, 70},
     {80, 80, 50, 95, 95, 95, 90, 25, 90, 90, 85, 95, 80},
@@ -24,7 +26,9 @@ public static class GameUtil
     {75, 70, 1, 5, -1, 10, -1, 10, 85, 85, 85, 1, 55},
 };
 
-
+    // in this matrix
+    // Column is the Attacker
+    // Row is the defender
 
     /*
                 Caravan     Archers  Carac   Fireship   Infantry    T-ship  Spike man   R-chalvary  Trebuchet   Bandit  Catapulte   RamShip    Chalvary
@@ -89,6 +93,59 @@ public static class GameUtil
         spriteRenderer.transform.localScale = new Vector3(spriteRenderer.transform.localScale.x * scaleX, spriteRenderer.transform.localScale.y * scaleY, 1f);
     }
 
-    // Method to calculate Damage
+
+    // EXPLICATION ASSEZ DETAILLEE DE LA DAMAGE FORMULA
+
+    /*
+     * // On changera peut etre le systeme de Luck ( Cout Critique)
+
+    AttackValue = ( Base . AttackBoost . SpecialAttackBoost )
+
+    Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
+
+    Total Damage =  (HP / 100) . Attack . Vulnerabity . Critical Hit
+
+
+    // Critical Hit ( <=> Luck ) : proba(critical Hit) = 1/16 , if critical hit then critical_hit = 1.5 else critical hit = 1
+
+    // AttackBoost est un boost passif qui agit durant toute la partie ( superier a 1 )  // can be used as nerf if picked < 1
+
+    // SpecialAttackBoost est un boost actif qui agit seulement lors du round ou le super pouvoir est actif ( entre 0 et 1 ) // same comment as the above
+
+    // Terrain Stars ( entre 0 et 5 )
+
+    // DefenseBoost et SpecialDefenseBoost analogues a AttackBoost et SpecialAttackBoost respectivement ( must be used negative in case of nerf ) ( between 0 and 1 in case of boost )
+
+    // total damage ( HP PLAYS A MAJOR ROLE IN TERMS OF DAMAGE INFLIGATED )
+
+
+    //! LES HP SONT TOUS SUR 100 : entier pour l affichage
+                                 : float pour les calculs
+
+    */
+
+    public static float CalculateDamage(Unit AttackingUnit , Unit DefendingUnit)
+    {
+        // base damage[Defender,Attacker]
+
+        float Base = GameUtil.baseDamage[DefendingUnit.unitType, AttackingUnit.unitType];
+
+        // AttackValue = (Base.AttackBoost.SpecialAttackBoost)
+
+        float AttackValue = Base * AttackingUnit.AttackBoost * AttackingUnit.SpecialAttackBoost;
+
+        int TerrainStars = DefendingUnit.occupiedCell.terrain.terrainStars;
+
+        //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
+
+        float Vulnerability = ( 1 - ( TerrainStars * DefendingUnit.healthPoints / 1000 ) ) * ( 1 - DefendingUnit.DefenseBoost) * ( 1 - DefendingUnit.SpecialDefenseBoost) ;
+
+        // Total Damage =  (HP / 100) . Attack . Vulnerabity . Critical Hit
+        // Critical Hit may be added later , it is the <=> of luck in advance wars
+
+        float TotalDamage = (AttackingUnit.healthPoints / 100) * AttackValue * Vulnerability;
+
+        return TotalDamage;
+    }
 
 }

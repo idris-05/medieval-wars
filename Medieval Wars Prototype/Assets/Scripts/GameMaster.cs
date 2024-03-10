@@ -12,6 +12,7 @@ public class GameMaster : MonoBehaviour
     public Unit Infantry1Prefab;
     public Unit Infantry2Prefab;
     public Unit selectedUnit;
+    public Terrain TerrainGrassPrefab;
     public int playerTurn = 1;
 
 
@@ -38,6 +39,10 @@ public class GameMaster : MonoBehaviour
                 // Set the row and column properties of the GridCell
                 gridCell.row = row;
                 gridCell.column = col;
+
+                // this affectation is temporary
+                gridCell.terrain = Instantiate(TerrainGrassPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
+
 
                 // Assign the GridCell to the corresponding position in the map grid
                 mapGrid.grid[row, col] = gridCell;

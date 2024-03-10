@@ -27,6 +27,9 @@ public class Unit : MonoBehaviour
 
     public int AttackBoost; 
     public int SpecialAttackBoost;
+
+    public int DefenseBoost;
+    public int SpecialDefenseBoost;
      
     public int moveRange;
     public int energy;
@@ -233,49 +236,18 @@ public class Unit : MonoBehaviour
         }
     }
 
-// EXPLICATION ASSEZ DETAILLEE DE LA DAMAGE FORMULA
-
-    /*
-     * // On changera peut etre le systeme de Luck ( Cout Critique)
-
-    AttackValue = ( Base . AttackBoost . SpecialAttackBoost )
-
-    Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
-
-    Total Damage =  (HP / 100) . Attack . Vulnerabity . Critical Hit
-
-
-    // Critical Hit ( <=> Luck ) : proba(critical Hit) = 1/16 , if critical hit then critical_hit = 1.5 else critical hit = 1
-
-    // AttackBoost est un boost passif qui agit durant toute la partie ( superier a 1 )  // can be used as nerf if picked < 1
-
-    // SpecialAttackBoost est un boost actif qui agit seulement lors du round ou le super pouvoir est actif ( entre 0 et 1 ) // same comment as the above
-
-    // Terrain Stars ( entre 0 et 5 )
-
-    // DefenseBoost et SpecialDefenseBoost analogues a AttackBoost et SpecialAttackBoost respectivement ( must be used negative in case of nerf ) ( between 0 and 1 in case of boost )
-
-    // total damage ( HP PLAYS A MAJOR ROLE IN TERMS OF DAMAGE INFLIGATED )
-
-
-    //! LES HP SONT TOUS SUR 100 : entier pour l affichage
-                                 : float pour les calculs
-
-    */
-
-
-    void Attack(Unit enemy)
+    void Attack(Unit AttackingUnit , Unit DefendingUnit)
     {
         hasAttacked = true;
 
-        int inflictedDamage; // this is the damage that the attacking unit inflics to the enemy unit
-        int recievedDamage;  // this is the damage that the attacing unit concedes when the enemy unit counterattacks
+        //   public static float CalculateDamage(Unit AttackingUnit , Unit DefendingUnit)
+
+
+
+
+
 
 
     }
 
-    private float CalculateDamage(Unit AttackingUnit, Unit Defending);
-    {
-
-    }
 }

@@ -14,6 +14,7 @@ public class GridCell : MonoBehaviour
     public Color highlightedColor;
     GameMaster gm;
     public Unit occupantUnit;
+    public Terrain terrain;
 
     void Start()
     {
