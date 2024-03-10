@@ -10,7 +10,7 @@ public class MapGrid : MonoBehaviour
     public GridCell[,] grid;
 
     public static int Vertical, Horizontal, Columns, Rows;
-    
+
     public void declareMapGrid()
     {
         Vertical = (int)Camera.main.orthographicSize;         //  unite de calcul : metres

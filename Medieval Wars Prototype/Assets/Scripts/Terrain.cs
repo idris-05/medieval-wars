@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Terrain : MonoBehaviour
 {
-    public int terrainStars;
+
+    public int terrainStars = 1; // only for now , tests
 }

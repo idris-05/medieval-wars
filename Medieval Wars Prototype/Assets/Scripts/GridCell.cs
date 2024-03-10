@@ -7,7 +7,7 @@ using UnityEngine;
 public class GridCell : MonoBehaviour
 {
     public bool isHighlighted;
-    public SpriteRenderer rend;  
+    public SpriteRenderer rend;
     public bool isWalkable; // can the selected unit move to this cell 
     public int row;
     public int column;

@@ -9,7 +9,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class Unit : MonoBehaviour
 {
     public int unitType;
-    
+
     public SpriteRenderer spriteRenderer;
 
     public bool selected;
@@ -25,12 +25,12 @@ public class Unit : MonoBehaviour
     public float healthPoints;
 
 
-    public int AttackBoost; 
+    public int AttackBoost;
     public int SpecialAttackBoost;
 
-    public int DefenseBoost;
-    public int SpecialDefenseBoost;
-     
+    public int DefenseBoost = 0; //!!!!!!!!! pour l'instant 0
+    public int SpecialDefenseBoost = 0; //!!!!!!!!! pour l'instant 0;
+
     public int moveRange;
     public int energy;
     public int energyPerDay;
@@ -52,7 +52,7 @@ public class Unit : MonoBehaviour
 
     List<Unit> enemiesInRange = new List<Unit>(); // this list will contain enemies that ca be attacked by a unit
     public bool hasAttacked;
-    
+
 
 
 
@@ -75,14 +75,14 @@ public class Unit : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
+
         Debug.Log("just selected the character");
 
         ResetRedEffectOnAttackbleEnemies();
 
 
         // If the unit has moved, return
-        if (hasMoved  == true) return;
+        if (hasMoved == true) return;
 
         // If the unit is selected, deselect it
         if (selected == true)
@@ -110,30 +110,35 @@ public class Unit : MonoBehaviour
             }
         }
 
-        if(gm.selectedUnit != null && playerNumber != gm.playerTurn)
+        if (gm.selectedUnit != null && playerNumber != gm.playerTurn)
         {
-             if(gm.selectedUnit.enemiesInRange.Contains(this) && gm.selectedUnit.hasAttacked == false)
-             {
-                Attack(gm.selectedUnit,this);
+            if (gm.selectedUnit.enemiesInRange.Contains(this) && gm.selectedUnit.hasAttacked == false)
+            {
+                Attack(gm.selectedUnit, this);
 
-                if ( this.healthPoints <= 0)
+                if (this.healthPoints <= 0)
                 {
-                    Destroy(this);
+                    Destroy(this.gameObject);  //!! there is a problem here ,  we should destroy the gameobject and not only the script ) , Destroy(this) desrtoys the script unit.cs only
+                    // men 9bel kanet destroy unit 
                 }
 
-                Attack(this, gm.selectedUnit);
+                //!!! no contre attaque pour le moment , pour faciliter les tests
 
-                if ( gm.selectedUnit.healthPoints <= 0)
-                {
-                    gm.ResetGridCells();
-                    Destroy(gm.selectedUnit);
-                    gm.selectedUnit = null;
-                }
-             } 
+                // Attack(this, gm.selectedUnit);
+
+                // if ( gm.selectedUnit.healthPoints <= 0)
+                // {
+                //     gm.ResetGridCells();
+                //     Destroy(gm.selectedUnit);
+                //     gm.selectedUnit = null;
+                // }
+            }
         }
     }
 
     // Method to get the walkable tiles for the selected unit 
+    //!!!! we should check if the cell we want to doesn't already contain another unit , in our case , we can put two units on the same cell
+
     private void GetWalkableTiles(int startRow, int startCol)
     {
         // Get the current position of the selected unit
@@ -161,10 +166,15 @@ public class Unit : MonoBehaviour
         }
     }
 
+
+
+    //!! here we should  change the occupaied cell of the unit
     public void Move(int row, int column)
     {
         // gm.ResetTiles();
         // Debug.Log($"Position: ({row}, {column})");
+        this.occupiedCell = mapGrid.grid[row, column]; //!!!!!!!  normalement comme ca c'est bon
+
         Vector2 position = new Vector2(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f);
         StartCoroutine(StartMovement(position));
     }
@@ -244,20 +254,19 @@ public class Unit : MonoBehaviour
 
     public void ResetRedEffectOnAttackbleEnemies()
     {
-        foreach( Unit unit in FindObjectsOfType<Unit>())
+        foreach (Unit unit in FindObjectsOfType<Unit>())
         {
             unit.spriteRenderer.color = Color.white;
         }
     }
 
-    void Attack(Unit AttackingUnit , Unit DefendingUnit)
+    void Attack(Unit AttackingUnit, Unit DefendingUnit)
     {
         hasAttacked = true;
 
         //   public static float CalculateDamage(Unit AttackingUnit , Unit DefendingUnit)
 
         float inflictedDamage = GameUtil.CalculateDamage(AttackingUnit, DefendingUnit);
-
         DefendingUnit.healthPoints -= inflictedDamage;
 
     }

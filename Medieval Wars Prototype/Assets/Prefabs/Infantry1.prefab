@@ -112,8 +112,8 @@ MonoBehaviour:
   healthPoints: 100
   AttackBoost: 1
   SpecialAttackBoost: 1
-  DefenseBoost: 1
-  SpecialDefenseBoost: 1
+  DefenseBoost: 0
+  SpecialDefenseBoost: 0
   moveRange: 3
   energy: 99
   energyPerDay: 0

@@ -124,26 +124,39 @@ public static class GameUtil
 
     */
 
-    public static float CalculateDamage(Unit AttackingUnit , Unit DefendingUnit)
+    public static float CalculateDamage(Unit AttackingUnit, Unit DefendingUnit)
     {
+        Debug.Log("attacker : " + AttackingUnit.name + " defender : " + DefendingUnit.unitType);
+
         // base damage[Defender,Attacker]
 
         float Base = GameUtil.baseDamage[DefendingUnit.unitType, AttackingUnit.unitType];
+        Debug.Log("base damage : " + Base);
+
 
         // AttackValue = (Base.AttackBoost.SpecialAttackBoost)
 
         float AttackValue = Base * AttackingUnit.AttackBoost * AttackingUnit.SpecialAttackBoost;
+        Debug.Log("attack value : " + AttackValue);
 
-        int TerrainStars = DefendingUnit.occupiedCell.terrain.terrainStars;
+
+        // int TerrainStars = DefendingUnit.occupiedCell.terrain.terrainStars;    //!!!! DefendingUnit.occupiedCell  there is a problem here the occupied Cell doesn't change when the unit moves
+        int TerrainStars = 1; // for now , tests //!!!!!!!!!!!!!1
+        Debug.Log("terrain stars : " + TerrainStars);
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
 
-        float Vulnerability = ( 1 - ( TerrainStars * DefendingUnit.healthPoints / 1000 ) ) * ( 1 - DefendingUnit.DefenseBoost) * ( 1 - DefendingUnit.SpecialDefenseBoost) ;
+        float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - DefendingUnit.DefenseBoost) * (1 - DefendingUnit.SpecialDefenseBoost);
+        // DefendingUnit.DefenseBoost   DefendingUnit.SpecialDefenseBoost  was initialized with 1 from unity , so the TotalDamage retuned was always 0 . i change them to 0 for now
+        Debug.Log("vulnerability : " + Vulnerability);
+
 
         // Total Damage =  (HP / 100) . Attack . Vulnerabity . Critical Hit
         // Critical Hit may be added later , it is the <=> of luck in advance wars
 
         float TotalDamage = (AttackingUnit.healthPoints / 100) * AttackValue * Vulnerability;
+        Debug.Log("total damage : " + TotalDamage);
+
 
         return TotalDamage;
     }

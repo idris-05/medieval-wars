@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
+
+//!!! when you move the unit , you cannot attack directly ( you need to select the unit again to attack ) should we fix this !?
 public class GameMaster : MonoBehaviour
 {
 
@@ -41,7 +43,7 @@ public class GameMaster : MonoBehaviour
                 gridCell.column = col;
 
                 // this affectation is temporary
-                gridCell.terrain = Instantiate(TerrainGrassPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
+                // gridCell.terrain = Instantiate(TerrainGrassPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
 
 
                 // Assign the GridCell to the corresponding position in the map grid
@@ -49,8 +51,8 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        SpawnUnit(1,5,5,Infantry1Prefab); // test 
-        SpawnUnit(2,8,8,Infantry2Prefab);
+        SpawnUnit(1, 5, 5, Infantry1Prefab); // test 
+        SpawnUnit(2, 8, 8, Infantry2Prefab);
     }
 
 
@@ -72,20 +74,20 @@ public class GameMaster : MonoBehaviour
     // this function is used to end the turn of the current player and start the turn of the other player
     private void EndTurn()
     {
-        
 
-         playerTurn = (playerTurn == 1) ? 2 : 1;  // if playerTurn == 1, then playerTurn = 2, else playerTurn = 1
 
-         if (selectedUnit != null)
-         {
+        playerTurn = (playerTurn == 1) ? 2 : 1;  // if playerTurn == 1, then playerTurn = 2, else playerTurn = 1
+
+        if (selectedUnit != null)
+        {
             selectedUnit.selected = false;      // unselect the unit
             selectedUnit = null;               // set the selected unit to null (no unit is selected)
-         }
+        }
 
-          ResetGridCells();  // reset the grid cells to their original state (white color) and isWalkable = false for all cells
+        ResetGridCells();  // reset the grid cells to their original state (white color) and isWalkable = false for all cells
 
-          foreach (Unit unit in FindObjectsOfType<Unit>()) // FindObjectsOfType<Unit>() returns an array of all the units in the scene
-          {
+        foreach (Unit unit in FindObjectsOfType<Unit>()) // FindObjectsOfType<Unit>() returns an array of all the units in the scene
+        {
             unit.hasMoved = false;   // reset the hasMoved and hasAttacked variables to false  
             unit.hasAttacked = false;
             unit.spriteRenderer.color = Color.white;
