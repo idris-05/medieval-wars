@@ -31,14 +31,14 @@ public static class GameUtil
     // Row is the defender
 
     /*
-                Caravan     Archers  Carac   Fireship   Infantry    T-ship  Spike man   R-chalvary  Trebuchet   Bandit  Catapulte   RamShip    Chalvary
+                Caravan     Archers  Carac   Fireship   Infantry    T-ship  SpikeMan   R-chalvary  Trebuchet   Bandit  Catapulte   RamShip    Chalvary
     Caravan        -           -       -       -           -          -          -           -          -         -         -          -           -
     Archers        70          75      40      65          90         55         85          15         80        80        80         60          70 
     Carac          80          80      50      95          95         95         90          25         90        90        85         95          80       
     Fireship       -           -       -       -           -          -          -           -          -         -         -          90          -          
     Infantry       12          15      -       -           55         -          45          1          26        12        25         -           5         
     T-ship         -           -       -       -           -          -          -           -          -         -         -          -           -       
-    Spike man      75          70      -       -           -          -          -           5          85        85        85         -           55               
+    SpikeMan       75          70      -       -           -          -          -           5          85        85        85         -           55               
     R-chalvary     195         195     45      65          -          75         -           65         195       195       195        45          180       
     Trebuchet      -           -       -       -           -          -          -           -          -         -         -          -           -               
     Bandit         45          45      -       -           70         -          65          1          28        35        55         -           6       

@@ -33,7 +33,7 @@ public class Unit : MonoBehaviour
 
     public int moveRange;
     public int energy;
-    public int energyPerDay;
+    public float energyPerDay;
     public int vision;
     public int cost;
 
@@ -262,7 +262,7 @@ public class Unit : MonoBehaviour
 
     void Attack(Unit AttackingUnit, Unit DefendingUnit)
     {
-        hasAttacked = true;
+        // hasAttacked = true;
 
         //   public static float CalculateDamage(Unit AttackingUnit , Unit DefendingUnit)
 
