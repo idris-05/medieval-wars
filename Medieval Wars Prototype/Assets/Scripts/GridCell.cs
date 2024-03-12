@@ -24,33 +24,38 @@ public class GridCell : MonoBehaviour
         gm = FindObjectOfType<GameMaster>();
     }
 
+
     // Method to highlight the GridCell when the mouse hovers over it
     void OnMouseDown()
     {
-        // If the GridCell is walkable and a unit is selected 
-        if (gm.selectedUnit != null && isWalkable == false)
-        {
-            gm.selectedUnit.selected = false;
-            gm.selectedUnit = null;
-            // Reset the grid cells to their original state
-            gm.ResetGridCells();
-        }
+        gm.OnCellSelection(this);
+        // sibon ;
 
-        if (isWalkable && gm.selectedUnit != null)
-        {
-            // Move the selected unit to the GridCell
-            gm.selectedUnit.Move(this.row, this.column);
-            gm.selectedUnit.row = this.row;
-            gm.selectedUnit.col = this.column;
-            gm.selectedUnit.occupiedCell = this;
-            // Set the selected unit's hasMoved property to true to prevent it from moving again in the same turn 
-            gm.selectedUnit.hasMoved = true;
-            // Unselect the unit 
-            gm.selectedUnit.selected = false;
-            gm.selectedUnit = null;
-            // Reset the grid cells to their original state 
-            gm.ResetGridCells();
-        }
+
+        // If the GridCell is not walkable and a unit is selected , unselect that unit
+        // if (gm.selectedUnit != null && isWalkable == false)
+        // {
+        //     gm.selectedUnit.IsSelected = false;
+        //     gm.selectedUnit = null;
+        //     // Reset the grid cells to their original state
+        //     gm.ResetGridCells();
+        // }
+
+        // if (isWalkable && gm.selectedUnit != null)
+        // {
+        //     // Move the selected unit to the GridCell
+        //     gm.selectedUnit.Move(this.row, this.column);
+        //     gm.selectedUnit.row = this.row;
+        //     gm.selectedUnit.col = this.column;
+        //     gm.selectedUnit.occupiedCell = this;
+        //     // Set the selected unit's hasMoved property to true to prevent it from moving again in the same turn 
+        //     gm.selectedUnit.hasMoved = true;
+        //     // Unselect the unit 
+        //     gm.selectedUnit.IsSelected = false;
+        //     gm.selectedUnit = null;
+        //     // Reset the grid cells to their original state 
+        //     gm.ResetGridCells();
+        // }
 
     }
 

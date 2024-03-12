@@ -15,8 +15,6 @@ public class CursorFollow : MonoBehaviour
         FollowCursor();
     }
 
-
-
     // Follows the cursor position on the screen
     private void FollowCursor()
     {

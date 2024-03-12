@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    public bool selected;
+    public bool IsSelected;
     GameMaster gm;
     public int row;
     public int col;
@@ -50,7 +50,7 @@ public class Unit : MonoBehaviour
     // "lander"
     // "horses"
 
-    List<Unit> enemiesInRange = new List<Unit>(); // this list will contain enemies that ca be attacked by a unit
+    public List<Unit> enemiesInRange = new List<Unit>(); // this list will contain enemies that ca be attacked by a unit
     public bool hasAttacked;
 
 
@@ -73,73 +73,78 @@ public class Unit : MonoBehaviour
     // if n is is "pair" then your unit will not be selected
     // and this is why you can observe it is buggy when you try to select your unit 
 
-    private void OnMouseDown()
+    private void OnMouseDown()  // detect the click on the unit and give the control to game controller
     {
 
-        Debug.Log("just selected the character");
+        gm.OnUnitSelection(this);
+        // sibon 
 
-        ResetRedEffectOnAttackbleEnemies();
+        // Debug.Log("just selected the character");
+
+        // //!!!!!!!!!!  using events or any methode give the responsability to the game contoller.
+
+        // ResetRedEffectOnAttackbleEnemies();
 
 
-        // If the unit has moved, return
-        if (hasMoved == true) return;
+        // // If the unit has moved, return
+        // if (hasMoved == true) return;  //!!! na9ssa
 
-        // If the unit is selected, deselect it
-        if (selected == true)
-        {
-            // Set the selected property of the unit to false
-            selected = false;
-            // Set the selectedUnit property of the GameMaster to null 
-            gm.selectedUnit = null;
-            gm.ResetGridCells();
-        }
-        else
-        {
-            if (playerNumber == gm.playerTurn)
-            {
-                if (gm.selectedUnit != null)
-                {
-                    gm.selectedUnit.selected = false;
-                }
-                selected = true;
-                gm.selectedUnit = this;
+        // // If the unit is selected, deselect it
+        // if (IsSelected == true)
+        // {
+        //     // Set the selected property of the unit to false
+        //     IsSelected = false;
+        //     // Set the selectedUnit property of the GameMaster to null 
+        //     gm.selectedUnit = null;
+        //     gm.ResetGridCells();
+        // }
+        // else
+        // {
+        //     if (playerNumber == gm.playerTurn)
+        //     {
+        //         if (gm.selectedUnit != null)
+        //         {
+        //             gm.selectedUnit.IsSelected = false;
+        //         }
+        //         IsSelected = true;
+        //         gm.selectedUnit = this;
 
-                gm.ResetGridCells();
-                GetEnemies();
-                GetWalkableTiles(row, col);
-            }
-        }
+        //         gm.ResetGridCells();
+        //         GetEnemies();
+        //         GetWalkableTiles(row, col);
+        //     }
+        // }
 
-        if (gm.selectedUnit != null && playerNumber != gm.playerTurn)
-        {
-            if (gm.selectedUnit.enemiesInRange.Contains(this) && gm.selectedUnit.hasAttacked == false)
-            {
-                Attack(gm.selectedUnit, this);
+        // if (gm.selectedUnit != null && playerNumber != gm.playerTurn)
+        // {
+        //     if (gm.selectedUnit.enemiesInRange.Contains(this) && gm.selectedUnit.hasAttacked == false)
+        //     {
+        //         Attack(gm.selectedUnit, this);
 
-                if (this.healthPoints <= 0)
-                {
-                    Destroy(this.gameObject);  //!! there is a problem here ,  we should destroy the gameobject and not only the script ) , Destroy(this) desrtoys the script unit.cs only
-                    // men 9bel kanet destroy unit 
-                }
+        //         if (this.healthPoints <= 0)
+        //         {
+        //             Destroy(this.gameObject);  //!! there is a problem here ,  we should destroy the gameobject and not only the script ) , Destroy(this) desrtoys the script unit.cs only
+        //             // men 9bel kanet destroy unit 
+        //         }
 
-                //!!! no contre attaque pour le moment , pour faciliter les tests
+        //!!! no contre attaque pour le moment , pour faciliter les tests
 
-                // Attack(this, gm.selectedUnit);
+        // Attack(this, gm.selectedUnit);
 
-                // if ( gm.selectedUnit.healthPoints <= 0)
-                // {
-                //     gm.ResetGridCells();
-                //     Destroy(gm.selectedUnit);
-                //     gm.selectedUnit = null;
-                // }
-            }
-        }
+        // if ( gm.selectedUnit.healthPoints <= 0)
+        // {
+        //     gm.ResetGridCells();
+        //     Destroy(gm.selectedUnit);
+        //     gm.selectedUnit = null;
+        // }
+        // }
+        // }
     }
 
     // Method to get the walkable tiles for the selected unit 
     //!!!! we should check if the cell we want to doesn't already contain another unit , in our case , we can put two units on the same cell
 
-    private void GetWalkableTiles(int startRow, int startCol)
+    public void GetWalkableTiles(int startRow, int startCol)
     {
         // Get the current position of the selected unit
         Vector2Int currentPos = new Vector2Int(startRow, startCol);
@@ -231,7 +236,7 @@ public class Unit : MonoBehaviour
     // if you want to see where GetEnemies will be called you can just search for it 
     // you will understand immediatly why it was called at those places
 
-    void GetEnemies()
+    public void GetEnemies()
     {
         if (hasAttacked == false)
         {
@@ -254,21 +259,39 @@ public class Unit : MonoBehaviour
 
     public void ResetRedEffectOnAttackbleEnemies()
     {
-        foreach (Unit unit in FindObjectsOfType<Unit>())
+        foreach (Unit unit in FindObjectsOfType<Unit>())  //!!!! normalment foreach in enemiesInRange
         {
             unit.spriteRenderer.color = Color.white;
+
+        }
+        // !!1 and also remove the units form this list
+        enemiesInRange.Clear();
+    }
+
+    public void Attack(Unit AttackingUnit, Unit DefendingUnit)
+    {
+        float inflictedDamage = GameUtil.CalculateDamage(AttackingUnit, DefendingUnit);
+        DefendingUnit.healthPoints -= inflictedDamage;
+        AttackingUnit.hasAttacked = true;
+        AttackingUnit.hasMoved = true; // automaticly it cannot move afte attacking 
+    }
+
+    public void ResetUnitPropritiesInEndTurn()
+    {
+        IsSelected = false;  // reset the selected property to false
+        hasMoved = false;   // reset the hasMoved and hasAttacked variables to false  
+        hasAttacked = false;
+        spriteRenderer.color = Color.white;
+    }
+
+    public void DestroyIfPossible()
+    {
+        if (this.healthPoints <= 0)
+        {
+            this.occupiedCell.occupantUnit = null;   // remove the unit from the grid cell
+            Destroy(this.gameObject);                // remove the unit from UNITY !!!!
         }
     }
 
-    void Attack(Unit AttackingUnit, Unit DefendingUnit)
-    {
-        // hasAttacked = true;
-
-        //   public static float CalculateDamage(Unit AttackingUnit , Unit DefendingUnit)
-
-        float inflictedDamage = GameUtil.CalculateDamage(AttackingUnit, DefendingUnit);
-        DefendingUnit.healthPoints -= inflictedDamage;
-
-    }
 
 }
