@@ -118,9 +118,7 @@ public static class GameUtil
 
     // total damage ( HP PLAYS A MAJOR ROLE IN TERMS OF DAMAGE INFLIGATED )
 
-
-    //! LES HP SONT TOUS SUR 100 : entier pour l affichage
-                                 : float pour les calculs
+    //! LES HP SONT TOUS SUR 100 : entier pour l affichage : float pour les calculs
 
     */
 

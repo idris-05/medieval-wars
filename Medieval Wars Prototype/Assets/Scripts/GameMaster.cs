@@ -14,6 +14,7 @@ using UnityEngine.UIElements;
 //!!! when you move the unit , you cannot attack directly ( you need to select the unit again to attack ) should we fix this !?
 public class GameMaster : MonoBehaviour
 {
+    public HandelPlayerInput handelPlayerInput;
 
     public MapGrid mapGrid;
 
@@ -26,14 +27,14 @@ public class GameMaster : MonoBehaviour
 
     public Unit SelectedUnitFromAttacker;
 
-    //!!1 zyada ta3i ana 
-    // public Unit unitsSelected;
 
 
 
     // This method is called when the object is first enabled in the scene.
     void Start()
     {
+        handelPlayerInput = FindObjectOfType<HandelPlayerInput>();
+
         mapGrid.CalculateMapGridSize();
         mapGrid.InitialiseMapGridCells();
 
@@ -93,11 +94,13 @@ public class GameMaster : MonoBehaviour
 
         SwitchPlayeTurn();
 
-        if (selectedUnit != null)
-        {
-            selectedUnit.IsSelected = false;      // unselect the unit
-            selectedUnit = null;               // set the selected unit to null (no unit is selected)
-        }
+        // if (selectedUnit != null)
+        // {
+        //     selectedUnit.IsSelected = false;      // unselect the unit
+        //     selectedUnit = null;               // set the selected unit to null (no unit is selected)
+        //     ;
+        //     SelectedUnitFromAttacker = null;
+        // }
 
         ResetGridCells();  // reset the grid cells to their original state (white color) and isWalkable = false for all cells
         ResetUnitsPropritiesInEndTurn();
@@ -129,88 +132,76 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-
+    // in this function we handle the selection of a unit by the player
     public void OnUnitSelection(Unit unit)
     {
+        HandelPlayerInput.UnitAction action = handelPlayerInput.DetermineUnitAction(unit, SelectedUnitFromAttacker, playerTurn);
+        ExecuteUnitAction(unit, SelectedUnitFromAttacker, action);
+    }
 
-        if (SelectedUnitFromAttacker == null)
+    void ExecuteUnitAction(Unit unit, Unit SelectedUnitFromAttacker, HandelPlayerInput.UnitAction action)
+    {
+        switch (action)
         {
-            if (unit.playerNumber != playerTurn)
-            {
-
-                // affichier les range de l'attaque t3 enneemi wla afficher win y9der yemchi ... 
-                // (a descuter ...);
-
-                return;
-            }
-            else   // unit.playerNumber == playerTurn  
-            {
-
-                if (unit.hasMoved == false)
-                {
-                    // select the clicked unit
-                    SelectedUnitFromAttacker = unit;
-                    selectedUnit = unit; // pour le movement
-                    unit.IsSelected = true;
-                    unit.GetWalkableTiles(unit.row, unit.col);
-                    unit.GetEnemies();
-                    return;
-                }
-                else
-                {
-                    // unit seleced has moved , there is no selectedunitFromAttacker before this selection , so , there is nothing to do 
-                    return;
-                }
-            }
+            case HandelPlayerInput.UnitAction.Select:
+                SelectUnit(unit);
+                break;
+            case HandelPlayerInput.UnitAction.Unselect:
+                DeselectUnit(unit);
+                break;
+            case HandelPlayerInput.UnitAction.Attack:
+                AttackUnit(SelectedUnitFromAttacker, unit);
+                break;
+            case HandelPlayerInput.UnitAction.Move:
+                break;
+            case HandelPlayerInput.UnitAction.None:
+                break;
+            default:
+                break; 
         }
-        else // kayen deja unit mselectionniya men 3end li y'attacker
-        {
-            if (unit.playerNumber == playerTurn)
-            {  // unselect it , is this case , you click on it two times
-                unit.IsSelected = false;
-                SelectedUnitFromAttacker = null;
-                selectedUnit = null;
-                ResetGridCells();
-                unit.ResetRedEffectOnAttackbleEnemies();
-                // we can consider that if you click on your unit (let's call it a) and then you cklick on another unit ( called b) {a and b are your units}
-                // the unit a will be unselected and the unit b will be selected , or only a will be unselected ...  
-                return;
-            }
-            else
-            {    // capable tkon 9ader t'attacker 
+    }
+    // select , unselect , attack  methods , are not conmplete yet ,
+    // Method to select a unit and display its movement and attack range
+    private void SelectUnit(Unit unit)
+    {
+        SelectedUnitFromAttacker = unit;
+        selectedUnit = unit;
+        unit.IsSelected = true;
+        unit.GetWalkableTiles(unit.row, unit.col);
+        unit.GetEnemies();
+    }
 
-                if (SelectedUnitFromAttacker.hasAttacked == false && SelectedUnitFromAttacker.enemiesInRange.Contains(unit))
-                {
-                    SelectedUnitFromAttacker.Attack(SelectedUnitFromAttacker, unit);
+    // Method to deselect a unit
+    private void DeselectUnit(Unit unit)
+    {
+        unit.IsSelected = false;
 
-                    SelectedUnitFromAttacker.DestroyIfPossible(); // destroy the unit if it's health <= 0
-
-                    // contre attaque ... 
-
-                    // unselect the unit now , after it's attack
-                    // SelectedUnitFromAttacker.IsSelected = false;
-                    SelectedUnitFromAttacker = null;
-                    selectedUnit = null;
-                    ResetGridCells();
-                    unit.ResetRedEffectOnAttackbleEnemies();
-                    return;
-                }
-                else // if the unit is not in the range of the attacker  or you cannot attack it (already attacked)
-                {
-                    // unit.IsSelected = false;
-                    SelectedUnitFromAttacker = null;
-                    selectedUnit = null;
-                    ResetGridCells();
-                    unit.ResetRedEffectOnAttackbleEnemies();
-                    return;
-                }
-            }
-        }
+        SelectedUnitFromAttacker = null;
+        selectedUnit = null;
+        ResetGridCells();
+        unit.ResetRedEffectOnAttackbleEnemies();
     }
 
 
 
+    // Method to attack a unit
+    private void AttackUnit(Unit attacker, Unit defender)
+    {
+        attacker.Attack(attacker, defender);
+        defender.DestroyIfPossible();
+        DeselectUnit(attacker); // Deselect the attacker after the attack
+        DeselectUnit(defender); // Deselect the defender after the attack
+    }
+
+
+
+
+
+    // Method to handle the selection of a GridCell
+
+
     public void OnCellSelection(GridCell cell)
+    // i should contunue the same what i did for the unit selection
     {
         // If the GridCell is not walkable and a unit is selected , unselect that unit
         if (SelectedUnitFromAttacker != null && cell.isWalkable == false)
@@ -241,4 +232,7 @@ public class GameMaster : MonoBehaviour
 
         }
     }
+
+
+
 }

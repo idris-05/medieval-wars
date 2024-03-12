@@ -8,7 +8,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Unit : MonoBehaviour
 {
-    public int unitType;
+    public int unitType;  
 
     public SpriteRenderer spriteRenderer;
 
@@ -75,74 +75,12 @@ public class Unit : MonoBehaviour
 
     private void OnMouseDown()  // detect the click on the unit and give the control to game controller
     {
-
-        gm.OnUnitSelection(this);
-        // sibon 
-
-        // Debug.Log("just selected the character");
-
-        // //!!!!!!!!!!  using events or any methode give the responsability to the game contoller.
-
-        // ResetRedEffectOnAttackbleEnemies();
-
-
-        // // If the unit has moved, return
-        // if (hasMoved == true) return;  //!!! na9ssa
-
-        // // If the unit is selected, deselect it
-        // if (IsSelected == true)
-        // {
-        //     // Set the selected property of the unit to false
-        //     IsSelected = false;
-        //     // Set the selectedUnit property of the GameMaster to null 
-        //     gm.selectedUnit = null;
-        //     gm.ResetGridCells();
-        // }
-        // else
-        // {
-        //     if (playerNumber == gm.playerTurn)
-        //     {
-        //         if (gm.selectedUnit != null)
-        //         {
-        //             gm.selectedUnit.IsSelected = false;
-        //         }
-        //         IsSelected = true;
-        //         gm.selectedUnit = this;
-
-        //         gm.ResetGridCells();
-        //         GetEnemies();
-        //         GetWalkableTiles(row, col);
-        //     }
-        // }
-
-        // if (gm.selectedUnit != null && playerNumber != gm.playerTurn)
-        // {
-        //     if (gm.selectedUnit.enemiesInRange.Contains(this) && gm.selectedUnit.hasAttacked == false)
-        //     {
-        //         Attack(gm.selectedUnit, this);
-
-        //         if (this.healthPoints <= 0)
-        //         {
-        //             Destroy(this.gameObject);  //!! there is a problem here ,  we should destroy the gameobject and not only the script ) , Destroy(this) desrtoys the script unit.cs only
-        //             // men 9bel kanet destroy unit 
-        //         }
-
-        //!!! no contre attaque pour le moment , pour faciliter les tests
-
-        // Attack(this, gm.selectedUnit);
-
-        // if ( gm.selectedUnit.healthPoints <= 0)
-        // {
-        //     gm.ResetGridCells();
-        //     Destroy(gm.selectedUnit);
-        //     gm.selectedUnit = null;
-        // }
-        // }
-        // }
+        gm.OnUnitSelection(this);       
     }
 
-    // Method to get the walkable tiles for the selected unit 
-    //!!!! we should check if the cell we want to doesn't already contain another unit , in our case , we can put two units on the same cell
+
+    // // Method to get the walkable tiles for the selected unit 
+    // //!!!! we should check if the cell we want to doesn't already contain another unit , in our case , we can put two units on the same cell
 
     public void GetWalkableTiles(int startRow, int startCol)
     {
@@ -173,7 +111,7 @@ public class Unit : MonoBehaviour
 
 
 
-    //!! here we should  change the occupaied cell of the unit
+    // //!! here we should  change the occupaied cell of the unit
     public void Move(int row, int column)
     {
         // gm.ResetTiles();
@@ -184,8 +122,8 @@ public class Unit : MonoBehaviour
         StartCoroutine(StartMovement(position));
     }
 
-    // Method to move the unit to the specified position
-    // IEnumerator is used to make the movement smooth // and to wait for the movement to finish before executing the next line of code // IEnumerator is used to make the movement smooth // and to wait for the movement to finish before executing the next line of code
+    // // Method to move the unit to the specified position
+    // // IEnumerator is used to make the movement smooth // and to wait for the movement to finish before executing the next line of code // IEnumerator is used to make the movement smooth // and to wait for the movement to finish before executing the next line of code
     IEnumerator StartMovement(Vector2 position)
     {
         while (transform.position.x != position.x)
@@ -284,7 +222,7 @@ public class Unit : MonoBehaviour
         spriteRenderer.color = Color.white;
     }
 
-    public void DestroyIfPossible()
+    public void DestroyIfPossible()  // DestroyUnityIfPossible
     {
         if (this.healthPoints <= 0)
         {
