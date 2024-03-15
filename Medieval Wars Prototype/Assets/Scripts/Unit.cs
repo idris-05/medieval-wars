@@ -8,26 +8,24 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Unit : MonoBehaviour
 {
-    public int unitType;  
 
     public SpriteRenderer spriteRenderer;
-
-    public bool IsSelected;
     GameMaster gm;
+    public MapGrid mapGrid;
+    public GridCell occupiedCell;
+
+
+    public int unitID;
+    public bool IsSelected;
     public int row;
     public int col;
-    public MapGrid mapGrid;
     public float moveSpeed;
     public int playerNumber;
     public bool hasMoved;
-    public GridCell occupiedCell;
 
-    public float healthPoints;
-
-
+    public int healthPoints;
     public int AttackBoost;
     public int SpecialAttackBoost;
-
     public int DefenseBoost = 0; //!!!!!!!!! pour l'instant 0
     public int SpecialDefenseBoost = 0; //!!!!!!!!! pour l'instant 0;
 
@@ -36,12 +34,10 @@ public class Unit : MonoBehaviour
     public float energyPerDay;
     public int vision;
     public int cost;
-
     public int attackRange;
-
     public int minAttackRange;
     public int ammo;
-
+    //!! we can use ENUMS for the moveType (i find it better that strings) 
     public string moveType; //attention au nom des move type car on va utiliser des strings
 
     // "foot"
@@ -75,40 +71,8 @@ public class Unit : MonoBehaviour
 
     private void OnMouseDown()  // detect the click on the unit and give the control to game controller
     {
-        gm.OnUnitSelection(this);       
+        gm.OnUnitSelection(this);
     }
-
-
-    // // Method to get the walkable tiles for the selected unit 
-    // //!!!! we should check if the cell we want to doesn't already contain another unit , in our case , we can put two units on the same cell
-
-    public void GetWalkableTiles(int startRow, int startCol)
-    {
-        // Get the current position of the selected unit
-        Vector2Int currentPos = new Vector2Int(startRow, startCol);
-
-        for (int row = -moveRange; row <= moveRange; row++)
-        {
-            for (int col = -moveRange; col <= moveRange; col++)
-            {
-
-                // where the unit want go
-                int nextRow = currentPos.x + row;
-                int nextCol = currentPos.y + col;
-
-                if (nextRow >= 0 && nextRow < MapGrid.Rows && nextCol >= 0 && nextCol < MapGrid.Columns)
-                {
-                    // If the distance between the current position and the next position is less than or equal to the moveRange of the unit 
-                    // and the next position is not highlighted, highlight it .
-                    if (MathF.Abs(row) + MathF.Abs(col) <= moveRange)
-                    {
-                        mapGrid.grid[nextRow, nextCol].Highlight();
-                    }
-                }
-            }
-        }
-    }
-
 
 
     // //!! here we should  change the occupaied cell of the unit
@@ -189,10 +153,16 @@ public class Unit : MonoBehaviour
                     enemiesInRange.Add(unit); // add this attackble enemy to the list of attackble enemies
 
                     // no visuals for the moment , just pure code
-                    unit.spriteRenderer.color = Color.red;
+                    // we can sote them in a list ... 
+                    highlightEnemyInRange(unit);
                 }
             }
         }
+    }
+
+    public void highlightEnemyInRange(Unit unit)
+    {
+        unit.spriteRenderer.color = Color.red;
     }
 
     public void ResetRedEffectOnAttackbleEnemies()
@@ -206,13 +176,6 @@ public class Unit : MonoBehaviour
         enemiesInRange.Clear();
     }
 
-    public void Attack(Unit AttackingUnit, Unit DefendingUnit)
-    {
-        float inflictedDamage = GameUtil.CalculateDamage(AttackingUnit, DefendingUnit);
-        DefendingUnit.healthPoints -= inflictedDamage;
-        AttackingUnit.hasAttacked = true;
-        AttackingUnit.hasMoved = true; // automaticly it cannot move afte attacking 
-    }
 
     public void ResetUnitPropritiesInEndTurn()
     {
@@ -221,6 +184,7 @@ public class Unit : MonoBehaviour
         hasAttacked = false;
         spriteRenderer.color = Color.white;
     }
+
 
     public void DestroyIfPossible()  // DestroyUnityIfPossible
     {

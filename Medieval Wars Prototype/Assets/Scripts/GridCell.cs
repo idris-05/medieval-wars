@@ -4,6 +4,10 @@ using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+
+//!!! we can follow the Singleton Pattern , or any other way to make sure that we have only one instance of the GridCell in the scene . 
+
 public class GridCell : MonoBehaviour
 {
     public bool isHighlighted;
@@ -48,5 +52,8 @@ public class GridCell : MonoBehaviour
         isWalkable = false;
         isHighlighted = false;
     }
+
+
+
 
 }

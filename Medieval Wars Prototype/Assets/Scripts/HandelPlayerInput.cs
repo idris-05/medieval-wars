@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
+//,, With The Same Logic Used In This Script , We Can Create And Control Our AI System .
+
 public class HandelPlayerInput : MonoBehaviour
 {
     // all the actions that the unit can do when player click on it .
@@ -16,6 +18,11 @@ public class HandelPlayerInput : MonoBehaviour
         Select,
         Unselect,
         // Add more actions as needed
+    }
+
+    public enum CellAction{
+        None,
+        UnselectUnit,
     }
 
     // Method to determine the action to be taken by the unit when clicked by the player
@@ -69,5 +76,17 @@ public class HandelPlayerInput : MonoBehaviour
         }
 
     }
+
+
+
+    // Method to determine the action to be taken by the cell when clicked by the player
+    public UnitAction DetermineCellAction(Unit unit, Unit SelectedUnitFromAttacker, int playerTurn){
+        // ...
+        return UnitAction.None;
+    }
+
+
+
+
 
 }

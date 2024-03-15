@@ -27,13 +27,16 @@ public class GameMaster : MonoBehaviour
 
     public Unit SelectedUnitFromAttacker;
 
-
+    public GetWalkableTiles getWalkableTiles;
+    public AttackSystem attackSystem;
 
 
     // This method is called when the object is first enabled in the scene.
     void Start()
     {
         handelPlayerInput = FindObjectOfType<HandelPlayerInput>();
+        getWalkableTiles = FindObjectOfType<GetWalkableTiles>();
+        attackSystem = FindObjectOfType<AttackSystem>();
 
         mapGrid.CalculateMapGridSize();
         mapGrid.InitialiseMapGridCells();
@@ -139,7 +142,7 @@ public class GameMaster : MonoBehaviour
         ExecuteUnitAction(unit, SelectedUnitFromAttacker, action);
     }
 
-    void ExecuteUnitAction(Unit unit, Unit SelectedUnitFromAttacker, HandelPlayerInput.UnitAction action)
+    public void ExecuteUnitAction(Unit unit, Unit SelectedUnitFromAttacker, HandelPlayerInput.UnitAction action)
     {
         switch (action)
         {
@@ -154,20 +157,20 @@ public class GameMaster : MonoBehaviour
                 break;
             case HandelPlayerInput.UnitAction.Move:
                 break;
-            case HandelPlayerInput.UnitAction.None:
-                break;
             default:
-                break; 
+                break;
         }
     }
+
+
     // select , unselect , attack  methods , are not conmplete yet ,
     // Method to select a unit and display its movement and attack range
-    private void SelectUnit(Unit unit)
+    public void SelectUnit(Unit unit)
     {
         SelectedUnitFromAttacker = unit;
         selectedUnit = unit;
         unit.IsSelected = true;
-        unit.GetWalkableTiles(unit.row, unit.col);
+        getWalkableTiles.getWalkableTilesMethod(unit);
         unit.GetEnemies();
     }
 
@@ -183,16 +186,14 @@ public class GameMaster : MonoBehaviour
     }
 
 
-
     // Method to attack a unit
     private void AttackUnit(Unit attacker, Unit defender)
     {
-        attacker.Attack(attacker, defender);
+        attackSystem.Attack(attacker, defender);
         defender.DestroyIfPossible();
         DeselectUnit(attacker); // Deselect the attacker after the attack
         DeselectUnit(defender); // Deselect the defender after the attack
     }
-
 
 
 
@@ -203,6 +204,12 @@ public class GameMaster : MonoBehaviour
     public void OnCellSelection(GridCell cell)
     // i should contunue the same what i did for the unit selection
     {
+    
+        // HandelPlayerInput.CellAction action = handelPlayerInput.DetermineCellAction( , SelectedUnitFromAttacker, playerTurn);
+        // ExecuteCellAction( , SelectedUnitFromAttacker, action);
+
+
+
         // If the GridCell is not walkable and a unit is selected , unselect that unit
         if (SelectedUnitFromAttacker != null && cell.isWalkable == false)
         {
@@ -232,6 +239,20 @@ public class GameMaster : MonoBehaviour
 
         }
     }
+
+
+
+    // void ExecuteCellAction(Unit unit  ??, Unit SelectedUnitFromAttacker, HandelPlayerInput.CellAction CellAction)
+    // {
+    //     switch (CellAction)
+    //     {
+    //         case HandelPlayerInput.CellAction.None:
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
+
 
 
 
