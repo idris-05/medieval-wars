@@ -60,9 +60,9 @@ public class TerrainT : MonoBehaviour
     public int terrainStars = 1; // only for now , tests
     public string terrainName; // n9dro ndiroha ENUM 5ir ?!
     public SpriteRenderer spriteRenderer;
-
     // position dans la Grid (la matrice)  
     public int xPosition;
+   
     public int yPosition;
 
 

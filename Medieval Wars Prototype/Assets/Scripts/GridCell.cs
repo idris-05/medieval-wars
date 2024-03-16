@@ -19,6 +19,8 @@ public class GridCell : MonoBehaviour
     GameMaster gm;
     public Unit occupantUnit;
     public Terrain terrain;
+    public int movecoast = 1;
+
 
     void Start()
     {
