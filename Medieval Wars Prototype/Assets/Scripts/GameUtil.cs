@@ -8,9 +8,6 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public static class GameUtil
 {
 
-
-
-
     // Method to adjust the size of a sprite based on the scale of the GameObject
     public static void AdjustSpriteSize(this GameObject gameObject)
     {

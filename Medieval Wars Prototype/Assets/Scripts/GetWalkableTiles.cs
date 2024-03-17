@@ -11,12 +11,6 @@ public class GetWalkableTiles : MonoBehaviour
         mapGrid = FindObjectOfType<MapGrid>();
     }
 
-    // // Method to get the walkable tiles for the selected unit 
-    // //!!!! we should check if the cell we want to doesn't already contain another unit , in our case , we can put two units on the same cell
-
-
-
-
     // public void getWalkableTilesMethod( Unit unit )
     // {
     //     unit.walkableGridCells.Clear();
@@ -56,8 +50,7 @@ public class GetWalkableTiles : MonoBehaviour
     // }
 
 
-
-    //!!! mazal 5ess tverier beli cell mafihach unit deja , w tverifier terrain hadik est ce que t9der tmchi fiha aslan (ship fl ground )
+    //!!! lazem verification beli cell mafihach unit deja , w terrain hadik est ce que t9der tmchi fiha aslan (ship fl ground ) ?
     public void getWalkableTilesMethod(Unit unit)
     {
         int startRow = unit.row;
@@ -76,31 +69,15 @@ public class GetWalkableTiles : MonoBehaviour
         {
             for (int col = -moveRange; col <= moveRange; col++)
             {
-
-                // // where the unit want go
-                // int nextRow = currentPos.x + row;
-                // int nextCol = currentPos.y + col;
-
-                // if (nextRow >= 0 && nextRow < MapGrid.Rows && nextCol >= 0 && nextCol < MapGrid.Columns)
-                // {
-                //     // If the distance between the current position and the next position is less than or equal to the moveRange of the unit 
-                //     // and the next position is not highlighted, highlight it .
-                //     if (MathF.Abs(row) + MathF.Abs(col) <= moveRange)
-                //     {
-                //         mapGrid.grid[nextRow, nextCol].Highlight();
-                //     }
-                // }
                 if (!(MathF.Abs(row) + MathF.Abs(col) <= moveRange && currentPos.x + row >= 0 && currentPos.x + row < MapGrid.Rows && currentPos.y + col >= 0 && currentPos.y + col < MapGrid.Columns))
                 {
                     continue;
                 }
-
                 else
                 {
                     moveleft = unit.moveRange;
                     int row2 = 0;
                     int col2 = 0;
-
 
                     while (moveleft > 0 && row2 != row)
                     {
@@ -152,6 +129,7 @@ public class GetWalkableTiles : MonoBehaviour
                         int nextRow = currentPos.x + row2;
                         int nextCol = currentPos.y + col2;
                         // Debug.Log(nextRow + nextCol);
+                        //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
                         mapGrid.grid[nextRow, nextCol].Highlight();
                         unit.walkableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
                     }
@@ -201,11 +179,12 @@ public class GetWalkableTiles : MonoBehaviour
                                 }
                             }
                         }
-                        
+
                         if (row == row2 && col == col2)
                         {
                             int nextRow = currentPos.x + row2;
                             int nextCol = currentPos.y + col2;
+                            //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
                             mapGrid.grid[nextRow, nextCol].Highlight();
                             unit.walkableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
                         }
@@ -218,11 +197,10 @@ public class GetWalkableTiles : MonoBehaviour
 
 
 
-    // n9dro nzido hna get enemy in all possible move cases . tssema hadik get enemt tdirha men ckamel lplayess possible li t9der temchilhom l unit ta3k
+    // n9dro nzido hna get enemy in all possible move cases . tssema hadik get enemy tdirha men kamel lplayess possible li t9der temchilhom l unit ta3k
     //  (meme t3 l'enemy bch tchof win y9der y'attacker howa ) .
 
-
-
+    //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
     public void highlightAttackableCells(Unit unit)
     {
         int startRow = unit.row;
@@ -259,6 +237,8 @@ public class GetWalkableTiles : MonoBehaviour
     }
 
 
+
+    //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
     public void unHighlightAttackableCells(Unit unit)
     {
         int startRow = unit.row;
@@ -293,8 +273,6 @@ public class GetWalkableTiles : MonoBehaviour
             }
         }
     }
-
-
 
 
 

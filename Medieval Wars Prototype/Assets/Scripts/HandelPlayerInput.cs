@@ -21,6 +21,10 @@ public class HandelPlayerInput : MonoBehaviour
 
 
 
+    //!!  we neer to decide how units can attack eachothers , 
+    //!!  eather it only can attack after move (like advance wars) ,
+    //!!  or it can attack without moving , you just need to select it .
+
 
 
     // hadi zyada pour l'instant , i try to implement it to work exactly like advance wars , but i faced a lot of difficulties so i don't want to wast time for thing we could change later ! . 
@@ -29,7 +33,7 @@ public class HandelPlayerInput : MonoBehaviour
     //  Analyze the game from Advance Wars:
 
     // For units:
-    //     - 1. avec click [L] , (click gouche? (n9dro ndbloha) dans notre cas ), get all the possible move cases (getWalkable tiles) for that enemy unit .
+    //     - 1. avec click [L] , (click gouche? (n9dro ndbloha) dans notre cas ), get all the possible move cases (getWalkable tiles) for that unit .
     //             tclicki 5tra berk 3la L ydir getWalkable Tiles .
     //             more ma tclicki L , mt9der tdir walo men ghir tclicker L 3la TILES li t9der tmchilhom , wla tclicki K (a n'omport qulle ou ) pour annuler .
     //             tclicki L , tchof win t9der temchi , tzid tclicki L 3la w7da men li t'highlight'awlek temchi liha (move) .
@@ -39,15 +43,12 @@ public class HandelPlayerInput : MonoBehaviour
     //     - 2. avec click [K] , (click droite?  dans notre cas ), get all the possible attack cases for that enemy unit . (tssema dir get walkables tiles ,
     //              apres pour chaque tile men li y9der ychmilhom , t'afficher win y9der t'attacker (dirha b get enemy))
     //              lazem teb9a m3bezz 3la K fo9 unit ta3ek 
-    //              kayen probleme m3a la method kifach ndetecti beli clickit 3la unit , swa ndir la detecteur fl class unit , whowa ydir la defference bin right w left click , wla ndirha direct f handleplayerinput w hadi fiha probleme ki tweli lmaps kbira 3la l camera wtss7e9 fiha colliders ll objects ta3ek ... 
-    //              tbanli ndirha flunit 5ir , mais lprobkleme t3 hadik tb9a m3bezz 3la key m3balalich ndirlo . 
-
-
+    //              kayen probleme m3a la method kifach ndetecti beli clickit wb9it mclicki 3la l'unit . 
     //__________________________________________________________________________________________________________________________________________________________
 
 
 
-    // all the possible that  actions can hapen in the game ... (we can add others as needed).  
+    // all the possible actions that can hapend in the game ... (we can add others as needed).  
     public enum Action
     {
         None,
@@ -58,14 +59,13 @@ public class HandelPlayerInput : MonoBehaviour
         HighlightEnemyForUnit,
         UnHighlightEnemyForUnit,
         DisplayMenu,
-        // Add more actions as needed
+
     }
 
 
 
-    // Method to determine the action to be taken by the unit when clicked by the player
+    // Method to determine the action to be taken by the unit when it get clicked by the player
     // NOT COMPLETED YET .
-    // from unit clicks only , 
     public Action DetermineUnitAction(Unit unit, int playerTurn, MouseButton mouseButton)
     {
 
@@ -80,7 +80,8 @@ public class HandelPlayerInput : MonoBehaviour
                 return Action.SelectUnit;
             }
             else
-            {   // there is a unit selected and you click on a unit agian 
+            {
+                // there is a unit selected and you click on a unit agian 
                 // if it is the previous selected unit we will diselect it , but if it is another unit we will do nothing .
                 // ...  we will chnage this later , in other word : we you have a previuos sleected unit and you click on another ,
                 //  if it is atransporter unit there is something to do ... , if it was another unit that you can merge with it .
@@ -96,10 +97,6 @@ public class HandelPlayerInput : MonoBehaviour
                 }
             }
         }
-
-
-        // untill now , the player can highlight the attackable tiles for more than only one unit , we should fix that .
-        // we can use unitWithGetAttackableTilesActivated and reopeat the same logic with selected unit above .
 
         // we can do like advance wars , while the player keep the right click pressed , the attackable tiles will be displayed 
         // and when he release the click , the attackable tiles will be hidden .
@@ -130,65 +127,17 @@ public class HandelPlayerInput : MonoBehaviour
 
         return Action.None;
 
-
-
-        // // If no unit is currently selected
-        // if (SelectedUnitFromAttacker == null)
-        // {
-        //     // If the selected unit belongs to the opponent, display its attack range if needed
-        //     if (unit.playerNumber != playerTurn)
-        //     {
-        //         // Code to display attack range or handle opponent unit selection
-        //         // (To be discussed...)
-        //         return Action.None;
-        //     }
-        //     else
-        //     {
-        //         // If the selected unit has not moved yet, select it and display its movement and attack range
-        //         if (unit.hasMoved == false)
-        //         {
-        //             return Action.Select;
-        //         }
-        //         else
-        //         {
-        //             // The selected unit has already moved
-        //             return Action.None;
-        //         }
-        //     }
-        // }
-        // else // A unit is already selected by the attacker
-        // {
-        //     // If the selected unit belongs to the current player, deselect it
-        //     if (unit.playerNumber == playerTurn)
-        //     {
-        //         return Action.Unselect;
-        //     }
-        //     else
-        //     {
-        //         // If the selected unit is within the attack range of the attacker and hasn't been attacked yet, attack it
-        //         if (SelectedUnitFromAttacker.hasAttacked == false && SelectedUnitFromAttacker.enemiesInRange.Contains(unit))
-        //         {
-        //             return Action.Attack;
-        //         }
-        //         else
-        //         {
-        //             // The selected unit is not within the attack range or has already been attacked
-        //             return Action.Unselect;
-        //         }
-        //     }
-        // }
-
     }
 
 
 
-    // Method to determine the action to be taken by the cell when clicked by the player
+    // Method to determine the action to be taken when the cell is clicked by the player
     // NOT COMPLETED YET ....
     public Action DetermineCellAction(GridCell cell, Unit unit, int playerTurn)
     {
-        // 1. If there is a unit currently selected (it's the last unit selected before this cell was clicked), weach means unit!= null  . + the player click on a cell ,
+        // 1. If there is a unit currently selected (it's the last unit selected before this cell was clicked), which means unit!= null  . + the player click on a cell ,
         //     then the unit should move to that cell if it's walkable , do nothing else (if not walkable) .
-    
+
         if (unit != null)
         {
             if (unit.walkableGridCells.Contains(cell))
@@ -209,17 +158,12 @@ public class HandelPlayerInput : MonoBehaviour
                 return Action.None;
             }
         }
-        else  // unit == null : there is no selected unit, and you click on a cell => display menu (i'am just doing like advance wars). 
+        else
         {
+            // unit == null : there is no selected unit, and you click on a cell => display menu (i'am just doing like advance wars). 
             return Action.DisplayMenu;
         }
-      
-
 
     }
-
-
-
-
 
 }

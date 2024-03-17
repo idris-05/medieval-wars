@@ -151,36 +151,10 @@ public class Unit : MonoBehaviour
     }
 
 
-
-
-    // for whoever is revewing the code , its totally normal that get enemies goes through all of the units 
-    // we should stop caring about optimising that much because this is not even that consuming for the machine
-    // and i think going threw the units is better then going through the gridcells 
-    // let me explain my self further
-    // let's say you want to make this optimized
-    // you will start from your unit and explore the close gridcells to the unit , just like we did with walkable tiles
-    // it will litteraly be the same as walkable tiles , you explore from -attackRange to +attackRange for columns and for rows
-    // and if there is an enemy there , you add him to the list of enemiesInRange
-    // I mean this method can be done quite easily and if you want to do it this way ok 
-    // but remember , in case of big ranges , going threw the units is definitely better then going through the whole map 
-    // when i say the whole map im abusing , but you will go through a lot of GridCells
-    // i'm okay with you chaging how GetEnemies works inside , either like GetWalkableTiles or just exploring all the units
-    // if u want to change come discuss with "Ishak" , but dont make it too long , go straight to the point 
-
-    // now about GetEnemies i ve got 2 choices
-    // either I have a list of Enemies that are attackble for each of my units ( which seems like the better solution for me )
-    // else i just create a boolean variable on each unit , and if the unit is attackable i will assign the value true to it
-    // i will opt for the first solution ( you can discuss this with "Ishak" but don't debate too much 
-
-
     // I NOTICED THAT IN ADVANCE WARS , the unit aknowleges the enemies it can attack only after moving
     // if you dont move the unit eventhough the enemy is in range you can not attack it 
     // i don't think we'll be doing that here
     // as soon as you select a unit , you will be able to attack ( seems much better right ? )
-
-    // if you want to see where GetEnemies will be called you can just search for it 
-    // you will understand immediatly why it was called at those places
-
     public void GetEnemies()
     {
         if (hasAttacked == false)
@@ -203,6 +177,7 @@ public class Unit : MonoBehaviour
         }
     }
 
+
     public void highlightEnemyInRange(Unit unit)
     {
         unit.spriteRenderer.color = Color.red;
@@ -217,6 +192,7 @@ public class Unit : MonoBehaviour
         }
         enemiesInRange.Clear();
     }
+
 
     public void ResetWalkableGridCells()
     {
@@ -237,7 +213,7 @@ public class Unit : MonoBehaviour
     }
 
 
-    public void DestroyIfPossible()  // DestroyUnityIfPossible
+    public void DestroyIfPossible()
     {
         if (this.healthPoints <= 0)
         {

@@ -21,7 +21,7 @@ public class AttackButton : MonoBehaviour
     // {
     //     IsAttackButtonEnabled = true;
     //     attackButton.gameObject.SetActive(true);
-    //     // here i can make the link to the gm or m3labalich WIN. 
+    // 
     // }
 
     // public void DesableAttackButton()
@@ -33,13 +33,13 @@ public class AttackButton : MonoBehaviour
 
     void Update()
     {
-        if ( IsAttackButtonEnabled==true && Input.GetKeyDown(KeyCode.X))
+        if (IsAttackButtonEnabled == true && Input.GetKeyDown(KeyCode.X))
         {
             OnButtonClick();
         }
     }
 
-    
+
     public void OnButtonClick()
     {
         // Trigger the event when the button is clicked

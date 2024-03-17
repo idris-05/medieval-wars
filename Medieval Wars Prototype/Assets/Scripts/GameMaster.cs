@@ -6,29 +6,22 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
 
-//  here inside the gameController:
-//  when th player select a unit , if it already selected , i unselect it ( unitsSelected = null)  , if not i set the unitsSelected to the selected unit ,
-//  and highlight the grid cells that the unit can move to , 
-
-
-//!!! when you move the unit , you cannot attack directly ( you need to select the unit again to attack ) should we fix this !?
 public class GameMaster : MonoBehaviour
 {
+    //!! had les lien bzzaf w y3yo , lazem nl9aw kifach nminiziwhom .
     public HandelPlayerInput handelPlayerInput;
     public MapGrid mapGrid;
     public AttackButton attackButton;
-
-    // public GridCell GridCellPrefab;
-    public Unit Infantry1Prefab;
-    public Unit Infantry2Prefab;
-    public Unit selectedUnit;   // pour le movement , pour l'instant
-    public Terrain TerrainGrassPrefab;
-    public int playerTurn = 1;
-
-    public Unit SelectedUnitFromAttacker;
-
     public GetWalkableTiles getWalkableTiles;
     public AttackSystem attackSystem;
+
+    // public GridCell GridCellPrefab;
+    public Unit Infantry1Prefab; // test
+    public Unit Infantry2Prefab; // test
+    public Unit selectedUnit;   // pour le movement , pour l'instant 
+    public Terrain TerrainGrassPrefab;
+    public int playerTurn = 1;
+    public Unit SelectedUnitFromAttacker; // hadi lazem tetna7a 
 
 
     // This method is called when the object is first enabled in the scene.
@@ -38,10 +31,7 @@ public class GameMaster : MonoBehaviour
         AttackButton attackButton = FindObjectOfType<AttackButton>();
         // Subscribe to the event in AttackButton and define the attack logic
         // listeners are methods that will be called when the event is triggered
-
-
         attackButton.onAttackButtonClickEvent.AddListener(OnAttackButtonClick);
-
 
 
         handelPlayerInput = FindObjectOfType<HandelPlayerInput>();
@@ -55,17 +45,14 @@ public class GameMaster : MonoBehaviour
         SpawnUnit(2, 8, 8, Infantry2Prefab);
     }
 
-    // This method is called when the attack button is clicked  EVENET IS TRIGGERED
+    // This method is called when the attack button is clicked EVENET IS TRIGGERED
     private void OnAttackButtonClick()
     {
-        // implement logic here to aselect one enemy to attack .
+        // implement logic here to select one enemy inordre to attack it .(loop hadi ghir doka brk lel test)
         foreach (Unit enemy in selectedUnit.enemiesInRange)
         {
             ExecuteUnitAction(enemy, selectedUnit, HandelPlayerInput.Action.Attack);
         }
-
-        // Execute attack logic here
-        // Debug.Log("Attack initiated!");
     }
 
     // this function is used to spawn a unit on the map
@@ -88,10 +75,6 @@ public class GameMaster : MonoBehaviour
         unit.row = row;
         unit.col = column;
 
-        //the same as ::
-        // mapGrid.grid[row, column].occupantUnit.row = row;
-        // mapGrid.grid[row, column].occupantUnit.col = column;
-
         unit.playerNumber = playerNumber;
 
     }
@@ -99,6 +82,8 @@ public class GameMaster : MonoBehaviour
 
     void Update()
     {
+        // je pense lokan nl9aw 3fssa w7do5ra ndetectiw biha end turn , 5ir .
+        // deja kima advance wars , r7 tkon button flMENU , tclicker 3liha .
         CheckEndTurnInput();
     }
 
@@ -120,6 +105,7 @@ public class GameMaster : MonoBehaviour
 
         SwitchPlayeTurn();
 
+        // ga3 les methods hadi t3 reset lazem n3awdo nchofhom mli7  psq 5tra 3la 5tra tssra 3fssa malazemch ! (manich sure)
         ResetGridCells();  // reset the grid cells to their original state (white color) and isWalkable = false for all cells
         ResetUnitsPropritiesInEndTurn();
 
@@ -151,7 +137,6 @@ public class GameMaster : MonoBehaviour
     }
 
 
-
     // in this function we handle the selection of a unit by the player
     public void OnUnitSelection(Unit unit, MouseButton mouseButton)
     {
@@ -177,7 +162,7 @@ public class GameMaster : MonoBehaviour
                 break;
 
             case HandelPlayerInput.Action.DisplayMenu:
-                Debug.Log("Display Menu"); // menu or information , (lmohim kima advance wars)
+                Debug.Log("Display Menu"); // menu or information ..., (lmohim , kima advance wars)
                 break;
 
             case HandelPlayerInput.Action.Attack:
@@ -193,7 +178,10 @@ public class GameMaster : MonoBehaviour
     }
 
 
-    // select , unselect , attack  methods , are not conmplete yet ,
+
+    // select , unselect , attack  methods , are not conmplete yet (details 5faf berk machi 7aja rahom ymchiw normal wkolch) .
+
+
     // Method to select a unit and display its movement and attack range
     public void SelectUnit(Unit unit)
     {
@@ -236,7 +224,6 @@ public class GameMaster : MonoBehaviour
         // 
         HandelPlayerInput.Action action = handelPlayerInput.DetermineCellAction(cell, selectedUnit, playerTurn);
         ExecuteCellAction(cell, selectedUnit, SelectedUnitFromAttacker, action);
-
 
 
         // If the GridCell is not walkable and a unit is selected , unselect that unit

@@ -9,6 +9,12 @@ public class TerrainT : MonoBehaviour
 
     // n5loh haka hada ? , normalement lazem nssgmo bien les types .. movementType ships , trans ...
 
+    // je propose ndiro matrice fiha g3 les terrains w g3 les unites 5ir men les terrains + unit type , psq pour le moment maranach ns7oh g3 le type de l'unite wmazal madifininahch ,
+    //  meme tany , je pense pas r7 n5dmo bl'heritage el class unit tssema mnss79och unit type ltema 
+    // de plus , capable nl9aw des terrains specifiques ,yathro b maniere differente 3la des unites de meme type , 
+    // w meme ki ndiro tableau fih g3 les unites m3a g3 les terrains r7 t3tina libertie kther , 7eta l'access l array hadi sahel deja 3ndna unitID w3ndna terrainID  .
+    // ida tchof beli solution w7do5ra 5ir proposiha .
+
     /*
 
     Terrain   | Star | Infantry | SpikeMan | Tires | Horses | Ships | Trans
@@ -53,7 +59,9 @@ public class TerrainT : MonoBehaviour
     */
 
 
-    // public int GetMoveCost(int unitType , int terrainType)
+    // public int GetMoveCost(Unit unit , Terrain terrain){
+    // return MaterialPropertyBlock hadik [terrainID , unit.unitID ]
+    // }
 
 
     public int terrainID;
@@ -61,7 +69,6 @@ public class TerrainT : MonoBehaviour
     public string terrainName; // n9dro ndiroha ENUM 5ir ?!
     public SpriteRenderer spriteRenderer;
 
-    // position dans la Grid (la matrice)  
     public int xPosition;
     public int yPosition;
 

@@ -3,10 +3,11 @@ using UnityEngine;
 public class AttackSystem : MonoBehaviour
 {
 
-    //!! we should find a way a way to get access to the attack method in the gameMaster from the attackButton , 
     //!! you can attack after you move your unit , we will display the attack button after the movement is done in certain conditions (hasAttack = false ...) ,
-    //!! and we will call the attack method (defined int the GameMaster ) from the attackButton , when you click the button and select weach unit to attack .
+    //!! and we will call the attack method (defined int the GameMaster ) from the attackButton , when you click the button and select which unit to attack .
     //!! we can use EVENTS to achieve this .
+
+    // nbdloha wla n5loha haka ????? (lhdra li lfo9 )
 
 
     // base damage[Defender,Attacker]  //!!!!!!!!!!!! marahomch m9lobin ????
@@ -70,7 +71,6 @@ public class AttackSystem : MonoBehaviour
 
 
 
-
     // EXPLICATION ASSEZ DETAILLEE DE LA DAMAGE FORMULA
 
     /*
@@ -101,29 +101,22 @@ public class AttackSystem : MonoBehaviour
 
     public int CalculateDamage(Unit AttackingUnit, Unit DefendingUnit)
     {
-        // Debug.Log("attacker : " + AttackingUnit.name + " defender : " + DefendingUnit.unitID);
 
         // base damage[Defender,Attacker]
-
         float Base = baseDamage[DefendingUnit.unitID, AttackingUnit.unitID];
-        // Debug.Log("base damage : " + Base);
 
 
         // AttackValue = (Base.AttackBoost.SpecialAttackBoost)
-
         float AttackValue = Base * AttackingUnit.AttackBoost * AttackingUnit.SpecialAttackBoost;
-        // Debug.Log("attack value : " + AttackValue);
 
 
-        // int TerrainStars = DefendingUnit.occupiedCell.terrain.terrainStars;    //!!!! DefendingUnit.occupiedCell  there is a problem here the occupied Cell doesn't change when the unit moves
+        // int TerrainStars = DefendingUnit.occupiedCell.terrain.terrainStars;    //!!!! DefendingUnit.occupiedCell  there is a problem here the occupied Cell doesn't change when the unit moves virifier est ce rahi ttbdel !
         int TerrainStars = 1; // for now , tests //!!!!!!!!!!!!!1
-        // Debug.Log("terrain stars : " + TerrainStars);
+
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
-
         float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - DefendingUnit.DefenseBoost) * (1 - DefendingUnit.SpecialDefenseBoost);
         // DefendingUnit.DefenseBoost   DefendingUnit.SpecialDefenseBoost  was initialized with 1 from unity , so the TotalDamage retuned was always 0 . i change them to 0 for now
-        // Debug.Log("vulnerability : " + Vulnerability);
 
 
         // Total Damage =  (HP / 100) . Attack . Vulnerabity . Critical Hit
@@ -131,10 +124,8 @@ public class AttackSystem : MonoBehaviour
 
         // healthPoints is int , so we need to cast it to float to get the correct value we need . (if we don't cast it to float , the result of devision will be an integer , weach means : 0 if the healthPoints is less than 100 !!!)
         float TotalDamage = (float)AttackingUnit.healthPoints / 100 * AttackValue * Vulnerability;
-        // Debug.Log("total damage : " + TotalDamage);
 
         int damageRound = Mathf.FloorToInt(TotalDamage) + 1;
-        // Debug.Log("damage  rounded : " + damageRound);
 
 
         //!!! lokan maykon kayen 7eta boost , normalent tretourner la valeur de TotalDamage men matrice t3 base damage + 1 zayed , ce c'est qui ne pas le cas . we should fix this .
@@ -142,17 +133,14 @@ public class AttackSystem : MonoBehaviour
     }
 
 
-
-    
     public void Attack(Unit AttackingUnit, Unit DefendingUnit)
     {
         int inflictedDamage = CalculateDamage(AttackingUnit, DefendingUnit);
         DefendingUnit.healthPoints -= inflictedDamage;
-    
+
         // automaticly it cannot move after attacking 
         // AttackingUnit.hasMoved = true;  //!!!!! maybe we will remove this or change it ....
     }
-
 
 
 
