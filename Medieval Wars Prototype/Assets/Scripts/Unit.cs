@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.TestTools;
 using UnityEngine.UIElements;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -23,11 +24,13 @@ public class Unit : MonoBehaviour
     public int playerNumber;
     public bool hasMoved;
 
+
     public int healthPoints;
     public int AttackBoost;
     public int SpecialAttackBoost;
     public int DefenseBoost = 0; //!!!!!!!!! pour l'instant 0
     public int SpecialDefenseBoost = 0; //!!!!!!!!! pour l'instant 0;
+
 
     public int moveRange;
     public int energy;
@@ -39,13 +42,14 @@ public class Unit : MonoBehaviour
     public int ammo;
     //!! we can use ENUMS for the moveType (i find it better that strings) 
     public string moveType; //attention au nom des move type car on va utiliser des strings
-
     // "foot"
     // "sea"
     // "tires"
     // "lander"
     // "horses"
 
+
+    public List<GridCell> walkableGridCells = new List<GridCell>(); // this list will contain the grid cells that the unit can move to
     public List<Unit> enemiesInRange = new List<Unit>(); // this list will contain enemies that ca be attacked by a unit
     public bool hasAttacked;
 
@@ -53,7 +57,8 @@ public class Unit : MonoBehaviour
 
 
     void Start()
-    {
+    {   // hado lazem nl9awh kifaach na7ohom . units lazem tkon independent menhom
+
         // Get the GameMaster component from the scene
         gm = FindObjectOfType<GameMaster>();
         // Get the MapGrid component from the scene
@@ -67,23 +72,65 @@ public class Unit : MonoBehaviour
     // there is a problem with OnMouseDown , it is way too sensitive , you click once and it considers as if you clicked n times
     // and then it depends on your luck , if n is "impair" then your unit will be selected
     // if n is is "pair" then your unit will not be selected
-    // and this is why you can observe it is buggy when you try to select your unit 
+    // // and this is why you can observe it is buggy when you try to select your unit 
 
-    private void OnMouseDown()  // detect the click on the unit and give the control to game controller
+
+    private void OnMouseOver()
     {
-        gm.OnUnitSelection(this);
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Debug.Log(this.col + " left  " + this.row);
+            gm.OnUnitSelection(this, MouseButton.LeftMouse);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            // Debug.Log(this.col + " right  " + this.row);
+            gm.OnUnitSelection(this, MouseButton.RightMouse);
+        }
     }
 
 
-    // //!! here we should  change the occupaied cell of the unit
     public void Move(int row, int column)
     {
-        // gm.ResetTiles();
-        // Debug.Log($"Position: ({row}, {column})");
-        this.occupiedCell = mapGrid.grid[row, column]; //!!!!!!!  normalement comme ca c'est bon
+        UpdateAttributsAfterMove(row, column);
+        EndTurnForUnitIfPossible();
 
         Vector2 position = new Vector2(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f);
         StartCoroutine(StartMovement(position));
+
+        ResetWalkableGridCells();
+        ResetHighlightedEnemyInRange();
+        GetEnemies();  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! est ce que nzidoha ? ghie tmovi yhighlightilek li t9der t'attakihom ?
+    }
+
+    public void UpdateAttributsAfterMove(int row, int column)
+    {
+        occupiedCell.occupantUnit = null; // remove the unit from the old grid cell
+        occupiedCell = mapGrid.grid[row, column]; // set the occupiedCell of the unit to the grid cell
+        mapGrid.grid[row, column].occupantUnit = this; // set the occupantUnit of the new grid cell to the unit
+
+        hasMoved = true;
+        // IsSelected = false; //!!!! ????
+        this.row = row;
+        this.col = column;
+
+        // hasAttacked = ???? nbdloha wla non ? 3la 7ssab type t3 unit , kayen li lazem 7eta tour ljay bch t'attackiw . 
+        // na9esss energy wla ration or whatever it's name .
+    }
+
+
+    public void UpdateAttributsAfterAttack()
+    {
+        hasAttacked = true;
+    }
+
+    public void EndTurnForUnitIfPossible()
+    {
+        if (hasMoved && hasAttacked)
+        {
+            spriteRenderer.color = Color.gray;
+        }
     }
 
     // // Method to move the unit to the specified position
@@ -101,10 +148,6 @@ public class Unit : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, position.y), moveSpeed * Time.deltaTime);
             yield return null;
         }
-
-        hasMoved = true;
-        ResetRedEffectOnAttackbleEnemies();
-        GetEnemies();
     }
 
 
@@ -144,17 +187,17 @@ public class Unit : MonoBehaviour
         {
             enemiesInRange.Clear(); // Clear the List
 
-            foreach (Unit unit in FindObjectsOfType<Unit>())
+            foreach (Unit unitEnemyCondidat in FindObjectsOfType<Unit>())
             {
                 // if it's an [ enemy unit ] and [ enemy unit in range ]
 
-                if ((unit.playerNumber != gm.playerTurn) && (MathF.Abs(unit.row - row) + MathF.Abs(unit.col - col) <= attackRange))
+                if ((unitEnemyCondidat.playerNumber != gm.playerTurn) && (MathF.Abs(unitEnemyCondidat.row - row) + MathF.Abs(unitEnemyCondidat.col - col) <= attackRange))
                 {
-                    enemiesInRange.Add(unit); // add this attackble enemy to the list of attackble enemies
+                    enemiesInRange.Add(unitEnemyCondidat); // add this attackble enemy to the list of attackble enemies
 
                     // no visuals for the moment , just pure code
                     // we can sote them in a list ... 
-                    highlightEnemyInRange(unit);
+                    highlightEnemyInRange(unitEnemyCondidat);
                 }
             }
         }
@@ -165,24 +208,32 @@ public class Unit : MonoBehaviour
         unit.spriteRenderer.color = Color.red;
     }
 
-    public void ResetRedEffectOnAttackbleEnemies()
-    {
-        foreach (Unit unit in FindObjectsOfType<Unit>())  //!!!! normalment foreach in enemiesInRange
-        {
-            unit.spriteRenderer.color = Color.white;
 
+    public void ResetHighlightedEnemyInRange()
+    {
+        foreach (Unit unitEnemy in enemiesInRange)  //!!!! normalment foreach in enemiesInRange
+        {
+            unitEnemy.spriteRenderer.color = Color.white;
         }
-        // !!1 and also remove the units form this list
         enemiesInRange.Clear();
     }
 
+    public void ResetWalkableGridCells()
+    {
+        foreach (GridCell cell in walkableGridCells)
+        {
+            cell.ResetGridCell();
+        }
+        walkableGridCells.Clear();
+    }
 
+    // n3awdo nchofo fhad la method , est ce que realement nss79oha !
     public void ResetUnitPropritiesInEndTurn()
     {
         IsSelected = false;  // reset the selected property to false
         hasMoved = false;   // reset the hasMoved and hasAttacked variables to false  
         hasAttacked = false;
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = Color.white; // reset the color of the unit to white
     }
 
 

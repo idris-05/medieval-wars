@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using System;
+
 
 
 
@@ -10,15 +11,24 @@ using UnityEngine;
 
 public class GridCell : MonoBehaviour
 {
+
     public bool isHighlighted;
     public SpriteRenderer rend;
     public bool isWalkable; // can the selected unit move to this cell 
     public int row;
     public int column;
-    public Color highlightedColor;
+    public Color highlightedColor ;
     GameMaster gm;
-    public Unit occupantUnit;
+    public Unit occupantUnit; 
+    
+    
+    // public Unit OccupantUnit
+    // {
+    //     get { return occupantUnit; }
+    //     set { occupantUnit = value; } 
+    // }
     public Terrain terrain;
+     public int movecoast = 1;
 
     void Start()
     {
@@ -31,6 +41,7 @@ public class GridCell : MonoBehaviour
 
     // Method to highlight the GridCell when the mouse hovers over it
     void OnMouseDown()
+
     {
         gm.OnCellSelection(this);       
     }
@@ -39,7 +50,8 @@ public class GridCell : MonoBehaviour
     public void Highlight()
     {
         // Change the color of the GridCell to the highlighted color and the properties of the GridCell
-        rend.color = highlightedColor;
+        // rend.color = highlightedColor;
+        rend.color = Color.green;
         isHighlighted = true;
         isWalkable = true;
     }
@@ -52,7 +64,6 @@ public class GridCell : MonoBehaviour
         isWalkable = false;
         isHighlighted = false;
     }
-
 
 
 

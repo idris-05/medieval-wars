@@ -99,16 +99,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da1919fc36067d46aed2db47b7c561c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitID: 4
   spriteRenderer: {fileID: 0}
+  mapGrid: {fileID: 0}
+  occupiedCell: {fileID: 0}
+  unitID: 4
   IsSelected: 0
   row: 0
   col: 0
-  mapGrid: {fileID: 0}
   moveSpeed: 6
   playerNumber: 1
   hasMoved: 0
-  occupiedCell: {fileID: 0}
   healthPoints: 100
   AttackBoost: 1
   SpecialAttackBoost: 1
