@@ -108,6 +108,7 @@ public class Unit : MonoBehaviour
     {
         occupiedCell.occupantUnit = null; // remove the unit from the old grid cell
         occupiedCell = mapGrid.grid[row, column]; // set the occupiedCell of the unit to the grid cell
+        //! ??? , here we are modify an atribut of the MapGrid, is it a good practice ? 
         mapGrid.grid[row, column].occupantUnit = this; // set the occupantUnit of the new grid cell to the unit
 
         hasMoved = true;

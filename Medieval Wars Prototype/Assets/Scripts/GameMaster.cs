@@ -168,10 +168,9 @@ public class GameMaster : MonoBehaviour
             case HandelPlayerInput.Action.Attack:
                 AttackUnit(SelectedUnitFromAttacker, unit);
                 // attackButton.DesableAttackButton(); // disable the attack button after the attack 
+                break;
 
-                break;
             case HandelPlayerInput.Action.None:
-                break;
             default:
                 break;
         }
