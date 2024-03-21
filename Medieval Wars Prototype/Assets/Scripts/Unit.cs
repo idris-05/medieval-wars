@@ -10,38 +10,52 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class Unit : MonoBehaviour
 {
 
+   
+
     public SpriteRenderer spriteRenderer;
     GameMaster gm;
     public MapGrid mapGrid;
     public GridCell occupiedCell;
 
-
-    public int unitID;
-    public bool IsSelected;
+    // public enum unit name
+    public int unitIndex;
+    public bool isSelected;
     public int row;
     public int col;
     public float moveSpeed;
     public int playerNumber;
+
+
+    // state variables
+
     public bool hasMoved;
+    public bool hasAttacked;
+
 
 
     public int healthPoints;
-    public int AttackBoost;
-    public int SpecialAttackBoost;
-    public int DefenseBoost = 0; //!!!!!!!!! pour l'instant 0
-    public int SpecialDefenseBoost = 0; //!!!!!!!!! pour l'instant 0;
+
+    // the next 4 attributes maybe removed from here later
+
+    public int attackBoost;
+    public int specialAttackBoost;
+    public int defenseBoost = 0; //!!!!!!!!! pour l'instant 0
+    public int specialDefenseBoost = 0; //!!!!!!!!! pour l'instant 0;
+
 
 
     public int moveRange;
-    public int energy;
-    public float energyPerDay;
-    public int vision;
+    public int ration; 
+    public float rationPerDay;
+    public int lineOfSight;
     public int cost;
     public int attackRange;
     public int minAttackRange;
     public int ammo;
+
     //!! we can use ENUMS for the moveType (i find it better that strings) 
-    public string moveType; //attention au nom des move type car on va utiliser des strings
+
+    public string moveType; 
     // "foot"
     // "sea"
     // "tires"
@@ -51,16 +65,15 @@ public class Unit : MonoBehaviour
 
     public List<GridCell> walkableGridCells = new List<GridCell>(); // this list will contain the grid cells that the unit can move to
     public List<Unit> enemiesInRange = new List<Unit>(); // this list will contain enemies that ca be attacked by a unit
-    public bool hasAttacked;
 
 
 
 
     void Start()
-    {   // hado lazem nl9awh kifaach na7ohom . units lazem tkon independent menhom
+    {  
 
         // Get the GameMaster component from the scene
-        gm = FindObjectOfType<GameMaster>();
+        gm = FindObjectOfType<GameMaster>(); // singleton paradigm
         // Get the MapGrid component from the scene
         mapGrid = FindObjectOfType<MapGrid>();
         // Get the spriteRenderer Component
@@ -77,13 +90,13 @@ public class Unit : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) // left click
         {
             // Debug.Log(this.col + " left  " + this.row);
             gm.OnUnitSelection(this, MouseButton.LeftMouse);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1)) // right click
         {
             // Debug.Log(this.col + " right  " + this.row);
             gm.OnUnitSelection(this, MouseButton.RightMouse);
@@ -125,7 +138,7 @@ public class Unit : MonoBehaviour
         hasAttacked = true;
     }
 
-    public void EndTurnForUnitIfPossible()
+    public void EndTurnForUnitIfPossible() // numb state
     {
         if (hasMoved && hasAttacked)
         {
@@ -206,7 +219,7 @@ public class Unit : MonoBehaviour
     // n3awdo nchofo fhad la method , est ce que realement nss79oha !
     public void ResetUnitPropritiesInEndTurn()
     {
-        IsSelected = false;  // reset the selected property to false
+        isSelected = false;  // reset the selected property to false
         hasMoved = false;   // reset the hasMoved and hasAttacked variables to false  
         hasAttacked = false;
         spriteRenderer.color = Color.white; // reset the color of the unit to white
@@ -220,6 +233,11 @@ public class Unit : MonoBehaviour
             this.occupiedCell.occupantUnit = null;   // remove the unit from the grid cell
             Destroy(this.gameObject);                // remove the unit from UNITY !!!!
         }
+    }
+
+    public void RecieveDamage(int inflictedDamage)
+    {
+        this.healthPoints -= inflictedDamage;
     }
 
 

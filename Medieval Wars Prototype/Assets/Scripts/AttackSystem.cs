@@ -10,7 +10,7 @@ public class AttackSystem : MonoBehaviour
     // nbdloha wla n5loha haka ????? (lhdra li lfo9 )
 
 
-    // base damage[Defender,Attacker]  //!!!!!!!!!!!! marahomch m9lobin ????
+    // base damage[Attacker,Defender]  //!!!!!!!!!!!! marahomch m9lobin ????
 
     public static int[,] baseDamage = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
@@ -26,7 +26,7 @@ public class AttackSystem : MonoBehaviour
     {80, 80, 55, 85, 95, 60, 90, 25, 90, 90, 85, 85, 80},
     {-1, -1, 55, 25, -1, 95, -1, -1, -1, -1, -1, 55, -1},
     {75, 70, 1, 5, -1, 10, -1, 10, 85, 85, 85, 1, 55},
-};
+    };
 
     // in this matrix
     // Column is the Attacker
@@ -34,7 +34,7 @@ public class AttackSystem : MonoBehaviour
 
 
     /*
-                Caravan     Archers  Carac   Fireship   Infantry    T-ship  SpikeMan   R-chalvary  Trebuchet   Bandit  Catapulte   RamShip    Chalvary
+                 Caravan     Archers  Carac   Fireship   Infantry    T-ship  SpikeMan   R-chalvary  Trebuchet   Bandit  Catapulte   RamShip    Chalvary
     Caravan        -           -       -       -           -          -          -           -          -         -         -          -           -
     Archers        70          75      40      65          90         55         85          15         80        80        80         60          70 
     Carac          80          80      50      95          95         95         90          25         90        90        85         95          80       
@@ -102,12 +102,12 @@ public class AttackSystem : MonoBehaviour
     public int CalculateDamage(Unit AttackingUnit, Unit DefendingUnit)
     {
 
-        // base damage[Defender,Attacker]
-        float Base = baseDamage[DefendingUnit.unitID, AttackingUnit.unitID];
+        // base damage[Attacker,Defender] 
+        float Base = baseDamage[AttackingUnit.unitIndex , DefendingUnit.unitIndex];
 
 
         // AttackValue = (Base.AttackBoost.SpecialAttackBoost)
-        float AttackValue = Base * AttackingUnit.AttackBoost * AttackingUnit.SpecialAttackBoost;
+        float AttackValue = Base * AttackingUnit.attackBoost * AttackingUnit.specialAttackBoost;
 
 
         // int TerrainStars = DefendingUnit.occupiedCell.terrain.terrainStars;    //!!!! DefendingUnit.occupiedCell  there is a problem here the occupied Cell doesn't change when the unit moves virifier est ce rahi ttbdel !
@@ -115,7 +115,7 @@ public class AttackSystem : MonoBehaviour
 
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
-        float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - DefendingUnit.DefenseBoost) * (1 - DefendingUnit.SpecialDefenseBoost);
+        float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - DefendingUnit.defenseBoost) * (1 - DefendingUnit.specialDefenseBoost);
         // DefendingUnit.DefenseBoost   DefendingUnit.SpecialDefenseBoost  was initialized with 1 from unity , so the TotalDamage retuned was always 0 . i change them to 0 for now
 
 
@@ -125,23 +125,26 @@ public class AttackSystem : MonoBehaviour
         // healthPoints is int , so we need to cast it to float to get the correct value we need . (if we don't cast it to float , the result of devision will be an integer , weach means : 0 if the healthPoints is less than 100 !!!)
         float TotalDamage = (float)AttackingUnit.healthPoints / 100 * AttackValue * Vulnerability;
 
-        int damageRound = Mathf.FloorToInt(TotalDamage) + 1;
+
+        //calcul de la partie entiere de TotalDamage
+        int damageRound = Mathf.FloorToInt(TotalDamage);
 
 
-        //!!! lokan maykon kayen 7eta boost , normalent tretourner la valeur de TotalDamage men matrice t3 base damage + 1 zayed , ce c'est qui ne pas le cas . we should fix this .
+        // si le resultat n'est pas un entier on calcule la partie entiere + 1
+        if (TotalDamage - damageRound != 0) damageRound++; 
         return damageRound;
+ 
     }
 
 
     public void Attack(Unit AttackingUnit, Unit DefendingUnit)
     {
+
         int inflictedDamage = CalculateDamage(AttackingUnit, DefendingUnit);
-        DefendingUnit.healthPoints -= inflictedDamage;
+        DefendingUnit.RecieveDamage(inflictedDamage);
 
         // automaticly it cannot move after attacking 
         // AttackingUnit.hasMoved = true;  //!!!!! maybe we will remove this or change it ....
     }
-
-
 
 }

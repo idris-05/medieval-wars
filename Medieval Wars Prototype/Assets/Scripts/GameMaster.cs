@@ -141,7 +141,7 @@ public class GameMaster : MonoBehaviour
     public void OnUnitSelection(Unit unit, MouseButton mouseButton)
     {
         HandelPlayerInput.Action action = handelPlayerInput.DetermineUnitAction(unit, playerTurn, mouseButton);
-        ExecuteUnitAction(unit, SelectedUnitFromAttacker, action);
+        ExecuteUnitAction(unit, SelectedUnitFromAttacker , action);
     }
 
     public void ExecuteUnitAction(Unit unit, Unit SelectedUnitFromAttacker, HandelPlayerInput.Action action)
@@ -187,7 +187,7 @@ public class GameMaster : MonoBehaviour
     {
         SelectedUnitFromAttacker = unit;
         selectedUnit = unit;
-        unit.IsSelected = true;
+        unit.isSelected = true;
         getWalkableTiles.getWalkableTilesMethod(unit);
         // unit.GetEnemies();
     }
@@ -197,7 +197,7 @@ public class GameMaster : MonoBehaviour
     {
         SelectedUnitFromAttacker = null;
         selectedUnit = null;
-        unit.IsSelected = false;
+        unit.isSelected = false;
         unit.ResetWalkableGridCells();
         // unit.ResetHighlightedEnemyInRange();
     }
