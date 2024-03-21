@@ -9,7 +9,12 @@ using UnityEngine.UIElements;
 public class HandelPlayerInput : MonoBehaviour
 {
 
-    public bool getWalkableTilesActivated;  // we controle select and deselect unit , with the same button , so we need a bool to make defference .
+    //! we will try to get these to the gameMaster
+    //! we will try to differentiate handlePlayerInput for each game Object
+    //! a script for cells
+    //! a script for units ...
+
+    public bool getWalkableTilesActivated;  // we control select and deselect unit , with the same button , so we need a bool to make defference .
     public bool getAttackableTilesActivated;  // same things for the attackable tiles .
 
     public Unit selectedUnit;  // to make sure that we have only one selected unit at a time .
@@ -21,13 +26,13 @@ public class HandelPlayerInput : MonoBehaviour
 
 
 
-    //!!  we neer to decide how units can attack eachothers , 
+    //!!  we need to decide how units can attack eachothers , 
     //!!  eather it only can attack after move (like advance wars) ,
     //!!  or it can attack without moving , you just need to select it .
 
 
 
-    // hadi zyada pour l'instant , i try to implement it to work exactly like advance wars , but i faced a lot of difficulties so i don't want to wast time for thing we could change later ! . 
+    // hadi zyada pour l'instant , i try to implement it to work exactly like advance wars , but i faced a lot of difficulties so i don't want to waste time for thing we could change later ! . 
 
 
     //  Analyze the game from Advance Wars:
@@ -83,7 +88,7 @@ public class HandelPlayerInput : MonoBehaviour
             {
                 // there is a unit selected and you click on a unit agian 
                 // if it is the previous selected unit we will diselect it , but if it is another unit we will do nothing .
-                // ...  we will chnage this later , in other word : we you have a previuos sleected unit and you click on another ,
+                // ...  we will chnage this later , in other words : when you have a previouss slected unit and you click on another one,
                 //  if it is atransporter unit there is something to do ... , if it was another unit that you can merge with it .
                 if (unit == selectedUnit)
                 {
