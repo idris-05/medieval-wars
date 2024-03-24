@@ -3,12 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - AttackButton
+  - CancelButton
+  - AttendButton
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ButtonsInGame
   - Water
   - UI
   - 
@@ -43,6 +46,9 @@ TagManager:
     locked: 0
   - name: Foundation
     uniqueID: 2733255797
+    locked: 0
+  - name: ButtonsInGame
+    uniqueID: 4159636399
     locked: 0
   - name: Unit
     uniqueID: 1965938827

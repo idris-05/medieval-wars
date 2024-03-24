@@ -18,7 +18,7 @@ public class GridCell : MonoBehaviour
     public int row;
     public int column;
     public Color highlightedColor;
-    GameMaster gm;
+    // GameMaster gm;
     public Unit occupantUnit;
 
     // we should start work with the private attribut with get & set methods ,  
@@ -28,23 +28,29 @@ public class GridCell : MonoBehaviour
     //     set { occupantUnit = value; } 
     // }
 
-    public Terrain terrain;
-    public int movecoast = 1;
+    public Terrain occupantTerrain;
+    public int moveCost = 1;
 
     void Start()
     {
         // Get the SpriteRenderer component of the GridCell from the scene
         rend = GetComponent<SpriteRenderer>();
         // Get the GameMaster component from the scene
-        gm = FindObjectOfType<GameMaster>();
+        // gm = FindObjectOfType<GameMaster>();
     }
 
 
     // Method to highlight the GridCell when the mouse hovers over it
     void OnMouseDown()
     {
-        gm.OnCellSelection(this);
+        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitController.ActionToDoWhenClikButton.MOVE)
+        {
+            MovementSystem.Instance.Movement(UnitController.Instance.selectedUnit, row, column);
+        }
     }
+
+
+
 
     // Method to highlight the GridCell when the mouse hovers over it
     //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things

@@ -34,7 +34,7 @@ public class MapGrid : MonoBehaviour
                 GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
 
                 // Adjust the sprite size of the instantiated GridCell
-                gridCell.gameObject.AdjustSpriteSize();
+                // gridCell.gameObject.AdjustSpriteSize();
 
                 // Set the name of the GridCell
                 gridCell.name = $"GridCell ({row}, {col})";

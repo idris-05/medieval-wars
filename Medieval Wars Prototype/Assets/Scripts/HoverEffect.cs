@@ -51,6 +51,8 @@ public class HoverEffect : MonoBehaviour
         // Ensure the scale is exactly the target scale when the coroutine finishes
         transform.localScale = targetScale;
     }
+
+
 }
 
 
