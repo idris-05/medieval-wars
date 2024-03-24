@@ -9,7 +9,7 @@ public class UnitTransport : Unit
     public List<Unit> suppliableUnits = new List<Unit>();  // unit that can get supplyRation from the transporter .
 
 
-    public float rationToSupply; //!!! ch7al rahi rafda ration , bach tmed ll units lo5rin 
+    public float AvailableRationToShare; //!!! ch7al rahi rafda ration , bach tmed ll units lo5rin 
 
 
 
@@ -17,7 +17,7 @@ public class UnitTransport : Unit
     public void Load(Unit unit)
     {
         loadedUnit = unit;
-        unit.unitView.HideUnitWhenLoad();
+        unit.unitView.HideUnitWhenLoaded();
     }
 
     // Method to drop a unit onto a grid cell
@@ -28,12 +28,12 @@ public class UnitTransport : Unit
     }
 
     // Method to supply a unit with something
-    public void Supply(Unit unitToSupply, float MountOfSupply)
+    public void Supply(Unit unitToSupply, float supplyAmount)
     {
         //!!!! supplier 3lach ??? kanet parametre doka n7itha .
         // transporter howa selected unit fl Unitcontroller , omb3d UnitToSupply hya li tselectionniha omb3d (mor l7kaya t3 layer wg3) 
-        rationToSupply -= MountOfSupply;
-        unitToSupply.RecievRationSupply(MountOfSupply);
+        AvailableRationToShare -= supplyAmount;
+        unitToSupply.RecievRationSupply(supplyAmount);
     }
 
 
@@ -47,6 +47,11 @@ public class UnitTransport : Unit
     public void ResetSuppliableUnits()
     {
         suppliableUnits.Clear();
+    }
+
+    public void Load(UnitAttack unitToLoad)
+    {
+        loadedUnit = unitToLoad;
     }
 
 

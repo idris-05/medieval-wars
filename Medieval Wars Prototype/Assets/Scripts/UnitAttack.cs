@@ -18,32 +18,36 @@ public class UnitAttack : Unit
     public void UpdateAttributsAfterAttack()
     {
         hasAttacked = true;
+        // numb state ?
+    }
+
+    public void PrepareUnitToGetLoadedInTransporter()
+    {
+        occupiedCell.occupantUnit = null;
+        gameObject.SetActive(false);
     }
 
 
-    // public void GetEnemies()
-    // {
-    //     if (hasAttacked == false)
-    //     {
-    //         enemiesInRange.Clear(); // Clear the List
+/*     public void GetEnemies()
+     {
+             enemiesInRange.Clear(); // Clear the List
 
-    //         foreach (Unit unitEnemyCondidat in FindObjectsOfType<Unit>())
-    //         {
-    //             // if it's an [ enemy unit ] and [ enemy unit in range ]
+             foreach (Unit CondidateUnitToGetAttacked in FindObjectsOfType<Unit>())
+             {
+                 // if it's an [ enemy unit ] and [ enemy unit in range ]
 
-    //             if ((unitEnemyCondidat.playerNumber != gm.playerTurn) && (MathF.Abs(unitEnemyCondidat.row - row) + MathF.Abs(unitEnemyCondidat.col - col) <= attackRange))
-    //             {
-    //                 enemiesInRange.Add(unitEnemyCondidat); // add this attackble enemy to the list of attackble enemies
+                 if ((MathF.Abs(CondidateUnitToGetAttacked.row - row) + MathF.Abs(CondidateUnitToGetAttacked.col - col) <= attackRange)) // this condition ain't enough
+                 {
+                     enemiesInRange.Add(CondidateUnitToGetAttacked); // add this attackble enemy to the list of attackble enemies
 
-    //                 // no visuals for the moment , just pure code
-    //                 // we can sote them in a list ... 
-    //                 highlightEnemyInRange(unitEnemyCondidat);
-    //             }
-    //         }
-    //     }
-    // }
+                     // no visuals for the moment , just pure code
+                     // we can sote them in a list ... 
+                    // highlightEnemyInRange(CondidateUnitToGetAttacked);
+                 }
+             }
+         }
+     }
 
-
-
+    */
 
 }

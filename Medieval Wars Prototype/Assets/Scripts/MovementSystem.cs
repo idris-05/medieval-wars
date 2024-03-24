@@ -36,10 +36,31 @@ public class MovementSystem : MonoBehaviour
 
     public void Movement(Unit unit, int row, int col)
     {
-        UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitController.ActionToDoWhenClikButton.MOVE;
+
+        if ( mapGrid.grid[row,col].occupantUnit is UnitTransport) // If I try to move to a cell where there is a tronsporter
+        {
+
+            // We are Sure here that the transporter is empty because it gets verified in GetWalkableTiles
+            // this is just to be able to call PrepareUnitToGetLoaded
+            UnitAttack unitThatWillGetLoaded;
+            unitThatWillGetLoaded = (UnitAttack)unit;
+
+            unitThatWillGetLoaded.PrepareUnitToGetLoadedInTransporter();
+            unit.unitView.AnimateMovement(row, col);
+            unit.ResetWalkableGridCells();
+
+            return;
+        }
+
+
+        // case where u just move to a gridcell
+
         unit.UpdateAttributsAfterMoving(row, col);
         unit.unitView.AnimateMovement(row, col);
         unit.ResetWalkableGridCells();
+
+       
+
     }
 
 

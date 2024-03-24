@@ -7,14 +7,10 @@ using UnityEngine.TestTools;
 using UnityEngine.UIElements;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour       // this class will not be instantiated , maybe abstract ?
 {
 
-    //!!!! win n7toha
-    public enum UnitName
-    {
-        // 
-    }
+
 
     public MapGrid mapGrid;
     public UnitView unitView;
@@ -24,7 +20,7 @@ public class Unit : MonoBehaviour
 
 
     public int unitIndex;
-    public UnitName unitName;
+    public UnitUtil.UnitName unitName;
 
     public GridCell occupiedCell;
     public int row;
@@ -47,7 +43,7 @@ public class Unit : MonoBehaviour
 
     public List<GridCell> walkableGridCells = new List<GridCell>(); // this list will contain the grid cells that the unit can move to
 
-
+    //
 
     public int attackBoost;
     public int specialAttackBoost;
@@ -86,7 +82,7 @@ public class Unit : MonoBehaviour
         // hadi ntb3oha parametre w5las !? cell li tro7 liha , wla n5loha haka tssema , tjib reference ta3ha da5el Unit ? .
         occupiedCell = mapGrid.grid[row, col]; // set the occupiedCell of the unit to the grid cell
         //! ??? , here we are modify an atribut of the MapGrid, is it a good practice ? 
-        mapGrid.grid[row, col].occupantUnit = this; // set the occupantUnit of the new grid cell to the unit
+        mapGrid.grid[row, col].occupantUnit = this; // set the occupantUnit of the new grid cell to the unit    
 
         hasMoved = true;
         this.row = row;
@@ -98,22 +94,19 @@ public class Unit : MonoBehaviour
     public void TransitionToNumbState()
     {
         numbState = true;
-        unitView.spriteRenderer.color = Color.gray;
-
-        // make list of enemies empty ?
-
+        hasMoved = true;
+        unitView.spriteRenderer.color = Color.gray; // this will become a method
     }
 
 
     public void Kill()
     {
-        if (this.healthPoints <= 0)
-        {
-            this.occupiedCell.occupantUnit = null;   // remove the unit from the grid cell
+      // if (this.healthPoints <= 0)
+      //{
+      //     this.occupiedCell.occupantUnit = null;   // remove the unit from the grid cell
             Destroy(this.gameObject);                // remove the unit from UNITY !!!!
-        }
-        unitView.DeathAnimation();
 
+      // unitView.DeathAnimation();
     }
 
 
@@ -137,8 +130,10 @@ public class Unit : MonoBehaviour
     public void RecievRationSupply(float rationSupply)
     {
         ration += rationSupply;
-        // ida wlat > men max ta3 ration ta3ha .
-
+        if ( ration > UnitUtil.maxRations[unitIndex])
+        {
+            ration = UnitUtil.maxRations[unitIndex];
+        }
     }
 
 
@@ -160,7 +155,6 @@ public class Unit : MonoBehaviour
         }
         walkableGridCells.Clear();
     }
-
 
 
 }

@@ -1,12 +1,9 @@
+using System;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour
 {
-
     // https://gamedevbeginner.com/singletons-in-unity-the-right-way/
-
-
-
     /*
         1. Private Constructor: The UnitController class has a private constructor, meaning it cannot be instantiated
         directly from outside the class. This prevents other parts of the code from creating instances of UnitController
@@ -27,9 +24,10 @@ public class UnitController : MonoBehaviour
 
     */
     // Singleton instanceprivate static UnitController instance;
-
     // Public property to access the singleton instance
-    private static UnitController instance;
+
+
+    private static UnitController instance; 
     public static UnitController Instance
     {
         get
@@ -51,7 +49,7 @@ public class UnitController : MonoBehaviour
         }
     }
 
-    // ??? n5loha hadi .
+    
     // private void Awake()
     // {
     //     // If there is an instance, and it's not me, delete myself.
@@ -67,66 +65,49 @@ public class UnitController : MonoBehaviour
     // }
 
 
-
-    // Enum to define the action to do when a button is clicked
-    public enum ActionToDoWhenClikButton
-    {
-        NONE,
-        ATTACK,
-        MOVE,
-        CANCEL,
-        DROP,
-        LOAD,
-        SUPPLY,
-        CAPTURE
-    }
-
-
     public Unit selectedUnit;
 
 
-    public ActionToDoWhenClikButton CurrentActionStateBasedOnClickedButton = ActionToDoWhenClikButton.NONE;
+    public UnitUtil.ActionToDoWhenButtonIsClicked CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.NONE;
 
-
-
-
-
-    public void OnUnitSelection(Unit unitThatGotClicked)
+    
+    // its logical that events of controling a unit are here , but maybe we will change them ? 
+    // public static event Action OnUnitSelectionWhenStateNoneEvent;
+ 
+    public void OnUnitSelection(Unit unitThatGotClickedOn)
     {
         switch (CurrentActionStateBasedOnClickedButton)
         {
-            case ActionToDoWhenClikButton.NONE:
+            case UnitUtil.ActionToDoWhenButtonIsClicked.NONE:
             
-                selectedUnit = unitThatGotClicked;
+                selectedUnit = unitThatGotClickedOn;
                 selectedUnit.unitView.HighlightUnitOnSelection();
-                ActionsHandler.Instance.FillButtonsToDisplay();
+
+                ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
+                ActionsHandler.Instance.FillButtonsToDisplay(unitThatGotClickedOn);
                 ButtonsUI.Instance.DisplayButtons();
-                //!!! make only those buttons interactable . ndiroha da5el displayButtons !
-                // wait for the player to click on a button
 
-                // FillExecutableActionsList ( buttons to display logic will be implemented here , fills the list )
-                //  Invoke( DisplayButtons() )
                 break;
 
-            case ActionToDoWhenClikButton.ATTACK:
+            case UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK:
                 break;
 
-            case ActionToDoWhenClikButton.MOVE:
+            case UnitUtil.ActionToDoWhenButtonIsClicked.MOVE:
                 break;
 
-            case ActionToDoWhenClikButton.CANCEL:
+            case UnitUtil.ActionToDoWhenButtonIsClicked.CANCEL:
                 break;
 
-            case ActionToDoWhenClikButton.DROP:
+            case UnitUtil.ActionToDoWhenButtonIsClicked.DROP:
                 break;
 
-            case ActionToDoWhenClikButton.LOAD:
+            case UnitUtil.ActionToDoWhenButtonIsClicked.LOAD:
                 break;
 
-            case ActionToDoWhenClikButton.SUPPLY:
+            case UnitUtil.ActionToDoWhenButtonIsClicked.SUPPLY:
                 break;
 
-            case ActionToDoWhenClikButton.CAPTURE:
+            case UnitUtil.ActionToDoWhenButtonIsClicked.CAPTURE:
                 break;
 
             default:

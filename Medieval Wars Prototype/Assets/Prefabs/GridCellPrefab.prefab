@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1321153491597328453}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 500}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,10 +46,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0aaddc32c0dfa4eb6b7c5d6bf1620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHighlighted: 0
+  rend: {fileID: 0}
   isWalkable: 0
   row: 0
-  colomun: 0
+  column: 0
+  highlightedColor: {r: 0, g: 0, b: 0, a: 0}
   occupantUnit: {fileID: 0}
+  occupantTerrain: {fileID: 0}
+  moveCost: 1
 --- !u!212 &4884540965997139755
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -28,10 +28,8 @@ public class ButtonsUI : MonoBehaviour
     }
 
 
-
-
-
     public List<Button> buttonsToDisplay = new List<Button>();
+
 
     //!!! we should search for a way to automate that the buttons are displayed in the right palces ,
     //!!! when we remove one , the others should be repositioned

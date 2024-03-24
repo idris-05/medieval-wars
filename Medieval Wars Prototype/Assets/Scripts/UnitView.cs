@@ -11,10 +11,13 @@ public class UnitView : MonoBehaviour
 {
     //!!! WE MUST FIX THIS , unit is referenced inside unitView and unitView is referenced inside unit 
     // ida llah ghaleb makach solution , hadi tkon priavte , wlo5ra public normal .
+
     private Unit unit;
+
     // private MovementSystem movementSystem;   // hadi omb3d tro7 b event
+
     public SpriteRenderer spriteRenderer;
-    public float moveSpeed = 5; //
+    [SerializeField] float moveSpeed = 5; 
 
 
     void Start()
@@ -28,6 +31,7 @@ public class UnitView : MonoBehaviour
     private void OnMouseOver()
     {
 
+
         if (unit.numbState == true)
         {
             return;
@@ -35,7 +39,9 @@ public class UnitView : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0)) // left click
         {
-           UnitController.Instance.OnUnitSelection(unit);
+            Debug.Log("touchit unit");
+
+            UnitController.Instance.OnUnitSelection(unit); // singleton
         }
 
         // hado walo 
@@ -78,19 +84,21 @@ public class UnitView : MonoBehaviour
     }
 
 
-    public void HighlightEnemyInRange(UnitView unitView)
+    public void HighlightEnemyInRange()
     {
-        unitView.spriteRenderer.color = Color.red;
+        spriteRenderer.color = Color.red;
     }
 
 
-    public void ResetHighlightedEnemyInRange()
+    public void ResetHighlightedEnemyInRange(UnitAttack unit)
     {
-        // foreach (Unit unitEnemy in unityenemiesInRange)  //!!!! normalment foreach in enemiesInRange
-        // {
-        //     unitEnemy.spriteRenderer.color = Color.white;
-        // }
-        // enemiesInRange.Clear();
+        // mb3d nweliwelha
+        
+        foreach (Unit unitEnemy in unit.enemiesInRange)  //!!!! normalment foreach in enemiesInRange
+        {
+             unitEnemy.unitView.spriteRenderer.color = Color.white;
+        }
+        unit.enemiesInRange.Clear();
     }
 
 
@@ -108,7 +116,7 @@ public class UnitView : MonoBehaviour
     }
 
     // Method to hide the unit when load it to the transporter unit
-    public void HideUnitWhenLoad()
+    public void HideUnitWhenLoaded()
     {
         return;
         // hide unit when it get loaded on transporter unit .

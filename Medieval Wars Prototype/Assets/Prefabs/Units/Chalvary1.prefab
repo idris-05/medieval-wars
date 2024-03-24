@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5265668595456362624}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4743034, y: -0.023713361, z: 1000}
+  m_LocalPosition: {x: 0.4743034, y: -0.023713361, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1965938827
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,31 +99,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da1919fc36067d46aed2db47b7c561c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitType: 4
-  spriteRenderer: {fileID: 0}
-  selected: 0
+  mapGrid: {fileID: 0}
+  unitView: {fileID: 0}
+  unitIndex: 0
+  unitName: 0
+  occupiedCell: {fileID: 0}
   row: 0
   col: 0
-  mapGrid: {fileID: 0}
-  moveSpeed: 6
   playerNumber: 1
-  hasMoved: 0
-  occupiedCell: {fileID: 0}
   healthPoints: 100
-  AttackBoost: 1
-  SpecialAttackBoost: 1
-  DefenseBoost: 0
-  SpecialDefenseBoost: 0
   moveRange: 6
-  energy: 70
-  energyPerDay: 0
-  vision: 3
-  cost: 7000
-  attackRange: 1
-  minAttackRange: 1
-  ammo: 9
-  moveType: foot
-  hasAttacked: 0
+  ration: 0
+  rationPerDay: 0
+  lineOfSight: 0
+  moveCost: 0
+  hasMoved: 0
+  numbState: 0
+  walkableGridCells: []
+  attackBoost: 0
+  specialAttackBoost: 0
+  defenseBoost: 0
+  specialDefenseBoost: 0
 --- !u!61 &-2080499793171882692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,4 +177,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873822b55360c634e9a732ff9352106e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverAmount: 1

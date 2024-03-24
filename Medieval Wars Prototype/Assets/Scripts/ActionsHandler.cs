@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ActionsHandler : MonoBehaviour
 {
-     private static ActionsHandler instance;
+    private static ActionsHandler instance;
     public static ActionsHandler Instance
     {
         get
@@ -26,20 +26,34 @@ public class ActionsHandler : MonoBehaviour
             return instance;
         }
     }
-    
 
 
 
+    public Button[] actionButtons ;
 
-    public List<Button> buttons = new List<Button>();
+
+    // button indexes 
+
+    // move     0
+    // attack   1
+    // load     2
+    // drop     3
+    // supply   4
+    // cancel   5
 
 
-    public void FillButtonsToDisplay()
+
+    public void FillButtonsToDisplay(Unit unitThatGotClickedOn)
     {
-        // fill the list in buttonsUI with the buttons that should be displayed
-        foreach (Button button in buttons)
+      
+        // MOVE BUTTON ?
+        if ( unitThatGotClickedOn.hasMoved == false /* and there are tiles you can walk on */ )
         {
-            ButtonsUI.Instance.buttonsToDisplay.Add(button);
+            ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[0]);
         }
+
+        ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[5]);
+
     }
+
 }
