@@ -30,6 +30,7 @@ public class CancelScript : MonoBehaviour
 
     public void Cancel()
     {
+        
         UnitController.Instance.selectedUnit = null;
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.NONE;
         ButtonsUI.Instance.HideButtons();
