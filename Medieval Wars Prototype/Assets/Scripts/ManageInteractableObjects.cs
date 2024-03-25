@@ -28,7 +28,7 @@ public class ManageInteractableObjects : MonoBehaviour
     }
 
 
-    public GameObject BlockInteractablesLayer; 
+    public GameObject BlockInteractablesLayer;
 
     public void ActivateBlockInteractionsLayer()
     {

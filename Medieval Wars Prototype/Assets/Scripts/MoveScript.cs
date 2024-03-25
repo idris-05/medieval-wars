@@ -20,12 +20,9 @@ public class MoveScript : MonoBehaviour
         ButtonsUI.Instance.buttonsToDisplay.Add(ActionsHandler.Instance.actionButtons[5]);
         ButtonsUI.Instance.DisplayButtons();
 
-
         movementSystem.GetWalkableTilesMethod(UnitController.Instance.selectedUnit);
         ManageInteractableObjects.Instance.MakeGridCellsInteractableWhileInMoveState(UnitController.Instance.selectedUnit);
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.MOVE;
-
-
 
     }
 }

@@ -107,6 +107,8 @@ public class MovementSystem : MonoBehaviour
 
     public void GetWalkableTilesMethod(Unit unit)
     {
+        unit.walkableGridCells.Clear();
+
         int startRow = unit.row;
         int startCol = unit.col;
         int moveRange = unit.moveRange;

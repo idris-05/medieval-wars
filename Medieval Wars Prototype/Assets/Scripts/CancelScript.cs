@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CancelScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CancelScript : MonoBehaviour
     {
         get
         {
+
             // Lazy initialization
             if (instance == null)
             {
@@ -30,5 +32,8 @@ public class CancelScript : MonoBehaviour
     {
         UnitController.Instance.selectedUnit = null;
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.NONE;
+        ButtonsUI.Instance.HideButtons();
+        ButtonsUI.Instance.buttonsToDisplay.Clear();
+        ManageInteractableObjects.Instance.DesctivateBlockInteractionsLayer();
     }
 }

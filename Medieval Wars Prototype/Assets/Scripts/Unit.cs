@@ -88,6 +88,9 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         this.row = row;
         this.col = col;
 
+
+        unitView.ResetHighlightingWhenNotSelected();
+
     }
 
 
@@ -154,6 +157,15 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
             cell.ResetGridCell();
         }
         walkableGridCells.Clear();
+    }
+
+
+    public void ResetUnitAttributsInEndTurn()
+    {
+        hasMoved = false;
+        numbState = false;
+        unitView.spriteRenderer.color = Color.white;
+        // ..... 
     }
 
 

@@ -108,6 +108,13 @@ public class UnitView : MonoBehaviour
         //!!!!!!!!!!!!
     }
 
+    //!!!!!!!!!!
+      public void ResetHighlightingWhenNotSelected()
+    {
+        spriteRenderer.color = Color.white;
+        //!!!!!!!!!!!!
+    }
+
 
     public void DeathAnimation()
     {

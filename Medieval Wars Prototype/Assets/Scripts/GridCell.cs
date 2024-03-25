@@ -12,7 +12,7 @@ public class GridCell : MonoBehaviour
 
     public SpriteRenderer rend;
 
-    public bool isWalkable; 
+    public bool isWalkable;
 
     public int row;
     public int column;
@@ -31,14 +31,16 @@ public class GridCell : MonoBehaviour
 
     void OnMouseDown()
     {
-        
+
         //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE AHMED AND RAYANE !!!!!!!!!!!
 
         Debug.Log("GridCellClicked");
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE )
+        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE)
         {
-            MovementSystem.Instance.Movement(UnitController.Instance.selectedUnit, row, column);
+            // lazem had l'orodre f les appeles sinon r7 tne7i lis ta3 walkable grid cells
             ManageInteractableObjects.Instance.ResetGridCellsBackToTheirOriginalLayerAfterMoveState(UnitController.Instance.selectedUnit);
+            MovementSystem.Instance.Movement(UnitController.Instance.selectedUnit, row, column);
+
             CancelScript.Instance.Cancel();
         }
 
@@ -72,8 +74,8 @@ public class GridCell : MonoBehaviour
     {
         Transform transform = GetComponent<Transform>();
         Vector3 newPosition = transform.position;
-        newPosition.z = -3;  
-        transform.position = newPosition;  
+        newPosition.z = -3;
+        transform.position = newPosition;
     }
 
     public void ResetGridCellBackToTheirOriginalLayerAfterMoveState()

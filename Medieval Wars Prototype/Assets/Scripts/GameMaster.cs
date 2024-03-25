@@ -93,20 +93,20 @@ public class GameMaster : MonoBehaviour
     {
         // je pense lokan nl9aw 3fssa w7do5ra ndetectiw biha end turn , 5ir .
         // deja kima advance wars , r7 tkon button flMENU , tclicker 3liha .
-        // CheckEndTurnInput();
+        CheckEndTurnInput();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (movementSystem != null)
-            {
-                Debug.Log("Space key was pressed");
-                // movementSystem.Movement(Infantry1Prefab, 2, 9);
-                // Infantry1Prefab.gameObject.SetActive(true);
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     if (movementSystem != null)
+        //     {
+        //         Debug.Log("Space key was pressed");
+        //         // movementSystem.Movement(Infantry1Prefab, 2, 9);
+        //         // Infantry1Prefab.gameObject.SetActive(true);
 
-                // Infantry1Prefab.Move(7 , 7 );
-            }
-            Debug.Log("SNULLLLLLLLLL");
-        }
+        //         // Infantry1Prefab.Move(7 , 7 );
+        //     }
+        //     Debug.Log("SNULLLLLLLLLL");
+        // }
     }
 
 
@@ -129,9 +129,11 @@ public class GameMaster : MonoBehaviour
 
         // ga3 les methods hadi t3 reset lazem n3awdo nchofhom mli7  psq 5tra 3la 5tra tssra 3fssa malazemch ! (manich sure)
         ResetGridCells();  // reset the grid cells to their original state (white color) and isWalkable = false for all cells
-        // ResetUnitsPropritiesInEndTurn();
+        ResetUnitsAttributsInEndTurn(); //!!!!!!!!!!!!!!1
 
     }
+
+
 
     // this function is used to switch the turn of the players    
     public void SwitchPlayeTurn()
@@ -149,14 +151,14 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-    // // this function is used to reset the proprities of the units in the end of the turn
-    // public void ResetUnitsPropritiesInEndTurn()
-    // {
-    //     foreach (Unit unit in FindObjectsOfType<Unit>()) // FindObjectsOfType<Unit>() returns an array of all the units in the scene
-    //     {
-    //         unit.ResetUnitPropritiesInEndTurn(); // others proprities
-    //     }
-    // }
+    // this function is used to reset the proprities of the units in the end of the turn
+    public void ResetUnitsAttributsInEndTurn()
+    {
+        foreach (Unit unit in FindObjectsOfType<Unit>()) // FindObjectsOfType<Unit>() returns an array of all the units in the scene
+        {
+            unit.ResetUnitAttributsInEndTurn(); // others proprities
+        }
+    }
 
 
     // in this function we handle the selection of a unit by the player
