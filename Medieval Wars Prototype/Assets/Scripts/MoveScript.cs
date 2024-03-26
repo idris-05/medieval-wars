@@ -5,7 +5,7 @@ public class MoveScript : MonoBehaviour
 {
 
     public MovementSystem movementSystem;
-    [SerializeField] Button moveButton ;
+    public Button moveButton;
 
     void Start()
     {
@@ -20,15 +20,15 @@ public class MoveScript : MonoBehaviour
     {
         Debug.Log("Move button pressed");
 
-        ButtonsUI.Instance.UpdateButtonsDisplayWhenAButtonClicked(moveButton);  
+        ButtonsUI.Instance.UpdateButtonsDisplayWhenAButtonClicked(moveButton);
 
-        movementSystem.GetWalkableTilesMethod(UnitController.Instance.selectedUnit);  
+        movementSystem.GetWalkableTilesMethod(UnitController.Instance.selectedUnit);
 
         UnitController.Instance.selectedUnit.unitView.HighlightWalkablesCells();
 
-        ManageInteractableObjects.Instance.MakeOnlySpecificCellsInteractable(UnitController.Instance.selectedUnit.walkableGridCells); 
+        ManageInteractableObjects.Instance.MakeOnlySpecificCellsInteractable(UnitController.Instance.selectedUnit.walkableGridCells);
 
-        UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.MOVE; 
+        UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.MOVE;
 
         // wait clicking one cell .
 

@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGrid: {fileID: 0}
   unitView: {fileID: 0}
-  unitIndex: 0
+  unitIndex: 4
   unitName: 0
   occupiedCell: {fileID: 0}
   row: 0
@@ -162,15 +162,16 @@ MonoBehaviour:
   hasMoved: 0
   numbState: 0
   walkableGridCells: []
-  attackBoost: 0
-  specialAttackBoost: 0
+  attackBoost: 1
+  specialAttackBoost: 1
   defenseBoost: 0
   specialDefenseBoost: 0
-  attackRange: 0
+  attackRange: 1
   minAttackRange: 0
   durability: 0
   hasAttacked: 0
   enemiesInRange: []
+  attackableGridCells: []
 --- !u!114 &-5756360284744482031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   moveSpeed: 5
+  gm: {fileID: 0}
+  mapGrid: {fileID: 0}
 --- !u!114 &-6857914708629168600
 MonoBehaviour:
   m_ObjectHideFlags: 0

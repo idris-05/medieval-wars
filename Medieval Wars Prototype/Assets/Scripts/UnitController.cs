@@ -1,6 +1,3 @@
-// using System;
-// using System.Diagnostics;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour
@@ -86,10 +83,13 @@ public class UnitController : MonoBehaviour
         {
             case UnitUtil.ActionToDoWhenButtonIsClicked.NONE:
 
+                // hna lazem Unit (hadi unitThatGotClickedOn) lazem tkon ta3ek , sinon mlazemch t9dr tchof l'enemie wch rah 9ader ydir
+                if (unitThatGotClickedOn.playerNumber != GameMaster.Instance.playerTurn) return;
+                // l'access lel game Controller (gameMatser) lazem ytssgem .
+
                 selectedUnit = unitThatGotClickedOn;
-                // selectedUnit.unitView = selectedUnit.GetComponent<UnitView>();
-                selectedUnit.unitView.HighlightUnitOnSelection();
- 
+                selectedUnit.unitView.HighlightAsSelected();
+
                 ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
                 ActionsHandler.Instance.FillButtonsToDisplay(unitThatGotClickedOn);
                 ButtonsUI.Instance.DisplayButtons();
@@ -100,10 +100,13 @@ public class UnitController : MonoBehaviour
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK:
 
-                List<Unit> enemiesInRange = (selectedUnit as UnitAttack).enemiesInRange;
-                AttackSystem.Attack(selectedUnit as UnitAttack, unitThatGotClickedOn);
-                ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(enemiesInRange);
-                enemiesInRange.Clear();
+                UnitAttack unitAttack = selectedUnit as UnitAttack;
+                // it throws an exception if the unit is not a UnitAttack , maybe we should handle this . 
+
+                ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(unitAttack.enemiesInRange);
+
+                AttackSystem.Attack(unitAttack, unitThatGotClickedOn);
+
                 CancelScript.Instance.OnCancelButtonClicked();
 
                 break;

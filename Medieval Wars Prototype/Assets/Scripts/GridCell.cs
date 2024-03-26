@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Collections;
 using UnityEngine;
-using System;
 
 
 
@@ -12,7 +8,7 @@ public class GridCell : MonoBehaviour
 
     public SpriteRenderer rend;
 
-    public bool isWalkable;
+    public bool isWalkable;   //!!! ?????? wch rana ndiro bih hada 
 
     public int row;
     public int column;
@@ -70,7 +66,6 @@ public class GridCell : MonoBehaviour
 
 
 
-    // Method to highlight the GridCell when the mouse hovers over it
     //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
     public void HighlightAsWalkable()
     {
@@ -86,12 +81,26 @@ public class GridCell : MonoBehaviour
         rend.color = Color.blue;
     }
 
-    // Method to reset the GridCell to its original state 
-    public void ResetGridCell()
+
+    public void HighlightAsAttackable()
     {
-        // reset the color ( the color by default ) and the properties of the GridCell
+        rend.color = Color.red;
+    }
+
+
+    public void ResetHighlitedCell()
+    {
+        rend.color = Color.white;
+    }
+   
+    
+    
+    // Method to reset the GridCell to its original state  
+    public void ResetCellAttributsInEndTurn()
+    {
         rend.color = Color.white;
         isWalkable = false;
+        ResetHighlitedCell();
         // isHighlighted = false;
     }
 

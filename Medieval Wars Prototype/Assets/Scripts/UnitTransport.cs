@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class UnitTransport : Unit
 {
@@ -11,7 +10,7 @@ public class UnitTransport : Unit
 
     public float AvailableRationToShare; //!!! ch7al rahi rafda ration , bach tmed ll units lo5rin 
 
-
+    // lazemna valuere max t3 AvailableRationToShare
 
     // Method to load a unit into the transporterUnit
     public void Load(Unit unit)
@@ -39,6 +38,14 @@ public class UnitTransport : Unit
     }
 
 
+
+    // method to get teh dropable units
+    public void GetdropableCells()
+    {
+        // logic to get the dropable cells
+        // virify cells in the 4 directions for the dactual position of the transporter unit
+    }
+
     // Method to get a list of suppliable units
     public void GetSuppliableUnits()
     {
@@ -46,22 +53,9 @@ public class UnitTransport : Unit
         // search in the foor direction for unit can be supplied
     }
 
-    public void ResetSuppliableUnits()
-    {
-        suppliableUnits.Clear();
-    }
 
-    public void Load(UnitAttack unitToLoad)
-    {
-        loadedUnit = unitToLoad;
-    }
 
-    public void GetdropableCells()
-    {
-        // logic to get the dropable cells
-        // virify cells in the 4 directions for the dactual position of the transporter unit
-    }
-
+    // 
     public void HighlightDropableCells()
     {
         foreach (GridCell cell in dropableCells)
@@ -70,5 +64,38 @@ public class UnitTransport : Unit
         }
         // highlight the dropable cells
     }
+
+    // 
+    public void HighlightSuppliableUnits()
+    {
+        foreach (Unit unit in suppliableUnits)
+        {
+            unit.unitView.HighlightAsSuppliable();
+        }
+        // highlight the dropable cells
+    }
+
+    public void ResetSuppliableUnits()
+    {
+        foreach (Unit unit in suppliableUnits)
+        {
+            unit.unitView.ResetHighlightedUnit();
+        }
+        suppliableUnits.Clear();
+    }
+
+
+    public void ResetHighlightedDropableCells()
+    {
+        foreach (GridCell cell in dropableCells)
+        {
+            cell.ResetHighlitedCell();
+        }
+        // highlight the dropable cells
+        dropableCells.Clear();
+    }
+
+
+
 
 }

@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,16 +40,11 @@ public class ActionsHandler : MonoBehaviour
     // supply   4
     // cancel   5
 
-    public GameMaster gm ;
 
-void Start()
-{
-    gm = FindObjectOfType<GameMaster>();
-}
 
     public void FillButtonsToDisplay(Unit unitThatGotClickedOn)
     {
-
+        if (unitThatGotClickedOn.playerNumber != GameMaster.Instance.playerTurn) return;
         // MOVE BUTTON ?
         if (unitThatGotClickedOn.hasMoved == false /* and there are tiles you can walk on */ )
         {
@@ -62,17 +54,19 @@ void Start()
 
 
         // ATTACK BUTTON ?
-        if (unitThatGotClickedOn.playerNumber == gm.playerTurn)
+        if (unitThatGotClickedOn.playerNumber == GameMaster.Instance.playerTurn)
         {
+            // Debug.Log("unitThatGotClickedOn.playerNumber == gm.playerTurn");
             if (unitThatGotClickedOn is UnitAttack unitAttack)
             {
+                // Debug.Log("unitThatGotClickedOn is UnitAttack unitAttack");
                 if (unitAttack.hasAttacked == false)
                 {
-                    unitAttack.GetEnemies();
+                    // Debug.Log("unitAttack.hasAttacked == false");
+                    unitAttack.GetEnemiesInRange();
                     // zid virefier beli Vulnerability > 0 // sla7 ( rssas) ta3ek mazal m5lasch .
                     if (unitAttack.enemiesInRange.Any() == true)
                     {
-
                         ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[1]);
                         unitAttack.enemiesInRange.Clear();  // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha
                     }
@@ -82,7 +76,7 @@ void Start()
 
 
         // DROP BUTTON ?
-        if (unitThatGotClickedOn.playerNumber == gm.playerTurn)
+        if (unitThatGotClickedOn.playerNumber == GameMaster.Instance.playerTurn)
         {
             if (unitThatGotClickedOn is UnitTransport unitTransport)
             {

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,6 +37,8 @@ public class ManageInteractableObjects : MonoBehaviour
 
     // MAIN CAMERA                         -50     FIX 
 
+// 0 - 10  -50 .. homa valeur t3  transform.position.z  pour chaque ojbect
+
 
     public GameObject BlockInteractablesLayer;
 
@@ -50,6 +51,8 @@ public class ManageInteractableObjects : MonoBehaviour
     {
         BlockInteractablesLayer.SetActive(false);
     }
+
+
 
     public void MakeOnlySpecificCellsInteractable(List<GridCell> cellsToMakeInteractable)
     {
@@ -68,6 +71,7 @@ public class ManageInteractableObjects : MonoBehaviour
     }
 
 
+
     public void MakeOnlySpecificUnitsInteractable(List<Unit> unitsToMakeInteractable)
     {
         foreach (Unit unit in unitsToMakeInteractable)
@@ -83,6 +87,7 @@ public class ManageInteractableObjects : MonoBehaviour
             unit.unitView.ResetUnitBackToTheirOriginalLayer();
         }
     }
+
 
 
 

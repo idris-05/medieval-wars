@@ -25,6 +25,7 @@ public class MovementSystem : MonoBehaviour
         }
     }
 
+    // mapgrid hadi ttna7a
     public MapGrid mapGrid;  // lokan hadi tkon , lazem la class mtkonch static , llazem ya hadi ya hadi 
 
     void Start()
@@ -36,7 +37,7 @@ public class MovementSystem : MonoBehaviour
     public void Movement(Unit unit, int row, int col)
     {
 
-        if ( mapGrid.grid[row,col].occupantUnit is UnitTransport) // If I try to move to a cell where there is a tronsporter
+        if (mapGrid.grid[row, col].occupantUnit is UnitTransport) // If I try to move to a cell where there is a tronsporter
         {
 
             // We are Sure here that the transporter is empty because it gets verified in GetWalkableTiles
@@ -58,7 +59,7 @@ public class MovementSystem : MonoBehaviour
         unit.unitView.AnimateMovement(row, col);
         unit.ResetWalkableGridCells();
 
-       
+
     }
 
 

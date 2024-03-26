@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AttackSystem : MonoBehaviour
@@ -162,10 +163,12 @@ public class AttackSystem : MonoBehaviour
 
         // base damage[Attacker,Defender] 
         float Base = baseDamage[AttackingUnit.unitIndex, DefendingUnit.unitIndex];
+        // Debug.Log("Base : " + Base);
 
 
         // AttackValue = (Base.AttackBoost.SpecialAttackBoost)
         float AttackValue = Base * AttackingUnit.attackBoost * AttackingUnit.specialAttackBoost;
+        // Debug.Log("AttackValue : " + AttackValue);
 
 
         // int TerrainStars = DefendingUnit.occupiedCell.terrain.terrainStars;    //!!!! DefendingUnit.occupiedCell  there is a problem here the occupied Cell doesn't change when the unit moves virifier est ce rahi ttbdel !
@@ -175,6 +178,7 @@ public class AttackSystem : MonoBehaviour
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
         float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - DefendingUnit.defenseBoost) * (1 - DefendingUnit.specialDefenseBoost);
         // DefendingUnit.DefenseBoost   DefendingUnit.SpecialDefenseBoost  was initialized with 1 from unity , so the TotalDamage retuned was always 0 . i change them to 0 for now
+        // Debug.Log("Vulnerability : " + Vulnerability);
 
 
         // Total Damage =  (HP / 100) . Attack . Vulnerabity . Critical Hit
@@ -182,6 +186,7 @@ public class AttackSystem : MonoBehaviour
 
         // healthPoints is int , so we need to cast it to float to get the correct value we need . (if we don't cast it to float , the result of devision will be an integer , weach means : 0 if the healthPoints is less than 100 !!!)
         float TotalDamage = (float)AttackingUnit.healthPoints / 100 * AttackValue * Vulnerability;
+        // Debug.Log("TotalDamage : " + TotalDamage);
 
 
         //calcul de la partie entiere de TotalDamage
@@ -191,6 +196,8 @@ public class AttackSystem : MonoBehaviour
         // si le resultat n'est pas un entier on calcule la partie entiere + 1
         if (TotalDamage - damageRound != 0) damageRound++;
 
+
+        Debug.Log("damageRound : " + damageRound);
         return damageRound;
 
     }
@@ -203,11 +210,57 @@ public class AttackSystem : MonoBehaviour
         DefendingUnit.RecieveDamage(inflictedDamage);
         AttackingUnit.UpdateAttributsAfterAttack();
         AttackingUnit.TransitionToNumbState();
+        
+        if (DefendingUnit.healthPoints <= 0) DefendingUnit.Kill();
+
 
         // verify the possibility to counter attack .
 
 
 
     }
+
+
+
+
+
+    public static void GetAttackableCells(UnitAttack unitAttack, MapGrid mapGrid)
+    {
+
+        unitAttack.attackableGridCells.Clear();
+
+        int startRow = unitAttack.row;
+        int startCol = unitAttack.col;
+        int AttackRange = unitAttack.attackRange;
+
+        //     //! we should make sure that there is only one instance of the MapGrid in the scene .
+        //     //! we can also pass the MapGrid as a parameter to the getWalkableTiles method 
+
+
+        // Get the current position of the selected unitAttack
+        Vector2Int currentPos = new Vector2Int(startRow, startCol);
+
+        for (int row = -AttackRange; row <= AttackRange; row++)
+        {
+            for (int col = -AttackRange; col <= AttackRange; col++)
+            {
+
+                
+                int nextRow = currentPos.x + row;
+                int nextCol = currentPos.y + col;
+
+                if (nextRow >= 0 && nextRow < MapGrid.Rows && nextCol >= 0 && nextCol < MapGrid.Columns)
+                {
+                    if (MathF.Abs(row) + MathF.Abs(col) <= AttackRange)
+                    {
+                        // mapGrid.grid[nextRow, nextCol].Highlight();
+                        unitAttack.attackableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
+                    }
+                }
+            }
+        }
+    }
+
+
 
 }

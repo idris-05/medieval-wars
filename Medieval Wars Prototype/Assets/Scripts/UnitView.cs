@@ -6,38 +6,79 @@ public class UnitView : MonoBehaviour
 {
     //!!! WE MUST FIX THIS , unit is referenced inside unitView and unitView is referenced inside unit 
     // ida llah ghaleb makach solution , hadi tkon priavte , wlo5ra public normal .
-
     private Unit unit;
 
-    // private MovementSystem movementSystem;   // hadi omb3d tro7 b event
+    public MapGrid mapGrid;
 
     public SpriteRenderer spriteRenderer;
-    [SerializeField] float moveSpeed = 5;
+    public float moveSpeed = 5;
+
+
+    bool isUnitHovered = false;
+    bool rightButtonHolded = false;
 
 
     void Start()
     {
-        // movementSystem = FindObjectOfType<MovementSystem>();
+        mapGrid = FindObjectOfType<MapGrid>();  // ttna7a
         unit = GetComponent<Unit>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
-    private void OnMouseOver()
-    {
-        if (unit.numbState == true)
-        {
-            return;
-        }
+    //!!!!!!! l7kaya t3 reset highlight hadi lazem ttssgem , swa pour unitView wla pour GridCell
 
-        if (Input.GetMouseButtonDown(0)) // left click
+    // onMouseExit onMouseOver Update , omb3d nriglohom 3la 7ssab wch ndifiniw f jeux ta3na .
+
+    // Reset isUnitHovered flag when the mouse exits the unit
+    private void OnMouseExit()
+    {
+        isUnitHovered = false;
+        rightButtonHolded = false;
+        ResetHighlitedAttackableCells();
+    }
+
+    private void OnMouseOver()   // est ce que advance wars ay unit tclicker 3liha yhighlightiha ? swa ta3ek 2wla t3 li contrek
+    {
+        isUnitHovered = true;
+        // left click on unit
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("touchit unit");
+            if (unit.numbState)
+            {
+                return;
+            }
+            // Debug.Log("left click on unit");
             UnitController.Instance.OnUnitSelection(unit); // singleton
-            // EventManager.InvokeUnitSelectedEvent(unit); //event
         }
 
     }
+    // Check if right mouse button is held down display the attackableCells
+
+    void Update()
+    {
+        if (!isUnitHovered) return;
+
+        if (Input.GetMouseButton(1) && !rightButtonHolded)
+        {
+            rightButtonHolded = true;
+            // Debug.Log(" ba9i mclickiii");
+            if ((unit is UnitAttack) == false)
+            {  // only UnitAttack has attackableCells List 
+                return;
+            }
+            AttackSystem.GetAttackableCells(unit as UnitAttack, mapGrid);
+            HighlightAttackableCells(); // Display attackable cells
+        }
+        else if (Input.GetMouseButtonUp(1)) // Check if right mouse button is released
+        {
+            // Reset highlighting
+            rightButtonHolded = false;
+            ResetHighlitedAttackableCells();
+        }
+    }
+
+
 
 
 
@@ -66,42 +107,37 @@ public class UnitView : MonoBehaviour
     }
 
 
-    public void HighlightAsEnemy()
-    {
-        spriteRenderer.color = Color.red;
-    }
-
-
-    public void ResetHighlightedEnemyInRange(UnitAttack unit)
-    {
-        // mb3d nweliwelha
-
-        foreach (Unit unitEnemy in unit.enemiesInRange)  //!!!! normalment foreach in enemiesInRange
-        {
-            unitEnemy.unitView.spriteRenderer.color = Color.white;
-        }
-        unit.enemiesInRange.Clear();
-    }
-
-
-    public void HighlightUnitOnSelection()
-    {
-        spriteRenderer.color = Color.green;
-        //!!!!!!!!!!!!
-    }
-
-    //!!!!!!!!!!
-    public void ResetHighlightingWhenNotSelected()
-    {
-        spriteRenderer.color = Color.white;
-        //!!!!!!!!!!!!
-    }
-
 
     public void DeathAnimation()
     {
         return;
         //!!!!!!!!11 
+    }
+
+
+
+
+    public void HighlightAsEnemy()
+    {
+        spriteRenderer.color = Color.red;
+    }
+
+    public void HighlightAsSelected()  //HighlightUnitOnSelection
+    {
+        spriteRenderer.color = Color.green;
+        //!!!!!!!!!!!!
+    }
+
+    public void HighlightAsSuppliable()
+    {
+        return;
+    }
+
+    //!!!!!!!!!!
+    public void ResetHighlightedUnit()
+    {
+        spriteRenderer.color = Color.white;
+        //!!!!!!!!!!!!
     }
 
 
@@ -112,6 +148,7 @@ public class UnitView : MonoBehaviour
         // hide unit when it get loaded on transporter unit .
     }
 
+
     public void MakeUnitInteractable()
     {
         Transform transform = GetComponent<Transform>();
@@ -120,6 +157,7 @@ public class UnitView : MonoBehaviour
         transform.position = newPosition;
 
     }
+
 
     public void ResetUnitBackToTheirOriginalLayer()
     {
@@ -138,5 +176,28 @@ public class UnitView : MonoBehaviour
             cell.HighlightAsWalkable();
         }
     }
+
+    //!!!!!!1 win rahi reset ta3ha ??? 
+
+
+
+    public void HighlightAttackableCells()
+    {
+        foreach (GridCell cell in (unit as UnitAttack).attackableGridCells)
+        {
+            cell.HighlightAsAttackable();
+        }
+    }
+
+
+    public void ResetHighlitedAttackableCells()
+    {
+        foreach (GridCell cell in (unit as UnitAttack).attackableGridCells)
+        {
+            cell.ResetHighlitedCell();
+        }
+    }
+
+
 
 }

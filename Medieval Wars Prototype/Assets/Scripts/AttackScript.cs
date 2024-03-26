@@ -9,10 +9,10 @@ public class AttackScript : MonoBehaviour
 
         ButtonsUI.Instance.UpdateButtonsDisplayWhenAButtonClicked(ActionsHandler.Instance.actionButtons[1]);
 
-        unitAttack.GetEnemies();
-
+        unitAttack.GetEnemiesInRange();
         unitAttack.HighlightEnemyInRange();
         ManageInteractableObjects.Instance.MakeOnlySpecificUnitsInteractable(unitAttack.enemiesInRange);
+        Debug.Log("only attackables are clickable now");
 
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK;
 
