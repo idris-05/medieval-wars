@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoveScript : MonoBehaviour
 {
 
     public MovementSystem movementSystem;
+    [SerializeField] Button moveButton ;
 
     void Start()
     {
@@ -11,18 +13,25 @@ public class MoveScript : MonoBehaviour
     }
 
 
+
+
+    // EventSystem . 
     public void OnMoveButtonDown()
     {
         Debug.Log("Move button pressed");
 
-        ButtonsUI.Instance.HideButtons();
-        ButtonsUI.Instance.buttonsToDisplay.Clear();
-        ButtonsUI.Instance.buttonsToDisplay.Add(ActionsHandler.Instance.actionButtons[5]);
-        ButtonsUI.Instance.DisplayButtons();
+        ButtonsUI.Instance.UpdateButtonsDisplayWhenAButtonClicked(moveButton);  
 
-        movementSystem.GetWalkableTilesMethod(UnitController.Instance.selectedUnit);
-        ManageInteractableObjects.Instance.MakeGridCellsInteractableWhileInMoveState(UnitController.Instance.selectedUnit);
-        UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.MOVE;
+        movementSystem.GetWalkableTilesMethod(UnitController.Instance.selectedUnit);  
+
+        UnitController.Instance.selectedUnit.unitView.HighlightWalkablesCells();
+
+        ManageInteractableObjects.Instance.MakeOnlySpecificCellsInteractable(UnitController.Instance.selectedUnit.walkableGridCells); 
+
+        UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.MOVE; 
+
+        // wait clicking one cell .
 
     }
+
 }

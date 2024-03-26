@@ -60,11 +60,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         // Get the MapGrid component from the scene
         mapGrid = FindObjectOfType<MapGrid>();
         
-        // // Get the GameMaster component from the scene
-        // gm = FindObjectOfType<GameMaster>(); // singleton paradigm
-    }
-
-
+    } 
 
 
     //!!!!! le nom t3 method hadi 3yan , fiha UpdateAttributsAfterMoving , bssah hadi UpdateAttributsAfterMoving marahich vraiment t'updai kolch wch lazem , psq WalkableGridCells mazalhom .
@@ -97,7 +93,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void TransitionToNumbState()
     {
         numbState = true;
-        hasMoved = true;
+        hasMoved = true; //  ??
         unitView.spriteRenderer.color = Color.gray; // this will become a method
     }
 
@@ -167,6 +163,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         unitView.spriteRenderer.color = Color.white;
         // ..... 
     }
+
 
 
 }

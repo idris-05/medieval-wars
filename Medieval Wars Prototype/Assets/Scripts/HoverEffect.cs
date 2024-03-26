@@ -9,31 +9,31 @@ public class HoverEffect : MonoBehaviour
 
     private Vector3 originalScale; // The original scale of the object
 
-    private void Start()
-    {
-        // Store the original scale of the object
-        originalScale = transform.localScale;
-    }
+    // private void Start()
+    // {
+    //     // Store the original scale of the object
+    //     originalScale = transform.localScale;
+    // }
 
     // Method to scale the object when the mouse hovers over it 
-    private void OnMouseEnter()
-    {
-        // Apply hover effect if the object is not already scaled
-        if (!Mathf.Approximately(transform.localScale.magnitude, originalScale.magnitude))
-        {
-            return; // Exit if already scaled
-        }
+    // private void OnMouseEnter()
+    // {
+    //     // Apply hover effect if the object is not already scaled
+    //     if (!Mathf.Approximately(transform.localScale.magnitude, originalScale.magnitude))
+    //     {
+    //         return; // Exit if already scaled
+    //     }
 
-        // Scale the object smoothly with a coroutine
-        StartCoroutine(ScaleOverTime(transform.localScale + Vector3.one * hoverAmount, hoverSpeed));
-    }
+    //     // Scale the object smoothly with a coroutine
+    //     StartCoroutine(ScaleOverTime(transform.localScale + Vector3.one * hoverAmount, hoverSpeed));
+    // }
 
     // Method to scale the object when the mouse exits the object 
-    private void OnMouseExit()
-    {
-        // Scale the object smoothly with a coroutine
-        StartCoroutine(ScaleOverTime(originalScale, hoverSpeed));
-    }
+    // private void OnMouseExit()
+    // {
+    //     // Scale the object smoothly with a coroutine
+    //     StartCoroutine(ScaleOverTime(originalScale, hoverSpeed));
+    // }
 
     // Coroutine to smoothly scale the object over time
     private IEnumerator ScaleOverTime(Vector3 targetScale, float duration)

@@ -1,4 +1,6 @@
-using System;
+// using System;
+// using System.Diagnostics;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour
@@ -27,7 +29,7 @@ public class UnitController : MonoBehaviour
     // Public property to access the singleton instance
 
 
-    private static UnitController instance; 
+    private static UnitController instance;
     public static UnitController Instance
     {
         get
@@ -49,7 +51,7 @@ public class UnitController : MonoBehaviour
         }
     }
 
-    
+
     // private void Awake()
     // {
     //     // If there is an instance, and it's not me, delete myself.
@@ -64,32 +66,46 @@ public class UnitController : MonoBehaviour
     //     }
     // }
 
+    // Define a delegate for the event
+
+
 
     public Unit selectedUnit;
-
-
     public UnitUtil.ActionToDoWhenButtonIsClicked CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.NONE;
 
-    
-    // its logical that events of controling a unit are here , but maybe we will change them ? 
-    // public static event Action OnUnitSelectionWhenStateNoneEvent;
- 
+
+    // normal dependi men UnitUtil , psq howa li 3ndna fih hadok les info wkolch ,
+
+
+    // !!! lazem script hada yt7et 3end kch gameobject fla scene , bch yt7sseb enable w ttexecyta start w awake , sinon lazen 7ta tdir l'appale lkch finction ta3o bch yweli enable
+
+
     public void OnUnitSelection(Unit unitThatGotClickedOn)
     {
         switch (CurrentActionStateBasedOnClickedButton)
         {
             case UnitUtil.ActionToDoWhenButtonIsClicked.NONE:
-            
-                selectedUnit = unitThatGotClickedOn;
-                selectedUnit.unitView.HighlightUnitOnSelection();
 
+                selectedUnit = unitThatGotClickedOn;
+                // selectedUnit.unitView = selectedUnit.GetComponent<UnitView>();
+                selectedUnit.unitView.HighlightUnitOnSelection();
+ 
                 ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
                 ActionsHandler.Instance.FillButtonsToDisplay(unitThatGotClickedOn);
                 ButtonsUI.Instance.DisplayButtons();
+                // wait clicking one button .
+
 
                 break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK:
+
+                List<Unit> enemiesInRange = (selectedUnit as UnitAttack).enemiesInRange;
+                AttackSystem.Attack(selectedUnit as UnitAttack, unitThatGotClickedOn);
+                ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(enemiesInRange);
+                enemiesInRange.Clear();
+                CancelScript.Instance.OnCancelButtonClicked();
+
                 break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.MOVE:
@@ -113,9 +129,8 @@ public class UnitController : MonoBehaviour
             default:
                 break;
         }
+
     }
-
-
 
 
 }

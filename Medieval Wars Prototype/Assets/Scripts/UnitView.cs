@@ -1,11 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.TestTools;
-using UnityEngine.UIElements;
-using static UnityEngine.EventSystems.EventTrigger;
+
 
 public class UnitView : MonoBehaviour
 {
@@ -17,7 +12,7 @@ public class UnitView : MonoBehaviour
     // private MovementSystem movementSystem;   // hadi omb3d tro7 b event
 
     public SpriteRenderer spriteRenderer;
-    [SerializeField] float moveSpeed = 5; 
+    [SerializeField] float moveSpeed = 5;
 
 
     void Start()
@@ -30,8 +25,6 @@ public class UnitView : MonoBehaviour
 
     private void OnMouseOver()
     {
-
-
         if (unit.numbState == true)
         {
             return;
@@ -40,21 +33,10 @@ public class UnitView : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // left click
         {
             Debug.Log("touchit unit");
-
             UnitController.Instance.OnUnitSelection(unit); // singleton
+            // EventManager.InvokeUnitSelectedEvent(unit); //event
         }
 
-        // hado walo 
-
-        // if (Input.GetMouseButtonDown(0)) // left click
-        // {
-        //     movementSystem.Movement(unit, 3, 3); //!!!!!!!!!!!!!!
-        // }
-
-        // if (Input.GetMouseButtonDown(1)) // right click
-        // {
-        //     movementSystem.Movement(unit, 4, 5); //!!!!!!!!!!!!!!
-        // }
     }
 
 
@@ -84,7 +66,7 @@ public class UnitView : MonoBehaviour
     }
 
 
-    public void HighlightEnemyInRange()
+    public void HighlightAsEnemy()
     {
         spriteRenderer.color = Color.red;
     }
@@ -93,10 +75,10 @@ public class UnitView : MonoBehaviour
     public void ResetHighlightedEnemyInRange(UnitAttack unit)
     {
         // mb3d nweliwelha
-        
+
         foreach (Unit unitEnemy in unit.enemiesInRange)  //!!!! normalment foreach in enemiesInRange
         {
-             unitEnemy.unitView.spriteRenderer.color = Color.white;
+            unitEnemy.unitView.spriteRenderer.color = Color.white;
         }
         unit.enemiesInRange.Clear();
     }
@@ -109,7 +91,7 @@ public class UnitView : MonoBehaviour
     }
 
     //!!!!!!!!!!
-      public void ResetHighlightingWhenNotSelected()
+    public void ResetHighlightingWhenNotSelected()
     {
         spriteRenderer.color = Color.white;
         //!!!!!!!!!!!!
@@ -122,6 +104,7 @@ public class UnitView : MonoBehaviour
         //!!!!!!!!11 
     }
 
+
     // Method to hide the unit when load it to the transporter unit
     public void HideUnitWhenLoaded()
     {
@@ -129,5 +112,31 @@ public class UnitView : MonoBehaviour
         // hide unit when it get loaded on transporter unit .
     }
 
+    public void MakeUnitInteractable()
+    {
+        Transform transform = GetComponent<Transform>();
+        Vector3 newPosition = transform.position;
+        newPosition.z = -15;
+        transform.position = newPosition;
+
+    }
+
+    public void ResetUnitBackToTheirOriginalLayer()
+    {
+        Transform transform = GetComponent<Transform>();
+        Vector3 newPosition = transform.position;
+        newPosition.z = 0; //!!!!!!!!!!!!!!!!!!!!!!!!!!! ch7al original value ?
+        transform.position = newPosition;
+
+    }
+
+
+    public void HighlightWalkablesCells()
+    {
+        foreach (GridCell cell in unit.walkableGridCells)
+        {
+            cell.HighlightAsWalkable();
+        }
+    }
 
 }

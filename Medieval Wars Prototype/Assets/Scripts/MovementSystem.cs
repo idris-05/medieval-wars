@@ -27,7 +27,6 @@ public class MovementSystem : MonoBehaviour
 
     public MapGrid mapGrid;  // lokan hadi tkon , lazem la class mtkonch static , llazem ya hadi ya hadi 
 
-
     void Start()
     {
         mapGrid = FindObjectOfType<MapGrid>();
@@ -60,49 +59,7 @@ public class MovementSystem : MonoBehaviour
         unit.ResetWalkableGridCells();
 
        
-
     }
-
-
-
-    // public void GetWalkableTilesMethod(Unit unit)
-    // {
-    //     unit.walkableGridCells.Clear();
-
-    //     int startRow = unit.row;
-    //     int startCol = unit.col;
-    //     int moveRange = unit.moveRange;
-
-    //     //     //! we should make sure that there is only one instance of the MapGrid in the scene .
-    //     //     //! we can also pass the MapGrid as a parameter to the getWalkableTiles method 
-
-
-    //     // Get the current position of the selected unit
-    //     Vector2Int currentPos = new Vector2Int(startRow, startCol);
-
-    //     for (int row = -moveRange; row <= moveRange; row++)
-    //     {
-    //         for (int col = -moveRange; col <= moveRange; col++)
-    //         {
-
-    //             // where the unit want go
-    //             int nextRow = currentPos.x + row;
-    //             int nextCol = currentPos.y + col;
-
-    //             if (nextRow >= 0 && nextRow < MapGrid.Rows && nextCol >= 0 && nextCol < MapGrid.Columns)
-    //             {
-    //                 // If the distance between the current position and the next position is less than or equal to the moveRange of the unit 
-    //                 // and the next position is not highlighted, highlight it .
-    //                 if (MathF.Abs(row) + MathF.Abs(col) <= moveRange)
-    //                 {
-    //                     mapGrid.grid[nextRow, nextCol].Highlight();
-    //                     unit.walkableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
 
 
     public void GetWalkableTilesMethod(Unit unit)
@@ -186,7 +143,7 @@ public class MovementSystem : MonoBehaviour
                         int nextCol = currentPos.y + col2;
                         // Debug.Log(nextRow + nextCol);
                         //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
-                        mapGrid.grid[nextRow, nextCol].Highlight();
+                        // mapGrid.grid[nextRow, nextCol].HighlightAsWalkable();
                         unit.walkableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
                     }
                     else
@@ -241,7 +198,7 @@ public class MovementSystem : MonoBehaviour
                             int nextRow = currentPos.x + row2;
                             int nextCol = currentPos.y + col2;
                             //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
-                            mapGrid.grid[nextRow, nextCol].Highlight();
+                            // mapGrid.grid[nextRow, nextCol].HighlightAsWalkable();
                             unit.walkableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
                         }
                     }

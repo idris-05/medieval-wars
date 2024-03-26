@@ -35,6 +35,6 @@ public class UnitUtil : MonoBehaviour
         CHALVARY,
     }
 
-    public static float[] maxRations = { 100, 100, 100 , 100 , 100, 100, 100, 100 , 100, 100, 100, 100 , 100 };
+    public static float[] maxRations = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
 
 }

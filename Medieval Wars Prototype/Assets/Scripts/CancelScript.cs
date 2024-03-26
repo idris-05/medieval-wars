@@ -28,11 +28,13 @@ public class CancelScript : MonoBehaviour
         }
     }
 
-    public void Cancel()
+
+    public void OnCancelButtonClicked()
     {
         
         UnitController.Instance.selectedUnit = null;
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.NONE;
+
         ButtonsUI.Instance.HideButtons();
         ButtonsUI.Instance.buttonsToDisplay.Clear();
         ManageInteractableObjects.Instance.DesctivateBlockInteractionsLayer();

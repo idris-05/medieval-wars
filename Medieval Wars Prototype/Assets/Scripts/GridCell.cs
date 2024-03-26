@@ -34,15 +34,35 @@ public class GridCell : MonoBehaviour
 
         //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE AHMED AND RAYANE !!!!!!!!!!!
 
-        Debug.Log("GridCellClicked");
+        Debug.Log("GridCell Clicked");
+
         if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE)
         {
+            Debug.Log("cell clicked on move state");
+
             // lazem had l'orodre f les appeles sinon r7 tne7i lis ta3 walkable grid cells
-            ManageInteractableObjects.Instance.ResetGridCellsBackToTheirOriginalLayerAfterMoveState(UnitController.Instance.selectedUnit);
+
+            ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(UnitController.Instance.selectedUnit.walkableGridCells);
             MovementSystem.Instance.Movement(UnitController.Instance.selectedUnit, row, column);
 
-            CancelScript.Instance.Cancel();
+            CancelScript.Instance.OnCancelButtonClicked();
         }
+
+        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.DROP)
+        {
+            Debug.Log("cell clicked on drop state");
+
+            // lazem had l'orodre f les appeles sinon r7 tne7i lis ta3 walkable grid cells
+
+            UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;
+            unitTransport.Drop(this);
+            ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitTransport.dropableCells);
+
+            CancelScript.Instance.OnCancelButtonClicked();
+        }
+
+
+
 
 
     }
@@ -52,13 +72,18 @@ public class GridCell : MonoBehaviour
 
     // Method to highlight the GridCell when the mouse hovers over it
     //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
-    public void Highlight()
+    public void HighlightAsWalkable()
     {
         // Change the color of the GridCell to the highlighted color and the properties of the GridCell
         // rend.color = highlightedColor;
         rend.color = Color.green;
         // isHighlighted = true;
         isWalkable = true;
+    }
+
+    public void HighlightAsDropable()
+    {
+        rend.color = Color.blue;
     }
 
     // Method to reset the GridCell to its original state 
@@ -70,15 +95,15 @@ public class GridCell : MonoBehaviour
         // isHighlighted = false;
     }
 
-    public void MakeGridCellInteractableWhileInMoveState()
+    public void MakeCellInteractable()
     {
         Transform transform = GetComponent<Transform>();
         Vector3 newPosition = transform.position;
-        newPosition.z = -3;
+        newPosition.z = -15;
         transform.position = newPosition;
     }
 
-    public void ResetGridCellBackToTheirOriginalLayerAfterMoveState()
+    public void ResetCellBackToTheirOriginalLayer()
     {
         Transform transform = GetComponent<Transform>();
         Vector3 newPosition = transform.position;

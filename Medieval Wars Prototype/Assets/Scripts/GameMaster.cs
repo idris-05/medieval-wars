@@ -28,6 +28,7 @@ public class GameMaster : MonoBehaviour
     public Unit selectedUnit;   // pour le movement , pour l'instant 
     public Terrain TerrainGrassPrefab;
     public int playerTurn = 1;
+    
     public Unit SelectedUnitFromAttacker; // hadi lazem tetna7a 
 
 
@@ -39,18 +40,18 @@ public class GameMaster : MonoBehaviour
         // Subscribe to the event in AttackButton and define the attack logic
         // listeners are methods that will be called when the event is triggered
         // attackButton.onAttackButtonClickEvent.AddListener(OnAttackButtonClick);
-        movementSystem = FindObjectOfType<MovementSystem>();
+        // movementSystem = FindObjectOfType<MovementSystem>();
 
         // // handleUIButton = FindObjectOfType<HandleUIButton>();
         // handelPlayerInput = FindObjectOfType<HandelPlayerInput>();
-        getWalkableTiles = FindObjectOfType<GetWalkableTiles>();
+        // getWalkableTiles = FindObjectOfType<GetWalkableTiles>();
         // attackSystem = FindObjectOfType<AttackSystem>();
 
         mapGrid.CalculateMapGridSize();
         mapGrid.InitialiseMapGridCells();
 
         SpawnUnit(1, 5, 5, Infantry1Prefab); // test 
-        // SpawnUnit(2, 8, 8, Infantry2Prefab);
+        SpawnUnit(2, 8, 8, Infantry2Prefab);
     }
 
 
@@ -129,8 +130,10 @@ public class GameMaster : MonoBehaviour
         SwitchPlayeTurn();
 
         // ga3 les methods hadi t3 reset lazem n3awdo nchofhom mli7  psq 5tra 3la 5tra tssra 3fssa malazemch ! (manich sure)
-        ResetGridCells();  // reset the grid cells to their original state (white color) and isWalkable = false for all cells
+        // ResetGridCells();  // reset the grid cells to their original state (white color) and isWalkable = false for all cells
         ResetUnitsAttributsInEndTurn(); //!!!!!!!!!!!!!!1
+
+        CancelScript.Instance.OnCancelButtonClicked(); 
 
     }
 

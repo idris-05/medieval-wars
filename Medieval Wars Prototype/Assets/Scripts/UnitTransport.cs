@@ -21,10 +21,12 @@ public class UnitTransport : Unit
     }
 
     // Method to drop a unit onto a grid cell
-    public void Drop(GridCell gridCell, Unit unit)
+    public void Drop(GridCell gridCell)
     {
-        loadedUnit = null;
         //!!!!! remove the hide from the unit .
+        // ... logic to drop the unit into the grid cell
+        loadedUnit = null;
+
     }
 
     // Method to supply a unit with something
@@ -54,5 +56,19 @@ public class UnitTransport : Unit
         loadedUnit = unitToLoad;
     }
 
+    public void GetdropableCells()
+    {
+        // logic to get the dropable cells
+        // virify cells in the 4 directions for the dactual position of the transporter unit
+    }
+
+    public void HighlightDropableCells()
+    {
+        foreach (GridCell cell in dropableCells)
+        {
+            cell.HighlightAsDropable();
+        }
+        // highlight the dropable cells
+    }
 
 }

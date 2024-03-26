@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ManageInteractableObjects : MonoBehaviour
 {
-
     private static ManageInteractableObjects instance;
     public static ManageInteractableObjects Instance
     {
@@ -27,6 +26,18 @@ public class ManageInteractableObjects : MonoBehaviour
         }
     }
 
+    // BLOCK INTERACTABLES LAYER         inactive  default
+    // UNITS  CELLS TERRAIN BIULDINGS       0      default
+
+    // BLOCK INTERACTABLES LAYER           -10     interactable
+    // UNITS CELLS BIULDINGS               -15     interactable
+
+    // BUTTONS                             -15     interactable
+    // BUTTONS                           inactive  default
+
+
+    // MAIN CAMERA                         -50     FIX 
+
 
     public GameObject BlockInteractablesLayer;
 
@@ -40,20 +51,39 @@ public class ManageInteractableObjects : MonoBehaviour
         BlockInteractablesLayer.SetActive(false);
     }
 
-    public void MakeGridCellsInteractableWhileInMoveState(Unit unitInMoveState)
+    public void MakeOnlySpecificCellsInteractable(List<GridCell> cellsToMakeInteractable)
     {
-        foreach (GridCell gridcell in unitInMoveState.walkableGridCells)
+        foreach (GridCell gridcell in cellsToMakeInteractable)
         {
-            gridcell.MakeGridCellInteractableWhileInMoveState();
+            gridcell.MakeCellInteractable();
         }
     }
 
-    public void ResetGridCellsBackToTheirOriginalLayerAfterMoveState(Unit unitInMoveState)
+    public void ResetSpecificCellsBackToTheirOriginalLayer(List<GridCell> cellsToResetToOriginalLayer)
     {
-        foreach (GridCell gridcell in unitInMoveState.walkableGridCells)
+        foreach (GridCell gridcell in cellsToResetToOriginalLayer)
         {
-            gridcell.ResetGridCellBackToTheirOriginalLayerAfterMoveState();
+            gridcell.ResetCellBackToTheirOriginalLayer();
         }
     }
+
+
+    public void MakeOnlySpecificUnitsInteractable(List<Unit> unitsToMakeInteractable)
+    {
+        foreach (Unit unit in unitsToMakeInteractable)
+        {
+            unit.unitView.MakeUnitInteractable();
+        }
+    }
+
+    public void ResetSpecificUnitsBackToTheirOriginalLayer(List<Unit> unitsToResetToOriginalLayer)
+    {
+        foreach (Unit unit in unitsToResetToOriginalLayer)
+        {
+            unit.unitView.ResetUnitBackToTheirOriginalLayer();
+        }
+    }
+
+
 
 }
