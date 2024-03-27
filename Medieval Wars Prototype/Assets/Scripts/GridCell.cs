@@ -36,25 +36,24 @@ public class GridCell : MonoBehaviour
         {
             Debug.Log("cell clicked on move state");
 
-            // lazem had l'orodre f les appeles sinon r7 tne7i lis ta3 walkable grid cells
+            // lazem had l'ordre f les appels sinon r7 tne7i liste ta3 walkable grid cells
 
             ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(UnitController.Instance.selectedUnit.walkableGridCells);
             MovementSystem.Instance.Movement(UnitController.Instance.selectedUnit, row, column);
 
-            CancelScript.Instance.OnCancelButtonClicked();
+            CancelScript.Instance.Cancel();
         }
 
         if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.DROP)
         {
             Debug.Log("cell clicked on drop state");
 
-            // lazem had l'orodre f les appeles sinon r7 tne7i lis ta3 walkable grid cells
 
             UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;
             unitTransport.Drop(this);
             ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitTransport.dropableCells);
 
-            CancelScript.Instance.OnCancelButtonClicked();
+            CancelScript.Instance.Cancel();
         }
 
 
@@ -69,10 +68,7 @@ public class GridCell : MonoBehaviour
     //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
     public void HighlightAsWalkable()
     {
-        // Change the color of the GridCell to the highlighted color and the properties of the GridCell
-        // rend.color = highlightedColor;
         rend.color = Color.green;
-        // isHighlighted = true;
         isWalkable = true;
     }
 
@@ -108,7 +104,7 @@ public class GridCell : MonoBehaviour
     {
         Transform transform = GetComponent<Transform>();
         Vector3 newPosition = transform.position;
-        newPosition.z = -15;
+        newPosition.z = -3;
         transform.position = newPosition;
     }
 

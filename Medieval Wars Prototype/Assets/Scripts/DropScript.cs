@@ -7,7 +7,7 @@ public class DropScript : MonoBehaviour
     {
         UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;
 
-        ButtonsUI.Instance.UpdateButtonsDisplayWhenAButtonClicked(ActionsHandler.Instance.actionButtons[3]);
+        ButtonsUI.Instance.UpdateActionButtonsToDisplayWhenAButtonIsClicked(ActionsHandler.Instance.actionButtons[3]);
 
         unitTransport.GetdropableCells();
 

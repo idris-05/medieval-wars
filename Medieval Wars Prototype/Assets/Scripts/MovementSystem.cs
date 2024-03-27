@@ -45,7 +45,7 @@ public class MovementSystem : MonoBehaviour
             UnitAttack unitThatWillGetLoaded;
             unitThatWillGetLoaded = (UnitAttack)unit;
 
-            unitThatWillGetLoaded.PrepareUnitToGetLoadedInTransporter();
+            unitThatWillGetLoaded.PrepareUnitToGetLoadedInTransporter(); // it needs to be loaded also
             unit.unitView.AnimateMovement(row, col);
             unit.ResetWalkableGridCells();
 
@@ -55,15 +55,18 @@ public class MovementSystem : MonoBehaviour
 
         // case where u just move to a gridcell
 
+        //! i found a problem here , after moving the unit that just moved has a z of 0 , this is due to being moved with a Vector2
+        //! therefore i'll Make A method named ResetUnitPositionInLayersAfterMovement to reset it back to it's original position in layer
+        //! please don't change my method names , they are as explicit as possible
+
         unit.UpdateAttributsAfterMoving(row, col);
         unit.unitView.AnimateMovement(row, col);
         unit.ResetWalkableGridCells();
 
-
     }
 
 
-    public void GetWalkableTilesMethod(Unit unit)
+    public void GetWalkableTiles(Unit unit)
     {
         unit.walkableGridCells.Clear();
 

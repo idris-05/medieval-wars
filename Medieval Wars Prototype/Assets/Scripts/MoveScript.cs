@@ -20,9 +20,9 @@ public class MoveScript : MonoBehaviour
     {
         Debug.Log("Move button pressed");
 
-        ButtonsUI.Instance.UpdateButtonsDisplayWhenAButtonClicked(moveButton);
+        ButtonsUI.Instance.UpdateActionButtonsToDisplayWhenAButtonIsClicked(moveButton);
 
-        movementSystem.GetWalkableTilesMethod(UnitController.Instance.selectedUnit);
+        movementSystem.GetWalkableTiles(UnitController.Instance.selectedUnit);
 
         UnitController.Instance.selectedUnit.unitView.HighlightWalkablesCells();
 
@@ -30,7 +30,7 @@ public class MoveScript : MonoBehaviour
 
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.MOVE;
 
-        // wait clicking one cell .
+        // wait for they player to click on a walkable cell.
 
     }
 

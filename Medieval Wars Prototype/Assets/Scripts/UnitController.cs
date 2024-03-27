@@ -100,14 +100,18 @@ public class UnitController : MonoBehaviour
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK:
 
-                UnitAttack unitAttack = selectedUnit as UnitAttack;
+                UnitAttack attackingUnit = selectedUnit as UnitAttack;
                 // it throws an exception if the unit is not a UnitAttack , maybe we should handle this . 
 
-                ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(unitAttack.enemiesInRange);
+                ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(attackingUnit.enemiesInRange);
 
-                AttackSystem.Attack(unitAttack, unitThatGotClickedOn);
-
-                CancelScript.Instance.OnCancelButtonClicked();
+                AttackSystem.Attack(attackingUnit, unitThatGotClickedOn);
+                
+                //! COUNTERATTACK NEEDS TO BE ADDED HERE IN CASE THE ENEMY CAN ACTUALLY COUNTERATTACK
+                //! I DON'T REALLY KNOW HOW WE CAN HANDLE THIS I REMEMBER ADEM TALKING ABOUT IT
+                //! JUST ASK HIM ABOUT THAT , I THINK HE TALKED ABOUT A MATRIX IN WHICH THE COUNTERATTACK RELATIONS ARE STORED
+              
+                CancelScript.Instance.Cancel();
 
                 break;
 

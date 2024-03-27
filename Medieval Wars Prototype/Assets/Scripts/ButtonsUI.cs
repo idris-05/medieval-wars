@@ -5,6 +5,14 @@ using UnityEngine.UI;
 public class ButtonsUI : MonoBehaviour
 {
 
+    //! BON HNA F UI T3 LES BOUTTONS 
+    //! BANETLI 3FSSA BACH NGERI KIFACH THEY GET DISPLAYED IN THE SCENE
+    //! NESTORI ARRAY T3 LES POSITIONS position fel y t3houm differente
+    //! lazem tkoun differente b 25 unites ( verifyit f la scene beli hadi hiya la valeur parfaite t9der tchouf ida rak 7ab )
+    //! mb3d nespawnihoum b l order f la methode displayButtons()
+    //! besah probleme c que kbar bzf w y9drou yghetou des elemtns mel map sema lazem nel9aw tari9a w7do5ra mb3d n5emoulha had l3fssa 
+    //! ma 7abitch nebda fiha 7ata n5emou exact f positions where they get displayed bach ma y5srouch player experience
+
     private static ButtonsUI instance;
     public static ButtonsUI Instance
     {
@@ -52,12 +60,11 @@ public class ButtonsUI : MonoBehaviour
 
 
     // omb3d nsggem asm ta3ha ...  7ta nchofo les cas lo5rin .
-    public void UpdateButtonsDisplayWhenAButtonClicked(Button buttonClicked)
+    public void UpdateActionButtonsToDisplayWhenAButtonIsClicked(Button buttonClicked)
     {
         HideButtons();
         buttonsToDisplay.Clear();
         
-        // ida makanatch hya cancel t3awed trje3 cancel ..... mazal capable nzido f had la logique
         Button cancelButton = ActionsHandler.Instance.actionButtons[5];
 
         if (buttonClicked != cancelButton)

@@ -62,7 +62,7 @@ public class GameMaster : MonoBehaviour
     private void SpawnUnit(int playerNumber, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
-        Unit unit = Instantiate(unitPrefab, new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
+        Unit unit = Instantiate(unitPrefab, new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, -1), Quaternion.identity);
 
         // adjust the size of the unit sprite to fit the grid cell size , this function is defined in GameUtil.cs    
         unit.gameObject.AdjustSpriteSize();
@@ -101,7 +101,7 @@ public class GameMaster : MonoBehaviour
         ResetAllCellsAttributsInEndTurn();
         ResetAllUnitsAttributsInEndTurn();
 
-        CancelScript.Instance.OnCancelButtonClicked();  // hadi omb3d nchofo m3aha
+        CancelScript.Instance.Cancel();  // hadi omb3d nchofo m3aha
 
     }
 

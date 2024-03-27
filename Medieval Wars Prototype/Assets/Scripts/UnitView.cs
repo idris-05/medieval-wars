@@ -8,6 +8,8 @@ public class UnitView : MonoBehaviour
     // ida llah ghaleb makach solution , hadi tkon priavte , wlo5ra public normal .
     private Unit unit;
 
+    private Transform unitTransform; // I needed this to fix a problem where the z coordinate was set back to 0 after movement
+
     public MapGrid mapGrid;
 
     public SpriteRenderer spriteRenderer;
@@ -22,6 +24,7 @@ public class UnitView : MonoBehaviour
     {
         mapGrid = FindObjectOfType<MapGrid>();  // ttna7a
         unit = GetComponent<Unit>();
+        unitTransform = GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -79,12 +82,15 @@ public class UnitView : MonoBehaviour
     }
 
 
-
+    //! I CHANGED ANIMATE MOVEMENT AND STARTMOVEMENT
+    //! SO THAT WHEN THE PLAYER MOVES HE MOVES IN 3D INSTEAD OF IN 2D
+    //! BECAUSE IF YOU MOVE IN 2D THE Z COORDINATE WILL BE RESET TO 0 WHICH TOTALLY RUINS THE LAYER ORDER WE DEFINED IN OUR SCENE
+    //! THEREFOR I USED VECTOR3 INSTEAD OF VECTOR2
 
 
     public void AnimateMovement(int row, int column)
     {
-        Vector2 position = new Vector2(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f);
+        Vector3 position = new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f,unitTransform.position.z);
         StartCoroutine(StartMovement(position));
     }
 
@@ -95,13 +101,13 @@ public class UnitView : MonoBehaviour
 
         while (transform.position.x != position.x)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(position.x, transform.position.y), moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(position.x, transform.position.y, unitTransform.position.z), moveSpeed * Time.deltaTime);
             yield return null;
         }
 
         while (transform.position.y != position.y)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, position.y), moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, position.y, unitTransform.position.z), moveSpeed * Time.deltaTime);
             yield return null;
         }
     }
@@ -153,7 +159,7 @@ public class UnitView : MonoBehaviour
     {
         Transform transform = GetComponent<Transform>();
         Vector3 newPosition = transform.position;
-        newPosition.z = -15;
+        newPosition.z = -3;
         transform.position = newPosition;
 
     }

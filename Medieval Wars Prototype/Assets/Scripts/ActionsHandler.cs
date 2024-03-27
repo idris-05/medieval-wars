@@ -45,7 +45,10 @@ public class ActionsHandler : MonoBehaviour
     public void FillButtonsToDisplay(Unit unitThatGotClickedOn)
     {
         if (unitThatGotClickedOn.playerNumber != GameMaster.Instance.playerTurn) return;
+
+
         // MOVE BUTTON ?
+        //! WE DID THIS ONE TOGETHER THEREFORE I WILL NOT EVEN THINK ABOUT IT
         if (unitThatGotClickedOn.hasMoved == false /* and there are tiles you can walk on */ )
         {
             ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[0]);
@@ -54,6 +57,7 @@ public class ActionsHandler : MonoBehaviour
 
 
         // ATTACK BUTTON ?
+        //! I REVIEWED THIS AND I THINK IT'S CORRECT
         if (unitThatGotClickedOn.playerNumber == GameMaster.Instance.playerTurn)
         {
             // Debug.Log("unitThatGotClickedOn.playerNumber == gm.playerTurn");
@@ -68,7 +72,9 @@ public class ActionsHandler : MonoBehaviour
                     if (unitAttack.enemiesInRange.Any() == true)
                     {
                         ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[1]);
-                        unitAttack.enemiesInRange.Clear();  // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha
+                        unitAttack.enemiesInRange.Clear();
+                        // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha 
+                        //! OUI 3ndk l7a9 , 5tak men optimisation , sah g3 f organisation
                     }
                 }
             }
@@ -76,6 +82,7 @@ public class ActionsHandler : MonoBehaviour
 
 
         // DROP BUTTON ?
+        //! I DONT THINK I WILL BE AT DROP LOGIC , I'LL JUST LEAVE IT TO LATER ( IT'S NOT A BIG DEAL )
         if (unitThatGotClickedOn.playerNumber == GameMaster.Instance.playerTurn)
         {
             if (unitThatGotClickedOn is UnitTransport unitTransport)
