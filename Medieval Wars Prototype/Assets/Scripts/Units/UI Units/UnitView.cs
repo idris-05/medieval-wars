@@ -142,7 +142,7 @@ public class UnitView : MonoBehaviour
 
     public void HighlightAsSuppliable()
     {
-        return;
+        spriteRenderer.color = Color.yellow;
     }
 
     //!!!!!!!!!!

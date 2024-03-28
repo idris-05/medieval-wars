@@ -113,6 +113,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void RecievRationSupply(float rationSupply)
     {
+        // Tl3ha lel MAX direct .
         ration += rationSupply;
         if (ration > UnitUtil.maxRations[unitIndex]) ration = UnitUtil.maxRations[unitIndex];
     }
@@ -154,6 +155,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         // reset 3fayes t3 unit Transport
         if (this is UnitTransport unitTransport)
         {
+            unitTransport.hasSupplied = false;
             unitTransport.suppliableUnits.Clear();
             unitTransport.dropableCells.Clear();
         }

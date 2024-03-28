@@ -11,7 +11,7 @@ public class UnitTransport : Unit
     public List<GridCell> dropableCells = new List<GridCell>();  // cells where the transporter can drop the loaded unit .
     public List<Unit> suppliableUnits = new List<Unit>();  // unit that can get supplyRation from the transporter .
 
-
+    public bool hasSupplied;
     public float AvailableRationToShare; //!!! ch7al rahi rafda ration , bach tmed ll units lo5rin 
 
     // lazemna valuere max t3 AvailableRationToShare
@@ -46,9 +46,9 @@ public class UnitTransport : Unit
     // Method to supply a unit with something
     public void Supply(Unit unitToSupply, float supplyAmount)
     {
-        //!!!! supplier 3lach ??? kanet parametre doka n7itha .
+        hasSupplied = true;
         // transporter howa selected unit fl Unitcontroller , omb3d UnitToSupply hya li tselectionniha omb3d (mor l7kaya t3 layer wg3) 
-        AvailableRationToShare -= supplyAmount;
+        // AvailableRationToShare -= supplyAmount;   // hada malakalh ,ahmed 9ali 3ndha ilimite , wki f supply , tl3ha lel max .
         unitToSupply.RecievRationSupply(supplyAmount);
     }
 
@@ -70,7 +70,7 @@ public class UnitTransport : Unit
 
         foreach (GridCell cell in dropableCellsCondidates)
         {
-            //!!!!!!! there is more than only this condition to check .
+            //!!!!!! lazem hadik unit li 7ab tdropiha t9der t3mchi 3la terrain li ayken f cell hadik .
             if (cell.occupantUnit == null)
             {
                 this.dropableCells.Add(cell);
@@ -84,6 +84,16 @@ public class UnitTransport : Unit
     {
         // Implement logic to retrieve suppliable units here
         // search in the foor direction for unit can be supplied
+        foreach (Unit unit in FindObjectsOfType<Unit>())
+        {
+            if (unit.playerNumber == this.playerNumber && unit != this)
+            {
+                if (unit is UnitAttack)
+                {
+                    suppliableUnits.Add(unit);
+                }
+            }
+        }
     }
 
 

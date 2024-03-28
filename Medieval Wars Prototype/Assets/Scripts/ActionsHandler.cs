@@ -98,7 +98,7 @@ public class ActionsHandler : MonoBehaviour
         }
 
         // SUPPLY BUTTON
-        if ( unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn_ && transportUnitThatGotClickedOn_.ration > 0 )
+        if ( unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn_ && transportUnitThatGotClickedOn_.hasSupplied == false )
         {
             transportUnitThatGotClickedOn_.GetSuppliableUnits();
             if (transportUnitThatGotClickedOn_.suppliableUnits.Any() == true)
@@ -107,6 +107,9 @@ public class ActionsHandler : MonoBehaviour
                 transportUnitThatGotClickedOn_.suppliableUnits.Clear();  // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha
             }
         }
+
+
+
 
         // cancel button (always)
         ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[5]);

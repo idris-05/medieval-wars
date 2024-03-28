@@ -15,7 +15,6 @@ public class SupplyScript : MonoBehaviour
         UnitTransport supplyingUnit = UnitController.Instance.selectedUnit as UnitTransport;
 
         supplyingUnit.GetSuppliableUnits();
-
         supplyingUnit.HighlightSuppliableUnits();
 
         ManageInteractableObjects.Instance.MakeOnlySpecificUnitsInteractable(supplyingUnit.suppliableUnits);
