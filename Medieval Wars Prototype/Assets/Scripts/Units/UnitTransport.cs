@@ -4,6 +4,9 @@ using UnityEngine;
 public class UnitTransport : Unit
 {
 
+    // ki t'attaquer Trasporter , tdreb ghir trasnporter , li lda5el mat9issoch , ida mat transporter ymot li m3ah tani (loaded unit)
+    // ki tdropi unit , t7etha fi numbState .
+
     public Unit loadedUnit;
     public List<GridCell> dropableCells = new List<GridCell>();  // cells where the transporter can drop the loaded unit .
     public List<Unit> suppliableUnits = new List<Unit>();  // unit that can get supplyRation from the transporter .
@@ -33,9 +36,9 @@ public class UnitTransport : Unit
         this.loadedUnit.col = cell.column;
 
         // set the new position of the unit .
-        this.loadedUnit.unitView.SetUnitPosition(cell.row , cell.column);
+        this.loadedUnit.unitView.SetUnitPosition(cell.row, cell.column);
         this.loadedUnit.unitView.ShowUnitAfterDrop();
-        
+
         loadedUnit = null;
 
     }

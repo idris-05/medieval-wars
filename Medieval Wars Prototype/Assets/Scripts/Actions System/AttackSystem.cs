@@ -128,8 +128,19 @@ public class AttackSystem : MonoBehaviour
     */
 
 
+    // ** defence star 
 
 
+    public static int[] defenceStar = { 0, 0, 0, 0, 0, 1, 1, 2, 3, 3, 3, 3, 4, 4 };
+
+    
+    
+    
+    
+    
+    
+    
+    
     // EXPLICATION ASSEZ DETAILLEE DE LA DAMAGE FORMULA
 
     /*
@@ -172,7 +183,7 @@ public class AttackSystem : MonoBehaviour
 
 
         // int TerrainStars = DefendingUnit.occupiedCell.terrain.terrainStars;    //!!!! DefendingUnit.occupiedCell  there is a problem here the occupied Cell doesn't change when the unit moves virifier est ce rahi ttbdel !
-        int TerrainStars = 1; // for now , tests //!!!!!!!!!!!!!1
+        int TerrainStars = defenceStar[DefendingUnit.unitIndex];
 
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
@@ -209,7 +220,7 @@ public class AttackSystem : MonoBehaviour
         DefendingUnit.RecieveDamage(inflictedDamage);
         AttackingUnit.UpdateAttributsAfterAttack();
         AttackingUnit.TransitionToNumbState();
-        
+
         if (DefendingUnit.healthPoints <= 0) DefendingUnit.Kill();
 
 
@@ -244,7 +255,7 @@ public class AttackSystem : MonoBehaviour
             for (int col = -AttackRange; col <= AttackRange; col++)
             {
 
-                
+
                 int nextRow = currentPos.x + row;
                 int nextCol = currentPos.y + col;
 

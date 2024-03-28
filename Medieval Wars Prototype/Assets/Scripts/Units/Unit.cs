@@ -28,7 +28,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public float ration;
     public float rationPerDay;
     public int lineOfSight;
-    public int moveCost;
+    
+    // public int moveCost;
 
 
     public bool hasMoved;
@@ -84,8 +85,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     }
 
-
-
     public void RecieveDamage(int inflictedDamage)
     {
         this.healthPoints -= inflictedDamage;
@@ -132,8 +131,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         // hasMoved = true; //  normalement tt7ana
         unitView.spriteRenderer.color = Color.gray; // ttsegem .
     }
-
-
 
 
 

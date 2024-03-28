@@ -89,8 +89,11 @@ public class UnitAttack : Unit
     }
 
 
+    public void CaptureBuilding(Building building)
+    {
+        return ;
+    }
 
 
 }
-
 

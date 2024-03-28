@@ -33,6 +33,19 @@ public class UnitUtil : MonoBehaviour
         CHALVARY,
     }
 
+
+
+    public enum EMoveType
+    {
+        FOOT,
+        TIRES,
+        HORSE,
+        SHIPS,
+        T_SHIP   ///!!!!!!!!
+    }
+    
+    
     public static float[] maxRations = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
+
 
 }
