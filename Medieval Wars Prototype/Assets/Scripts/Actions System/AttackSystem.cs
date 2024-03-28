@@ -131,7 +131,8 @@ public class AttackSystem : MonoBehaviour
     // ** defence star 
 
 
-    public static int[] defenceStar = { 0, 0, 0, 0, 0, 1, 1, 2, 3, 3, 3, 3, 4, 4 };
+
+
 
     
     
@@ -182,8 +183,8 @@ public class AttackSystem : MonoBehaviour
         // Debug.Log("AttackValue : " + AttackValue);
 
 
-        // int TerrainStars = DefendingUnit.occupiedCell.terrain.terrainStars;    //!!!! DefendingUnit.occupiedCell  there is a problem here the occupied Cell doesn't change when the unit moves virifier est ce rahi ttbdel !
-        int TerrainStars = defenceStar[DefendingUnit.unitIndex];
+        // Find Terrain Stars
+        int TerrainStars = TerrainsUtils.defenceStars[DefendingUnit.occupiedCell.occupantTerrain.TerrainIndex];
 
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )

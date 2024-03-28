@@ -37,6 +37,12 @@ public class CancelScript : MonoBehaviour
     //! CancelAfterMovement()
     //! CancelAfterAttack()
 
+    //! process we will follow to fix this
+
+    //! n5emou f g3 les cas win y9der yesra cancel ( bera l code )
+    //! chaque cas ne5dmoulou methode t3ou speciale ndirou fiha bijection t3 wsh rah sari bach terja3 l state de base t3 1v1
+    //! ndirou big switch ( les conditions nkounou 5ememnalhoum deja f 1ere etape)
+
 
     // ok meme ana hada wch kan f rassi
 

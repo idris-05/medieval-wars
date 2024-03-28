@@ -47,8 +47,7 @@ public class ActionsHandler : MonoBehaviour
         if (unitThatGotClickedOn.playerNumber != GameController.Instance.playerTurn) return;
 
 
-        // MOVE BUTTON ?
-        //! WE DID THIS ONE TOGETHER THEREFORE I WILL NOT EVEN THINK ABOUT IT
+        // MOVE BUTTON 
         if (unitThatGotClickedOn.hasMoved == false /* and there are tiles you can walk on */ )
         {
             ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[0]);
@@ -56,8 +55,7 @@ public class ActionsHandler : MonoBehaviour
 
 
 
-        // ATTACK BUTTON ?
-        //! I REVIEWED THIS AND I THINK IT'S CORRECT
+        // ATTACK BUTTON 
         if (unitThatGotClickedOn.playerNumber == GameController.Instance.playerTurn)
         {
             // Debug.Log("unitThatGotClickedOn.playerNumber == gm.playerTurn");
@@ -81,27 +79,34 @@ public class ActionsHandler : MonoBehaviour
         }
 
 
-        // DROP BUTTON ?
-        //! I DONT THINK I WILL BE AT DROP LOGIC , I'LL JUST LEAVE IT TO LATER ( IT'S NOT A BIG DEAL )
+        // DROP BUTTON 
         if (unitThatGotClickedOn.playerNumber == GameController.Instance.playerTurn)
         {
-            if (unitThatGotClickedOn is UnitTransport unitTransport)
+            if (unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn)
             {
-                if (unitTransport.loadedUnit != null)
+                if (transportUnitThatGotClickedOn.loadedUnit != null)
                 {
-                    unitTransport.GetdropableCells();
+                    transportUnitThatGotClickedOn.GetdropableCells();
                     // zid virefier beli Vulnerability > 0 // sla7 ( rssas) ta3ek mazal m5lasch .
-                    if (unitTransport.dropableCells.Any() == true)
+                    if (transportUnitThatGotClickedOn.dropableCells.Any() == true)
                     {
                         ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[3]);
-                        unitTransport.dropableCells.Clear();  // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha
+                        transportUnitThatGotClickedOn.dropableCells.Clear();  // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha
                     }
                 }
             }
         }
 
-
-
+        // SUPPLY BUTTON
+        if ( unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn_ && transportUnitThatGotClickedOn_.ration > 0 )
+        {
+            transportUnitThatGotClickedOn_.GetSuppliableUnits();
+            if (transportUnitThatGotClickedOn_.suppliableUnits.Any() == true)
+            {
+                ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[4]);
+                transportUnitThatGotClickedOn_.suppliableUnits.Clear();  // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha
+            }
+        }
 
         // cancel button (always)
         ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[5]);

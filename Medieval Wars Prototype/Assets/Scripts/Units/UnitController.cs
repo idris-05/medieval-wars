@@ -76,6 +76,7 @@ public class UnitController : MonoBehaviour
 
     // !!! lazem script hada yt7et 3end kch gameobject fla scene , bch yt7sseb enable w ttexecuta start w awake , sinon lazem 7ta tdir l'appele lkch fonction ta3o bch yweli  enable : true.
 
+    //! MAYBE MA YENDAROUCH LES BIJECTIONS LAHNA YENDAROU F DES SCRIPTS WA7DO5RIN
 
     public void OnUnitSelection(Unit unitThatGotClickedOn)
     {
@@ -124,12 +125,16 @@ public class UnitController : MonoBehaviour
             //     break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.DROP:
+
                 break;
 
             // case UnitUtil.ActionToDoWhenButtonIsClicked.LOAD:   // hadi 9olna nforciwha tessra direct .
             //     break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.SUPPLY:
+                (selectedUnit as UnitTransport).Supply(unitThatGotClickedOn,10); //! LAZEM NWELIW NMODIFYIW 10 HADI
+
+
                 break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.CAPTURE:

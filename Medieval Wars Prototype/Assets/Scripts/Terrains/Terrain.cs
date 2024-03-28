@@ -3,7 +3,7 @@ using UnityEngine;
 public class Terrain : MonoBehaviour/* , OrdreEnum */
 {
 
-    public TerrainsUtils.ETerrainName terrainName;
+    public TerrainsUtils.TerrainName terrainName;
 
     public SpriteRenderer spriteRenderer;
 

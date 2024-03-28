@@ -4,7 +4,7 @@ public static class TerrainsUtils
 {
 
 
-    public enum ETerrainName
+    public enum TerrainName
     {
         BARRACK,
         DOCK,
@@ -69,6 +69,9 @@ public static class TerrainsUtils
 };
 
 
+    // Each Terrain has it's defense stars that will be used in the damage formula
+
+    public static int[] defenceStars = { 3, 3, 3, 4, 3, 0, 0, 0, 0, 0, 1, 1, 2, 4 };
 
     // TerrainIndex | Terrain
     // ------------------
@@ -91,22 +94,7 @@ public static class TerrainsUtils
 
 
 
-    public static string[] reportTerrain = {
-        "BARRACK : is a building where soldiers are housed and trained.",
-        "DOCK : is a place where ships are built or repaired.",
-        "STABLE : is a building in which horses are kept and looked after.",
-        "CASTLE : is a large building, typically of the medieval period, fortified against attack with thick walls, battlements, towers, and in many cases a moat.",
-        "VILLAGE : is a group of houses and associated buildings, larger than a hamlet and smaller than a town, situated in a rural area.",
-        "ROAD : is a wide way leading from one place to another, especially one with a specially prepared surface that vehicles can use.",
-        "BRIDGE : is a structure carrying a road, path, railway, etc. across a river, road, or other obstacle.",
-        "RIVER  : is a large natural stream of water flowing in a channel to the sea, a lake, or another such stream.",
-        "SEA : is the expanse of salt water that covers most of the earth's surface and surrounds its landmasses.",
-        "SHOAL : is a sandbank or sandbar that makes the water shallow.",
-        "REEF : is a ridge of jagged rock, coral, or sand just above or below the surface of the sea.",
-        "PLAIN : is a large area of flat land with few trees.",
-        "WOOD : is the hard fibrous material that forms the main substance of the trunk or branches of a tree or shrub.",
-        "MOUNTAIN : is a large natural elevation of the earth's surface rising abruptly from the surrounding level; a large steep hill.",
-    };
+    public static string[] reportTerrain;
 
 
 
