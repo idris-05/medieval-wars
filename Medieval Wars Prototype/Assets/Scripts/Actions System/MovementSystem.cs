@@ -28,6 +28,10 @@ public class MovementSystem : MonoBehaviour
     // mapgrid hadi ttna7a
     public MapGrid mapGrid;  // lokan hadi tkon , lazem la class mtkonch static , llazem ya hadi ya hadi 
 
+
+
+    //! hna r7 tkon l7akaya lMoveCost ... 
+
     void Start()
     {
         mapGrid = FindObjectOfType<MapGrid>();
@@ -37,17 +41,23 @@ public class MovementSystem : MonoBehaviour
     public void Movement(Unit unit, int row, int col)
     {
 
+
         if (mapGrid.grid[row, col].occupantUnit is UnitTransport) // If I try to move to a cell where there is a tronsporter
         {
 
             // We are Sure here that the transporter is empty because it gets verified in GetWalkableTiles
             // this is just to be able to call PrepareUnitToGetLoaded
-            UnitAttack unitThatWillGetLoaded;
-            unitThatWillGetLoaded = (UnitAttack)unit;
 
-            unitThatWillGetLoaded.PrepareUnitToGetLoadedInTransporter(); // it needs to be loaded also
-            unit.unitView.AnimateMovement(row, col);
+            UnitAttack unitThatWillGetLoaded = unit as UnitAttack;
+            UnitTransport unitTransport = mapGrid.grid[row, col].occupantUnit as UnitTransport;
+
             unit.ResetWalkableGridCells();
+
+            unitThatWillGetLoaded.PrepareUnitToGetLoadedInTransporter();
+            unit.unitView.AnimateMovement(row, col);
+            unit.TransitionToNumbState();
+            unitTransport.Load(unit);
+
 
             return;
         }
@@ -59,11 +69,13 @@ public class MovementSystem : MonoBehaviour
         //! therefore i'll Make A method named ResetUnitPositionInLayersAfterMovement to reset it back to it's original position in layer
         //! please don't change my method names , they are as explicit as possible
 
+        //! hna n7ssbo moveCost ( n7ssbo ch7al n9ssolha men ration ki mchat ) wnmdoh parametre lel UpdateAttributsAfterMoving .
         unit.UpdateAttributsAfterMoving(row, col);
         unit.unitView.AnimateMovement(row, col);
         unit.ResetWalkableGridCells();
 
     }
+
 
 
     public void GetWalkableTiles(Unit unit)
@@ -211,6 +223,7 @@ public class MovementSystem : MonoBehaviour
         }
 
     }
+
 
 
 }

@@ -37,6 +37,21 @@ public class CancelScript : MonoBehaviour
     //! CancelAfterMovement()
     //! CancelAfterAttack()
 
+
+    // ok meme ana hada wch kan f rassi
+
+
+    // ________________________________________________________________________________________________________________
+
+    //! CancelWhenMoveButtonIsAlreadyPressed() : hna nchofo wch bdlena kolch ki tclicker 3la move button
+    //! highlghted walkable cells r7 ytresetaw , blockage l layers ytn7a , .. ndiro la fonction inverse t3 wch sra , hadi vrai sahla , 
+    // ! omb3d da5el switch fl Cancel methode, 3la 7ssab current satate hadik , t3yet lw7da men hado les methodes .
+
+    // ________________________________________________________________________________________________________________
+
+
+
+
     public void Cancel()
     {
         if (UnitController.Instance.selectedUnit != null)
@@ -80,6 +95,9 @@ public class CancelScript : MonoBehaviour
     public void OnCancelButtonClicked()
     {
 
+
+        // hna switch kbira 3la 7ssab wchmen states rana kan fiha ki clicka Cancel : n5bto chaque cas bl fonction inverse t3 wch yessra fl cas hadak
+
         //! ADDED THIS JUST FOR NOW , ITS NOT THE FINALITY
         //! FOR NOW WE WILL NOT ALLOW THE PLAYER TO CANCEL DURING THE MOVE STATE BECAUSE IT WOULD MAKE THE CANCEL LOGIC MUCH HARDER
         if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE) { return; }
@@ -121,5 +139,8 @@ public class CancelScript : MonoBehaviour
         ButtonsUI.Instance.HideButtons();
         ButtonsUI.Instance.buttonsToDisplay.Clear();
         ManageInteractableObjects.Instance.DesctivateBlockInteractionsLayer();
+
     }
+
+
 }

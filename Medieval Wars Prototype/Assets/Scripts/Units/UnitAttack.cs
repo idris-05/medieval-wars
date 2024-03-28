@@ -24,7 +24,6 @@ public class UnitAttack : Unit
     public void PrepareUnitToGetLoadedInTransporter()
     {
         occupiedCell.occupantUnit = null;
-        gameObject.SetActive(false); // ,??
     }
 
 
@@ -36,7 +35,7 @@ public class UnitAttack : Unit
         {
             // if it's an [ enemy unit ] and [ enemy unit in range ]
 
-            if (CondidateUnitToGetAttacked.playerNumber != GameMaster.Instance.playerTurn && MathF.Abs(CondidateUnitToGetAttacked.row - row) + MathF.Abs(CondidateUnitToGetAttacked.col - col) <= attackRange) // this condition ain't enough
+            if (CondidateUnitToGetAttacked.playerNumber != GameController.Instance.playerTurn && MathF.Abs(CondidateUnitToGetAttacked.row - row) + MathF.Abs(CondidateUnitToGetAttacked.col - col) <= attackRange) // this condition ain't enough
             {
                 enemiesInRange.Add(CondidateUnitToGetAttacked); // add this attackble enemy to the list of attackble enemies
             }

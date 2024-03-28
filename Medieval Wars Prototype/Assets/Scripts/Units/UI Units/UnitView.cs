@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,8 +9,7 @@ public class UnitView : MonoBehaviour
     // ida llah ghaleb makach solution , hadi tkon priavte , wlo5ra public normal .
     private Unit unit;
 
-    private Transform unitTransform; // I needed this to fix a problem where the z coordinate was set back to 0 after movement
-
+    public Transform unitTransform; // I needed this to fix a problem where the z coordinate was set back to 0 after movement
     public MapGrid mapGrid;
 
     public SpriteRenderer spriteRenderer;
@@ -87,10 +87,15 @@ public class UnitView : MonoBehaviour
     //! BECAUSE IF YOU MOVE IN 2D THE Z COORDINATE WILL BE RESET TO 0 WHICH TOTALLY RUINS THE LAYER ORDER WE DEFINED IN OUR SCENE
     //! THEREFOR I USED VECTOR3 INSTEAD OF VECTOR2
 
+    public void SetUnitPosition(int newRow, int newCol)
+    {
+        Vector3 position = new Vector3(-MapGrid.Horizontal + newCol + 0.5f, MapGrid.Vertical - newRow - 0.5f, unitTransform.position.z);
+        transform.position = position;
+    }
 
     public void AnimateMovement(int row, int column)
     {
-        Vector3 position = new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f,unitTransform.position.z);
+        Vector3 position = new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, unitTransform.position.z);
         StartCoroutine(StartMovement(position));
     }
 
@@ -134,6 +139,7 @@ public class UnitView : MonoBehaviour
         //!!!!!!!!!!!!
     }
 
+
     public void HighlightAsSuppliable()
     {
         return;
@@ -150,10 +156,15 @@ public class UnitView : MonoBehaviour
     // Method to hide the unit when load it to the transporter unit
     public void HideUnitWhenLoaded()
     {
-        return;
+        gameObject.SetActive(false);
         // hide unit when it get loaded on transporter unit .
     }
 
+    public void ShowUnitAfterDrop()
+    {
+        gameObject.SetActive(true);
+        // show unit after it get dropped from the transporter unit .
+    }
 
     public void MakeUnitInteractable()
     {
@@ -183,8 +194,16 @@ public class UnitView : MonoBehaviour
         }
     }
 
-    //!!!!!!1 win rahi reset ta3ha ??? 
+    //!!!!!!1 win rahi reset ta3ha ???  , rahi fl Unit , omb3d nchofo win n7toha .
 
+    public void ResetHighlitedWalkableCells()
+    {
+        foreach (GridCell cell in unit.walkableGridCells)
+        {
+            cell.ResetHighlitedCell();
+        }
+        unit.walkableGridCells.Clear();
+    }
 
 
     public void HighlightAttackableCells()
@@ -196,14 +215,14 @@ public class UnitView : MonoBehaviour
     }
 
 
+    //!!! hado t3 reset t3 3fssa list tbanli ndirihom fl Unit w5lass, psq realement m3ndhach relation m3a unitView .
     public void ResetHighlitedAttackableCells()
     {
+        if (unit is UnitAttack == false) return;
         foreach (GridCell cell in (unit as UnitAttack).attackableGridCells)
         {
             cell.ResetHighlitedCell();
         }
     }
-
-
 
 }

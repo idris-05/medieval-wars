@@ -74,7 +74,7 @@ public class UnitController : MonoBehaviour
     // normal dependi men UnitUtil , psq howa li 3ndna fih hadok les info wkolch ,
 
 
-    // !!! lazem script hada yt7et 3end kch gameobject fla scene , bch yt7sseb enable w ttexecyta start w awake , sinon lazen 7ta tdir l'appale lkch finction ta3o bch yweli enable
+    // !!! lazem script hada yt7et 3end kch gameobject fla scene , bch yt7sseb enable w ttexecuta start w awake , sinon lazem 7ta tdir l'appele lkch fonction ta3o bch yweli  enable : true.
 
 
     public void OnUnitSelection(Unit unitThatGotClickedOn)
@@ -84,8 +84,8 @@ public class UnitController : MonoBehaviour
             case UnitUtil.ActionToDoWhenButtonIsClicked.NONE:
 
                 // hna lazem Unit (hadi unitThatGotClickedOn) lazem tkon ta3ek , sinon mlazemch t9dr tchof l'enemie wch rah 9ader ydir
-                if (unitThatGotClickedOn.playerNumber != GameMaster.Instance.playerTurn) return;
-                // l'access lel game Controller (gameMatser) lazem ytssgem .
+                //!!!! had les details ( commantaire li rah fo9i ) lazem meet ljay n7ddohom kamel .
+                if (unitThatGotClickedOn.playerNumber != GameController.Instance.playerTurn) return;
 
                 selectedUnit = unitThatGotClickedOn;
                 selectedUnit.unitView.HighlightAsSelected();
@@ -93,39 +93,41 @@ public class UnitController : MonoBehaviour
                 ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
                 ActionsHandler.Instance.FillButtonsToDisplay(unitThatGotClickedOn);
                 ButtonsUI.Instance.DisplayButtons();
-                // wait clicking one button .
+                // wait for the player to click any button from the displayed buttons .
 
 
                 break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK:
-
+                // we are sure that the selected unit is of type UnitAttack and not a UnitTranspor
                 UnitAttack attackingUnit = selectedUnit as UnitAttack;
-                // it throws an exception if the unit is not a UnitAttack , maybe we should handle this . 
 
                 ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(attackingUnit.enemiesInRange);
 
                 AttackSystem.Attack(attackingUnit, unitThatGotClickedOn);
-                
+
                 //! COUNTERATTACK NEEDS TO BE ADDED HERE IN CASE THE ENEMY CAN ACTUALLY COUNTERATTACK
                 //! I DON'T REALLY KNOW HOW WE CAN HANDLE THIS I REMEMBER ADEM TALKING ABOUT IT
                 //! JUST ASK HIM ABOUT THAT , I THINK HE TALKED ABOUT A MATRIX IN WHICH THE COUNTERATTACK RELATIONS ARE STORED
-              
+
+                //! lconterAttack ra7 yessra da5el la methode attack fl attackSystem (is case you didn't see the comment there )
+                //! ida cheft lcommentaire w 7bit tbdellha plassa, tbanli ltema 5ir . psq ki y'attacker yessra f nfss lwe9t counterattack . (tssema mklah n5roj men script wndirha fi plassa w7do5ra)
+
                 CancelScript.Instance.Cancel();
 
                 break;
 
-            case UnitUtil.ActionToDoWhenButtonIsClicked.MOVE:
-                break;
+            // case UnitUtil.ActionToDoWhenButtonIsClicked.MOVE:  .. this case is not possible .
+            //     break;
 
-            case UnitUtil.ActionToDoWhenButtonIsClicked.CANCEL:
-                break;
+            // case UnitUtil.ActionToDoWhenButtonIsClicked.CANCEL:  //!!!!!!!!!!!!!!!!!!!!!!!!!!11
+            //     break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.DROP:
                 break;
 
-            case UnitUtil.ActionToDoWhenButtonIsClicked.LOAD:
-                break;
+            // case UnitUtil.ActionToDoWhenButtonIsClicked.LOAD:   // hadi 9olna nforciwha tessra direct .
+            //     break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.SUPPLY:
                 break;

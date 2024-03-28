@@ -50,6 +50,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         // Get the UnitView component from the scene
         unitView = GetComponent<UnitView>();
+        Debug.Log("unit : " + this.name );
         // Get the MapGrid component from the scene
         mapGrid = FindObjectOfType<MapGrid>();   //!!! ttna7a
 
@@ -63,6 +64,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         ResetWalkableGridCells();
     }
 
+
+    //!n9dro nzido paramter movecost .
     public void UpdateAttributsAfterMoving(int row, int col)
     {
         occupiedCell.occupantUnit = null; // remove the unit from the old grid cell
@@ -165,7 +168,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     }
 
 
-
+    //!! hado lazem nchofo m3ahom omb3d w nrigliw l'emplacement ta3hom 
     public void ResetWalkableGridCells()
     {
         foreach (GridCell cell in walkableGridCells)
@@ -174,5 +177,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         }
         walkableGridCells.Clear();
     }
+
+
 
 }

@@ -28,7 +28,7 @@ public class GridCell : MonoBehaviour
     void OnMouseDown()
     {
 
-        //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE AHMED AND RAYANE !!!!!!!!!!!
+        //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE ____AHMED AND RAYANE !!!!!!!!!!!
 
         Debug.Log("GridCell Clicked");
 
@@ -48,10 +48,13 @@ public class GridCell : MonoBehaviour
         {
             Debug.Log("cell clicked on drop state");
 
-
+            // lazem drop mdirolha kima move 3ndna method movement f move system w kima attack system , psq fiha chwya 5dma drop .
             UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;
-            unitTransport.Drop(this);
+
             ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitTransport.dropableCells);
+            
+            unitTransport.ResetDropableCells();
+            unitTransport.Drop(this);
 
             CancelScript.Instance.Cancel();
         }
@@ -94,10 +97,8 @@ public class GridCell : MonoBehaviour
     // Method to reset the GridCell to its original state  
     public void ResetCellAttributsInEndTurn()
     {
-        rend.color = Color.white;
         isWalkable = false;
         ResetHighlitedCell();
-        // isHighlighted = false;
     }
 
     public void MakeCellInteractable()

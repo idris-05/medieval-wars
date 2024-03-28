@@ -63,7 +63,7 @@ public class AttackSystem : MonoBehaviour
 
 
     //!! you can attack after you move your unit , we will display the attack button after the movement is done in certain conditions (hasAttack = false ...) ,
-    //!! and we will call the attack method (defined int the GameMaster ) from the attackButton , when you click the button and select which unit to attack .
+    //!! and we will call the attack method (defined int the GameController ) from the attackButton , when you click the button and select which unit to attack .
     //!! we can use EVENTS to achieve this .
 
     // nbdloha wla n5loha haka ????? (lhdra li lfo9 )
@@ -177,7 +177,6 @@ public class AttackSystem : MonoBehaviour
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
         float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - DefendingUnit.defenseBoost) * (1 - DefendingUnit.specialDefenseBoost);
-        // DefendingUnit.DefenseBoost   DefendingUnit.SpecialDefenseBoost  was initialized with 1 from unity , so the TotalDamage retuned was always 0 . i change them to 0 for now
         // Debug.Log("Vulnerability : " + Vulnerability);
 
 

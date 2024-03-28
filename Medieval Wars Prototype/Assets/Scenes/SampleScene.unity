@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 961498743}
   - component: {fileID: 961498742}
   m_Layer: 0
-  m_Name: GameMatser
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -706,6 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGrid: {fileID: 2079233363}
   Infantry1Prefab: {fileID: -7903265091803169806, guid: e3b6cb70c23b96d47a8fff974a9f4b45, type: 3}
+  Infantry1PrefabTransport: {fileID: 5655664627314001093, guid: 3cbf74a8795bc3a499951dd5d8fd6206, type: 3}
   Infantry2Prefab: {fileID: 3053719795026352162, guid: f59bae1b4fcb1614c8e49fa00a52fd5c, type: 3}
   selectedUnit: {fileID: 0}
   TerrainGrassPrefab: {fileID: 0}
@@ -1396,7 +1397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325cb3e55fbc88044b37a02dfb7bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSystem: {fileID: 0}
   moveButton: {fileID: 1013799573}
 --- !u!114 &1424069242
 MonoBehaviour:

@@ -44,7 +44,7 @@ public class ActionsHandler : MonoBehaviour
 
     public void FillButtonsToDisplay(Unit unitThatGotClickedOn)
     {
-        if (unitThatGotClickedOn.playerNumber != GameMaster.Instance.playerTurn) return;
+        if (unitThatGotClickedOn.playerNumber != GameController.Instance.playerTurn) return;
 
 
         // MOVE BUTTON ?
@@ -58,7 +58,7 @@ public class ActionsHandler : MonoBehaviour
 
         // ATTACK BUTTON ?
         //! I REVIEWED THIS AND I THINK IT'S CORRECT
-        if (unitThatGotClickedOn.playerNumber == GameMaster.Instance.playerTurn)
+        if (unitThatGotClickedOn.playerNumber == GameController.Instance.playerTurn)
         {
             // Debug.Log("unitThatGotClickedOn.playerNumber == gm.playerTurn");
             if (unitThatGotClickedOn is UnitAttack unitAttack)
@@ -83,7 +83,7 @@ public class ActionsHandler : MonoBehaviour
 
         // DROP BUTTON ?
         //! I DONT THINK I WILL BE AT DROP LOGIC , I'LL JUST LEAVE IT TO LATER ( IT'S NOT A BIG DEAL )
-        if (unitThatGotClickedOn.playerNumber == GameMaster.Instance.playerTurn)
+        if (unitThatGotClickedOn.playerNumber == GameController.Instance.playerTurn)
         {
             if (unitThatGotClickedOn is UnitTransport unitTransport)
             {
@@ -101,6 +101,9 @@ public class ActionsHandler : MonoBehaviour
         }
 
 
+
+
+        // cancel button (always)
         ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[5]);
 
     }

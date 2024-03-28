@@ -4,15 +4,7 @@ using UnityEngine.UI;
 public class MoveScript : MonoBehaviour
 {
 
-    public MovementSystem movementSystem;
     public Button moveButton;
-
-    void Start()
-    {
-        movementSystem = FindObjectOfType<MovementSystem>();
-    }
-
-
 
 
     // EventSystem . 
@@ -22,7 +14,7 @@ public class MoveScript : MonoBehaviour
 
         ButtonsUI.Instance.UpdateActionButtonsToDisplayWhenAButtonIsClicked(moveButton);
 
-        movementSystem.GetWalkableTiles(UnitController.Instance.selectedUnit);
+        MovementSystem.Instance.GetWalkableTiles(UnitController.Instance.selectedUnit);
 
         UnitController.Instance.selectedUnit.unitView.HighlightWalkablesCells();
 

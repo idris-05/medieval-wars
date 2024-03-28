@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class UnitTransport : Unit
 {
@@ -20,10 +21,21 @@ public class UnitTransport : Unit
     }
 
     // Method to drop a unit onto a grid cell
-    public void Drop(GridCell gridCell)
+    public void Drop(GridCell cell)
     {
         //!!!!! remove the hide from the unit .
+
         // ... logic to drop the unit into the grid cell
+
+        cell.occupantUnit = this.loadedUnit;
+        this.loadedUnit.occupiedCell = cell;
+        this.loadedUnit.row = cell.row;
+        this.loadedUnit.col = cell.column;
+
+        // set the new position of the unit .
+        this.loadedUnit.unitView.SetUnitPosition(cell.row , cell.column);
+        this.loadedUnit.unitView.ShowUnitAfterDrop();
+        
         loadedUnit = null;
 
     }
@@ -42,8 +54,26 @@ public class UnitTransport : Unit
     // method to get teh dropable units
     public void GetdropableCells()
     {
-        // logic to get the dropable cells
-        // virify cells in the 4 directions for the dactual position of the transporter unit
+
+        int currentRow = row;
+        int currentCol = col;
+
+        List<GridCell> dropableCellsCondidates = new List<GridCell>();
+
+        if (currentRow - 1 >= 0) dropableCellsCondidates.Add(mapGrid.grid[currentRow - 1, currentCol]);   // top cell
+        if (currentRow + 1 < mapGrid.grid.GetLength(0)) dropableCellsCondidates.Add(mapGrid.grid[currentRow + 1, currentCol]);   // bottom cell
+        if (currentCol - 1 >= 0) dropableCellsCondidates.Add(mapGrid.grid[currentRow, currentCol - 1]);  // left cell
+        if (currentCol + 1 < mapGrid.grid.GetLength(1)) dropableCellsCondidates.Add(mapGrid.grid[currentRow, currentCol + 1]);// right cell
+
+        foreach (GridCell cell in dropableCellsCondidates)
+        {
+            //!!!!!!! there is more than only this condition to check .
+            if (cell.occupantUnit == null)
+            {
+                this.dropableCells.Add(cell);
+            }
+        }
+
     }
 
     // Method to get a list of suppliable units
@@ -75,17 +105,10 @@ public class UnitTransport : Unit
         // highlight the dropable cells
     }
 
-    public void ResetSuppliableUnits()
-    {
-        foreach (Unit unit in suppliableUnits)
-        {
-            unit.unitView.ResetHighlightedUnit();
-        }
-        suppliableUnits.Clear();
-    }
 
 
-    public void ResetHighlightedDropableCells()
+    //
+    public void ResetDropableCells()
     {
         foreach (GridCell cell in dropableCells)
         {
@@ -93,6 +116,16 @@ public class UnitTransport : Unit
         }
         // highlight the dropable cells
         dropableCells.Clear();
+    }
+
+    //
+    public void ResetSuppliableUnits()
+    {
+        foreach (Unit unit in suppliableUnits)
+        {
+            unit.unitView.ResetHighlightedUnit();
+        }
+        suppliableUnits.Clear();
     }
 
 

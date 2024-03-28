@@ -16,7 +16,7 @@ public class DropScript : MonoBehaviour
 
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.DROP;
 
-        // wait for onCellSelection with state = drop 
+        // wait for the player to click on a dropable cell (onCellSelection with state = drop). 
 
 
     }

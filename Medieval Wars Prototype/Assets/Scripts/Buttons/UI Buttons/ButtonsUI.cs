@@ -13,6 +13,8 @@ public class ButtonsUI : MonoBehaviour
     //! besah probleme c que kbar bzf w y9drou yghetou des elemtns mel map sema lazem nel9aw tari9a w7do5ra mb3d n5emoulha had l3fssa 
     //! ma 7abitch nebda fiha 7ata n5emou exact f positions where they get displayed bach ma y5srouch player experience
 
+    //!! wch 9olt ishak n5loh 7etta ywjed l ui , ltemma y5yro les buttons kifach ndirohom wkifach ykono , moraha n9dro n'implimentiw had logique li rak thder 3liha  
+
     private static ButtonsUI instance;
     public static ButtonsUI Instance
     {
@@ -74,5 +76,7 @@ public class ButtonsUI : MonoBehaviour
         }
 
     }
+
+
 
 }

@@ -2,11 +2,11 @@ using UnityEngine;
 
 
 
-public class GameMaster : MonoBehaviour
+public class GameController : MonoBehaviour
 {
 
-    private static GameMaster instance;
-    public static GameMaster Instance
+    private static GameController instance;
+    public static GameController Instance
     {
         get
         {
@@ -14,13 +14,13 @@ public class GameMaster : MonoBehaviour
             if (instance == null)
             {
                 // Check if an instance of UnitController exists in the scene
-                instance = FindObjectOfType<GameMaster>();
+                instance = FindObjectOfType<GameController>();
 
                 // If not found, create a new GameObject with UnitController attached
                 if (instance == null)
                 {
-                    GameObject obj = new GameObject("GameMaster");
-                    instance = obj.AddComponent<GameMaster>();
+                    GameObject obj = new GameObject("GameController");
+                    instance = obj.AddComponent<GameController>();
                 }
             }
             return instance;
@@ -32,8 +32,11 @@ public class GameMaster : MonoBehaviour
     public MapGrid mapGrid;
 
     public Unit Infantry1Prefab; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
+
+    public Unit Infantry1PrefabTransport; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
+
     public Unit Infantry2Prefab; // test
-    public Unit selectedUnit;   // pour le movement , pour l'instant /// hadi ybanli ytn7a , doka manach nss79oh 
+    public Unit selectedUnit;   // pour le movement , pour l'instant (hadi t3 logic l9dima) /// hadi ybanli ytn7a , doka manach nss79oh 
     public Terrain TerrainGrassPrefab;
     public int playerTurn = 1; // hadi ttssegem .
 
@@ -47,7 +50,8 @@ public class GameMaster : MonoBehaviour
         SpawnUnit(1, 5, 5, Infantry1Prefab); // test 
 
         SpawnUnit(2, 8, 8, Infantry2Prefab);
-        // SpawnUnit(2, 7, 10, Infantry2Prefab);
+
+        SpawnUnit(1, 2, 5, Infantry1PrefabTransport);
         // SpawnUnit(2, 8, 20, Infantry2Prefab);
     }
 
