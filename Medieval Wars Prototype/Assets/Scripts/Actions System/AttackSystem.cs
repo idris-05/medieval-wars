@@ -134,14 +134,14 @@ public class AttackSystem : MonoBehaviour
 
 
 
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
     // EXPLICATION ASSEZ DETAILLEE DE LA DAMAGE FORMULA
 
     /*
@@ -169,6 +169,7 @@ public class AttackSystem : MonoBehaviour
     //! LES HP SONT TOUS SUR 100 : entier pour l affichage : float pour les calculs
 
     */
+
 
     public static int CalculateDamage(Unit AttackingUnit, Unit DefendingUnit)
     {
@@ -222,12 +223,22 @@ public class AttackSystem : MonoBehaviour
         AttackingUnit.UpdateAttributsAfterAttack();
         AttackingUnit.TransitionToNumbState();
 
-        if (DefendingUnit.healthPoints <= 0) DefendingUnit.Kill();
+        if (DefendingUnit.healthPoints <= 0)
+        {
+            DefendingUnit.Kill();
+            return;
+        }
 
+        // verify the possibility to counter attack 
+        
+        inflictedDamage = CalculateDamage(DefendingUnit, AttackingUnit);
+        AttackingUnit.RecieveDamage(inflictedDamage);
 
-        // verify the possibility to counter attack .
-
-
+        if (AttackingUnit.healthPoints <= 0)
+        {
+                AttackingUnit.Kill();
+                return;
+        }
 
     }
 

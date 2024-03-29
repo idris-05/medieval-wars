@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Purchasing;
 
 
 public class UnitView : MonoBehaviour
@@ -119,18 +120,10 @@ public class UnitView : MonoBehaviour
 
 
 
-    public void DeathAnimation()
-    {
-        return;
-        //!!!!!!!!11 
-    }
-
-
-
-
     public void HighlightAsEnemy()
     {
         spriteRenderer.color = Color.red;
+        //!!!!!!!!!!!!
     }
 
     public void HighlightAsSelected()  //HighlightUnitOnSelection
@@ -159,7 +152,6 @@ public class UnitView : MonoBehaviour
         gameObject.SetActive(false);
         // hide unit when it get loaded on transporter unit .
     }
-
     public void ShowUnitAfterDrop()
     {
         gameObject.SetActive(true);
@@ -174,13 +166,11 @@ public class UnitView : MonoBehaviour
         transform.position = newPosition;
 
     }
-
-
     public void ResetUnitBackToTheirOriginalLayer()
     {
         Transform transform = GetComponent<Transform>();
         Vector3 newPosition = transform.position;
-        newPosition.z = 0; //!!!!!!!!!!!!!!!!!!!!!!!!!!! ch7al original value ?
+        newPosition.z = -1; 
         transform.position = newPosition;
 
     }
@@ -188,41 +178,25 @@ public class UnitView : MonoBehaviour
 
     public void HighlightWalkablesCells()
     {
-        foreach (GridCell cell in unit.walkableGridCells)
-        {
-            cell.HighlightAsWalkable();
-        }
+        unit.walkableGridCells.ForEach(walkableGridCell =>walkableGridCell.HighlightAsWalkable());
     }
-
-    //!!!!!!1 win rahi reset ta3ha ???  , rahi fl Unit , omb3d nchofo win n7toha .
-
     public void ResetHighlitedWalkableCells()
     {
-        foreach (GridCell cell in unit.walkableGridCells)
-        {
-            cell.ResetHighlitedCell();
-        }
+        unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.ResetHighlitedCell());
         unit.walkableGridCells.Clear();
     }
 
 
     public void HighlightAttackableCells()
     {
-        foreach (GridCell cell in (unit as UnitAttack).attackableGridCells)
-        {
-            cell.HighlightAsAttackable();
-        }
+        (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.HighlightAsAttackable());
     }
-
-
-    //!!! hado t3 reset t3 3fssa list tbanli ndirihom fl Unit w5lass, psq realement m3ndhach relation m3a unitView .
     public void ResetHighlitedAttackableCells()
     {
-        if (unit is UnitAttack == false) return;
-        foreach (GridCell cell in (unit as UnitAttack).attackableGridCells)
-        {
-            cell.ResetHighlitedCell();
-        }
-    }
+        if ( ( unit is UnitAttack ) == false ) return;
+
+        (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.ResetHighlitedCell());
+        (unit as UnitAttack).attackableGridCells.Clear(); 
+    } 
 
 }

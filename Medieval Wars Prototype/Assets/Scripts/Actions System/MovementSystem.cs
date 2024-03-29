@@ -51,7 +51,7 @@ public class MovementSystem : MonoBehaviour
             UnitAttack unitThatWillGetLoaded = unit as UnitAttack;
             UnitTransport unitTransport = mapGrid.grid[row, col].occupantUnit as UnitTransport;
 
-            unit.ResetWalkableGridCells();
+            unit.unitView.ResetHighlitedWalkableCells();
 
             unitThatWillGetLoaded.PrepareUnitToGetLoadedInTransporter();
             unit.unitView.AnimateMovement(row, col);
@@ -72,7 +72,7 @@ public class MovementSystem : MonoBehaviour
         //! hna n7ssbo moveCost ( n7ssbo ch7al n9ssolha men ration ki mchat ) wnmdoh parametre lel UpdateAttributsAfterMoving .
         unit.UpdateAttributsAfterMoving(row, col);
         unit.unitView.AnimateMovement(row, col);
-        unit.ResetWalkableGridCells();
+        unit.unitView.ResetHighlitedWalkableCells();
 
     }
 

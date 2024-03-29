@@ -46,12 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0aaddc32c0dfa4eb6b7c5d6bf1620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHighlighted: 0
   rend: {fileID: 0}
   isWalkable: 0
   row: 0
   column: 0
-  highlightedColor: {r: 0, g: 0, b: 0, a: 0}
   occupantUnit: {fileID: 0}
   occupantTerrain: {fileID: 0}
   moveCost: 1

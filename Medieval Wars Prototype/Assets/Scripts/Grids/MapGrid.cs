@@ -7,6 +7,8 @@ public class MapGrid : MonoBehaviour
 
     public GridCell GridCellPrefab;
 
+    public Terrain TerrainPlainPrefab;
+
     public static int Vertical, Horizontal, Columns, Rows;
 
 
@@ -30,6 +32,12 @@ public class MapGrid : MonoBehaviour
             {
                 // Instantiate a GridCell prefab at the specified position
                 GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
+
+                // Instantiate a Terrain prefab at the specified position
+                Terrain terrain = Instantiate(TerrainPlainPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
+
+                // set the terrain for the gridcell
+                gridCell.occupantTerrain = terrain;
 
                 // Adjust the sprite size of the instantiated GridCell
                 gridCell.gameObject.AdjustSpriteSize();

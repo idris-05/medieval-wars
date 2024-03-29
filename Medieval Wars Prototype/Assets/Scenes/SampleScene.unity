@@ -709,7 +709,6 @@ MonoBehaviour:
   Infantry1PrefabTransport: {fileID: 5655664627314001093, guid: 3cbf74a8795bc3a499951dd5d8fd6206, type: 3}
   Infantry2Prefab: {fileID: 3053719795026352162, guid: f59bae1b4fcb1614c8e49fa00a52fd5c, type: 3}
   selectedUnit: {fileID: 0}
-  TerrainGrassPrefab: {fileID: 0}
   playerTurn: 1
 --- !u!4 &961498743
 Transform:
@@ -2109,6 +2108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GridCellPrefab: {fileID: -3587581034812915052, guid: df91c92e29b3f2a40b52fbc0a3d2ebe6, type: 3}
+  TerrainPlainPrefab: {fileID: 424858643333420328, guid: 2c9407b977a5c1247a182de2a554ca3c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

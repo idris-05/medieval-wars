@@ -21,24 +21,28 @@ public class UnitAttack : Unit
         // numb state ?
     }
 
-    public void PrepareUnitToGetLoadedInTransporter()
-    {
-        occupiedCell.occupantUnit = null;
-    }
+   
 
 
     public void GetEnemiesInRange()
     {
         enemiesInRange.Clear(); // Clear the List
 
-        foreach (Unit CondidateUnitToGetAttacked in FindObjectsOfType<Unit>())
+        foreach (Unit CondidateUnitToGetAttacked in FindObjectsOfType<Unit>()) // hna balak tparcouri direct les ennemis ( besah 1v1v1v1 )
         {
-            // if it's an [ enemy unit ] and [ enemy unit in range ]
-
-            if (CondidateUnitToGetAttacked.playerNumber != GameController.Instance.playerTurn && MathF.Abs(CondidateUnitToGetAttacked.row - row) + MathF.Abs(CondidateUnitToGetAttacked.col - col) <= attackRange) // this condition ain't enough
+             // lazem t3 base damage tetbedel ( adem w ahmed rahoum y5dmou 3liha )
+            if (AttackSystem.baseDamage[this.unitIndex, CondidateUnitToGetAttacked.unitIndex] != -1) // est ce que y9der yattakih aslan kho
             {
-                enemiesInRange.Add(CondidateUnitToGetAttacked); // add this attackble enemy to the list of attackble enemies
+
+                float distance = MathF.Abs(CondidateUnitToGetAttacked.row - row) + MathF.Abs(CondidateUnitToGetAttacked.col - col);
+
+                if (CondidateUnitToGetAttacked.playerNumber != GameController.Instance.playerTurn && distance <= attackRange && distance >= minAttackRange) // yverifyi ida rah f range t3ou
+                {
+                    enemiesInRange.Add(CondidateUnitToGetAttacked); // add this attackble enemy to the list of attackble enemies
+                }
+
             }
+
         }
     }
 

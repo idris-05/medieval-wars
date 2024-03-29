@@ -44,7 +44,8 @@ public class UnitUtil : MonoBehaviour
         T_SHIP   ///!!!!!!!!
     }
     
-    
+
+    // the values in this table need to be changed
     public static float[] maxRations = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
 
 

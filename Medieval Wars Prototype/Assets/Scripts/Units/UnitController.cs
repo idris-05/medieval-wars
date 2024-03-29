@@ -78,6 +78,8 @@ public class UnitController : MonoBehaviour
 
     //! MAYBE MA YENDAROUCH LES BIJECTIONS LAHNA YENDAROU F DES SCRIPTS WA7DO5RIN
 
+    //! GRIDCELL TAN TROU7 LES SWITCH KIMA HADI , BALAK N9SMOUHA KIMA HADA HIYA TAN
+
     public void OnUnitSelection(Unit unitThatGotClickedOn)
     {
         switch (CurrentActionStateBasedOnClickedButton)
@@ -130,16 +132,17 @@ public class UnitController : MonoBehaviour
             // case UnitUtil.ActionToDoWhenButtonIsClicked.LOAD:   // hadi 9olna nforciwha tessra direct .
             //     break;
 
-            case UnitUtil.ActionToDoWhenButtonIsClicked.SUPPLY:
+           /* case UnitUtil.ActionToDoWhenButtonIsClicked.SUPPLY:
+
                 UnitTransport supplyingUnit = selectedUnit as UnitTransport;
 
                 ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(supplyingUnit.suppliableUnits);
 
-                supplyingUnit.Supply(unitThatGotClickedOn, 10); //! LAZEM NWELIW NMODIFYIW 10 HADI
+                supplyingUnit.Supply(unitThatGotClickedOn); 
 
                 CancelScript.Instance.Cancel();
 
-                break;
+                break; */
 
             // case UnitUtil.ActionToDoWhenButtonIsClicked.CAPTURE:
             //     break;

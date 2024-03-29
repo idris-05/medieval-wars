@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class UnitTransport : Unit
     public List<GridCell> dropableCells = new List<GridCell>();  // cells where the transporter can drop the loaded unit .
     public List<Unit> suppliableUnits = new List<Unit>();  // unit that can get supplyRation from the transporter .
 
-    public bool hasSupplied;
+
     public float AvailableRationToShare; //!!! ch7al rahi rafda ration , bach tmed ll units lo5rin 
 
     // lazemna valuere max t3 AvailableRationToShare
@@ -44,12 +45,11 @@ public class UnitTransport : Unit
     }
 
     // Method to supply a unit with something
-    public void Supply(Unit unitToSupply, float supplyAmount)
+    public void Supply(Unit unitToSupply)
     {
-        hasSupplied = true;
         // transporter howa selected unit fl Unitcontroller , omb3d UnitToSupply hya li tselectionniha omb3d (mor l7kaya t3 layer wg3) 
         // AvailableRationToShare -= supplyAmount;   // hada malakalh ,ahmed 9ali 3ndha ilimite , wki f supply , tl3ha lel max .
-        unitToSupply.RecievRationSupply(supplyAmount);
+        unitToSupply.RecieveRationSupply();
     }
 
 
@@ -71,77 +71,72 @@ public class UnitTransport : Unit
         foreach (GridCell cell in dropableCellsCondidates)
         {
             //!!!!!! lazem hadik unit li 7ab tdropiha t9der t3mchi 3la terrain li ayken f cell hadik .
-            if (cell.occupantUnit == null)
-            {
-                this.dropableCells.Add(cell);
-            }
+            if (cell.occupantUnit == null) this.dropableCells.Add(cell);
         }
-
     }
 
     // Method to get a list of suppliable units
     public void GetSuppliableUnits()
     {
-        // Implement logic to retrieve suppliable units here
-        // search in the foor direction for unit can be supplied
-        foreach (Unit unit in FindObjectsOfType<Unit>())
+
+        int currentRow = row;
+        int currentCol = col;
+
+        if (currentRow - 1 >= 0 && mapGrid.grid[currentRow - 1, currentCol].occupantUnit is Unit suppliableUnit1)
         {
-            if (unit.playerNumber == this.playerNumber && unit != this)
-            {
-                if (unit is UnitAttack)
-                {
-                    suppliableUnits.Add(unit);
-                }
-            }
+            suppliableUnits.Add(suppliableUnit1);
         }
+
+        if (currentRow + 1 < mapGrid.grid.GetLength(0) && mapGrid.grid[currentRow + 1, currentCol].occupantUnit is Unit suppliableUnit2)
+        {
+            suppliableUnits.Add(suppliableUnit2);
+        }
+
+        if (currentCol - 1 >= 0 && mapGrid.grid[currentRow, currentCol - 1].occupantUnit is Unit suppliableUnit3)
+        {
+            suppliableUnits.Add(suppliableUnit3);
+        }
+
+        if (currentCol + 1 < mapGrid.grid.GetLength(1) && mapGrid.grid[currentRow, currentCol + 1].occupantUnit is Unit suppliableUnit4)
+        {
+            suppliableUnits.Add(suppliableUnit4);
+        }
+
     }
 
-
-
+    public void SupplyAllSuppliableUnits()
+    {
+        // this line of code tparcouri la liste t3 suppliable units w dir appel la methode supply
+        suppliableUnits.ForEach( unitToSupply => Supply(unitToSupply) );
+    }
+    
     // 
     public void HighlightDropableCells()
     {
-        foreach (GridCell cell in dropableCells)
-        {
-            cell.HighlightAsDropable();
-        }
         // highlight the dropable cells
+        dropableCells.ForEach( dropableCell => dropableCell.HighlightAsDropable() );
     }
 
     // 
     public void HighlightSuppliableUnits()
     {
-        foreach (Unit unit in suppliableUnits)
-        {
-            unit.unitView.HighlightAsSuppliable();
-        }
         // highlight the dropable cells
+        suppliableUnits.ForEach( suppliableUnit => suppliableUnit.unitView.HighlightAsSuppliable());
     }
-
-
 
     //
     public void ResetDropableCells()
     {
-        foreach (GridCell cell in dropableCells)
-        {
-            cell.ResetHighlitedCell();
-        }
         // highlight the dropable cells
+        dropableCells.ForEach( dropableCell => dropableCell.ResetHighlitedCell() );
         dropableCells.Clear();
     }
 
     //
     public void ResetSuppliableUnits()
     {
-        foreach (Unit unit in suppliableUnits)
-        {
-            unit.unitView.ResetHighlightedUnit();
-        }
+        suppliableUnits.ForEach(suppliableUnits => suppliableUnits.unitView.ResetHighlightedUnit());
         suppliableUnits.Clear();
     }
-
-
-
 
 }

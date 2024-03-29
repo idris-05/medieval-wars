@@ -37,7 +37,6 @@ public class GameController : MonoBehaviour
 
     public Unit Infantry2Prefab; // test
     public Unit selectedUnit;   // pour le movement , pour l'instant (hadi t3 logic l9dima) /// hadi ybanli ytn7a , doka manach nss79oh 
-    public Terrain TerrainGrassPrefab;
     public int playerTurn = 1; // hadi ttssegem .
 
 
@@ -98,15 +97,9 @@ public class GameController : MonoBehaviour
     // this function is used to end the turn of the current player
     private void EndTurn()
     {
-        selectedUnit = null; // ???? tbdlet la logique ya selectedUnit  , hada ytn7a . 
-
+        //! KI YEKLIKI 3lA UNIT NA7OULOU BOUTON T3 END TURN
+        //! WE DO NOT HAVE TO DO MANY THINGS HERE BECAUSE WE WILL NOT LET THE PLAYER END HIS TURN UNLESS HE IS IN THE "NONE" STATE
         SwitchPlayeTurn();
-
-        ResetAllCellsAttributsInEndTurn();
-        ResetAllUnitsAttributsInEndTurn();
-
-        CancelScript.Instance.Cancel();  // hadi omb3d nchofo m3aha
-
     }
 
     // this function is used to switch the turn of the players    

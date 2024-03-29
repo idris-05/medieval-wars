@@ -9,10 +9,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public MapGrid mapGrid;
     public UnitView unitView;
 
-
-
-
-
     public int unitIndex;
     public UnitUtil.UnitName unitName;
 
@@ -44,9 +40,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public int defenseBoost = 0; //!!!!!!!!! pour l'instant 0
     public int specialDefenseBoost = 0; //!!!!!!!!! pour l'instant 0;
 
-
-
-
     void Start()
     {
         // Get the UnitView component from the scene
@@ -62,11 +55,12 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void Move(int row, int col)
     {
         UpdateAttributsAfterMoving(row, col);
-        ResetWalkableGridCells();
+        unitView.ResetHighlitedWalkableCells();
     }
 
 
-    //!n9dro nzido paramter movecost .
+    //! n9dro nzido paramter movecost 
+    //! YCONSOMI 3LA 7SAB LI MCHA 3LIHOUM ( sema lazem best path )
     public void UpdateAttributsAfterMoving(int row, int col)
     {
         occupiedCell.occupantUnit = null; // remove the unit from the old grid cell
@@ -87,7 +81,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void RecieveDamage(int inflictedDamage)
     {
-        this.healthPoints -= inflictedDamage;
+        this.healthPoints -= inflictedDamage; // hna events
     }
 
     public void Kill()
@@ -111,11 +105,11 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         }
     }
 
-    public void RecievRationSupply(float rationSupply)
+    public void RecieveRationSupply()
     {
         // Tl3ha lel MAX direct .
-        ration += rationSupply;
-        if (ration > UnitUtil.maxRations[unitIndex]) ration = UnitUtil.maxRations[unitIndex];
+        ration = UnitUtil.maxRations[unitIndex];
+        Debug.Log("I just Got Supplied bro");
     }
 
     public void ConsumeDailyRation()
@@ -129,52 +123,21 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void TransitionToNumbState()
     {
         numbState = true;
-        // hasMoved = true; //  normalement tt7ana
-        unitView.spriteRenderer.color = Color.gray; // ttsegem .
+        hasMoved = true; //  normalement tt7ana //! WE NEED TO LOOK AT THIS
+        unitView.spriteRenderer.color = Color.black; // ttsegem .
     }
 
 
 
     public void ResetUnitAttributsInEndTurn()
     {
-        hasMoved = false;
-        numbState = false;
         ConsumeDailyRation();
-        // reset specialAttackBoost w specialDefenseBoost lel 0 wla l valeure par default ta3hom 
-        // specialAttackBoost = 0;
-        // specialDefenseBoost = 0;
-
-        // reset 3fayes t3 unit Attack
-        if (this is UnitAttack unitAttack)
-        {
-            unitAttack.hasAttacked = false;
-            unitAttack.enemiesInRange.Clear();
-            unitAttack.attackableGridCells.Clear();
-        }
-
-        // reset 3fayes t3 unit Transport
-        if (this is UnitTransport unitTransport)
-        {
-            unitTransport.hasSupplied = false;
-            unitTransport.suppliableUnits.Clear();
-            unitTransport.dropableCells.Clear();
-        }
-
-
-        //  unselect the unit
-        unitView.spriteRenderer.color = Color.white;
-        // ..... 
     }
 
 
-    //!! hado lazem nchofo m3ahom omb3d w nrigliw l'emplacement ta3hom 
-    public void ResetWalkableGridCells()
+    public void PrepareUnitToGetLoadedInTransporter()
     {
-        foreach (GridCell cell in walkableGridCells)
-        {
-            cell.ResetCellAttributsInEndTurn();
-        }
-        walkableGridCells.Clear();
+        occupiedCell.occupantUnit = null;
     }
 
 

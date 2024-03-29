@@ -98,7 +98,7 @@ public class ActionsHandler : MonoBehaviour
         }
 
         // SUPPLY BUTTON
-        if ( unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn_ && transportUnitThatGotClickedOn_.hasSupplied == false )
+        if ( unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn_ )
         {
             transportUnitThatGotClickedOn_.GetSuppliableUnits();
             if (transportUnitThatGotClickedOn_.suppliableUnits.Any() == true)
