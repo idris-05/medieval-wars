@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Terrain : MonoBehaviour/* , OrdreEnum */
+public class Terrain : MonoBehaviour
 {
 
     public TerrainsUtils.TerrainName terrainName;

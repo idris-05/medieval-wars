@@ -46,8 +46,6 @@ public class UnitAttack : Unit
         }
     }
 
-
-
     // public void GetAttackableGridCells()
     // {
     // Hadi rani 7atha f attack system , mais normalment tji hna
@@ -57,40 +55,26 @@ public class UnitAttack : Unit
 
     public void HighlightEnemyInRange()
     {
-        foreach (Unit enemy in enemiesInRange)
-        {
-            enemy.unitView.HighlightAsEnemy();
-        }
+        enemiesInRange.ForEach(enemy => enemy.unitView.HighlightAsEnemy());
     }
+    public void ResetHighlightedEnemyInRange()
+    {
+        enemiesInRange.ForEach(enemy => enemy.unitView.ResetHighlightedUnit());
+        enemiesInRange.Clear();
+    }
+
 
 
     public void HighlitAttackableGridCells()
     {
-        foreach (GridCell cell in attackableGridCells)
-        {
-            cell.HighlightAsAttackable();
-        }
-        attackableGridCells.Clear();
+        attackableGridCells.ForEach(cell => cell.gridCellView.HighlightAsAttackable());
     }
-
-
-    public void ResetHighlightedEnemyInRange()
-    {
-        foreach (Unit enemy in enemiesInRange)
-        {
-            enemy.unitView.ResetHighlightedUnit();
-        }
-        enemiesInRange.Clear();
-    }
-
     public void ResetHighlitedAttackableGridCells()
     {
-        foreach (GridCell cell in attackableGridCells)
-        {
-            cell.ResetHighlitedCell();
-        }
+        attackableGridCells.ForEach(cell => cell.gridCellView.ResetHighlitedCell());
         attackableGridCells.Clear();
     }
+
 
 
     public void CaptureBuilding(Building building)

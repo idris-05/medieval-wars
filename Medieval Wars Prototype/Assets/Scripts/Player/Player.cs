@@ -39,9 +39,13 @@ public class Player
     {
         incomingFunds += change;
     }
+   
     public void DisplayPlayerStatsInGame()
     {
 
     }
+
+
+
 }
 

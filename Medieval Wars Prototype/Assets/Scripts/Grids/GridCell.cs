@@ -6,7 +6,7 @@ using UnityEngine;
 public class GridCell : MonoBehaviour
 {
 
-    public SpriteRenderer rend;
+    public GridCellView gridCellView;
 
     public bool isWalkable;   //!!! ?????? wch rana ndiro bih hada 
 
@@ -21,85 +21,29 @@ public class GridCell : MonoBehaviour
 
     void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
+        gridCellView = GetComponent<GridCellView>();
     }
+
+
 
 
     void OnMouseDown()
     {
-
-        //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE ____AHMED AND RAYANE !!!!!!!!!!!
-
-        Debug.Log("GridCell Clicked");
-
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE)
-        {
-            Debug.Log("cell clicked on move state");
-
-            // lazem had l'ordre f les appels sinon r7 tne7i liste ta3 walkable grid cells
-
-            ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(UnitController.Instance.selectedUnit.walkableGridCells);
-            MovementSystem.Instance.Movement(UnitController.Instance.selectedUnit, row, column);
-
-            CancelScript.Instance.Cancel();
-        }
-
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.DROP)
-        {
-            Debug.Log("cell clicked on drop state");
-
-            // lazem drop mdirolha kima move 3ndna method movement f move system w kima attack system , psq fiha chwya 5dma drop .
-            UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;
-
-            ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitTransport.dropableCells);
-            
-            unitTransport.ResetDropableCells();
-            unitTransport.Drop(this);
-
-            CancelScript.Instance.Cancel();
-        }
-
-
-
-
-
+        GridCellController.Instance.OnCellSelection(this);
+        //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE ____AHMED AND RAYANE !!!!!!!!!!
     }
 
 
 
 
-    //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
-    public void HighlightAsWalkable()
-    {
-        rend.color = Color.green;
-        isWalkable = true;
-    }
-
-    public void HighlightAsDropable()
-    {
-        rend.color = Color.blue;
-    }
-
-
-    public void HighlightAsAttackable()
-    {
-        rend.color = Color.red;
-    }
-
-
-    public void ResetHighlitedCell()
-    {
-        rend.color = Color.white;
-    }
-   
-    
-    
     // Method to reset the GridCell to its original state  
     public void ResetCellAttributsInEndTurn()
     {
-        isWalkable = false;
-        ResetHighlitedCell();
+        isWalkable = false; // hada yji ghir hna , makalh ndiroh true f highlight as walkable .
+        gridCellView.ResetHighlitedCell();
     }
+
+
 
     public void MakeCellInteractable()
     {

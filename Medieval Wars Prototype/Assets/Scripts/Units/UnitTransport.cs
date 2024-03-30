@@ -114,7 +114,7 @@ public class UnitTransport : Unit
     public void HighlightDropableCells()
     {
         // highlight the dropable cells
-        dropableCells.ForEach( dropableCell => dropableCell.HighlightAsDropable() );
+        dropableCells.ForEach( dropableCell => dropableCell.gridCellView.HighlightAsDropable() );
     }
 
     // 
@@ -128,7 +128,7 @@ public class UnitTransport : Unit
     public void ResetDropableCells()
     {
         // highlight the dropable cells
-        dropableCells.ForEach( dropableCell => dropableCell.ResetHighlitedCell() );
+        dropableCells.ForEach( dropableCell => dropableCell.gridCellView.ResetHighlitedCell() );
         dropableCells.Clear();
     }
 
@@ -138,5 +138,6 @@ public class UnitTransport : Unit
         suppliableUnits.ForEach(suppliableUnits => suppliableUnits.unitView.ResetHighlightedUnit());
         suppliableUnits.Clear();
     }
+
 
 }

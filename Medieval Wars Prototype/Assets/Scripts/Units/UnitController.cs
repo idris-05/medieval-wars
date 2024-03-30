@@ -132,17 +132,17 @@ public class UnitController : MonoBehaviour
             // case UnitUtil.ActionToDoWhenButtonIsClicked.LOAD:   // hadi 9olna nforciwha tessra direct .
             //     break;
 
-           /* case UnitUtil.ActionToDoWhenButtonIsClicked.SUPPLY:
+            // case UnitUtil.ActionToDoWhenButtonIsClicked.SUPPLY:
 
-                UnitTransport supplyingUnit = selectedUnit as UnitTransport;
+            //     UnitTransport supplyingUnit = selectedUnit as UnitTransport;
 
-                ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(supplyingUnit.suppliableUnits);
+            //     ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(supplyingUnit.suppliableUnits);
 
-                supplyingUnit.Supply(unitThatGotClickedOn); 
+            //     supplyingUnit.Supply(unitThatGotClickedOn);
 
-                CancelScript.Instance.Cancel();
+            //     CancelScript.Instance.Cancel();
 
-                break; */
+            //     break;
 
             // case UnitUtil.ActionToDoWhenButtonIsClicked.CAPTURE:
             //     break;

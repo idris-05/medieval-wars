@@ -25,6 +25,8 @@ public class ManageInteractableObjects : MonoBehaviour
         }
     }
 
+
+    //!!!!!!!!! dir les valeurs lmssgmin
     // BLOCK INTERACTABLES LAYER         inactive  default
     // UNITS  CELLS TERRAIN BIULDINGS       0      default
 
@@ -37,7 +39,7 @@ public class ManageInteractableObjects : MonoBehaviour
 
     // MAIN CAMERA                         -50     FIX 
 
-// 0 - 10  -50 .. homa valeur t3  transform.position.z  pour chaque ojbect
+    // 0 - 10  -50 .. homa valeur t3  transform.position.z  pour chaque ojbect
 
 
     public GameObject BlockInteractablesLayer;
@@ -46,7 +48,6 @@ public class ManageInteractableObjects : MonoBehaviour
     {
         BlockInteractablesLayer.SetActive(true);
     }
-
     public void DesctivateBlockInteractionsLayer()
     {
         BlockInteractablesLayer.SetActive(false);
@@ -56,36 +57,22 @@ public class ManageInteractableObjects : MonoBehaviour
 
     public void MakeOnlySpecificCellsInteractable(List<GridCell> cellsToMakeInteractable)
     {
-        foreach (GridCell gridcell in cellsToMakeInteractable)
-        {
-            gridcell.MakeCellInteractable();
-        }
+        cellsToMakeInteractable.ForEach(cell => cell.MakeCellInteractable());
     }
-
     public void ResetSpecificCellsBackToTheirOriginalLayer(List<GridCell> cellsToResetToOriginalLayer)
     {
-        foreach (GridCell gridcell in cellsToResetToOriginalLayer)
-        {
-            gridcell.ResetCellBackToTheirOriginalLayer();
-        }
+        cellsToResetToOriginalLayer.ForEach(cell => cell.ResetCellBackToTheirOriginalLayer());
     }
 
 
 
     public void MakeOnlySpecificUnitsInteractable(List<Unit> unitsToMakeInteractable)
     {
-        foreach (Unit unit in unitsToMakeInteractable)
-        {
-            unit.unitView.MakeUnitInteractable();
-        }
+        unitsToMakeInteractable.ForEach(unit => unit.unitView.MakeUnitInteractable());
     }
-
     public void ResetSpecificUnitsBackToTheirOriginalLayer(List<Unit> unitsToResetToOriginalLayer)
     {
-        foreach (Unit unit in unitsToResetToOriginalLayer)
-        {
-            unit.unitView.ResetUnitBackToTheirOriginalLayer();
-        }
+        unitsToResetToOriginalLayer.ForEach(unit => unit.unitView.ResetUnitBackToTheirOriginalLayer());
     }
 
 

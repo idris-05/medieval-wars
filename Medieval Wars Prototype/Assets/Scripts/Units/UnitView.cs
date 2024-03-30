@@ -41,7 +41,6 @@ public class UnitView : MonoBehaviour
         rightButtonHolded = false;
         ResetHighlitedAttackableCells();
     }
-
     private void OnMouseOver()   // est ce que advance wars ay unit tclicker 3liha yhighlightiha ? swa ta3ek 2wla t3 li contrek
     {
         isUnitHovered = true;
@@ -58,7 +57,6 @@ public class UnitView : MonoBehaviour
 
     }
     // Check if right mouse button is held down display the attackableCells
-
     void Update()
     {
         if (!isUnitHovered) return;
@@ -123,22 +121,18 @@ public class UnitView : MonoBehaviour
     public void HighlightAsEnemy()
     {
         spriteRenderer.color = Color.red;
-        //!!!!!!!!!!!!
     }
 
-    public void HighlightAsSelected()  //HighlightUnitOnSelection
+    public void HighlightAsSelected()
     {
         spriteRenderer.color = Color.green;
-        //!!!!!!!!!!!!
     }
-
 
     public void HighlightAsSuppliable()
     {
         spriteRenderer.color = Color.yellow;
     }
 
-    //!!!!!!!!!!
     public void ResetHighlightedUnit()
     {
         spriteRenderer.color = Color.white;
@@ -170,7 +164,7 @@ public class UnitView : MonoBehaviour
     {
         Transform transform = GetComponent<Transform>();
         Vector3 newPosition = transform.position;
-        newPosition.z = -1; 
+        newPosition.z = -1;
         transform.position = newPosition;
 
     }
@@ -178,25 +172,28 @@ public class UnitView : MonoBehaviour
 
     public void HighlightWalkablesCells()
     {
-        unit.walkableGridCells.ForEach(walkableGridCell =>walkableGridCell.HighlightAsWalkable());
+        unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.HighlightAsWalkable());
     }
     public void ResetHighlitedWalkableCells()
     {
-        unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.ResetHighlitedCell());
+        unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.ResetHighlitedCell());
         unit.walkableGridCells.Clear();
     }
 
 
     public void HighlightAttackableCells()
     {
-        (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.HighlightAsAttackable());
+        (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.HighlightAsAttackable());
     }
     public void ResetHighlitedAttackableCells()
     {
-        if ( ( unit is UnitAttack ) == false ) return;
+        if ((unit is UnitAttack) == false) return;
 
-        (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.ResetHighlitedCell());
-        (unit as UnitAttack).attackableGridCells.Clear(); 
-    } 
+        (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.ResetHighlitedCell());
+        (unit as UnitAttack).attackableGridCells.Clear();
+    }
+
+
+
 
 }

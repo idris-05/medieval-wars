@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d470229f18e5145bff8bb9a5cb0cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitTransform: {fileID: 0}
   mapGrid: {fileID: 0}
   spriteRenderer: {fileID: 0}
   moveSpeed: 5
@@ -167,13 +168,12 @@ MonoBehaviour:
   occupiedCell: {fileID: 0}
   row: 0
   col: 0
-  playerNumber: 0
-  healthPoints: 0
+  playerNumber: 1
+  healthPoints: 100
   moveRange: 8
   ration: 100
   rationPerDay: 0
   lineOfSight: 0
-  moveCost: 0
   hasMoved: 0
   numbState: 0
   walkableGridCells: []
