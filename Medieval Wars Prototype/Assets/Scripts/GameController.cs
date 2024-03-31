@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     public MapGrid mapGrid;
 
     public Unit Infantry1Prefab; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
-
+    public extractormap extm;
     public Unit Infantry1PrefabTransport; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
 
     public Unit Infantry2Prefab; // test
@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         mapGrid.CalculateMapGridSize();
-        mapGrid.InitialiseMapGridCells();
+        mapGrid.InitialiseMapGridCells(extm.mapData);
 
         SpawnUnit(1, 5, 5, Infantry1Prefab); // test 
 

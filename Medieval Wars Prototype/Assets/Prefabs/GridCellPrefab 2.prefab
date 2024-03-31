@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 258485711930480271}
   - component: {fileID: -3587581034812915052}
+  - component: {fileID: -3754383695415407137}
   - component: {fileID: 4884540965997139755}
   - component: {fileID: 7654521201180512791}
   m_Layer: 0
-  m_Name: GridCellPrefab
+  m_Name: GridCellPrefab 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1321153491597328453}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 500}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,10 +47,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0aaddc32c0dfa4eb6b7c5d6bf1620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridCellView: {fileID: 0}
   isWalkable: 0
   row: 0
-  colomun: 0
+  column: 0
   occupantUnit: {fileID: 0}
+  occupantTerrain: {fileID: 0}
+  moveCost: 1
+--- !u!114 &-3754383695415407137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321153491597328453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb5e6de5fc6e3a43bcf18b20e92dc2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 0}
 --- !u!212 &4884540965997139755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91,12 +108,12 @@ SpriteRenderer:
   m_SortingLayerID: -1561711499
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1950010644, guid: 118314553d786624eafbcfdbb7908139, type: 3}
+  m_Sprite: {fileID: 1425038990, guid: d091e94e5ae0e4345bf541db41293d5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -138,8 +155,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

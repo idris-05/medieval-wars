@@ -5,7 +5,7 @@ public class MapGrid : MonoBehaviour
     // map grid is a matrix of gridCell
     public GridCell[,] grid;
 
-    public GridCell GridCellPrefab;
+    public GridCell[] GridCellPrefab = new GridCell[3];
 
     public Terrain TerrainPlainPrefab;
 
@@ -23,15 +23,16 @@ public class MapGrid : MonoBehaviour
 
     }
 
-    public void InitialiseMapGridCells()
+    public void InitialiseMapGridCells(int[,] Data )
     {
         // Loop through each row and column of the map grid
         for (int row = 0; row < MapGrid.Rows; row++)
         {
             for (int col = 0; col < MapGrid.Columns; col++)
             {
+                Debug.Log(row + " :" + col);
                 // Instantiate a GridCell prefab at the specified position
-                GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
+                GridCell gridCell = Instantiate(GridCellPrefab[Data[row,col]], new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
 
                 // Instantiate a Terrain prefab at the specified position
                 Terrain terrain = Instantiate(TerrainPlainPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
