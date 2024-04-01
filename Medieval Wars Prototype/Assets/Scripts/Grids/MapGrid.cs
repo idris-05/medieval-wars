@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class MapGrid : MonoBehaviour
 {
     // map grid is a matrix of gridCell
-    public GridCell[,] grid;
+    public GridCell[,] grid ;
 
     public GridCell[] GridCellPrefab = new GridCell[3];
 
@@ -19,20 +20,23 @@ public class MapGrid : MonoBehaviour
         Columns = Horizontal * 2;
         Rows = Vertical * 2;
 
+        Columns = 34;
+        Rows = 10;
         grid = new GridCell[Rows, Columns];
 
     }
 
-    public void InitialiseMapGridCells(int[,] Data )
+    public void InitialiseMapGridCells(int[,] Data)
     {
         // Loop through each row and column of the map grid
         for (int row = 0; row < MapGrid.Rows; row++)
         {
             for (int col = 0; col < MapGrid.Columns; col++)
             {
-                Debug.Log(row + " :" + col);
+                // Debug.Log(row + " :" + col);
                 // Instantiate a GridCell prefab at the specified position
-                GridCell gridCell = Instantiate(GridCellPrefab[Data[row,col]], new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
+                GridCell gridCell = Instantiate(GridCellPrefab[Data[row, col]], new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
+
 
                 // Instantiate a Terrain prefab at the specified position
                 Terrain terrain = Instantiate(TerrainPlainPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
@@ -55,6 +59,7 @@ public class MapGrid : MonoBehaviour
 
                 // Assign the GridCell to the corresponding position in the map grid
                 grid[row, col] = gridCell;
+                Debug.Log("grid[" + row + "," + col + "] = " + grid[row, col]);
             }
         }
     }

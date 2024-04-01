@@ -1,22 +1,24 @@
 using UnityEngine;
 using System.IO;
 
-public class  extractormap : MonoBehaviour
+public class ExtractorMap : MonoBehaviour
 {
     // Votre tableau représentant la carte
     public int[,] mapData;
 
     void Start()
     {
-        // Chemin du fichier où la carte est sauvegardée
+        // Chemin du f
+        
+        // ichier où la carte est sauvegardée
         string filePath = Application.dataPath + "/maps/map.txt";
 
         // Charger la carte depuis le fichier
         LoadMapFromFile(filePath);
 
         // Afficher la carte dans la console à titre de vérification
-        Debug.Log("hi");
-        PrintMap();
+        // Debug.Log("hi");
+        // PrintMap();
     }
 
     void LoadMapFromFile(string filePath)

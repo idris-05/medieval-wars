@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     public MapGrid mapGrid;
 
     public Unit Infantry1Prefab; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
-    public extractormap extm;
+    public ExtractorMap extractorMap;
     public Unit Infantry1PrefabTransport; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
 
     public Unit Infantry2Prefab; // test
@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         mapGrid.CalculateMapGridSize();
-        mapGrid.InitialiseMapGridCells(extm.mapData);
+        mapGrid.InitialiseMapGridCells(extractorMap.mapData);
 
         SpawnUnit(1, 5, 5, Infantry1Prefab); // test 
 
@@ -100,6 +100,7 @@ public class GameController : MonoBehaviour
         //! KI YEKLIKI 3lA UNIT NA7OULOU BOUTON T3 END TURN
         //! WE DO NOT HAVE TO DO MANY THINGS HERE BECAUSE WE WILL NOT LET THE PLAYER END HIS TURN UNLESS HE IS IN THE "NONE" STATE
         SwitchPlayeTurn();
+        //!! tbanli lazem nzido ResetAllCellsAttributsInEndTurn w ResetAllUnitsAttributsInEndTurn .
     }
 
     // this function is used to switch the turn of the players    
