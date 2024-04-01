@@ -58,6 +58,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         CheckEndTurnInput();
+        //! we must add the ResetAllCellsAttributsInEndTurn and ResetAllUnitsAttributsInEndTurn inside EndTurn .
     }
 
 

@@ -3,11 +3,11 @@ using UnityEngine;
 public class Building : Terrain
 {
     // ytcaptura  , rapaire ll unit , supply unit .
-    public Color color;
+    public Color color; //??????
 
-    public SpriteRenderer spriteRendererForBuilding;
+    public SpriteRenderer spriteRendererForBuilding; //?? kayaen deja sprite t3 terrain , 3lach mndiroch bih howa ?
     public int capture;
-    public void RepairUnit(Unit unit)
+    public void HealUnit(Unit unit)
     {
         // if ( unit.unitType==this.unitType && unit.color == this.color)
         // {
@@ -25,7 +25,7 @@ public class Building : Terrain
 
     public void SetColor(Color color)
     {
-        this.color = color;
+        this.color = color; // r7 yji sprite w7do5er g3 ,3ndo la couleur ljdida .
     }
 
 

@@ -1,7 +1,26 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class TerrainsUtils
 {
+
+    // TerrainIndex | Terrain
+    // ------------------
+    //   0   | BARRACK  | 
+    //   1   | DOCK     | 
+    //   2   | STABLE   | 
+    //   3   | CASTLE   | 
+    //   4   | VILLAGE  | 
+    //   5   | ROAD     | 
+    //   6   | BRIDGE   | 
+    //   7   | RIVER    | 
+    //   8   | SEA      | 
+    //   9   | SHOAL    | 
+    //  10   | REEF     | 
+    //  11   | PLAIN    | 
+    //  12   | WOOD     | 
+    //  13   | MOUNTAIN | 
+    //
 
 
     public enum TerrainName
@@ -46,9 +65,6 @@ public static class TerrainsUtils
 
     // ligne terrain , colonne unité
     // "-"1 means the unit can't move on this terrain
-
-
-
     public static int[,] MoveCost =
     {
     // CARAVAN | ARCHERS | CARAC | FIRESHIP | INFANTRY | TSHIP | SPIKEMAN | RCHALVARY | TREBUCHET | BANDIT | CATAPULTE | RAMSHIP | CHALVARY | Terrain    // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -69,32 +85,27 @@ public static class TerrainsUtils
 };
 
 
-    // Each Terrain has it's defense stars that will be used in the damage formula
 
+    // Each Terrain has it's defense stars that will be used in the damage formula
     public static int[] defenceStars = { 3, 3, 3, 4, 3, 0, 0, 0, 0, 0, 1, 1, 2, 4 };
 
-    // TerrainIndex | Terrain
-    // ------------------
-    //   0   | BARRACK  | 
-    //   1   | DOCK     | 
-    //   2   | STABLE   | 
-    //   3   | CASTLE   | 
-    //   4   | VILLAGE  | 
-    //   5   | ROAD     | 
-    //   6   | BRIDGE   | 
-    //   7   | RIVER    | 
-    //   8   | SEA      | 
-    //   9   | SHOAL    | 
-    //  10   | REEF     | 
-    //  11   | PLAIN    | 
-    //  12   | WOOD     | 
-    //  13   | MOUNTAIN | 
-    //
+
+
+
+    // public static List<SpriteRenderer> TerrainSpritesForEachWhether = new List<SpriteRenderer>();
+    // hadi list t3 listes , kol terrain 3ndo sprites 3la 7ssab whether ,
+    // tssema lazem f tableau hada n7to ID t3 sprites hadok ....
+    // ! chof f terrain 9dam "public SpriteRenderer spriteRenderer" tl9a avis w7do5er .
+
+
+
+
 
 
 
 
     public static string[] reportTerrain;
+
 
 
 
