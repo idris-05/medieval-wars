@@ -13,24 +13,16 @@ public class GridCell : MonoBehaviour
     public int row;
     public int column;
 
-    public Unit occupantUnit;
 
+    public Unit occupantUnit;
     public Terrain occupantTerrain;
+
 
     public int moveCost = 1; // for now
 
     void Start()
     {
         gridCellView = GetComponent<GridCellView>();
-    }
-
-
-
-
-    void OnMouseDown()
-    {
-        GridCellController.Instance.OnCellSelection(this);
-        //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE ____AHMED AND RAYANE !!!!!!!!!!
     }
 
 

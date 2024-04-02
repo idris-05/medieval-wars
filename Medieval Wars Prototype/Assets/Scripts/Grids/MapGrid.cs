@@ -20,7 +20,6 @@ public class MapGrid : MonoBehaviour
         Rows = Vertical * 2;
 
         grid = new GridCell[Rows, Columns];
-
     }
 
     public void InitialiseMapGridCells()

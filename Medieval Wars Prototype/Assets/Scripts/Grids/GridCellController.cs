@@ -30,31 +30,26 @@ public class GridCellController : MonoBehaviour
 
         Debug.Log("GridCell Clicked");
 
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE)
+        switch (UnitController.Instance.CurrentActionStateBasedOnClickedButton)
         {
-            Debug.Log("cell clicked on move state");
+            case UnitUtil.ActionToDoWhenButtonIsClicked.MOVE:
+                Debug.Log("cell clicked on move state");
+                ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(UnitController.Instance.selectedUnit.walkableGridCells);
+                MovementSystem.Instance.Movement(UnitController.Instance.selectedUnit, cellThatGotClickedOn.row, cellThatGotClickedOn.column);
+                CancelScript.Instance.Cancel();
+                break;
+                
+            case UnitUtil.ActionToDoWhenButtonIsClicked.DROP:
+                Debug.Log("cell clicked on drop state");
+                UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;
+                ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitTransport.dropableCells);
+                unitTransport.ResetDropableCells();
+                unitTransport.Drop(cellThatGotClickedOn);
+                CancelScript.Instance.Cancel();
+                break;
 
-            // lazem had l'ordre f les appels sinon r7 tne7i liste ta3 walkable grid cells
-
-            ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(UnitController.Instance.selectedUnit.walkableGridCells);
-            MovementSystem.Instance.Movement(UnitController.Instance.selectedUnit, cellThatGotClickedOn.row, cellThatGotClickedOn.column);
-
-            CancelScript.Instance.Cancel();
-        }
-
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.DROP)
-        {
-            Debug.Log("cell clicked on drop state");
-
-            // lazem drop mdirolha kima move 3ndna method movement f move system w kima attack system , psq fiha chwya 5dma drop .
-            UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;
-
-            ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitTransport.dropableCells);
-
-            unitTransport.ResetDropableCells();
-            unitTransport.Drop(cellThatGotClickedOn);
-
-            CancelScript.Instance.Cancel();
+            default:
+                break;
         }
 
 

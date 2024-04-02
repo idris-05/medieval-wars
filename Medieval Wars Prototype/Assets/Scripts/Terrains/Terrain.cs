@@ -9,6 +9,7 @@ public class Terrain : MonoBehaviour
 
     // public List<SpriteRenderer> spritesRendererList = new List<SpriteRenderer>();
     public SpriteRenderer spriteRenderer;
+
     // r7 nss79o bzaf les sprites , kol wa7ed 3la 7ssab whether ta3o .
     //  tssema ndiro tableau t3 sprites , w l'index howa index t3 whether ( nzidoh )
 
