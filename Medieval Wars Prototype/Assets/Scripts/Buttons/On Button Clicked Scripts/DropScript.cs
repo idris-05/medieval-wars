@@ -9,7 +9,7 @@ public class DropScript : MonoBehaviour
 
         ButtonsUI.Instance.UpdateActionButtonsToDisplayWhenAButtonIsClicked(ActionsHandler.Instance.actionButtons[3]);
 
-        unitTransport.GetdropableCells();
+        unitTransport.GetDropableCells();
 
         unitTransport.HighlightDropableCells();
         ManageInteractableObjects.Instance.MakeOnlySpecificCellsInteractable(unitTransport.dropableCells);

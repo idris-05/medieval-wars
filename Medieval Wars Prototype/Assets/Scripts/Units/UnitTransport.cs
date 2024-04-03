@@ -55,7 +55,7 @@ public class UnitTransport : Unit
 
 
     // method to get teh dropable units
-    public void GetdropableCells()
+    public void GetDropableCells()
     {
 
         int currentRow = row;
@@ -68,9 +68,10 @@ public class UnitTransport : Unit
         if (currentCol - 1 >= 0) dropableCellsCondidates.Add(mapGrid.grid[currentRow, currentCol - 1]);  // left cell
         if (currentCol + 1 < mapGrid.grid.GetLength(1)) dropableCellsCondidates.Add(mapGrid.grid[currentRow, currentCol + 1]);// right cell
 
+
         foreach (GridCell cell in dropableCellsCondidates)
         {
-            //!!!!!! lazem hadik unit li 7ab tdropiha t9der t3mchi 3la terrain li ayken f cell hadik .
+            //!!!!!! + lazem hadik unit li 7ab tdropiha t9der t3mchi 3la terrain li ayken f cell hadik . moveCost != -1 .
             if (cell.occupantUnit == null) this.dropableCells.Add(cell);
         }
     }

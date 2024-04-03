@@ -49,8 +49,11 @@ public class ActionsHandler : MonoBehaviour
     {
         if (unitThatGotClickedOn.playerOwner != GameController.Instance.currentPlayerInControl) return;
 
+        ButtonsUI.Instance.buttonsToDisplay.Clear();
+
 
         // MOVE BUTTON 
+        // hna nzido getWalkableCells() wnchofo ida kayen wla rahi fargha .
         if (unitThatGotClickedOn.hasMoved == false /* and there are tiles you can walk on */ )
         {
             ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[0]);
@@ -59,6 +62,7 @@ public class ActionsHandler : MonoBehaviour
 
 
         // ATTACK BUTTON 
+        //!! had l verification t3 player owner srat lfo9 w ra7et b return. n9dro n7oha , mais n5loha 5ir .
         if (unitThatGotClickedOn.playerOwner == GameController.Instance.currentPlayerInControl)
         {
             // Debug.Log("unitThatGotClickedOn.playerNumber == gm.playerTurn");
@@ -89,7 +93,7 @@ public class ActionsHandler : MonoBehaviour
             {
                 if (transportUnitThatGotClickedOn.loadedUnit != null)
                 {
-                    transportUnitThatGotClickedOn.GetdropableCells();
+                    transportUnitThatGotClickedOn.GetDropableCells();
                     // zid virefier beli Vulnerability > 0 // sla7 ( rssas) ta3ek mazal m5lasch .
                     if (transportUnitThatGotClickedOn.dropableCells.Any() == true)
                     {
@@ -131,7 +135,11 @@ public class ActionsHandler : MonoBehaviour
 
 
         // cancel button (always)
-        ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[5]);
+        // cancel button machi daymen , cancel button ki tkon 3ndek button w7do5ra dir m3aha camcel button .
+        if (ButtonsUI.Instance.buttonsToDisplay.Any() == true)
+        {
+            ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[5]);
+        }
 
     }
 

@@ -114,7 +114,7 @@ public class GameController : MonoBehaviour
     {
         //! KI YEKLIKI 3lA UNIT NA7OULOU BOUTON T3 END TURN
         //! WE DO NOT HAVE TO DO MANY THINGS HERE BECAUSE WE WILL NOT LET THE PLAYER END HIS TURN UNLESS HE IS IN THE "NONE" STATE
-        currentPlayerInControl.UpdatePlayerStats(); // normalement tessra f end day mchi f turn. 
+        currentPlayerInControl.UpdatePlayerStats(); // normalement tessra f end day mchi f turn ????? .
         SwitchPlayeTurn();
         ResetAllCellsAttributsInEndTurn();
         ResetAllUnitsAttributsInEndTurn();

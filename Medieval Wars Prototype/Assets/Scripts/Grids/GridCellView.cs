@@ -21,7 +21,7 @@ public class GridCellView : MonoBehaviour
     }
 
 
-
+// !!! hilghiht hado nwello fi plasset la coleure nbdlo sprite .
 
 
     public void HighlightAsWalkable()

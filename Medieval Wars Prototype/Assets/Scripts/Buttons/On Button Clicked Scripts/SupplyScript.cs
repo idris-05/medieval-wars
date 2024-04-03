@@ -14,7 +14,7 @@ public class SupplyScript : MonoBehaviour
     {
         Debug.Log("Supply button pressed");
 
-        ButtonsUI.Instance.UpdateActionButtonsToDisplayWhenAButtonIsClicked(supplyButton) ;
+        ButtonsUI.Instance.UpdateActionButtonsToDisplayWhenAButtonIsClicked(supplyButton);
 
         UnitTransport supplyingUnit = UnitController.Instance.selectedUnit as UnitTransport;
 
@@ -22,13 +22,6 @@ public class SupplyScript : MonoBehaviour
         supplyingUnit.SupplyAllSuppliableUnits();
         supplyingUnit.ResetSuppliableUnits();
         CancelScript.Instance.Cancel();
-
-
-        // supplyingUnit.HighlightSuppliableUnits();
-
-        // ManageInteractableObjects.Instance.MakeOnlySpecificUnitsInteractable(supplyingUnit.suppliableUnits);
-
-        // UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.SUPPLY;
 
     }
 

@@ -8,7 +8,7 @@ public class GridCell : MonoBehaviour
 
     public GridCellView gridCellView;
 
-    public bool isWalkable;   //!!! ?????? wch rana ndiro bih hada 
+    // public bool isWalkable;   //!!! ?????? wch rana ndiro bih hada ,, update : raho 9rib ytir .
 
     public int row;
     public int column;
@@ -18,7 +18,7 @@ public class GridCell : MonoBehaviour
     public Terrain occupantTerrain;
 
 
-    public int moveCost = 1; // for now
+    public int moveCost = 1; //!!!!!!!!!!!! for now
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class GridCell : MonoBehaviour
     // Method to reset the GridCell to its original state  
     public void ResetCellAttributsInEndTurn()
     {
-        isWalkable = false; // hada yji ghir hna , makalh ndiroh true f highlight as walkable .
+        // isWalkable = false; // hada yji ghir hna , makalh ndiroh true f highlight as walkable .
         gridCellView.ResetHighlitedCell();
     }
 

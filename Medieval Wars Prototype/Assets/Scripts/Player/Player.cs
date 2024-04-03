@@ -56,6 +56,7 @@ public class Player
         availableFunds += incomingFundsAtTheEndOfDay;
     }
 
+    // nssgmo le nom t3 la method, nzido fih in End Turn wla day ...
     public void UpdatePlayerStats()
     {
         UpdateIncomingFundsAtTheEndOfDay();

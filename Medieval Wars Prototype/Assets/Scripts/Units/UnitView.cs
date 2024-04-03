@@ -11,7 +11,7 @@ public class UnitView : MonoBehaviour
     private Unit unit;
 
     public Transform unitTransform; // I needed this to fix a problem where the z coordinate was set back to 0 after movement
-    public MapGrid mapGrid;
+    public MapGrid mapGrid; //!!!!! rahi kayna deja mapgrid fl unit 
 
     public SpriteRenderer spriteRenderer;
     public float moveSpeed = 5;

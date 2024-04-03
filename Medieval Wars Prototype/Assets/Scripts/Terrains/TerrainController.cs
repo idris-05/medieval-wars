@@ -7,7 +7,6 @@ public class TerrainController : MonoBehaviour
         // tessra f chaque end day .  
         //! lazem ydifiniwha adem wla ahmed (kifach ttbdel).
         //! omb3d da5elha nchofo est ce n9dro nzido wla n9sso brk wla lazem matrice jdida kamel 3la 7ssab kol whether. 
-        //adem : parcourer tableau MoveCost et changer les valeurs selon "whether"
     }
 
 

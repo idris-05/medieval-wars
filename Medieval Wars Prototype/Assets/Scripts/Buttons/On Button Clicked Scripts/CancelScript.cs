@@ -32,29 +32,20 @@ public class CancelScript : MonoBehaviour
         switch (UnitController.Instance.CurrentActionStateBasedOnClickedButton)
         {
             case UnitUtil.ActionToDoWhenButtonIsClicked.NONE:
-
                 CancelWhenNoButtonHasBeenPressedYet();
-
                 break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.MOVE:
-
                 CancelAfterMoveButtonPressed();
-
                 break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK:
-
                 CancelAfterAttackButtonPressed();
-
                 break;
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.DROP:
-
                 CancelAfterDropButtonPressed();
-
                 break;
-
 
             default:
                 break;

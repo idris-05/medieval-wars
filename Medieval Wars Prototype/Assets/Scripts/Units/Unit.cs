@@ -20,12 +20,10 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public int moveRange;
     public float ration;
-    // public float MaxRation; //!!!!!!! rahi fi list fl unitUtil 
 
     public float rationPerDay;
     public int lineOfSight;
 
-    // public int moveCost;
 
 
     public bool hasMoved;
@@ -44,7 +42,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         // Get the UnitView component from the scene
         unitView = GetComponent<UnitView>();
-        Debug.Log("unit : " + this.name);
         // Get the MapGrid component from the scene
         mapGrid = FindObjectOfType<MapGrid>();   //!!! ttna7a
 
@@ -86,8 +83,9 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void Kill()
     {
+        // w occupant Unit t3 cell li kan fiha ? wla w7dha tweli null , l3fayes li kima hadi wchnohom kamel
         playerOwner.unitList.Remove(this);
-        Destroy(this.gameObject);             
+        Destroy(this.gameObject);
     }
 
 
@@ -103,9 +101,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void RecieveRationSupply()
     {
-        // Tl3ha lel MAX direct .
         ration = UnitUtil.maxRations[unitIndex];
-        Debug.Log("I just Got Supplied bro");
+        // Debug.Log("I just Got Supplied bro");
     }
 
     public void ConsumeDailyRation()
@@ -119,7 +116,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void TransitionToNumbState()
     {
         numbState = true;
-        hasMoved = true; //  normalement tt7ana //! WE NEED TO LOOK AT THIS
+        hasMoved = true; //  normalement tt7ana //! WE NEED TO LOOK AT THIS , tweli ki tselectionniw : numb State => return  
         unitView.spriteRenderer.color = Color.gray; // ttsegem .
     }
 

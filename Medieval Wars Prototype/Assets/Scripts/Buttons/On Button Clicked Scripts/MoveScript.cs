@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class MoveScript : MonoBehaviour
 {
 
-    public Button moveButton;
+    // public Button moveButton; // hadi makaleh , kayen hadi : ActionsHandler.Instance.actionButtons[0]
 
 
     // EventSystem . 
@@ -12,7 +12,7 @@ public class MoveScript : MonoBehaviour
     {
         Debug.Log("Move button pressed");
 
-        ButtonsUI.Instance.UpdateActionButtonsToDisplayWhenAButtonIsClicked(moveButton);
+        ButtonsUI.Instance.UpdateActionButtonsToDisplayWhenAButtonIsClicked(ActionsHandler.Instance.actionButtons[0]);
 
         MovementSystem.Instance.GetWalkableTiles(UnitController.Instance.selectedUnit);
 

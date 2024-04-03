@@ -68,20 +68,13 @@ public class UnitAttack : Unit
     public void HighlitAttackableGridCells()
     {
         attackableGridCells.ForEach(cell => cell.gridCellView.HighlightAsAttackable());
-    }
-    
+    } 
     public void ResetHighlitedAttackableGridCells()
     {
         attackableGridCells.ForEach(cell => cell.gridCellView.ResetHighlitedCell());
         attackableGridCells.Clear();
     }
 
-
-
-    public void CaptureBuilding(Building building)
-    {
-        return ;
-    }
 
 
 }

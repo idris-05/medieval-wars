@@ -41,8 +41,7 @@ public class MovementSystem : MonoBehaviour
     public void Movement(Unit unit, int row, int col)
     {
 
-
-        if (mapGrid.grid[row, col].occupantUnit is UnitTransport) // If I try to move to a cell where there is a tronsporter
+        if (mapGrid.grid[row, col].occupantUnit is UnitTransport) // If I try to move to a cell where there is a tronsporter we  will load the unit on the transporter .
         {
 
             // We are Sure here that the transporter is empty because it gets verified in GetWalkableTiles
@@ -213,7 +212,6 @@ public class MovementSystem : MonoBehaviour
                         {
                             int nextRow = currentPos.x + row2;
                             int nextCol = currentPos.y + col2;
-                            //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
                             // mapGrid.grid[nextRow, nextCol].HighlightAsWalkable();
                             unit.walkableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
                         }
