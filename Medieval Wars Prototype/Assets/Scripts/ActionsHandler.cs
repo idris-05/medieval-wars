@@ -39,12 +39,15 @@ public class ActionsHandler : MonoBehaviour
     // drop     3
     // supply   4
     // cancel   5
+    // capture  6
+
+    // l'orodre mchi probleme , f la fin g3 nsgmohom
 
 
 
     public void FillButtonsToDisplay(Unit unitThatGotClickedOn)
     {
-        if (unitThatGotClickedOn.playerNumber != GameController.Instance.playerTurn) return;
+        if (unitThatGotClickedOn.playerOwner != GameController.Instance.currentPlayerInControl) return;
 
 
         // MOVE BUTTON 
@@ -56,7 +59,7 @@ public class ActionsHandler : MonoBehaviour
 
 
         // ATTACK BUTTON 
-        if (unitThatGotClickedOn.playerNumber == GameController.Instance.playerTurn)
+        if (unitThatGotClickedOn.playerOwner == GameController.Instance.currentPlayerInControl)
         {
             // Debug.Log("unitThatGotClickedOn.playerNumber == gm.playerTurn");
             if (unitThatGotClickedOn is UnitAttack unitAttack)
@@ -80,7 +83,7 @@ public class ActionsHandler : MonoBehaviour
 
 
         // DROP BUTTON 
-        if (unitThatGotClickedOn.playerNumber == GameController.Instance.playerTurn)
+        if (unitThatGotClickedOn.playerOwner == GameController.Instance.currentPlayerInControl)
         {
             if (unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn)
             {
@@ -98,7 +101,7 @@ public class ActionsHandler : MonoBehaviour
         }
 
         // SUPPLY BUTTON
-        if ( unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn_ )
+        if (unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn_)
         {
             transportUnitThatGotClickedOn_.GetSuppliableUnits();
             if (transportUnitThatGotClickedOn_.suppliableUnits.Any() == true)
@@ -107,6 +110,22 @@ public class ActionsHandler : MonoBehaviour
                 transportUnitThatGotClickedOn_.suppliableUnits.Clear();  // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha
             }
         }
+
+
+        // CAPTURE BUTTON
+        if (unitThatGotClickedOn.occupiedCell.occupantTerrain is Building building)
+        {
+            if (building.playerOwner != unitThatGotClickedOn.playerOwner)
+            {
+                //!!!!! if (BuildingsUtil.BuildingCanHealAndSupplyThatUnit[building.TerrainIndex, unitThatGotClickedOn.unitIndex]) hadi t3 3fssa w7do5ra 
+                // {
+                ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[6]);
+                // }
+            }
+
+        }
+
+
 
 
 

@@ -25,7 +25,7 @@ public class Terrain : MonoBehaviour
     public int TerrainIndex;
 
     public int incomingFunds;  // incomingFunds from the terrain: 0 , and buildings 1000 ; 
-                               // 3lach mndirohch direct f buildings , psq advance wars ki tji tchof les infos 3la les terrains wkolch , y'affichilek new Founds : 0 3nd terrains ;
+    // 3lach mndirohch direct f buildings , psq advance wars ki tji tchof les infos 3la les terrains wkolch , y'affichilek new Founds : 0 3nd terrains ;
 
     public int row;
     public int col;
@@ -45,6 +45,8 @@ public class Terrain : MonoBehaviour
     {
         // spriteRenderer = spritesRendererList[whether.whetherIndex] ;
     }
+
+
 
 
 

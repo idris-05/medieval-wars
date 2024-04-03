@@ -11,7 +11,23 @@ public class Capturescript : MonoBehaviour
     //5.  y9der y'attackik wnta fo9ha normal 
     //6.  ki ycapturi building ybadel couleur ta3ha l couleur ta3ek .
     //7.  Heal w supply f end Day.
+
+    public void OnCaptureButtonClicked()
+    {
+        Debug.Log("Capture button got clicked! ");
     
+        Unit unit = UnitController.Instance.selectedUnit;
+        if (unit == null) Debug.Log("selectedUnit from UnitController null");
+
+        Building buildingToCapture = unit.occupiedCell.occupantTerrain as Building;
+        if (buildingToCapture == null) Debug.Log("buildingToCapture null");
+        
+        unit.TryToCapture(buildingToCapture);
+        unit.TransitionToNumbState();
+
+        CancelScript.Instance.Cancel();
+
+    }
 
 
 

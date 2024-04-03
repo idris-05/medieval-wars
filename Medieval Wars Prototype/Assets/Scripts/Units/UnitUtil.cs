@@ -45,8 +45,10 @@ public class UnitUtil : MonoBehaviour
     }
     
 
-    // the values in this table need to be changed
+    //!!!!!!!! lazem ytfixaw les valeurs the values in this table need to be changed
     public static float[] maxRations = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
-
+    
+    //!!! lazzem omb3d nssgmoh .
+    public static int[] maxDurabilities = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 }; 
 
 }

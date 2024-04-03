@@ -36,7 +36,7 @@ public class UnitAttack : Unit
 
                 float distance = MathF.Abs(CondidateUnitToGetAttacked.row - row) + MathF.Abs(CondidateUnitToGetAttacked.col - col);
 
-                if (CondidateUnitToGetAttacked.playerNumber != GameController.Instance.playerTurn && distance <= attackRange && distance >= minAttackRange) // yverifyi ida rah f range t3ou
+                if (CondidateUnitToGetAttacked.playerOwner != GameController.Instance.currentPlayerInControl && distance <= attackRange && distance >= minAttackRange) // yverifyi ida rah f range t3ou
                 {
                     enemiesInRange.Add(CondidateUnitToGetAttacked); // add this attackble enemy to the list of attackble enemies
                 }
@@ -69,6 +69,7 @@ public class UnitAttack : Unit
     {
         attackableGridCells.ForEach(cell => cell.gridCellView.HighlightAsAttackable());
     }
+    
     public void ResetHighlitedAttackableGridCells()
     {
         attackableGridCells.ForEach(cell => cell.gridCellView.ResetHighlitedCell());

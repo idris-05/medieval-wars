@@ -5,7 +5,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 {
 
 
-
+    public Player playerOwner;
     public MapGrid mapGrid;
     public UnitView unitView;
 
@@ -16,15 +16,15 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public int row;
     public int col;
 
-    public int playerNumber;
-
     public int healthPoints;
 
     public int moveRange;
     public float ration;
+    // public float MaxRation; //!!!!!!! rahi fi list fl unitUtil 
+
     public float rationPerDay;
     public int lineOfSight;
-    
+
     // public int moveCost;
 
 
@@ -44,7 +44,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         // Get the UnitView component from the scene
         unitView = GetComponent<UnitView>();
-        Debug.Log("unit : " + this.name );
+        Debug.Log("unit : " + this.name);
         // Get the MapGrid component from the scene
         mapGrid = FindObjectOfType<MapGrid>();   //!!! ttna7a
 
@@ -86,19 +86,15 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void Kill()
     {
-        // if (this.healthPoints <= 0)
-        //{
-        //     this.occupiedCell.occupantUnit = null;   // remove the unit from the grid cell
-        Destroy(this.gameObject);                // remove the unit from UNITY !!!!
-
-        // unitView.DeathAnimation();
+        playerOwner.unitList.Remove(this);
+        Destroy(this.gameObject);             
     }
 
 
 
     public void Heal()
     {
-        healthPoints += 10;  //!! valeur berk , omb3d nsgmohom 
+        healthPoints += 20;  //!! valeur berk , omb3d nsgmohom 
         if (this.healthPoints > 100)
         {
             this.healthPoints = 100;
@@ -124,13 +120,15 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         numbState = true;
         hasMoved = true; //  normalement tt7ana //! WE NEED TO LOOK AT THIS
-        unitView.spriteRenderer.color = Color.black; // ttsegem .
+        unitView.spriteRenderer.color = Color.gray; // ttsegem .
     }
 
 
 
     public void ResetUnitAttributsInEndTurn()
     {
+        numbState = false;
+        hasMoved = false;
         ConsumeDailyRation();
     }
 
@@ -141,6 +139,14 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     }
 
 
+
+    public void TryToCapture(Building building)
+    {
+        // Debug.Log(unit.healthPoints);
+        building.remainningPointsToCapture -= healthPoints;
+        // Debug.Log("unit syit n capturiiiibuilding w  5litlo  " + remainningPointsToCapture);
+        if (building.remainningPointsToCapture <= 0) building.GetCaptured(this);
+    }
 
 
 }

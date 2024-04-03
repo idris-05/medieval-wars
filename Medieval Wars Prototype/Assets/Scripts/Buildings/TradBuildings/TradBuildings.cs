@@ -20,7 +20,6 @@ public class TradeBuilding : Building
 
 
 
-
     public SpriteRenderer spriteRendererForTradeBuilding;
 
     public void DisplayAvailableUnitForTrading(Player player)
@@ -28,9 +27,11 @@ public class TradeBuilding : Building
 
     }
 
-    public void ProduceUnit(Player player, Unit unit)
+    public void BuyUnit(Player player, Unit unit)
     {
-
+        player.availableFunds -= TradBuildingsUtil.UnitCost[unit.unitIndex];
+        // GameController.Instance.SpawnUnit(player.playerNumber, row, col, unit);
+        GameController.Instance.SpawnUnit(GameController.Instance.currentPlayerInControl, row, col, unit);
     }
 
 

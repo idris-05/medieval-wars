@@ -37,24 +37,34 @@ public class GameController : MonoBehaviour
 
     public Unit Infantry2Prefab; // test
     public Unit selectedUnit;   // pour le movement , pour l'instant (hadi t3 logic l9dima) /// hadi ybanli ytn7a , doka manach nss79oh 
-    public int playerTurn = 1; // hadi ttssegem .
 
+    // public int playerTurn = 1; // hadi ttssegem .
+    public Player currentPlayerInControl;
+    public Player player1;
+    public Player player2;
 
+    void Awake()
+    {
+        player1 = new Player();
+        player2 = new Player();
+        currentPlayerInControl = player1;
+    }
     // This method is called when the object is first enabled in the scene.
     void Start()
     {
         mapGrid.CalculateMapGridSize();
         mapGrid.InitialiseMapGridCells();
 
-        SpawnUnit(1, 5, 5, Infantry1Prefab); // test 
+        SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
 
-        SpawnUnit(2, 8, 8, Infantry2Prefab);
 
-        SpawnUnit(1, 2, 5, Infantry1PrefabTransport);
+        SpawnUnit(player2, 8, 8, Infantry2Prefab);
+
+        SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
         // SpawnUnit(2, 8, 20, Infantry2Prefab);
     }
 
-    
+
     void Update()
     {
         CheckEndTurnInput();
@@ -63,10 +73,14 @@ public class GameController : MonoBehaviour
 
 
     // this function is used to spawn a unit on the map
-    private void SpawnUnit(int playerNumber, int row, int column, Unit unitPrefab)
+    public void SpawnUnit(Player player, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
         Unit unit = Instantiate(unitPrefab, new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, -1), Quaternion.identity);
+
+        unit.playerOwner = player;
+
+        player.AddUnit(unit);
 
         // adjust the size of the unit sprite to fit the grid cell size , this function is defined in GameUtil.cs    
         unit.gameObject.AdjustSpriteSize();
@@ -81,7 +95,7 @@ public class GameController : MonoBehaviour
         unit.row = row;
         unit.col = column;
 
-        unit.playerNumber = playerNumber;
+        // unit.playerNumber = playerNumber;
 
     }
 
@@ -100,13 +114,18 @@ public class GameController : MonoBehaviour
     {
         //! KI YEKLIKI 3lA UNIT NA7OULOU BOUTON T3 END TURN
         //! WE DO NOT HAVE TO DO MANY THINGS HERE BECAUSE WE WILL NOT LET THE PLAYER END HIS TURN UNLESS HE IS IN THE "NONE" STATE
+        currentPlayerInControl.UpdatePlayerStats(); // normalement tessra f end day mchi f turn. 
         SwitchPlayeTurn();
+        ResetAllCellsAttributsInEndTurn();
+        ResetAllUnitsAttributsInEndTurn();
+
     }
 
     // this function is used to switch the turn of the players    
     public void SwitchPlayeTurn()
     {
-        playerTurn = (playerTurn == 1) ? 2 : 1;  // if playerTurn == 1, then playerTurn = 2, else playerTurn = 1
+        // playerTurn = (playerTurn == 1) ? 2 : 1;  // if playerTurn == 1, then playerTurn = 2, else playerTurn = 1
+        currentPlayerInControl = (currentPlayerInControl == player1) ? player2 : player1;
     }
 
     // this function is used to reset all the gridCells to their original state in the end of the turn

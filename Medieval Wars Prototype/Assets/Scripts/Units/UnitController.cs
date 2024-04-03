@@ -88,7 +88,7 @@ public class UnitController : MonoBehaviour
 
                 // hna lazem Unit (hadi unitThatGotClickedOn) lazem tkon ta3ek , sinon mlazemch t9dr tchof l'enemie wch rah 9ader ydir
                 //!!!! had les details ( commantaire li rah fo9i ) lazem meet ljay n7ddohom kamel .
-                if (unitThatGotClickedOn.playerNumber != GameController.Instance.playerTurn) return;
+                if (unitThatGotClickedOn.playerOwner != GameController.Instance.currentPlayerInControl) return;
 
                 selectedUnit = unitThatGotClickedOn;
                 selectedUnit.unitView.HighlightAsSelected();
