@@ -55,8 +55,10 @@ public class GameController : MonoBehaviour
         mapGrid.CalculateMapGridSize();
         mapGrid.InitialiseMapGridCells();
 
-        SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
+        Unit unit1 = SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
+        Unit unit2 = SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
 
+        Debug.Log(" compare unit : " + (unit2 == unit1));
 
         SpawnUnit(player2, 8, 8, Infantry2Prefab);
 
@@ -73,7 +75,7 @@ public class GameController : MonoBehaviour
 
 
     // this function is used to spawn a unit on the map
-    public void SpawnUnit(Player player, int row, int column, Unit unitPrefab)
+    public Unit SpawnUnit(Player player, int row, int column, Unit unitPrefab )
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
         Unit unit = Instantiate(unitPrefab, new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, -1), Quaternion.identity);
@@ -96,6 +98,7 @@ public class GameController : MonoBehaviour
         unit.col = column;
 
         // unit.playerNumber = playerNumber;
+        return unit ;
 
     }
 

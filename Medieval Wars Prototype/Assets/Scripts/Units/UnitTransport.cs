@@ -27,6 +27,7 @@ public class UnitTransport : Unit
     // Method to drop a unit onto a grid cell
     public void Drop(GridCell cell)
     {
+        //! Transporter Ship slazem tkon fo9 rmila (chet t3 lb7er) bch t9der tdropi wla tani ki tkon fo9 lport .
         //!!!!! remove the hide from the unit .
 
         // ... logic to drop the unit into the grid cell
@@ -108,28 +109,28 @@ public class UnitTransport : Unit
     public void SupplyAllSuppliableUnits()
     {
         // this line of code tparcouri la liste t3 suppliable units w dir appel la methode supply
-        suppliableUnits.ForEach( unitToSupply => Supply(unitToSupply) );
+        suppliableUnits.ForEach(unitToSupply => Supply(unitToSupply));
     }
-    
+
     // 
     public void HighlightDropableCells()
     {
         // highlight the dropable cells
-        dropableCells.ForEach( dropableCell => dropableCell.gridCellView.HighlightAsDropable() );
+        dropableCells.ForEach(dropableCell => dropableCell.gridCellView.HighlightAsDropable());
     }
 
     // 
     public void HighlightSuppliableUnits()
     {
         // highlight the dropable cells
-        suppliableUnits.ForEach( suppliableUnit => suppliableUnit.unitView.HighlightAsSuppliable());
+        suppliableUnits.ForEach(suppliableUnit => suppliableUnit.unitView.HighlightAsSuppliable());
     }
 
     //
     public void ResetDropableCells()
     {
         // highlight the dropable cells
-        dropableCells.ForEach( dropableCell => dropableCell.gridCellView.ResetHighlitedCell() );
+        dropableCells.ForEach(dropableCell => dropableCell.gridCellView.ResetHighlitedCell());
         dropableCells.Clear();
     }
 

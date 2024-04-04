@@ -9,7 +9,7 @@ public class GridCellView : MonoBehaviour
     void Start()
     {
         gridCell = GetComponent<GridCell>();
-        rend = GetComponent<SpriteRenderer>();
+        // rend = GetComponent<SpriteRenderer>();
     }
 
 
@@ -26,25 +26,25 @@ public class GridCellView : MonoBehaviour
 
     public void HighlightAsWalkable()
     {
-        rend.color = Color.green;
+        // rend.color = Color.green;
         // isWalkable = true; //! ???????????????????
     }
 
     public void HighlightAsDropable()
     {
-        rend.color = Color.blue;
+        // rend.color = Color.blue;
     }
 
 
     public void HighlightAsAttackable()
     {
-        rend.color = Color.red;
+        // rend.color = Color.red;
     }
 
 
     public void ResetHighlitedCell()
     {
-        rend.color = Color.white;
+        // rend.color = Color.white;
     }
 
 
