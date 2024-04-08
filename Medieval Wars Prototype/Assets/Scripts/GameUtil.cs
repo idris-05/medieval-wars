@@ -1,7 +1,17 @@
+using System.ComponentModel;
+using System;
 using UnityEngine;
 
 public static class GameUtil
 {
+
+    // THIS IS A METHOD THAT TAKES AS A PARAMETER AN ANIMATION STATE ENUM AND RETURN THE ANIMATION'S NAME
+    public static string GetAnimationName(UnitView.CurrentAnimationState value)
+    {
+        var field = value.GetType().GetField(value.ToString());
+        var attribute = (DescriptionAttribute)Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute));
+        return attribute == null ? value.ToString() : attribute.Description;
+    }
 
     // Method to adjust the size of a sprite based on the scale of the GameObject
     public static void AdjustSpriteSize(this GameObject gameObject)

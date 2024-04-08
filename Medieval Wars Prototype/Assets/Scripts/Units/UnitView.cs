@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Purchasing;
 
@@ -14,13 +16,32 @@ public class UnitView : MonoBehaviour
     public MapGrid mapGrid; //!!!!! rahi kayna deja mapgrid fl unit 
 
     public SpriteRenderer spriteRenderer;
-    public float moveSpeed = 5;
 
+    public float moveSpeed = 1f;
 
     bool isUnitHovered = false;
     bool rightButtonHolded = false;
 
+
+    //! EVERYTHING THAT CONCERNS ANIMATION
     public Animator animator;
+
+    public CurrentAnimationState currentAnimationState;
+
+    public enum CurrentAnimationState
+    {
+        [Description("Idle")]
+        IDLE,
+
+        [Description("Walk_Down")]
+        WALK_DOWN,
+
+        [Description("Walk_Side")]
+        WALK_SIDE,
+
+        [Description("Walk_Up")]
+        WALK_UP
+    }
 
 
     void Start()
@@ -54,7 +75,6 @@ public class UnitView : MonoBehaviour
             {
                 return;
             }
-            Debug.Log("left click on unit");
             UnitController.Instance.OnUnitSelection(unit); // singleton
         }
 
@@ -99,6 +119,12 @@ public class UnitView : MonoBehaviour
     {
         Vector3 position = new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, unitTransform.position.z);
         StartCoroutine(StartMovement(position));
+        // after he finishes moving he just looks to the right , is it like this in advance wars ? 
+        //! needs to be checked
+
+        //player1 looks to the right side after finishing moving and player 2 looks to the left side
+        unit.unitView.ChangeAnimationState(UnitView.CurrentAnimationState.IDLE);
+        UnityEngine.Debug.Log(currentAnimationState);
     }
 
     // Method to move the unit to the specified position
@@ -109,13 +135,40 @@ public class UnitView : MonoBehaviour
         // Horizontal movement can be right -> left 
         // Horizontal movement can be left -> right
 
-        animator.SetTrigger("right side walking trigger");
+        // IS THERE HORIZONTAL MOVEMENT ? THEN PLAY THE ANIMATION
+        if ( transform.position.x != position.x) ChangeAnimationState(CurrentAnimationState.WALK_SIDE);
+
+
+        // if we are moving a player1 unit and it wants to move left -> right we need to flip our sprite renderer
+        if (transform.position.x > position.x && this.unit.playerOwner == GameController.Instance.player1 ) spriteRenderer.flipX = true;
+
+        // if we are moving a player2 unit and it wants to move right -> left  we need to flip our sprite renderer
+        if (transform.position.x < position.x && this.unit.playerOwner == GameController.Instance.player2) spriteRenderer.flipX = true;
+
+
 
         while (transform.position.x != position.x)
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(position.x, transform.position.y, unitTransform.position.z), moveSpeed * Time.deltaTime);
             yield return null;
         }
+
+        //! AFTER MOVING ON THE HORIZONTAL AXIS WE NEED TO FLIP BACK OUR SPRITE RENDERER
+        if ( spriteRenderer.flipX == true ) spriteRenderer.flipX = false;
+
+
+
+        // The unit is moving vertically therefore the vertical movement animation must start
+        // Vertical movement can be down -> up
+        // Vertical movement can be up -> down
+
+
+        // Vertical movement down -> up
+        if (transform.position.y < position.y) ChangeAnimationState (CurrentAnimationState.WALK_UP);
+
+        // Vertical movement up -> down
+        if (transform.position.y > position.y) ChangeAnimationState(CurrentAnimationState.WALK_DOWN);
+
 
         while (transform.position.y != position.y)
         {
@@ -205,5 +258,13 @@ public class UnitView : MonoBehaviour
 
 
 
+    public void ChangeAnimationState(CurrentAnimationState currentAnimationState)
+    {
+        if (this.currentAnimationState == currentAnimationState) return;
 
+        animator.Play(GameUtil.GetAnimationName(currentAnimationState));
+
+        this.currentAnimationState = currentAnimationState;
+
+    }
 }

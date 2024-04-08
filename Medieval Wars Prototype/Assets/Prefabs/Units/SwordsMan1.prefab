@@ -99,6 +99,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   moveSpeed: 5
   animator: {fileID: 0}
+  currentAnimationState: 0
 --- !u!114 &-7903265091803169806
 MonoBehaviour:
   m_ObjectHideFlags: 0
