@@ -49,6 +49,7 @@ public class ButtonsUI : MonoBehaviour
         foreach (Button button in buttonsToDisplay)
         {
             button.gameObject.SetActive(true);
+            Debug.Log("a button was set to active");
         }
     }
 

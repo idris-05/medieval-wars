@@ -96,6 +96,7 @@ public class UnitController : MonoBehaviour
                 ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
                 ActionsHandler.Instance.FillButtonsToDisplay(unitThatGotClickedOn);
                 ButtonsUI.Instance.DisplayButtons();
+                Debug.Log("unit selected when state is none");
                 // wait for the player to click any button from the displayed buttons .
 
 

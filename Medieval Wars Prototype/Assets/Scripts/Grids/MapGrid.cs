@@ -12,6 +12,9 @@ public class MapGrid : MonoBehaviour
     // map grid is a matrix of gridCell
     public GridCell[,] grid;
 
+    public GameObject gridCellsContainer; // just a Container for the gridcells to make the scene more organised
+    public GameObject terrainsContainer; // just a Container for the terrains to make the scene more organised
+
     public GridCell GridCellPrefab;
 
     public Terrain TerrainPlainPrefab;
@@ -43,37 +46,8 @@ public class MapGrid : MonoBehaviour
                 // Instantiate a GridCell prefab at the specified position
                 GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
 
-                if (row == 3 && col == 8)
-                {
-                    Building building = Instantiate(CastleBuildingPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
-                    // TerainSpriteRenderer = CastleBuilding.GetComponent<SpriteRenderer>(); // had la ligne brk bch n7et  Castle f posiiton hadik
-                    building.row = row;
-                    building.col = col;
-                    gridCell.occupantTerrain = building;
-                }
-                else
-                {
-
-                    // Instantiate a Terrain prefab at the specified position
-                    Terrain terrain = Instantiate(TerrainPlainPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
-                    terrain.row = row;
-                    terrain.col = col;
-
-                    // set the terrain for the gridcell
-                    gridCell.occupantTerrain = terrain;
-                }
-                // ! hadi ttbdel 3la 7ssab kifach tessar generation t3 lmaps , en tous les cas , normal yeb9a hada howa lprincipe ta3ha , t'ajouti component terrain l cell 3la 7ssab wchmen terrain kayen (hadi tji mel maps)
-                // ! whna yji probleme t3 lazem t5bi les terrains fkch plassa . (3zma f kach liste fl game controller f script map generator .)  
-                // get the sprite renderer of the terrain
-
-                TerainSpriteRenderer = gridCell.occupantTerrain.GetComponent<SpriteRenderer>();
-                gridCell.GetComponent<SpriteRenderer>().sprite = TerainSpriteRenderer.sprite;
-
-
-
-                // Adjust the sprite size of the instantiated GridCell and the terrain
-                gridCell.gameObject.AdjustSpriteSize();
-                gridCell.occupantTerrain.gameObject.AdjustSpriteSize();
+                // this will definitely work , the parent and the grand parent are both at position (0,0,0) therefore the children will remain at their original position
+                gridCell.transform.SetParent(gridCellsContainer.transform);
 
                 // Set the name of the GridCell
                 gridCell.name = $"GridCell ({row}, {col})";
@@ -82,11 +56,38 @@ public class MapGrid : MonoBehaviour
                 gridCell.row = row;
                 gridCell.column = col;
 
-                //!!!!!!!!!!!!!!!! this affectation is temporary
-                // gridCell.terrain = Instantiate(TerrainGrassPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
-
                 // Assign the GridCell to the corresponding position in the map grid
                 grid[row, col] = gridCell;
+
+
+
+
+                // Instantiate a Terrain prefab at the specified position
+                Terrain terrain = Instantiate(TerrainPlainPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
+
+                // this will definitely work , the parent and the grand parent are both at position (0,0,0) therefore the children will remain at their original position
+                terrain.transform.SetParent(terrainsContainer.transform);
+
+                // Set the name of the GridCell
+                terrain.name = $"Terrain ({row}, {col})";
+
+                // Adjust the sprite size of the instantiated terrain
+                terrain.gameObject.AdjustSpriteSize();
+
+                terrain.row = row;
+                terrain.col = col;
+
+                // set the terrain for the gridcell
+                gridCell.occupantTerrain = terrain;
+
+
+                // ! hadi ttbdel 3la 7ssab kifach tessar generation t3 lmaps , en tous les cas , normal yeb9a hada howa lprincipe ta3ha , t'ajouti component terrain l cell 3la 7ssab wchmen terrain kayen (hadi tji mel maps)
+                // ! whna yji probleme t3 lazem t5bi les terrains fkch plassa . (3zma f kach liste fl game controller f script map generator .)  
+                // get the sprite renderer of the terrain
+
+                TerainSpriteRenderer = gridCell.occupantTerrain.GetComponent<SpriteRenderer>();
+                gridCell.GetComponent<SpriteRenderer>().sprite = TerainSpriteRenderer.sprite;
+
             }
         }
     }

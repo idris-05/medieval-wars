@@ -83,7 +83,7 @@ public class GameController : MonoBehaviour
         player.AddUnit(unit);
 
         // adjust the size of the unit sprite to fit the grid cell size , this function is defined in GameUtil.cs    
-        unit.gameObject.AdjustSpriteSize();
+        // unit.gameObject.AdjustSpriteSize();
 
         // set the occupantUnit of the grid cell to the unit 
         mapGrid.grid[row, column].occupantUnit = unit;

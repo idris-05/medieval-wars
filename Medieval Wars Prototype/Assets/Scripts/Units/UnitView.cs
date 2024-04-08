@@ -20,9 +20,12 @@ public class UnitView : MonoBehaviour
     bool isUnitHovered = false;
     bool rightButtonHolded = false;
 
+    public Animator animator;
+
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         mapGrid = FindObjectOfType<MapGrid>();  // ttna7a
         unit = GetComponent<Unit>();
         unitTransform = GetComponent<Transform>();
@@ -51,7 +54,7 @@ public class UnitView : MonoBehaviour
             {
                 return;
             }
-            // Debug.Log("left click on unit");
+            Debug.Log("left click on unit");
             UnitController.Instance.OnUnitSelection(unit); // singleton
         }
 
@@ -102,6 +105,11 @@ public class UnitView : MonoBehaviour
     // IEnumerator is used to make the movement smooth // and to wait for the movement to finish before executing the next line of code
     public IEnumerator StartMovement(Vector2 position)
     {
+        // The unit is moving horizontally therefore the horizontal movement animation must start
+        // Horizontal movement can be right -> left 
+        // Horizontal movement can be left -> right
+
+        animator.SetTrigger("right side walking trigger");
 
         while (transform.position.x != position.x)
         {
