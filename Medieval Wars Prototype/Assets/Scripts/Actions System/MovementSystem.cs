@@ -1,8 +1,26 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MovementSystem : MonoBehaviour
 {
+    struct MIcell
+    {
+        public int moveleft;
+        public GridCell you;
+        public MIcell(int move, GridCell u)
+        {
+            this.moveleft = move;
+            this.you = u;
+        }
+        public void affval(int move, GridCell u)
+        {
+            this.moveleft = move;
+            this.you = u;
+        }
+    }
+
     private static MovementSystem instance;
     public static MovementSystem Instance
     {
@@ -75,152 +93,133 @@ public class MovementSystem : MonoBehaviour
 
     }
 
-
-
     public void GetWalkableTiles(Unit unit)
     {
-        unit.walkableGridCells.Clear();
-
-        int startRow = unit.row;
-        int startCol = unit.col;
-        int moveRange = unit.moveRange;
-        int moveleft = unit.moveRange;
-
-        //! we should make sure that there is only one instance of the MapGrid in the scene .
-        //! we can also pass the MapGrid as a parameter to the getWalkableTiles method 
-
-
-        // Get the current position of the selected unit
-        Vector2Int currentPos = new Vector2Int(startRow, startCol);
-
-        for (int row = -moveRange; row <= moveRange; row++)
+        //int turn = gm.playerTurn;
+        int y = unit.row;
+        int x = unit.col;
+        int Mrange;
+        if (unit.ration < unit.moveRange)
         {
-            for (int col = -moveRange; col <= moveRange; col++)
+            Mrange = ((int)unit.ration);
+        }
+        else
+        {
+            Mrange = unit.moveRange;
+        }
+        MIcell temp = new MIcell(Mrange, mapGrid.grid[y, x]);
+        MIcell temp2 = new MIcell(Mrange, mapGrid.grid[y, x]);
+
+
+        Queue<MIcell> queue = new Queue<MIcell>();
+        queue.Enqueue(temp);
+        unit.walkableGridCells.Add(temp.you);
+        temp.you.isWalkable = true;
+        temp.you.Pathlist = new List<GridCell> { temp.you };
+        while (queue.Count > 0)
+        {
+            temp = queue.Dequeue();
+            x = temp.you.column;
+            y = temp.you.row;
+
+
+            if ((y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y - 1, x].isWalkable))
             {
-                if (!(MathF.Abs(row) + MathF.Abs(col) <= moveRange && currentPos.x + row >= 0 && currentPos.x + row < MapGrid.Rows && currentPos.y + col >= 0 && currentPos.y + col < MapGrid.Columns))
+
+                int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y - 1,x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                if (mapGrid.grid[y - 1, x].occupantUnit != null && mapGrid.grid[y - 1, x].occupantUnit.playerNumber != GameController.Instance.playerTurn)
                 {
-                    continue;
+                    moveleft = -1;
                 }
-                else
+
+                if (moveleft >= 0)
                 {
-                    moveleft = unit.moveRange;
-                    int row2 = 0;
-                    int col2 = 0;
-
-                    while (moveleft > 0 && row2 != row)
-                    {
-                        int nextCol = currentPos.y;
-                        int nextRow = currentPos.x + row2;
-
-                        moveleft = moveleft - mapGrid.grid[nextRow, nextCol].moveCost;
-
-                        if (moveleft >= 0)
-                        {
-                            if (row < 0)
-                            {
-                                row2--;
-                            }
-                            else
-                            {
-                                row2++;
-                            }
-                        }
-                    }
-
-
-                    if (row2 == row)
-                    {
-                        while (moveleft > 0 && col2 != col)
-                        {
-                            int nextRow = currentPos.x + row2;
-                            int nextCol = currentPos.y + col2;
-
-                            moveleft = moveleft - mapGrid.grid[nextRow, nextCol].moveCost;
-
-                            if (moveleft >= 0)
-                            {
-                                if (col < 0)
-                                {
-                                    col2--;
-                                }
-                                else
-                                {
-                                    col2++;
-                                }
-                            }
-                        }
-                    }
-
-                    // Debug.Log("row in :" + row2 + "collum in : " + col2 + "row obj" + row + "collum obj" + col);
-                    if (row == row2 && col == col2)
-                    {
-                        int nextRow = currentPos.x + row2;
-                        int nextCol = currentPos.y + col2;
-                        // Debug.Log(nextRow + nextCol);
-                        //!- if Any One Can Do This : Plaese Find A Better Way For Highlighting Things
-                        // mapGrid.grid[nextRow, nextCol].HighlightAsWalkable();
-                        unit.walkableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
-                    }
-                    else
-                    {
-                        moveleft = unit.moveRange;
-                        row2 = 0;
-                        col2 = 0;
-                        while (moveleft > 0 && col2 != col)
-                        {
-                            int nextRow = currentPos.x + row2;
-                            int nextCol = currentPos.y + col2;
-
-                            moveleft = moveleft - mapGrid.grid[nextRow, nextCol].moveCost;
-
-                            if (moveleft >= 0)
-                            {
-                                if (col < 0)
-                                {
-                                    col2--;
-                                }
-                                else
-                                {
-                                    col2++;
-                                }
-                            }
-                        }
-
-                        if (col2 == col)
-                        {
-                            while (moveleft > 0 && row2 != row)
-                            {
-                                int nextCol = currentPos.y + col2;
-                                int nextRow = currentPos.x + row2;
-                                moveleft = moveleft - mapGrid.grid[nextRow, nextCol].moveCost;
-
-                                if (moveleft >= 0)
-                                {
-                                    if (row < 0)
-                                    {
-                                        row2--;
-                                    }
-                                    else
-                                    {
-                                        row2++;
-                                    }
-                                }
-                            }
-                        }
-
-                        if (row == row2 && col == col2)
-                        {
-                            int nextRow = currentPos.x + row2;
-                            int nextCol = currentPos.y + col2;
-                            // mapGrid.grid[nextRow, nextCol].HighlightAsWalkable();
-                            unit.walkableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
-                        }
-                    }
+                    temp2.affval(moveleft, mapGrid.grid[y - 1, x]);
+                    temp2.you.Pathlist = temp.you.Pathlist.ToList();
+                    temp2.you.Pathlist.Add(temp2.you);
+                    unit.walkableGridCells.Add(mapGrid.grid[y - 1, x]);
+                    mapGrid.grid[y - 1, x].isWalkable = true;
+                    queue.Enqueue(temp2);
                 }
+
+
             }
+            if ((y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y, x + 1].isWalkable))
+            {
+                int moveleft = temp.moveleft - 1;// TerrainsUtil.MoveCost[mapGrid.grid[y , x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                if (mapGrid.grid[y, x + 1].occupantUnit != null && mapGrid.grid[y, x + 1].occupantUnit.playerNumber != GameController.Instance.playerTurn)
+                {
+                    moveleft = -1;
+                }
+
+                if (moveleft >= 0)
+                {
+                    temp2.affval(moveleft, mapGrid.grid[y, x + 1]);
+
+                    temp2.you.Pathlist = temp.you.Pathlist.ToList();
+                    temp2.you.Pathlist.Add(temp2.you);
+                    unit.walkableGridCells.Add(mapGrid.grid[y, x + 1]);
+                    mapGrid.grid[y, x + 1].isWalkable = true;
+                    queue.Enqueue(temp2);
+
+                }
+
+
+            }
+            if ((y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y + 1, x].isWalkable))
+            {
+                int moveleft = temp.moveleft - 1; //TerrainsUtil.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                if (mapGrid.grid[y + 1, x].occupantUnit != null && mapGrid.grid[y + 1, x].occupantUnit.playerNumber != GameController.Instance.playerTurn)
+                {
+                    moveleft = -1;
+                }
+
+                if (moveleft >= 0)
+                {
+                    temp2.affval(moveleft, mapGrid.grid[y + 1, x]);
+                    temp2.you.Pathlist = temp.you.Pathlist.ToList() ;
+                    temp2.you.Pathlist.Add(temp2.you);
+                    unit.walkableGridCells.Add(mapGrid.grid[y + 1, x]);
+                    mapGrid.grid[y + 1, x].isWalkable = true;
+                    queue.Enqueue(temp2);
+
+                }
+
+
+            }
+            if ((y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y, x - 1].isWalkable))
+            {
+                int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y , x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                if (mapGrid.grid[y, x - 1].occupantUnit != null && mapGrid.grid[y, x - 1].occupantUnit.playerNumber != GameController.Instance.playerTurn)
+                {
+                    moveleft = -1;
+                }
+
+                if (moveleft >= 0)
+                {
+                    temp2.affval(moveleft, mapGrid.grid[y, x - 1]);
+                    temp2.you.Pathlist = temp.you.Pathlist.ToList();
+                    temp2.you.Pathlist.Add(temp2.you);
+                    unit.walkableGridCells.Add(mapGrid.grid[y, x - 1]);
+                    mapGrid.grid[y, x - 1].isWalkable = true;
+                    queue.Enqueue(temp2);
+
+                }
+
+
+            }
+
+
+
         }
 
+
+
     }
+
+
+
+
 
 
 

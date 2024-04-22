@@ -1,10 +1,208 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackSystem : MonoBehaviour
 {
+    public MapGrid mapGrid;
 
     // base damage[Attacker,Defender]  //!!!!!!!!!!!! marahomch m9lobin ????
+    struct MIcell
+    {
+        public int moveleft;
+        public GridCell you;
+        public MIcell(int move, GridCell u)
+        {
+            this.moveleft = move;
+            this.you = u;
+        }
+        public void affval(int move, GridCell u)
+        {
+            this.moveleft = move;
+            this.you = u;
+        }
+    }
+    private void highlightext(List<GridCell> baby)
+    {
+        int x;
+        int y;
+        foreach (GridCell cell in baby)
+        {
+            x = cell.column;
+            y = cell.row;
+            if ((y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && !mapGrid.grid[y - 1, x].isHighlightedAsAttackble)
+
+            {
+                mapGrid.grid[y - 1, x].HighlightAsAttackable();
+
+            }
+            if ((y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns) && !mapGrid.grid[y, x + 1].isHighlightedAsAttackble)
+            {
+                mapGrid.grid[y, x + 1].HighlightAsAttackable();
+
+            }
+            if ((y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && !mapGrid.grid[y + 1, x].isHighlightedAsAttackble)
+            {
+                mapGrid.grid[y + 1, x].HighlightAsAttackable();
+
+            }
+            if ((y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x - 1 < MapGrid.Columns) && !mapGrid.grid[y, x - 1].isHighlightedAsAttackble)
+            {
+                mapGrid.grid[y, x - 1].HighlightAsAttackable();
+
+            }
+        }
+    }
+    private void GetFarAttackble(UnitAttack unit)
+    {
+        int startRow = unit.row;
+        int startCol = unit.col;
+        int moveRange = unit.attackRange;
+        int moveleft = unit.moveRange;
+
+
+        Vector2Int currentPos = new Vector2Int(startRow, startCol);
+
+        for (int row = -moveRange; row <= moveRange; row++)
+        {
+            for (int col = -moveRange; col <= moveRange; col++)
+            {
+
+
+                int nextRow = currentPos.x + row;
+                int nextCol = currentPos.y + col;
+
+                if (nextRow >= 0 && nextRow < MapGrid.Rows && nextCol >= 0 && nextCol < MapGrid.Columns)
+                {
+
+                    if (MathF.Abs(row) + MathF.Abs(col) <= moveRange && MathF.Abs(row) + MathF.Abs(col) > unit.minAttackRange)
+                    {
+                        mapGrid.grid[nextRow, nextCol].HighlightAsAttackable();
+                    }
+                }
+
+            }
+        }
+    }
+    private void GetCloseAttackble(Unit unit)
+    {
+        int turn = GameController.Instance.playerTurn;
+        List<GridCell> cells = new List<GridCell>();
+        int y = unit.row;
+        int x = unit.col;
+        int Mrange = unit.moveRange;
+        MIcell temp = new MIcell(Mrange, mapGrid.grid[y, x]);
+        MIcell temp2 = new MIcell(Mrange, mapGrid.grid[y, x]);
+        Queue<MIcell> queue = new Queue<MIcell>();
+        queue.Enqueue(temp);
+        cells.Add(temp.you);
+        while (queue.Count > 0)
+        {
+
+            temp = queue.Dequeue();
+            x = temp.you.column;
+            y = temp.you.row;
+
+
+            if ((y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !cells.Contains(mapGrid.grid[y - 1, x]))
+            {
+                int moveleft = temp.moveleft - 1;// use movecost
+                if (mapGrid.grid[y - 1, x].occupantUnit != null && mapGrid.grid[y - 1, x].occupantUnit.playerNumber != turn)
+                {
+                    moveleft = -1;
+                }
+
+                if (moveleft >= 0)
+                {
+                    temp2.affval(moveleft, mapGrid.grid[y - 1, x]);
+
+
+                    cells.Add(temp2.you);
+                    queue.Enqueue(temp2);
+                }
+
+
+            }
+            if ((y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y, x + 1])))
+            {
+                int moveleft = temp.moveleft - 1;// use movecost
+                if (mapGrid.grid[y, x + 1].occupantUnit != null && mapGrid.grid[y, x + 1].occupantUnit.playerNumber != turn)
+                {
+                    moveleft = -1;
+                }
+
+                if (moveleft >= 0)
+                {
+                    temp2.affval(moveleft, mapGrid.grid[y, x + 1]);
+
+
+                    cells.Add(temp2.you);
+                    queue.Enqueue(temp2);
+
+                }
+
+
+            }
+            if ((y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y + 1, x])))
+            {
+                int moveleft = temp.moveleft - 1;//use move cost
+                if (mapGrid.grid[y + 1, x].occupantUnit != null && mapGrid.grid[y + 1, x].occupantUnit.playerNumber != turn)
+                {
+                    moveleft = -1;
+                }
+
+                if (moveleft >= 0)
+                {
+                    temp2.affval(moveleft, mapGrid.grid[y + 1, x]);
+
+                    cells.Add(temp2.you);
+                    queue.Enqueue(temp2);
+
+                }
+
+
+            }
+            if ((y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y, x - 1])))
+            {
+                int moveleft = temp.moveleft - 1; //use movecost
+                if (mapGrid.grid[y, x - 1].occupantUnit != null && mapGrid.grid[y, x - 1].occupantUnit.playerNumber != turn)
+                {
+                    moveleft = -1;
+                }
+                if (moveleft >= 0)
+                {
+                    temp2.affval(moveleft, mapGrid.grid[y, x - 1]);
+
+                    cells.Add(temp2.you);
+                    queue.Enqueue(temp2);
+
+                }
+
+
+            }
+
+
+
+        }
+        highlightext(cells);
+
+    }
+    private void Start()
+    {
+        mapGrid = FindObjectOfType<MapGrid>();
+    }
+    public void GetAttackableCells(UnitAttack unit)
+    {
+
+        if (unit.attackRange == 1)
+        {
+            GetCloseAttackble(unit);
+        }
+        else if (unit.attackRange >= 2)
+        {
+            GetFarAttackble(unit);
+        }
+    }
 
     public static int[,] baseDamage = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},

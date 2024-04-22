@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,15 +9,14 @@ public class GridCell : MonoBehaviour
 
     public GridCellView gridCellView;
 
-    // public bool isWalkable;   //!!! ?????? wch rana ndiro bih hada ,, update : raho 9rib ytir .
+     public bool isWalkable;   //!!! ?????? wch rana ndiro bih hada ,, update : raho 9rib ytir .
 
     public int row;
     public int column;
 
-
     public Unit occupantUnit;
     public Terrain occupantTerrain;
-
+    public List<GridCell> Pathlist = new List<GridCell>();   
 
     public int moveCost = 1; //!!!!!!!!!!!! for now
 
