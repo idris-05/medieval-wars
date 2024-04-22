@@ -14,7 +14,6 @@ public static class WhetherUtil
         CLEAR,
         SNOW,
         RAIN,
-        SANDSTORMS
     }
 
     
