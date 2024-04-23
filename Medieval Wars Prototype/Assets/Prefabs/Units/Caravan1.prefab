@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1229c64913b81944bd817157ac59918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOwner: {fileID: 0}
   mapGrid: {fileID: 0}
   unitView: {fileID: 0}
   unitIndex: 0
@@ -168,9 +169,8 @@ MonoBehaviour:
   occupiedCell: {fileID: 0}
   row: 0
   col: 0
-  playerNumber: 1
   healthPoints: 100
-  moveRange: 8
+  moveRange: 3
   ration: 100
   rationPerDay: 0
   lineOfSight: 0
