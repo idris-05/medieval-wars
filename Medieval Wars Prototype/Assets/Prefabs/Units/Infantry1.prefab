@@ -145,10 +145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d470229f18e5145bff8bb9a5cb0cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitTransform: {fileID: 0}
+  mapGrid: {fileID: 0}
   spriteRenderer: {fileID: 0}
   moveSpeed: 5
-  gm: {fileID: 0}
-  mapGrid: {fileID: 0}
 --- !u!114 &-7903265091803169806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fb1fdfbf224334eb3359a7e61e40db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOwner: {fileID: 0}
   mapGrid: {fileID: 0}
   unitView: {fileID: 0}
   unitIndex: 4
@@ -168,13 +169,11 @@ MonoBehaviour:
   occupiedCell: {fileID: 0}
   row: 0
   col: 0
-  playerNumber: 1
   healthPoints: 100
   moveRange: 3
-  ration: 0
+  ration: 100
   rationPerDay: 0
   lineOfSight: 0
-  moveCost: 0
   hasMoved: 0
   numbState: 0
   walkableGridCells: []
@@ -183,7 +182,7 @@ MonoBehaviour:
   defenseBoost: 0
   specialDefenseBoost: 0
   attackRange: 5
-  minAttackRange: 0
+  minAttackRange: 2
   durability: 0
   hasAttacked: 0
   enemiesInRange: []

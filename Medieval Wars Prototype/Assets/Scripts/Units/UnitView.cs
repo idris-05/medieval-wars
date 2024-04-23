@@ -69,7 +69,9 @@ public class UnitView : MonoBehaviour
             {  // only UnitAttack has attackableCells List 
                 return;
             }
-            AttackSystem.GetAttackableCells(unit as UnitAttack, mapGrid);
+
+            AttackSystem.Instance.GetAttackableCells(unit as UnitAttack , mapGrid);
+
             HighlightAttackableCells(); // Display attackable cells
         }
         else if (Input.GetMouseButtonUp(1)) // Check if right mouse button is released

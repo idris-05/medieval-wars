@@ -5,6 +5,8 @@ public class GridCellView : MonoBehaviour
     private GridCell gridCell;
     public SpriteRenderer rend;
 
+   public bool  isHighlightedAsAttackble = false ; // we need it in get attackable .
+
 
     void Start()
     {
@@ -38,12 +40,14 @@ public class GridCellView : MonoBehaviour
 
     public void HighlightAsAttackable()
     {
+        isHighlightedAsAttackble = true ;
         rend.color = Color.red;
     }
 
 
     public void ResetHighlitedCell()
     {
+        gridCell.isWalkable = false ;
         rend.color = Color.white;
     }
 

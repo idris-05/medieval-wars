@@ -95,13 +95,15 @@ public class MovementSystem : MonoBehaviour
 
     public void GetWalkableTiles(Unit unit)
     {
+
         //int turn = gm.playerTurn;
+        Player currentPlayer = GameController.Instance.currentPlayerInControl;
         int y = unit.row;
         int x = unit.col;
         int Mrange;
         if (unit.ration < unit.moveRange)
         {
-            Mrange = ((int)unit.ration);
+            Mrange = (int)unit.ration;
         }
         else
         {
@@ -126,8 +128,10 @@ public class MovementSystem : MonoBehaviour
             if ((y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y - 1, x].isWalkable))
             {
 
-                int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y - 1,x].occupantTerrain.TerrainIndex, unit.unitIndex];
-                if (mapGrid.grid[y - 1, x].occupantUnit != null && mapGrid.grid[y - 1, x].occupantUnit.playerNumber != GameController.Instance.playerTurn)
+
+                // int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y - 1,x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                if (mapGrid.grid[y - 1, x].occupantUnit != null && mapGrid.grid[y - 1, x].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
                 }
@@ -146,8 +150,9 @@ public class MovementSystem : MonoBehaviour
             }
             if ((y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y, x + 1].isWalkable))
             {
-                int moveleft = temp.moveleft - 1;// TerrainsUtil.MoveCost[mapGrid.grid[y , x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
-                if (mapGrid.grid[y, x + 1].occupantUnit != null && mapGrid.grid[y, x + 1].occupantUnit.playerNumber != GameController.Instance.playerTurn)
+                // int moveleft = temp.moveleft - 1;// TerrainsUtil.MoveCost[mapGrid.grid[y , x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                if (mapGrid.grid[y, x + 1].occupantUnit != null && mapGrid.grid[y, x + 1].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
                 }
@@ -168,8 +173,9 @@ public class MovementSystem : MonoBehaviour
             }
             if ((y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y + 1, x].isWalkable))
             {
-                int moveleft = temp.moveleft - 1; //TerrainsUtil.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
-                if (mapGrid.grid[y + 1, x].occupantUnit != null && mapGrid.grid[y + 1, x].occupantUnit.playerNumber != GameController.Instance.playerTurn)
+                // int moveleft = temp.moveleft - 1; //TerrainsUtil.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                if (mapGrid.grid[y + 1, x].occupantUnit != null && mapGrid.grid[y + 1, x].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
                 }
@@ -177,7 +183,7 @@ public class MovementSystem : MonoBehaviour
                 if (moveleft >= 0)
                 {
                     temp2.affval(moveleft, mapGrid.grid[y + 1, x]);
-                    temp2.you.Pathlist = temp.you.Pathlist.ToList() ;
+                    temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
                     unit.walkableGridCells.Add(mapGrid.grid[y + 1, x]);
                     mapGrid.grid[y + 1, x].isWalkable = true;
@@ -189,8 +195,10 @@ public class MovementSystem : MonoBehaviour
             }
             if ((y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y, x - 1].isWalkable))
             {
-                int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y , x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
-                if (mapGrid.grid[y, x - 1].occupantUnit != null && mapGrid.grid[y, x - 1].occupantUnit.playerNumber != GameController.Instance.playerTurn)
+                // int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y , x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+
+                if (mapGrid.grid[y, x - 1].occupantUnit != null && mapGrid.grid[y, x - 1].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
                 }

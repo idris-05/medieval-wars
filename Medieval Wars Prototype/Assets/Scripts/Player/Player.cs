@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player
+public class Player : MonoBehaviour
 {
     // hada machi moul lcompte , hada li raho da5el lpartie yl3eb .
 
@@ -15,11 +15,11 @@ public class Player
 
 
 
-    public Player()
-    {
-        // this.playerNumber = playerNumber;
-    }
-    // public int playerNumber = 1;
+    // public Player()
+    // {
+    //     // this.playerNumber = playerNumber;
+    // }
+    // // public int playerNumber = 1;
 
     public void AddUnit(Unit unit)
     {
