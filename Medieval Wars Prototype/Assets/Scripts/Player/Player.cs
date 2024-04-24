@@ -13,14 +13,7 @@ public class Player : MonoBehaviour
     public int incomingFundsAtTheEndOfDay;
     public int availableFunds;
 
-
-
-    // public Player()
-    // {
-    //     // this.playerNumber = playerNumber;
-    // }
-    // // public int playerNumber = 1;
-
+   
     public void AddUnit(Unit unit)
     {
         unitList.Add(unit);

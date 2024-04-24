@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AttackSystem : MonoBehaviour
@@ -53,7 +54,7 @@ public class AttackSystem : MonoBehaviour
         }
     }
 
-    private void highlightext(List<GridCell> cellList , UnitAttack unit)
+    private void highlightext(List<GridCell> cellList, UnitAttack unit)
     {
         int x;
         int y;
@@ -68,7 +69,7 @@ public class AttackSystem : MonoBehaviour
                 unit.attackableGridCells.Add(mapGrid.grid[y - 1, x]);
                 // mapGrid.grid[y - 1, x].gridCellView.HighlightAsAttackable();
             }
-            if (y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns )
+            if (y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns)
             {
                 unit.attackableGridCells.Add(mapGrid.grid[y, x + 1]);
                 // mapGrid.grid[y, x + 1].gridCellView.HighlightAsAttackable();
@@ -142,7 +143,7 @@ public class AttackSystem : MonoBehaviour
             if ((y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !cells.Contains(mapGrid.grid[y - 1, x]))
             {
                 // int moveleft = temp.moveleft - 1;// use movecosts
-                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[ mapGrid.grid[y - 1, x ].occupantTerrain.TerrainIndex , unit.unitIndex ] ;
+                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
                 if (mapGrid.grid[y - 1, x].occupantUnit != null && mapGrid.grid[y - 1, x].occupantUnit.playerOwner != cuurentPlayer)
                 {
                     moveleft = -1;
@@ -162,7 +163,7 @@ public class AttackSystem : MonoBehaviour
             if ((y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y, x + 1])))
             {
                 // int moveleft = temp.moveleft - 1;// use movecost
-                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[ mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex , unit.unitIndex ] ;
+                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
 
                 if (mapGrid.grid[y, x + 1].occupantUnit != null && mapGrid.grid[y, x + 1].occupantUnit.playerOwner != cuurentPlayer)
                 {
@@ -184,7 +185,7 @@ public class AttackSystem : MonoBehaviour
             if ((y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y + 1, x])))
             {
                 // int moveleft = temp.moveleft - 1;//!!use move cost
-                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[ mapGrid.grid[y + 1 , x ].occupantTerrain.TerrainIndex , unit.unitIndex ] ;
+                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
                 if (mapGrid.grid[y + 1, x].occupantUnit != null && mapGrid.grid[y + 1, x].occupantUnit.playerOwner != cuurentPlayer)
                 {
                     moveleft = -1;
@@ -204,7 +205,7 @@ public class AttackSystem : MonoBehaviour
             if ((y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y, x - 1])))
             {
                 // int moveleft = temp.moveleft - 1; //!!!use movecost
-                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[ mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex , unit.unitIndex ] ;
+                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
 
                 if (mapGrid.grid[y, x - 1].occupantUnit != null && mapGrid.grid[y, x - 1].occupantUnit.playerOwner != cuurentPlayer)
                 {
@@ -223,7 +224,7 @@ public class AttackSystem : MonoBehaviour
             }
 
         }
-        highlightext(cells , unit);
+        highlightext(cells, unit);
 
 
     }
@@ -357,12 +358,12 @@ public class AttackSystem : MonoBehaviour
 
 
         // Find Terrain Stars
-        int TerrainStars = TerrainsUtils.defenceStars[DefendingUnit.occupiedCell.occupantTerrain.TerrainIndex];
-
+        float TerrainStars = TerrainsUtils.defenceStars[DefendingUnit.occupiedCell.occupantTerrain.TerrainIndex];
+        // Debug.Log(TerrainStars);
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
         float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - DefendingUnit.defenseBoost) * (1 - DefendingUnit.specialDefenseBoost);
-        // Debug.Log("Vulnerability : " + Vulnerability);
+        Debug.Log("Vulnerability : " + Vulnerability);
 
 
         // Total Damage =  (HP / 100) . Attack . Vulnerabity . Critical Hit
@@ -398,10 +399,16 @@ public class AttackSystem : MonoBehaviour
         if (DefendingUnit.healthPoints <= 0)
         {
             DefendingUnit.Kill();
+            if (DefendingUnit.playerOwner.unitList.Any() == false)
+            {
+                // DefendingUnit.playerOwner LOSE
+                GameController.Instance.EndGame(AttackingUnit.playerOwner);
+            }
             return;
         }
 
         // verify the possibility to counter attack 
+        if (VerifyCoiunterAttackPossibility(DefendingUnit, AttackingUnit) == false) return;
 
         inflictedDamage = CalculateDamage(DefendingUnit, AttackingUnit);
         AttackingUnit.RecieveDamage(inflictedDamage);
@@ -409,9 +416,29 @@ public class AttackSystem : MonoBehaviour
         if (AttackingUnit.healthPoints <= 0)
         {
             AttackingUnit.Kill();
+            if (AttackingUnit.playerOwner.unitList.Any() == false)
+            {
+                GameController.Instance.EndGame(DefendingUnit.playerOwner);
+            }
             return;
         }
 
+    }
+
+    //! has la methode swa n5loha hekka , swa ndiro matrce t3 counterAttack fihaa chkon yder ycouter attacki chkon , lmatrice tbanli 5ir
+    private static bool VerifyCoiunterAttackPossibility(Unit unitThatWantToCounterAttack, UnitAttack unitWillGetCounterAttacked)
+    {
+        // unitWantToCounterAttack was the defender 
+        // unitWillGetCounterAttacked was the attacker , and it was of type : UnitAttack .
+
+        UnitAttack unitThatWantToCounterAttackAsUnitAttack = unitThatWantToCounterAttack as UnitAttack;
+        if (unitThatWantToCounterAttackAsUnitAttack == null) return false;
+
+        if (unitThatWantToCounterAttackAsUnitAttack.attackRange != 1) return false;
+        if (unitWillGetCounterAttacked.attackRange != 1) return false;
+
+
+        return true;
     }
 
 

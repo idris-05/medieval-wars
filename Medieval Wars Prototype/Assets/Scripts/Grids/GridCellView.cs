@@ -48,6 +48,7 @@ public class GridCellView : MonoBehaviour
     public void ResetHighlitedCell()
     {
         gridCell.isWalkable = false ;
+        isHighlightedAsAttackble = false ; //!! ??????
         rend.color = Color.white;
     }
 

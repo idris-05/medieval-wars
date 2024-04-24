@@ -6,16 +6,27 @@ public class Building : Terrain
     // public Color color; //??????
     public Player playerOwner;
 
-    // public SpriteRenderer spriteRendererForBuilding; //?? kayaen deja sprite t3 terrain , 3lach mndiroch bih howa ?
+    // public SpriteRenderer spriteRendererForBuilding; //?? kayen deja sprite t3 terrain , 3lach mndiroch bih howa ?
     public int remainningPointsToCapture;
     public int MaxRemainningPointsToCapture;
 
     public void GetCaptured(Unit unit)
     {
-        Debug.Log("rani dit l biulding sibon");
-        Debug.Log("building wlaa ta3 palyer number  " + GameController.Instance.currentPlayerInControl.ToString());
-        
+        Debug.Log("building wlaa ta3 palyer number  " + unit.playerOwner.ToString());
+
+        if (this.terrainName == TerrainsUtils.TerrainName.CASTLE && this.playerOwner != null)
+        {
+            // owner ta3 biulding hada 5sser , tssema l winner howa l'owner ta3 unit;
+            AffetcBuildingToPlayer(unit.playerOwner);
+            ResetRemainningPointsToCapture();
+            GameController.Instance.EndGame(unit.playerOwner);
+        }
+
         AffetcBuildingToPlayer(unit.playerOwner);
+        ResetRemainningPointsToCapture();
+
+
+
     }
 
 
@@ -28,22 +39,31 @@ public class Building : Terrain
 
 
 
-    public void SupplyUnit(Unit unit)
+    private void SupplyUnit(Unit unit)
     {
-        // if ( unit.unitType==this.unitType && unit.color == this.color)
-        // {
-        unit.ration = UnitUtil.maxRations[unit.unitIndex];
+        unit.RecieveRationSupply();
 
         UnitAttack unitAttack = unit as UnitAttack;
         if (unitAttack) unitAttack.durability = UnitUtil.maxDurabilities[unit.unitIndex];
 
-        // }
     }
 
 
-    public void HealUnit(Unit unit)
+    private void HealUnit(Unit unit)
     {
         unit.Heal();
+    }
+
+    public void HealAndSupplyUnitIfPossible(MapGrid mapGrid)
+    {
+        Unit unit = mapGrid.grid[row, col].occupantUnit;
+
+        if (unit == null) return;
+        if (this.playerOwner != unit.playerOwner) return;
+        // the same position and owned by the same player .
+        HealUnit(unit);
+        SupplyUnit(unit);
+
     }
 
 
@@ -52,7 +72,7 @@ public class Building : Terrain
     public void AffetcBuildingToPlayer(Player player)
     {
         Debug.Log("building wlaa ta3 palyer number  " + GameController.Instance.currentPlayerInControl.ToString());
-        playerOwner?.RemoveBuilding(this);
+        if (playerOwner) playerOwner.RemoveBuilding(this);
         playerOwner = player;
         player.AddBuilding(this);
     }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -28,26 +29,27 @@ public class GameController : MonoBehaviour
     }
 
 
-
-    public MapGrid mapGrid;
+    public MapGrid mapGrid; // linked from the editor 
 
     public Unit Infantry1Prefab; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
 
     public Unit Infantry1PrefabTransport; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
 
     public Unit Infantry2Prefab; // test
-    public Unit selectedUnit;   // pour le movement , pour l'instant (hadi t3 logic l9dima) /// hadi ybanli ytn7a , doka manach nss79oh 
 
-    // public int playerTurn = 1; // hadi ttssegem .
     public Player currentPlayerInControl;
     public Player player1;
     public Player player2;
 
+    public List<Player> playerList = new List<Player>();
+
     void Awake()
     {
-        player1 = new Player();
-        player2 = new Player();
+        player1 = new GameObject("Player1").AddComponent<Player>();
+        player2 = new GameObject("Player2").AddComponent<Player>();
         currentPlayerInControl = player1;
+        playerList.Add(player1);
+        playerList.Add(player2);
     }
     // This method is called when the object is first enabled in the scene.
     void Start()
@@ -68,7 +70,6 @@ public class GameController : MonoBehaviour
     void Update()
     {
         CheckEndTurnInput();
-        //! we must add the ResetAllCellsAttributsInEndTurn and ResetAllUnitsAttributsInEndTurn inside EndTurn .
     }
 
 
@@ -95,7 +96,6 @@ public class GameController : MonoBehaviour
         unit.row = row;
         unit.col = column;
 
-        // unit.playerNumber = playerNumber;
 
     }
 
@@ -114,10 +114,33 @@ public class GameController : MonoBehaviour
     {
         //! KI YEKLIKI 3lA UNIT NA7OULOU BOUTON T3 END TURN
         //! WE DO NOT HAVE TO DO MANY THINGS HERE BECAUSE WE WILL NOT LET THE PLAYER END HIS TURN UNLESS HE IS IN THE "NONE" STATE
-        currentPlayerInControl.UpdatePlayerStats(); // normalement tessra f end day mchi f turn ????? .
-        SwitchPlayeTurn();
+        // currentPlayerInControl.UpdatePlayerStats(); // normalement tessra f end day mchi f turn ????? .
+
         ResetAllCellsAttributsInEndTurn();
         ResetAllUnitsAttributsInEndTurn();
+
+        SwitchPlayeTurn();
+        if (currentPlayerInControl == player1) EndDay();
+
+    }
+
+    public void EndDay()
+    {
+        // 
+        foreach (Player player in playerList)
+        {
+            player.UpdatePlayerStats();
+
+            foreach (Unit unit in player.unitList)
+            {
+                unit.ConsumeDailyRation();
+            }
+
+            foreach (Building building in player.buildingList)
+            {
+                building.HealAndSupplyUnitIfPossible(mapGrid);
+            }
+        }
 
     }
 
@@ -147,6 +170,11 @@ public class GameController : MonoBehaviour
     }
 
 
+    public void EndGame(Player playerWinner)
+    {
+        //
+        Debug.Log("NED GAME : player " + playerWinner.ToString() + " wins") ;
+    }
 
 
 

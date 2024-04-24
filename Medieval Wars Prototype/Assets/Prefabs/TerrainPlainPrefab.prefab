@@ -45,13 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc64c87369320a499913d89402e244d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainName: 0
-  spritesRendererList:
-  - {fileID: -2743200511141304461}
-  - {fileID: -2743200511141304461}
+  terrainName: 11
   spriteRenderer: {fileID: 0}
-  TerrainIndex: 0
-  newFunds: 0
+  TerrainIndex: 11
+  incomingFunds: 0
   row: 0
   col: 0
 --- !u!212 &-2743200511141304461

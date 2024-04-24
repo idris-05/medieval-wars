@@ -124,9 +124,11 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void ResetUnitAttributsInEndTurn()
     {
+        unitView.ResetHighlightedUnit();
         numbState = false;
         hasMoved = false;
         ConsumeDailyRation();
+        if (this is UnitAttack unitAttack) unitAttack.hasAttacked = false ;
     }
 
 
@@ -134,7 +136,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         occupiedCell.occupantUnit = null;
     }
-
 
 
     public void TryToCapture(Building building)

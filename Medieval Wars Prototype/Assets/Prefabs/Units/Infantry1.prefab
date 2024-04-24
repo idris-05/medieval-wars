@@ -182,7 +182,7 @@ MonoBehaviour:
   defenseBoost: 0
   specialDefenseBoost: 0
   attackRange: 5
-  minAttackRange: 2
+  minAttackRange: 0
   durability: 0
   hasAttacked: 0
   enemiesInRange: []
