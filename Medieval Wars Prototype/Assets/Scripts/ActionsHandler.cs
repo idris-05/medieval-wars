@@ -107,11 +107,14 @@ public class ActionsHandler : MonoBehaviour
         // SUPPLY BUTTON
         if (unitThatGotClickedOn is UnitTransport transportUnitThatGotClickedOn_)
         {
-            transportUnitThatGotClickedOn_.GetSuppliableUnits();
-            if (transportUnitThatGotClickedOn_.suppliableUnits.Any() == true)
+            if (transportUnitThatGotClickedOn_.hasSupply == false)
             {
-                ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[4]);
-                transportUnitThatGotClickedOn_.suppliableUnits.Clear();  // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha
+                transportUnitThatGotClickedOn_.GetSuppliableUnits();
+                if (transportUnitThatGotClickedOn_.suppliableUnits.Any() == true)
+                {
+                    ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[4]);
+                    transportUnitThatGotClickedOn_.suppliableUnits.Clear();  // jmi3 3fssa dertha na7iha fi w9tha mt5lihach t9ol omb3d nss79ha
+                }
             }
         }
 
@@ -139,6 +142,10 @@ public class ActionsHandler : MonoBehaviour
         if (ButtonsUI.Instance.buttonsToDisplay.Any() == true)
         {
             ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[5]);
+        }
+        else
+        {
+            // hna lazem reset l unit selected ..
         }
 
     }

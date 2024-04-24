@@ -116,8 +116,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void TransitionToNumbState()
     {
         numbState = true;
-        hasMoved = true; //  normalement tt7ana //! WE NEED TO LOOK AT THIS , tweli ki tselectionniw : numb State => return  
-        unitView.spriteRenderer.color = Color.gray; // ttsegem .
+        unitView.HighlightAsInNumbState();
+        Debug.Log("sibon I'm in numb state");
     }
 
 
@@ -129,6 +129,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         hasMoved = false;
         ConsumeDailyRation();
         if (this is UnitAttack unitAttack) unitAttack.hasAttacked = false ;
+        if (this is UnitTransport unitTransport) unitTransport.hasSupply = false;
     }
 
 

@@ -135,6 +135,9 @@ public class UnitView : MonoBehaviour
         spriteRenderer.color = Color.yellow;
     }
 
+    public void HighlightAsInNumbState(){
+        spriteRenderer.color = Color.black;
+    }
     public void ResetHighlightedUnit()
     {
         spriteRenderer.color = Color.white;

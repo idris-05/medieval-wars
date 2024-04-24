@@ -9,6 +9,7 @@ public class UnitTransport : Unit
     // ki tdropi unit , t7etha fi numbState .
 
     public Unit loadedUnit;
+    public bool hasSupply ;
     public List<GridCell> dropableCells = new List<GridCell>();  // cells where the transporter can drop the loaded unit .
     public List<Unit> suppliableUnits = new List<Unit>();  // unit that can get supplyRation from the transporter .
 
@@ -48,7 +49,7 @@ public class UnitTransport : Unit
     public void Supply(Unit unitToSupply)
     {
         // transporter howa selected unit fl Unitcontroller , omb3d UnitToSupply hya li tselectionniha omb3d (mor l7kaya t3 layer wg3) 
-        // AvailableRationToShare -= supplyAmount;   // hada malakalh ,ahmed 9ali 3ndha ilimite , wki f supply , tl3ha lel max .
+        hasSupply = true;        
         unitToSupply.RecieveRationSupply();
     }
 
