@@ -91,12 +91,23 @@ public class UnitController : MonoBehaviour
                 //!!!! had les details ( commantaire li rah fo9i ) lazem meet ljay n7ddohom kamel .
                 if (unitThatGotClickedOn.playerOwner != GameController.Instance.currentPlayerInControl) return;
 
+
+
                 selectedUnit = unitThatGotClickedOn;
-                selectedUnit.unitView.HighlightAsSelected();
 
                 ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
                 ActionsHandler.Instance.FillButtonsToDisplay(unitThatGotClickedOn);
-                ButtonsUI.Instance.DisplayButtons();
+
+                if (ButtonsUI.Instance.buttonsToDisplay.Any() == true)
+                {
+                    ButtonsUI.Instance.DisplayButtons();
+                    selectedUnit.unitView.HighlightAsSelected();
+                }
+                else
+                {
+                    CancelScript.Instance.Cancel();
+                }
+
                 // wait for the player to click any button from the displayed buttons .
 
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-           
+
 
 
 
@@ -11,9 +11,9 @@ using UnityEngine;
 public class AttackSystem : MonoBehaviour
 {
 
-// trebuchet removed u should remove it too from other matrix and redo the table of dammage !!!!!!
+    // trebuchet removed u should remove it too from other matrix and redo the table of dammage !!!!!!
 
-public static bool[,] IfCounter = {
+    public static bool[,] IfCounter = {
     {false, false, false, false, false, false, false, false, false, false, false, false},
     {false, false, false, false, false, false, false, false, false, false, false, false},
     {false, false, false, false, false, false, false, false, false, false, false, false},
@@ -360,21 +360,24 @@ public static bool[,] IfCounter = {
 
     */
 
-    // trebuchet removed u should remove it too from other matrix and redo the table of dammage !!!!!!
+
+    // column counter attack the row 
     public static bool[,] CounterAttackMatrix = {
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, true, false, false, false, false, false, false, true, false},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, true, false, false, false, false,  false, false, true, false},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
+    //             Caravan  Archers  Carac    Fireship  Infantry  T-ship  SpikeMan  R-chalvary  Bandit  Catapulte  RamShip  Chalvary
+    /* Caravan */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
+    /* Archers */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
+    /* Carac */    {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
+    /* Fireship */ {false,  false,   false,   true,     false,    false,  false,    false,      false,  false,      true,   false},
+    /* Infantry */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true},
+    /* T-ship */   {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
+    /* SpikeMan */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true},
+    /* R-chalvary*/{false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true},
+    /* Bandit */   {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true},
+    /* Catapulte*/ {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
+    /* RamShip */  {false,  false,   false,   true,     false,    false,  false,    false,      false,  false,     true ,   false},
+    /* Chalvary */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true}
     };
+
 
     public static int CalculateDamage(Unit AttackingUnit, Unit DefendingUnit)
     {
@@ -463,7 +466,7 @@ public static bool[,] IfCounter = {
         // unitWantToCounterAttack was the defender 
         // unitWillGetCounterAttacked was the attacker , and it was of type : UnitAttack .
 
-        return CounterAttackMatrix[unitThatWantToCounterAttack.unitIndex, unitWillGetCounterAttacked.unitIndex];
+        return CounterAttackMatrix[unitWillGetCounterAttacked.unitIndex, unitThatWantToCounterAttack.unitIndex];
     }
 
 

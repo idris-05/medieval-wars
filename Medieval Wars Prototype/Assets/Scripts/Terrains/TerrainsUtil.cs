@@ -87,6 +87,8 @@ public static class TerrainsUtils
 
 
 
+
+
     // Each Terrain has it's defense stars that will be used in the damage formula
     public static int[] defenceStars = { 3, 3, 3, 4, 3, 0, 0, 0, 0, 0, 1, 1, 2, 4 };
 

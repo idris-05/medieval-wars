@@ -61,9 +61,14 @@ public class MovementSystem : MonoBehaviour
 
         if (mapGrid.grid[row, col].occupantUnit is UnitTransport) // If I try to move to a cell where there is a tronsporter we  will load the unit on the transporter .
         {
+            // rak raye7 l cell fiha Transperter , rak 7ab ttloda .
 
             // We are Sure here that the transporter is empty because it gets verified in GetWalkableTiles
             // this is just to be able to call PrepareUnitToGetLoaded
+
+            // t9der t5yer teb9a fi plasstek wtkon UnitTransport :
+
+            //!!!!! if ( unit is UnitTransport) return;
 
             UnitAttack unitThatWillGetLoaded = unit as UnitAttack;
             UnitTransport unitTransport = mapGrid.grid[row, col].occupantUnit as UnitTransport;
@@ -141,9 +146,14 @@ public class MovementSystem : MonoBehaviour
                     temp2.affval(moveleft, mapGrid.grid[y - 1, x]);
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
-                    unit.walkableGridCells.Add(mapGrid.grid[y - 1, x]);
-                    mapGrid.grid[y - 1, x].isWalkable = true;
+
+                    if (mapGrid.grid[y - 1, x].occupantUnit is UnitTransport || mapGrid.grid[y - 1, x].occupantUnit == null)
+                    {
+                        unit.walkableGridCells.Add(mapGrid.grid[y - 1, x]);
+                        mapGrid.grid[y - 1, x].isWalkable = true;
+                    }
                     queue.Enqueue(temp2);
+
                 }
 
 
@@ -163,9 +173,15 @@ public class MovementSystem : MonoBehaviour
 
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
-                    unit.walkableGridCells.Add(mapGrid.grid[y, x + 1]);
-                    mapGrid.grid[y, x + 1].isWalkable = true;
+
+                    if (mapGrid.grid[y, x + 1].occupantUnit is UnitTransport || mapGrid.grid[y, x + 1].occupantUnit == null)
+                    {
+                        unit.walkableGridCells.Add(mapGrid.grid[y, x + 1]);
+                        mapGrid.grid[y, x + 1].isWalkable = true;
+
+                    }
                     queue.Enqueue(temp2);
+
 
                 }
 
@@ -185,9 +201,15 @@ public class MovementSystem : MonoBehaviour
                     temp2.affval(moveleft, mapGrid.grid[y + 1, x]);
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
-                    unit.walkableGridCells.Add(mapGrid.grid[y + 1, x]);
-                    mapGrid.grid[y + 1, x].isWalkable = true;
+
+                    if (mapGrid.grid[y + 1, x].occupantUnit is UnitTransport || mapGrid.grid[y + 1, x].occupantUnit == null)
+                    {
+                        unit.walkableGridCells.Add(mapGrid.grid[y + 1, x]);
+                        mapGrid.grid[y + 1, x].isWalkable = true;
+
+                    }
                     queue.Enqueue(temp2);
+
 
                 }
 
@@ -208,8 +230,13 @@ public class MovementSystem : MonoBehaviour
                     temp2.affval(moveleft, mapGrid.grid[y, x - 1]);
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
-                    unit.walkableGridCells.Add(mapGrid.grid[y, x - 1]);
-                    mapGrid.grid[y, x - 1].isWalkable = true;
+
+                    if (mapGrid.grid[y, x - 1].occupantUnit is UnitTransport || mapGrid.grid[y, x - 1].occupantUnit == null)
+                    {
+                        unit.walkableGridCells.Add(mapGrid.grid[y, x - 1]);
+                        mapGrid.grid[y, x - 1].isWalkable = true;
+
+                    }
                     queue.Enqueue(temp2);
 
                 }

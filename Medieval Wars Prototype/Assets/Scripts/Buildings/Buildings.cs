@@ -23,6 +23,7 @@ public class Building : Terrain
         }
 
         AffetcBuildingToPlayer(unit.playerOwner);
+        unit.TransitionToNumbState();
         ResetRemainningPointsToCapture();
 
 

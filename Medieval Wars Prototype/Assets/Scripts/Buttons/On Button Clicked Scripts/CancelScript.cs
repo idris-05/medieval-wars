@@ -58,10 +58,11 @@ public class CancelScript : MonoBehaviour
 
     public void Cancel()
     {
-
-        UnitController.Instance.selectedUnit.unitView.ResetHighlightedUnit();
-
-        UnitController.Instance.selectedUnit = null;
+        if (UnitController.Instance.selectedUnit != null)
+        {
+            UnitController.Instance.selectedUnit.unitView.ResetHighlightedUnit();
+            UnitController.Instance.selectedUnit = null;
+        }
 
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.NONE;
 

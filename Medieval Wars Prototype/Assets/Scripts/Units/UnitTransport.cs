@@ -9,7 +9,7 @@ public class UnitTransport : Unit
     // ki tdropi unit , t7etha fi numbState .
 
     public Unit loadedUnit;
-    public bool hasSupply ;
+    public bool hasSupply;
     public List<GridCell> dropableCells = new List<GridCell>();  // cells where the transporter can drop the loaded unit .
     public List<Unit> suppliableUnits = new List<Unit>();  // unit that can get supplyRation from the transporter .
 
@@ -40,6 +40,7 @@ public class UnitTransport : Unit
         // set the new position of the unit .
         this.loadedUnit.unitView.SetUnitPosition(cell.row, cell.column);
         this.loadedUnit.unitView.ShowUnitAfterDrop();
+        this.loadedUnit.TransitionToNumbState();
 
         loadedUnit = null;
 
@@ -49,8 +50,9 @@ public class UnitTransport : Unit
     public void Supply(Unit unitToSupply)
     {
         // transporter howa selected unit fl Unitcontroller , omb3d UnitToSupply hya li tselectionniha omb3d (mor l7kaya t3 layer wg3) 
-        hasSupply = true;        
+        hasSupply = true;
         unitToSupply.RecieveRationSupply();
+        this.TransitionToNumbState();
     }
 
 
@@ -86,22 +88,34 @@ public class UnitTransport : Unit
 
         if (currentRow - 1 >= 0 && mapGrid.grid[currentRow - 1, currentCol].occupantUnit is Unit suppliableUnit1)
         {
-            suppliableUnits.Add(suppliableUnit1);
+            if (suppliableUnit1.playerOwner == this.playerOwner)
+            {
+                suppliableUnits.Add(suppliableUnit1);
+            }
         }
 
         if (currentRow + 1 < mapGrid.grid.GetLength(0) && mapGrid.grid[currentRow + 1, currentCol].occupantUnit is Unit suppliableUnit2)
         {
-            suppliableUnits.Add(suppliableUnit2);
+            if (suppliableUnit2.playerOwner == this.playerOwner)
+            {
+                suppliableUnits.Add(suppliableUnit2);
+            }
         }
 
         if (currentCol - 1 >= 0 && mapGrid.grid[currentRow, currentCol - 1].occupantUnit is Unit suppliableUnit3)
         {
-            suppliableUnits.Add(suppliableUnit3);
+            if (suppliableUnit3.playerOwner == this.playerOwner)
+            {
+                suppliableUnits.Add(suppliableUnit3);
+            }
         }
 
         if (currentCol + 1 < mapGrid.grid.GetLength(1) && mapGrid.grid[currentRow, currentCol + 1].occupantUnit is Unit suppliableUnit4)
         {
-            suppliableUnits.Add(suppliableUnit4);
+            if (suppliableUnit4.playerOwner == this.playerOwner)
+            {
+                suppliableUnits.Add(suppliableUnit4);
+            }
         }
 
     }
@@ -109,28 +123,28 @@ public class UnitTransport : Unit
     public void SupplyAllSuppliableUnits()
     {
         // this line of code tparcouri la liste t3 suppliable units w dir appel la methode supply
-        suppliableUnits.ForEach( unitToSupply => Supply(unitToSupply) );
+        suppliableUnits.ForEach(unitToSupply => Supply(unitToSupply));
     }
-    
+
     // 
     public void HighlightDropableCells()
     {
         // highlight the dropable cells
-        dropableCells.ForEach( dropableCell => dropableCell.gridCellView.HighlightAsDropable() );
+        dropableCells.ForEach(dropableCell => dropableCell.gridCellView.HighlightAsDropable());
     }
 
     // 
     public void HighlightSuppliableUnits()
     {
         // highlight the dropable cells
-        suppliableUnits.ForEach( suppliableUnit => suppliableUnit.unitView.HighlightAsSuppliable());
+        suppliableUnits.ForEach(suppliableUnit => suppliableUnit.unitView.HighlightAsSuppliable());
     }
 
     //
     public void ResetDropableCells()
     {
         // highlight the dropable cells
-        dropableCells.ForEach( dropableCell => dropableCell.gridCellView.ResetHighlitedCell() );
+        dropableCells.ForEach(dropableCell => dropableCell.gridCellView.ResetHighlitedCell());
         dropableCells.Clear();
     }
 
