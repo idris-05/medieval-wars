@@ -128,14 +128,7 @@ public class UnitView : MonoBehaviour
     public void HighlightAsSelected()
     {
         spriteRenderer.color = Color.green;
-    }
-
-    public void HighlightAsSuppliable()
-    {
-        spriteRenderer.color = Color.yellow;
-    }
-
-    public void HighlightAsInNumbState()
+    }    public void HighlightAsInNumbState()
     {
         spriteRenderer.color = Color.black;
     }

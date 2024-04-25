@@ -131,13 +131,6 @@ public class UnitTransport : Unit
         dropableCells.ForEach(dropableCell => dropableCell.gridCellView.HighlightAsDropable());
     }
 
-    // 
-    public void HighlightSuppliableUnits()
-    {
-        // highlight the dropable cells
-        suppliableUnits.ForEach(suppliableUnit => suppliableUnit.unitView.HighlightAsSuppliable());
-    }
-
     //
     public void ResetDropableCells()
     {
@@ -149,7 +142,6 @@ public class UnitTransport : Unit
     //
     public void ResetSuppliableUnits()
     {
-        suppliableUnits.ForEach(suppliableUnits => suppliableUnits.unitView.ResetHighlightedUnit());
         suppliableUnits.Clear();
     }
 

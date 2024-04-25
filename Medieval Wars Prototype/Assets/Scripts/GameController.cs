@@ -41,6 +41,8 @@ public class GameController : MonoBehaviour
     public Player player1;
     public Player player2;
 
+    public int CurrentDayCounter;
+
     public List<Player> playerList = new List<Player>();
 
     void Awake()
@@ -65,7 +67,7 @@ public class GameController : MonoBehaviour
 
         SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
         // SpawnUnit(2, 8, 20, Infantry2Prefab);
-       
+
     }
 
 
@@ -129,6 +131,8 @@ public class GameController : MonoBehaviour
     public void EndDay()
     {
         // 
+        CurrentDayCounter++;
+
         foreach (Player player in playerList)
         {
             player.UpdatePlayerStats();
@@ -175,7 +179,7 @@ public class GameController : MonoBehaviour
     public void EndGame(Player playerWinner)
     {
         //
-        Debug.Log("NED GAME : player " + playerWinner.ToString() + " wins") ;
+        Debug.Log("NED GAME : player " + playerWinner.ToString() + " wins");
     }
 
 
