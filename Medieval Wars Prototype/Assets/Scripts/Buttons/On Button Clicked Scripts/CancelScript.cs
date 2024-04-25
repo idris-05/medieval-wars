@@ -27,6 +27,7 @@ public class CancelScript : MonoBehaviour
         }
     }
 
+
     public void OnCancelButtonClicked()
     {
         switch (UnitController.Instance.CurrentActionStateBasedOnClickedButton)

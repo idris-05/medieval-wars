@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class Building : Terrain
 {
-    // ytcaptura  , rapaire ll unit , supply unit .
     // public Color color; //??????
     public Player playerOwner;
 
-    // public SpriteRenderer spriteRendererForBuilding; //?? kayen deja sprite t3 terrain , 3lach mndiroch bih howa ?
     public int remainningPointsToCapture;
     public int MaxRemainningPointsToCapture;
 
@@ -18,24 +16,21 @@ public class Building : Terrain
         {
             // owner ta3 biulding hada 5sser , tssema l winner howa l'owner ta3 unit;
             AffetcBuildingToPlayer(unit.playerOwner);
-            ResetRemainningPointsToCapture();
+            ResetRemainingPointsToCapture();
             GameController.Instance.EndGame(unit.playerOwner);
         }
 
         AffetcBuildingToPlayer(unit.playerOwner);
         unit.TransitionToNumbState();
-        ResetRemainningPointsToCapture();
+        ResetRemainingPointsToCapture();
 
     }
 
 
-
-
-    public void ResetRemainningPointsToCapture()
+    public void ResetRemainingPointsToCapture()
     {
         remainningPointsToCapture = MaxRemainningPointsToCapture;
     }
-
 
 
     private void SupplyUnit(Unit unit)
@@ -60,11 +55,14 @@ public class Building : Terrain
         if (unit == null) return;
         if (this.playerOwner != unit.playerOwner) return;
         // the same position and owned by the same player .
-        HealUnit(unit);
-        SupplyUnit(unit);
+
+        if (BuildingsUtil.BuildingCanHealAndSupplyThatUnit[this.TerrainIndex, unit.unitIndex])
+        {
+            HealUnit(unit);
+            SupplyUnit(unit);
+        }
 
     }
-
 
 
 

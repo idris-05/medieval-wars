@@ -23,6 +23,7 @@ public class SupplyScript : MonoBehaviour
         supplyingUnit.ResetSuppliableUnits();
 
         CancelScript.Instance.Cancel();
+        
         supplyingUnit.TransitionToNumbState();
     }
 

@@ -26,8 +26,6 @@ public class GridCell : MonoBehaviour
     }
 
 
-
-
     // Method to reset the GridCell to its original state  
     public void ResetCellAttributsInEndTurn()
     {

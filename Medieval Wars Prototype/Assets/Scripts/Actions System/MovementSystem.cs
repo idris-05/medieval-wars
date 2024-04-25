@@ -43,8 +43,7 @@ public class MovementSystem : MonoBehaviour
         }
     }
 
-    // mapgrid hadi ttna7a
-    public MapGrid mapGrid;  // lokan hadi tkon , lazem la class mtkonch static , llazem ya hadi ya hadi 
+    public MapGrid mapGrid;  
 
 
 
@@ -66,9 +65,6 @@ public class MovementSystem : MonoBehaviour
 
             if (UnitUtil.CanLoadThatUnit[unitTransport.unitIndex, unit.unitIndex])
             {
-                // Unit unitThatWillGetLoaded = unit as UnitAttack;
-                // UnitTransport unitTransport = mapGrid.grid[row, col].occupantUnit as UnitTransport;
-
                 unit.unitView.ResetHighlitedWalkableCells();
 
                 unit.PrepareUnitToGetLoadedInTransporter();
@@ -79,7 +75,6 @@ public class MovementSystem : MonoBehaviour
                 return;
             }
         }
-
 
         // case where u just move to a gridcell
 

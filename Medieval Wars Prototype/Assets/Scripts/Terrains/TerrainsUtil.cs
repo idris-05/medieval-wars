@@ -86,32 +86,9 @@ public static class TerrainsUtils
 };
 
 
-
-
-
     // Each Terrain has it's defense stars that will be used in the damage formula
     public static int[] defenceStars = { 3, 3, 3, 4, 3, 0, 0, 0, 0, 0, 1, 1, 2, 4 };
 
-
-
-
-    // public static List<SpriteRenderer> TerrainSpritesForEachWhether = new List<SpriteRenderer>();
-    // hadi list t3 listes , kol terrain 3ndo sprites 3la 7ssab whether ,
-    // tssema lazem f tableau hada n7to ID t3 sprites hadok ....
-    // ! chof f terrain 9dam "public SpriteRenderer spriteRenderer" tl9a avis w7do5er .
-
-
-
-
-
-
-
-
     public static string[] reportTerrain;
-
-
-
-
-
 
 }

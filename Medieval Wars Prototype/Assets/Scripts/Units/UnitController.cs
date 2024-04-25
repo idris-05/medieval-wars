@@ -129,38 +129,10 @@ public class UnitController : MonoBehaviour
                 //! ida cheft lcommentaire w 7bit tbdellha plassa, tbanli ltema 5ir . psq ki y'attacker yessra f nfss lwe9t counterattack . (tssema mklah n5roj men script wndirha fi plassa w7do5ra)
 
                 CancelScript.Instance.Cancel();
+                // we should transist the attacker to numb state , we need to check only if it doesn't die .
                 if (attackingUnit != null) attackingUnit.TransitionToNumbState();
 
-
-
                 break;
-
-            // case UnitUtil.ActionToDoWhenButtonIsClicked.MOVE:  .. this case is not possible .
-            //     break;
-
-            // case UnitUtil.ActionToDoWhenButtonIsClicked.CANCEL:  //!!!!!!!!!!!!!!!!!!!!!!!!!!11
-            //     break;
-
-            // case UnitUtil.ActionToDoWhenButtonIsClicked.DROP:
-            //     break;
-
-            // case UnitUtil.ActionToDoWhenButtonIsClicked.LOAD:   // hadi 9olna nforciwha tessra direct .
-            //     break;
-
-            // case UnitUtil.ActionToDoWhenButtonIsClicked.SUPPLY:
-
-            //     UnitTransport supplyingUnit = selectedUnit as UnitTransport;
-
-            //     ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(supplyingUnit.suppliableUnits);
-
-            //     supplyingUnit.Supply(unitThatGotClickedOn);
-
-            //     CancelScript.Instance.Cancel();
-
-            //     break;
-
-            // case UnitUtil.ActionToDoWhenButtonIsClicked.CAPTURE:
-            //     break;
 
             default:
                 break;

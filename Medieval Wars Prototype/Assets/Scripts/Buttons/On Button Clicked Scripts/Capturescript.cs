@@ -7,10 +7,10 @@ public class Capturescript : MonoBehaviour
         Debug.Log("Capture button got clicked! ");
 
         Unit unit = UnitController.Instance.selectedUnit;
-        if (unit == null) Debug.Log("selectedUnit from UnitController null");
+        // if (unit == null) Debug.Log("selectedUnit from UnitController null");
 
         Building buildingToCapture = unit.occupiedCell.occupantTerrain as Building;
-        if (buildingToCapture == null) Debug.Log("buildingToCapture null");
+        // if (buildingToCapture == null) Debug.Log("buildingToCapture null");
 
         unit.TryToCapture(buildingToCapture);
 

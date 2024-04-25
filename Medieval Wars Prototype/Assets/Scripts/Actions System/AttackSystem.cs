@@ -301,17 +301,6 @@ public class AttackSystem : MonoBehaviour
     // ** defence star 
 
 
-
-
-
-
-
-
-
-
-
-
-
     // EXPLICATION ASSEZ DETAILLEE DE LA DAMAGE FORMULA
 
     /*
@@ -406,6 +395,7 @@ public class AttackSystem : MonoBehaviour
     public static void Attack(UnitAttack AttackingUnit, Unit DefendingUnit)
     {
 
+        //!!!!!!!!!!! lazem verification belli ki tmot TransporterUnit , uniti li rahi rafdetha m3aha hya tani tmot .
         int inflictedDamage = CalculateDamage(AttackingUnit, DefendingUnit);
         DefendingUnit.RecieveDamage(inflictedDamage);
         AttackingUnit.UpdateAttributsAfterAttack();
@@ -413,7 +403,14 @@ public class AttackSystem : MonoBehaviour
 
         if (DefendingUnit.healthPoints <= 0)
         {
+            if (DefendingUnit is UnitTransport DefendingUnitAsUnitTransporter)
+            {
+                if (DefendingUnitAsUnitTransporter.loadedUnit != null) DefendingUnitAsUnitTransporter.loadedUnit.Kill();
+            }
+
             DefendingUnit.Kill();
+
+            //!! is case the player LOSE .
             if (DefendingUnit.playerOwner.unitList.Any() == false)
             {
                 // DefendingUnit.playerOwner LOSE
@@ -422,6 +419,8 @@ public class AttackSystem : MonoBehaviour
             return;
         }
 
+        
+        //!! COUNTER ATTACK 
         // verify the possibility to counter attack 
         if (VerifyCoiunterAttackPossibility(DefendingUnit, AttackingUnit) == false) return;
 
@@ -448,48 +447,6 @@ public class AttackSystem : MonoBehaviour
 
         return CounterAttackMatrix[unitWillGetCounterAttacked.unitIndex, unitThatWantToCounterAttack.unitIndex];
     }
-
-
-
-
-
-    // public static void GetAttackableCells(UnitAttack unitAttack, MapGrid mapGrid)
-    // {
-
-    //     unitAttack.attackableGridCells.Clear();
-
-    //     int startRow = unitAttack.row;
-    //     int startCol = unitAttack.col;
-    //     int AttackRange = unitAttack.attackRange;
-
-    //     //     //! we should make sure that there is only one instance of the MapGrid in the scene .
-    //     //     //! we can also pass the MapGrid as a parameter to the getWalkableTiles method 
-
-
-    //     // Get the current position of the selected unitAttack
-    //     Vector2Int currentPos = new Vector2Int(startRow, startCol);
-
-    //     for (int row = -AttackRange; row <= AttackRange; row++)
-    //     {
-    //         for (int col = -AttackRange; col <= AttackRange; col++)
-    //         {
-
-
-    //             int nextRow = currentPos.x + row;
-    //             int nextCol = currentPos.y + col;
-
-    //             if (nextRow >= 0 && nextRow < MapGrid.Rows && nextCol >= 0 && nextCol < MapGrid.Columns)
-    //             {
-    //                 if (MathF.Abs(row) + MathF.Abs(col) <= AttackRange)
-    //                 {
-    //                     // mapGrid.grid[nextRow, nextCol].Highlight();
-    //                     unitAttack.attackableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
 
 
 }

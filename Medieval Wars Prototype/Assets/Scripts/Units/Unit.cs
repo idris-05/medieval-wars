@@ -48,12 +48,12 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     }
 
 
-    //!!!!! le nom t3 method hadi 3yan , fiha UpdateAttributsAfterMoving , bssah hadi UpdateAttributsAfterMoving marahich vraiment t'updai kolch wch lazem , psq WalkableGridCells mazalhom .
-    public void Move(int row, int col)
-    {
-        UpdateAttributsAfterMoving(row, col);
-        unitView.ResetHighlitedWalkableCells();
-    }
+    // //!!!!! le nom t3 method hadi 3yan , fiha UpdateAttributsAfterMoving , bssah hadi UpdateAttributsAfterMoving marahich vraiment t'updai kolch wch lazem , psq WalkableGridCells mazalhom .
+    // public void Move(int row, int col)
+    // {
+    //     UpdateAttributsAfterMoving(row, col);
+    //     unitView.ResetHighlitedWalkableCells();
+    // }
 
 
     //! n9dro nzido paramter movecost 
@@ -102,7 +102,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void RecieveRationSupply()
     {
         ration = UnitUtil.maxRations[unitIndex];
-        // Debug.Log("I just Got Supplied bro");
     }
 
     public void ConsumeDailyRation()
@@ -117,7 +116,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         numbState = true;
         unitView.HighlightAsInNumbState();
-        Debug.Log("sibon I'm in numb state  " + this.unitName.ToString());
+        // Debug.Log("sibon I'm in numb state  " + this.unitName.ToString());
     }
 
 
@@ -125,10 +124,10 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void ResetUnitAttributsInEndTurn()
     {
         unitView.ResetHighlightedUnit();
+        ConsumeDailyRation();
         numbState = false;
         hasMoved = false;
-        ConsumeDailyRation();
-        if (this is UnitAttack unitAttack) unitAttack.hasAttacked = false ;
+        if (this is UnitAttack unitAttack) unitAttack.hasAttacked = false;
         if (this is UnitTransport unitTransport) unitTransport.hasSupply = false;
     }
 
@@ -141,9 +140,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void TryToCapture(Building building)
     {
-        // Debug.Log(unit.healthPoints);
         building.remainningPointsToCapture -= healthPoints;
-        // Debug.Log("unit syit n capturiiiibuilding w  5litlo  " + remainningPointsToCapture);
         if (building.remainningPointsToCapture <= 0) building.GetCaptured(this);
     }
 

@@ -3,11 +3,6 @@ using UnityEngine.UI;
 
 public class MoveScript : MonoBehaviour
 {
-
-    // public Button moveButton; // hadi makaleh , kayen hadi : ActionsHandler.Instance.actionButtons[0]
-
-
-    // EventSystem . 
     public void OnMoveButtonDown()
     {
         Debug.Log("Move button pressed");

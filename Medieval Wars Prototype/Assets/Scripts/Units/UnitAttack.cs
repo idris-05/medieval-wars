@@ -20,39 +20,34 @@ public class UnitAttack : Unit
         hasAttacked = true;
         unitView.ResetHighlightedUnit();
         ResetHighlightedEnemyInRange();
-        // numb state ?
     }
 
-   
 
 
     public void GetEnemiesInRange()
     {
-        enemiesInRange.Clear(); // Clear the List
+        enemiesInRange.Clear();
 
         foreach (Unit CondidateUnitToGetAttacked in FindObjectsOfType<Unit>()) // hna balak tparcouri direct les ennemis ( besah 1v1v1v1 )
         {
-             // lazem t3 base damage tetbedel ( adem w ahmed rahoum y5dmou 3liha )
-            if (AttackSystem.baseDamage[this.unitIndex, CondidateUnitToGetAttacked.unitIndex] != -1) // est ce que y9der yattakih aslan kho
+            if (CondidateUnitToGetAttacked.playerOwner != GameController.Instance.currentPlayerInControl)
             {
-
-                float distance = MathF.Abs(CondidateUnitToGetAttacked.row - row) + MathF.Abs(CondidateUnitToGetAttacked.col - col);
-
-                if (CondidateUnitToGetAttacked.playerOwner != GameController.Instance.currentPlayerInControl && distance <= attackRange && distance >= minAttackRange) // yverifyi ida rah f range t3ou
+                // lazem t3 base damage tetbedel ( adem w ahmed rahoum y5dmou 3liha )
+                if (AttackSystem.baseDamage[this.unitIndex, CondidateUnitToGetAttacked.unitIndex] != -1) // est ce que y9der yattakih aslan kho
                 {
-                    enemiesInRange.Add(CondidateUnitToGetAttacked); // add this attackble enemy to the list of attackble enemies
+
+                    float distance = MathF.Abs(CondidateUnitToGetAttacked.row - row) + MathF.Abs(CondidateUnitToGetAttacked.col - col);
+
+                    if (distance <= attackRange && distance >= minAttackRange)
+                    {
+                        enemiesInRange.Add(CondidateUnitToGetAttacked); // add this attackble enemy to the list of attackble enemies
+                    }
                 }
 
             }
 
         }
     }
-
-    // public void GetAttackableGridCells()
-    // {
-    // Hadi rani 7atha f attack system , mais normalment tji hna
-    // }
-
 
 
     public void HighlightEnemyInRange()
@@ -70,7 +65,7 @@ public class UnitAttack : Unit
     public void HighlitAttackableGridCells()
     {
         attackableGridCells.ForEach(cell => cell.gridCellView.HighlightAsAttackable());
-    } 
+    }
     public void ResetHighlitedAttackableGridCells()
     {
         attackableGridCells.ForEach(cell => cell.gridCellView.ResetHighlitedCell());

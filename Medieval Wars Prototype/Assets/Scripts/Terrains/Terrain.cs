@@ -36,11 +36,7 @@ public class Terrain : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-
-    // public void setTiles(EWhether whether)
-    // {
-    //!!!!!!!!!!!!!! ??  hadi wa9il raho 7ab ybdel biha sprites .
-    // }
+   
     public void UpdateTerrainSpriteWhenWhetherChanges(Whether whether)
     {
         // spriteRenderer = spritesRendererList[whether.whetherIndex] ;

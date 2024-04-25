@@ -5,8 +5,7 @@ using UnityEngine;
 public class UnitTransport : Unit
 {
 
-    // ki t'attaquer Trasporter , tdreb ghir trasnporter , li lda5el mat9issoch , ida mat transporter ymot li m3ah tani (loaded unit)
-    // ki tdropi unit , t7etha fi numbState .
+    //!!!!!!! ki t'attaquer Trasporter , tdreb ghir trasnporter , li lda5el mat9issoch , ida mat transporter ymot li m3ah tani (loaded unit)
 
     public Unit loadedUnit;
     public bool hasSupply;
