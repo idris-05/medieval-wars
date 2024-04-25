@@ -21,8 +21,9 @@ public class SupplyScript : MonoBehaviour
         supplyingUnit.GetSuppliableUnits();
         supplyingUnit.SupplyAllSuppliableUnits();
         supplyingUnit.ResetSuppliableUnits();
-        CancelScript.Instance.Cancel();
 
+        CancelScript.Instance.Cancel();
+        supplyingUnit.TransitionToNumbState();
     }
 
 

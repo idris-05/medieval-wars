@@ -117,7 +117,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         numbState = true;
         unitView.HighlightAsInNumbState();
-        Debug.Log("sibon I'm in numb state");
+        Debug.Log("sibon I'm in numb state  " + this.unitName.ToString());
     }
 
 

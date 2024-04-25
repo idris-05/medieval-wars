@@ -52,7 +52,6 @@ public class UnitTransport : Unit
         // transporter howa selected unit fl Unitcontroller , omb3d UnitToSupply hya li tselectionniha omb3d (mor l7kaya t3 layer wg3) 
         hasSupply = true;
         unitToSupply.RecieveRationSupply();
-        this.TransitionToNumbState();
     }
 
 

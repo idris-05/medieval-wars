@@ -1,4 +1,6 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridCellController : MonoBehaviour
 {
@@ -34,11 +36,21 @@ public class GridCellController : MonoBehaviour
         {
             case UnitUtil.ActionToDoWhenButtonIsClicked.MOVE:
                 Debug.Log("cell clicked on move state");
-                ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(UnitController.Instance.selectedUnit.walkableGridCells);
-                MovementSystem.Instance.Movement(UnitController.Instance.selectedUnit, cellThatGotClickedOn.row, cellThatGotClickedOn.column);
+
+                Unit unitToMove = UnitController.Instance.selectedUnit;
+
+                ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitToMove.walkableGridCells);
+                MovementSystem.Instance.Movement(unitToMove, cellThatGotClickedOn.row, cellThatGotClickedOn.column);
                 CancelScript.Instance.Cancel();
+
+                // here we need to check if the moved unit still hahve another actions to do , or it will enter the NumbState MODE
+
+                ActionsHandler.Instance.FillButtonsToDisplay(unitToMove);
+                if (ButtonsUI.Instance.buttonsToDisplay.Any() == false) unitToMove.TransitionToNumbState();
+                ButtonsUI.Instance.buttonsToDisplay.Clear();
+
                 break;
-                
+
             case UnitUtil.ActionToDoWhenButtonIsClicked.DROP:
                 Debug.Log("cell clicked on drop state");
                 UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;

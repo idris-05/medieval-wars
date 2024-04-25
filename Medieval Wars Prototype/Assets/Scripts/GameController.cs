@@ -58,12 +58,14 @@ public class GameController : MonoBehaviour
         mapGrid.InitialiseMapGridCells();
 
         SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
+        SpawnUnit(player1, 6, 5, Infantry1Prefab); // test 
 
 
         SpawnUnit(player2, 8, 8, Infantry2Prefab);
 
         SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
         // SpawnUnit(2, 8, 20, Infantry2Prefab);
+       
     }
 
 

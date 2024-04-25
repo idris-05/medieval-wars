@@ -4,29 +4,9 @@ using System.Linq;
 using UnityEngine;
 
 
-
-
-
-
 public class AttackSystem : MonoBehaviour
 {
 
-    // trebuchet removed u should remove it too from other matrix and redo the table of dammage !!!!!!
-
-    public static bool[,] IfCounter = {
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, true, false, false, false, false, false, false, true, false},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
-    {false, false, false, false, false, false, false, false, false, false, false, false},
-   {false, false, false, true, false, false, false, false,  false, false, true, false},
-    {false, false, false, false, true, false, true, true, true, false, false, true},
-    };
     private static AttackSystem instance;
     public static AttackSystem Instance
     {

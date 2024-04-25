@@ -26,8 +26,6 @@ public class Building : Terrain
         unit.TransitionToNumbState();
         ResetRemainningPointsToCapture();
 
-
-
     }
 
 

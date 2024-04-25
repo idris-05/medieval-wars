@@ -59,29 +59,25 @@ public class MovementSystem : MonoBehaviour
     public void Movement(Unit unit, int row, int col)
     {
 
-        if (mapGrid.grid[row, col].occupantUnit is UnitTransport) // If I try to move to a cell where there is a tronsporter we  will load the unit on the transporter .
+        if (mapGrid.grid[row, col].occupantUnit is UnitTransport unitTransport) // If I try to move to a cell where there is a tronsporter we  will load the unit on the transporter .
         {
-            // rak raye7 l cell fiha Transperter , rak 7ab ttloda .
 
-            // We are Sure here that the transporter is empty because it gets verified in GetWalkableTiles
-            // this is just to be able to call PrepareUnitToGetLoaded
+            //!!!!!! We are Sure here that the transporter is empty because it gets verified in GetWalkableTiles :  && unitTransport.loadedUnit == null
 
-            // t9der t5yer teb9a fi plasstek wtkon UnitTransport :
+            if (UnitUtil.CanLoadThatUnit[unitTransport.unitIndex, unit.unitIndex])
+            {
+                // Unit unitThatWillGetLoaded = unit as UnitAttack;
+                // UnitTransport unitTransport = mapGrid.grid[row, col].occupantUnit as UnitTransport;
 
-            //!!!!! if ( unit is UnitTransport) return;
+                unit.unitView.ResetHighlitedWalkableCells();
 
-            UnitAttack unitThatWillGetLoaded = unit as UnitAttack;
-            UnitTransport unitTransport = mapGrid.grid[row, col].occupantUnit as UnitTransport;
+                unit.PrepareUnitToGetLoadedInTransporter();
+                unit.unitView.AnimateMovement(row, col);
+                unit.TransitionToNumbState();
+                unitTransport.Load(unit);
 
-            unit.unitView.ResetHighlitedWalkableCells();
-
-            unitThatWillGetLoaded.PrepareUnitToGetLoadedInTransporter();
-            unit.unitView.AnimateMovement(row, col);
-            unit.TransitionToNumbState();
-            unitTransport.Load(unit);
-
-
-            return;
+                return;
+            }
         }
 
 
@@ -147,7 +143,7 @@ public class MovementSystem : MonoBehaviour
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
 
-                    if (mapGrid.grid[y - 1, x].occupantUnit is UnitTransport || mapGrid.grid[y - 1, x].occupantUnit == null)
+                    if ((mapGrid.grid[y - 1, x].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y - 1, x].occupantUnit == null)
                     {
                         unit.walkableGridCells.Add(mapGrid.grid[y - 1, x]);
                         mapGrid.grid[y - 1, x].isWalkable = true;
@@ -174,7 +170,7 @@ public class MovementSystem : MonoBehaviour
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
 
-                    if (mapGrid.grid[y, x + 1].occupantUnit is UnitTransport || mapGrid.grid[y, x + 1].occupantUnit == null)
+                    if ((mapGrid.grid[y, x + 1].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y, x + 1].occupantUnit == null)
                     {
                         unit.walkableGridCells.Add(mapGrid.grid[y, x + 1]);
                         mapGrid.grid[y, x + 1].isWalkable = true;
@@ -202,7 +198,7 @@ public class MovementSystem : MonoBehaviour
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
 
-                    if (mapGrid.grid[y + 1, x].occupantUnit is UnitTransport || mapGrid.grid[y + 1, x].occupantUnit == null)
+                    if ((mapGrid.grid[y + 1, x].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y + 1, x].occupantUnit == null)
                     {
                         unit.walkableGridCells.Add(mapGrid.grid[y + 1, x]);
                         mapGrid.grid[y + 1, x].isWalkable = true;
@@ -231,7 +227,7 @@ public class MovementSystem : MonoBehaviour
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
 
-                    if (mapGrid.grid[y, x - 1].occupantUnit is UnitTransport || mapGrid.grid[y, x - 1].occupantUnit == null)
+                    if ((mapGrid.grid[y, x - 1].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y, x - 1].occupantUnit == null)
                     {
                         unit.walkableGridCells.Add(mapGrid.grid[y, x - 1]);
                         mapGrid.grid[y, x - 1].isWalkable = true;

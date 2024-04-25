@@ -70,7 +70,7 @@ public class UnitView : MonoBehaviour
                 return;
             }
 
-            AttackSystem.Instance.GetAttackableCells(unit as UnitAttack , mapGrid);
+            AttackSystem.Instance.GetAttackableCells(unit as UnitAttack, mapGrid);
 
             HighlightAttackableCells(); // Display attackable cells
         }
@@ -135,7 +135,8 @@ public class UnitView : MonoBehaviour
         spriteRenderer.color = Color.yellow;
     }
 
-    public void HighlightAsInNumbState(){
+    public void HighlightAsInNumbState()
+    {
         spriteRenderer.color = Color.black;
     }
     public void ResetHighlightedUnit()
