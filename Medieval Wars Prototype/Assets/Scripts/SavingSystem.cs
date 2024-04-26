@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 
 public static class SavingSystem 
 {
+    //hello
     
    public static string PATH1 = "C:/Users/PC/AppData/LocalLow/DefaultCompany/Medieval Wars Prototype/player1stats.json";
    public static string PATH2 = "C:/Users/PC/AppData/LocalLow/DefaultCompany/Medieval Wars Prototype/player2stats.json";
