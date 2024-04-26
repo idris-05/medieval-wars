@@ -22,6 +22,14 @@ public class MapGrid : MonoBehaviour
     public GameObject GridCellsHolder;
     public GameObject TerrainsHolder;
 
+    // the 2 following will be calculated using the (0,0) gridcell position
+    public float maxVerticalMapBorder;
+    public float minHorizontalMapBorder;
+
+    // the 2 following will be calculated using the last gridcell spawned ( will depend on the map
+    public float maxHorizontalMapBorder;
+    public float minVerticalMapBorder;
+
 
     public static int Vertical, Horizontal, Columns, Rows;
 
@@ -35,17 +43,39 @@ public class MapGrid : MonoBehaviour
         grid = new GridCell[100,100];
     }
 
+    /*
+         if (row == 0 && col == 0)
+                {
+                    maxVerticalMapBorder = gridCell.transform.position.y;
+                    minHorizontalMapBorder = gridCell.transform.position.x;
+                }
+
+                if (row == 50 && col == 50)
+                {
+                    minVerticalMapBorder = gridCell.transform.position.y;
+                    maxHorizontalMapBorder = gridCell.transform.position.x;
+                }
+     */
+
     public void InitialiseMapGridCells()
     {
+
+
+
         // Loop through each row and column of the map grid
         for (int row = 0; row < 50 ; row++) /*row < MapGrid.Rows*/
         {
             for (int col = 0; col < 50; col++) /*col < MapGrid.Columns*/
             {
 
+                
+
                 // Instantiate a GridCell prefab at the specified position
                 GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
                 gridCell.transform.SetParent(GridCellsHolder.transform);
+
+              
+
 
                 if (row == 3 && col == 8)
                 {
@@ -96,6 +126,8 @@ public class MapGrid : MonoBehaviour
                 grid[row, col] = gridCell;
             }
         }
+
+        
     }
 
 

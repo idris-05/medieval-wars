@@ -140,7 +140,10 @@ public class UnitView : MonoBehaviour
     }
     public void ResetHighlightedUnit()
     {
-        spriteRenderer.color = Color.white;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
         //!!!!!!!!!!!!
     }
 

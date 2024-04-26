@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 95902087}
   - component: {fileID: 95902086}
   - component: {fileID: 95902085}
+  - component: {fileID: 95902088}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -340,6 +341,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95902088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95902084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0199e46c515b474458fa95369d03ed63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &152995347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4684,6 +4697,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2079233362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2062459633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2062459635}
+  - component: {fileID: 2062459634}
+  m_Layer: 0
+  m_Name: CameraHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2062459634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062459633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1950c5cc31ac7340bd8f952bb2d4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraFollow: {fileID: 95902088}
+  mapGrid: {fileID: 2079233363}
+--- !u!4 &2062459635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062459633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1258897, y: 0.7499172, z: -49.95392}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2079233360
 GameObject:
   m_ObjectHideFlags: 0
@@ -4735,6 +4794,10 @@ MonoBehaviour:
   CastleBuildingPrefab: {fileID: 5121689741534307688, guid: 9fe01633facad284eab9ff8195b48d63, type: 3}
   GridCellsHolder: {fileID: 2027242808}
   TerrainsHolder: {fileID: 2052672419}
+  maxVerticalMapBorder: 0
+  minHorizontalMapBorder: 0
+  maxHorizontalMapBorder: 0
+  minVerticalMapBorder: 0
 --- !u!1 &2146100146
 GameObject:
   m_ObjectHideFlags: 0
@@ -4869,3 +4932,4 @@ SceneRoots:
   - {fileID: 1925938514}
   - {fileID: 1159073371}
   - {fileID: 680515789}
+  - {fileID: 2062459635}
