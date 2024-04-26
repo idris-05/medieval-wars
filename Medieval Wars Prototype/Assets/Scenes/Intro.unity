@@ -320,6 +320,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2507303646682784648, guid: 47935a45913226248b019a12606cab2e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7622157184019175378, guid: 47935a45913226248b019a12606cab2e, type: 3}
       propertyPath: m_Name
       value: Scene Transition
@@ -423,8 +427,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1682363499}
   - {fileID: 362053325}
+  - {fileID: 1682363499}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -553,6 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17bbd1fb05d5d443963f2ed1e9ee8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionAnim: {fileID: 1682363500}
 --- !u!224 &1563623955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -575,6 +580,11 @@ RectTransform:
 --- !u!224 &1682363499 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2038457467341176880, guid: 47935a45913226248b019a12606cab2e, type: 3}
+  m_PrefabInstance: {fileID: 366297690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1682363500 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3781140140489126271, guid: 47935a45913226248b019a12606cab2e, type: 3}
   m_PrefabInstance: {fileID: 366297690}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1703045079

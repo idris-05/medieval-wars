@@ -8,18 +8,19 @@ public class ScenesManager : MonoBehaviour
 {
     [SerializeField] Animator transitionAnim;
 
-    public void StartGame()
+
+    public void StartMap(int mapId)
     {
-        StartCoroutine(LoadMap());
+        StartCoroutine(LoadMap(mapId));
     }
 
-    IEnumerator LoadMap()
+    IEnumerator LoadMap(int mapId)
     {
         transitionAnim.SetTrigger("End");
-        SceneManager.LoadScene(2);
         yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(mapId + 1);
         transitionAnim.SetTrigger("Start");
-        
+
     }
 
     public void QuitGame()
