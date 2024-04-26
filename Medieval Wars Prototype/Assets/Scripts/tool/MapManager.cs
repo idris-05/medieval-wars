@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Linq;
 
 public class MapManager : MonoBehaviour
 {
@@ -29,6 +30,43 @@ public class MapManager : MonoBehaviour
     }
 
 
+
+    // TerrainIndex | Terrain
+    // ------------------
+    //   0   | BARRACK  | 
+    //   1   | DOCK     | 
+    //   2   | STABLE   | 
+    //   3   | CASTLE   | 
+    //   4   | VILLAGE  | 
+    //   5   | ROAD     | 
+    //   6   | BRIDGE   | 
+    //   7   | RIVER    | 
+    //   8   | SEA      | 
+    //   9   | SHOAL    | 
+    //  10   | REEF     | 
+    //  11   | PLAIN    | 
+    //  12   | WOOD     | 
+    //  13   | MOUNTAIN | 
+    //
+    public List<TileBase> BarrackTileSprites = new List<TileBase>();
+    public List<TileBase> DockTileSprites = new List<TileBase>();
+    public List<TileBase> StableTileSprites = new List<TileBase>();
+    public List<TileBase> CastleTileSprites = new List<TileBase>();
+    public List<TileBase> VillageTileSprites = new List<TileBase>();
+    public List<TileBase> RoadTileSprites = new List<TileBase>();
+    public List<TileBase> BridgeTileSprites = new List<TileBase>();
+    public List<TileBase> RiverTileSprites = new List<TileBase>();
+    public List<TileBase> SeaTileSprites = new List<TileBase>();
+    public List<TileBase> ShoalTileSprites = new List<TileBase>();
+    public List<TileBase> ReefTileSprites = new List<TileBase>();
+    public List<TileBase> PlainTileSprites = new List<TileBase>();
+    public List<TileBase> WoodTileSprites = new List<TileBase>();
+    public List<TileBase> MountainTileSprites = new List<TileBase>();
+
+    // Array of lists to hold terrain sprites
+    public List<TileBase>[] listOfTerrainSpritesLists = new List<TileBase>[14];
+
+
     void Start()
     {
         LoadMapData();
@@ -43,6 +81,8 @@ public class MapManager : MonoBehaviour
         public int column;
         public string groundType;
         public string terrainType;
+        public int groundTypeIndex;
+        public int terrainTypeIndex;
 
         public CellData(Vector3Int vector3Int)
         {
@@ -54,7 +94,7 @@ public class MapManager : MonoBehaviour
 
             row = -vector3Int.y + 4;
 
-            Debug.Log("matrice : " + row + " ; " + column);
+            // Debug.Log("matrice : " + row + " ; " + column);
         }
     }
 
@@ -98,7 +138,24 @@ public class MapManager : MonoBehaviour
     public void SaveMapData()
     {
 
+        listOfTerrainSpritesLists[0] = BarrackTileSprites;
+        listOfTerrainSpritesLists[1] = DockTileSprites;
+        listOfTerrainSpritesLists[2] = StableTileSprites;
+        listOfTerrainSpritesLists[3] = CastleTileSprites;
+        listOfTerrainSpritesLists[4] = VillageTileSprites;
+        listOfTerrainSpritesLists[5] = RoadTileSprites;
+        listOfTerrainSpritesLists[6] = BridgeTileSprites;
+        listOfTerrainSpritesLists[7] = RiverTileSprites;
+        listOfTerrainSpritesLists[8] = SeaTileSprites;
+        listOfTerrainSpritesLists[9] = ShoalTileSprites;
+        listOfTerrainSpritesLists[10] = ReefTileSprites;
+        listOfTerrainSpritesLists[11] = PlainTileSprites;
+        listOfTerrainSpritesLists[12] = WoodTileSprites;
+        listOfTerrainSpritesLists[13] = MountainTileSprites;
+
+
         MapData mapData = new MapData(MapHeightSize, MapWidthSize);
+
 
         //!!!!!!!!!!  groundsTileMap
         foreach (Vector3Int cellPosition in groundsTileMap.cellBounds.allPositionsWithin)
@@ -106,18 +163,12 @@ public class MapManager : MonoBehaviour
             TileBase tile = groundsTileMap.GetTile(cellPosition);
             if (tile != null)
             {
-                Debug.Log(" position coordinates : " + cellPosition.x + " ; " + cellPosition.y);
-
-                // int columnTemp = cellPosition.x + 9;
-
-                // int rowTemp =  -cellPosition.y + 4;
-
-                // Debug.Log(" more l7ssabb flmatrice " +rowTemp + " ; " + columnTemp);
-
+                // Debug.Log(" position coordinates : " + cellPosition.x + " ; " + cellPosition.y);
 
                 CellData cell = new CellData(cellPosition)
                 {
-                    groundType = tile.name // You may want to customize this based on your tile setup
+                    groundType = tile.name, // You may want to customize this based on your tile setup
+                    groundTypeIndex = terrainIndexOfTile(tile)
                 };
 
                 mapData.cells[cell.row, cell.column] = cell;
@@ -130,22 +181,34 @@ public class MapManager : MonoBehaviour
             TileBase tile = terrainsAndBuilingsTileMap.GetTile(cellPosition);
             if (tile != null)
             {
-
                 // int columnTemp = cellPosition.x + MapManager.instance.CameraWidhtSize / 2;  //  - 0.5f
 
                 // int rowTemp = cellPosition.y + MapManager.instance.CameraHeightSize / 2;
-
 
                 int columnTemp = cellPosition.x + 9;
 
                 int rowTemp = -cellPosition.y + 4;
 
                 mapData.cells[rowTemp, columnTemp].terrainType = tile.name; // hadi hya cell , doka nzidlha les info t3 terrain&building
+                mapData.cells[rowTemp, columnTemp].terrainTypeIndex = terrainIndexOfTile(tile);
             }
         }
 
         string json = ConvertMatrixToJson(mapData.cells);
         File.WriteAllText("map_data.json", json);
+    }
+
+
+    public int terrainIndexOfTile(TileBase tileBase)
+    {
+        for (int i = 0; i < listOfTerrainSpritesLists.Length; i++)
+        {
+            if (listOfTerrainSpritesLists[i].Contains(tileBase))
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
 
@@ -200,8 +263,11 @@ public class MapManager : MonoBehaviour
             {
                 // Debug.Log("Row: " + cell.row + ", Column: " + cell.column + ", Ground Type: " + cell.groundType + ", Terrain Type: " + cell.terrainType);
 
+
                 // 
-                GameObject groundGameObject = Instantiate(gameObject, new Vector3(-MapGrid.Horizontal + cell.column + 0.5f, MapGrid.Vertical - cell.row - 0.5f, 0), Quaternion.identity);
+                GameObject groundGameObject = new GameObject();
+                groundGameObject.transform.position = new Vector3(-MapGrid.Horizontal + cell.column + 0.5f, MapGrid.Vertical - cell.row - 0.5f, 0);
+
                 // groundGameObject.transform.SetParent(groundGameObjectsHolder.transform);
 
 

@@ -15,6 +15,7 @@ public class MapManagerEditor : Editor
         if (GUILayout.Button("Save Map Data"))
         {
             // Call the method you want to invoke
+            
             MapManager.Instance.SaveMapData();
         }
     }
