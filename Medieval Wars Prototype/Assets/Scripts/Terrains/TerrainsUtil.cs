@@ -21,6 +21,7 @@ public static class TerrainsUtils
     //  12   | WOOD     | 
     //  13   | MOUNTAIN | 
     //
+    
 
 
     public enum TerrainName
@@ -90,5 +91,8 @@ public static class TerrainsUtils
     public static int[] defenceStars = { 3, 3, 3, 4, 3, 0, 0, 0, 0, 0, 1, 1, 2, 4 };
 
     public static string[] reportTerrain;
+    public static void affi(){
+        
+    }
 
 }

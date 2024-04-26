@@ -1,10 +1,23 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using System.Collections.Generic;
+using Unity.IO;
+using System.IO;
+using Newtonsoft.Json;
+using UnityEditor.Playables;
+using Unity.Services.Analytics;
+using UnityEngine.TerrainUtils;
 
 
 
 public class GameController : MonoBehaviour
 {
+    //need to be changed 
+    
+   public  Unit[] indexUnitprefab = new Unit[5];
+   public Terrain[] indexTerrainprefab = new Terrain[14]; 
+   //this too need to be dynamic
+
 
     private static GameController instance;
     public static GameController Instance
@@ -38,7 +51,6 @@ public class GameController : MonoBehaviour
     public Unit Infantry1PrefabTransport; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
 
     public Unit Infantry2Prefab; // test
-
     public Player currentPlayerInControl;
     public Player player1;
     public Player player2;
@@ -46,6 +58,7 @@ public class GameController : MonoBehaviour
     public int CurrentDayCounter;
 
     public List<Player> playerList = new List<Player>();
+
 
     void Awake()
     {
@@ -73,16 +86,109 @@ public class GameController : MonoBehaviour
         // SpawnUnit(2, 8, 20, Infantry2Prefab);
 
     }
+      public void LoadbuildingsToMap(SavingSystem.playerUnitsInfos playerInfos){
+        Player player ;
+        if(playerInfos.player == 1){
+            player = player1;
+        }else{
+            player=player2;
+        }
+        player.buildingList.Clear();
+        foreach( SavingSystem.Buildingdata buildingdata in playerInfos.buildings){
+            Building building ;
+            building = SpawnBuilding(player , buildingdata.row , buildingdata.col , (Building) indexTerrainprefab[buildingdata.Buildingtype]);
+            building.remainningPointsToCapture = buildingdata.remainningPointsToCapture;
+        }
 
 
-    void Update()
-    {
-        CheckEndTurnInput();
     }
+    public void LaodUnitsToMap(SavingSystem.playerUnitsInfos playerinfos){
+        Player player ;
+        if(playerinfos.player == 1){
+            player = player1;
+        }else{
+            player=player2;
+        }
+        player.unitList.Clear();
+        foreach(SavingSystem.UnitData unitData in playerinfos.unitdatas){
+            if (unitData.ammo == -1){
+                UnitTransport unit ;
+                unit = (UnitTransport) SpawnUnit(player,unitData.row,unitData.col,indexUnitprefab[unitData.type]);
+                unit.healthPoints = unitData.hp;
+                unit.hasMoved = unitData.hasMoved;
+                unit.numbState = unitData.numbState;
+                unit.ration = unitData.rations;
+            }else{
+                UnitAttack unit;
+                unit = (UnitAttack)SpawnUnit(player,unitData.row,unitData.col,indexUnitprefab[unitData.type]);
+                unit.durability= unitData.ammo;
+                unit.healthPoints = unitData.hp;
+                unit.hasMoved = unitData.hasMoved;
+                unit.numbState = unitData.numbState;
+                unit.ration = unitData.rations;
+            }
+
+        }
+
+    }
+    public void loadplayer(string path){
+            SavingSystem.playerUnitsInfos unitPlayerdatas = new SavingSystem.playerUnitsInfos();
+            unitPlayerdatas.unitdatas= new List<SavingSystem.UnitData>();
+           unitPlayerdatas = SavingSystem.Infoload(path);
+           Debug.Log("loaded");
+           LaodUnitsToMap(unitPlayerdatas);
+           LoadbuildingsToMap(unitPlayerdatas);
+    }
+    public void save(){
+       SavingSystem.savePlayer(player1,SavingSystem.PATH1,1);
+       SavingSystem.savePlayer(player2,SavingSystem.PATH2,2);
+    }
+    public void load(){
+        loadplayer(SavingSystem.PATH1);
+        loadplayer(SavingSystem.PATH2);
+    }
+   /*  public void newGame(){
+
+    } */
+
+
+      void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S)){
+            save();
+        }
+        if(Input.GetKeyDown(KeyCode.L)){
+            load();
+        }
+        CheckEndTurnInput();
+        //! we must add the ResetAllCellsAttributsInEndTurn and ResetAllUnitsAttributsInEndTurn inside EndTurn .
+    }
+        
+        //player owner don't forget it !!!
+
 
 
     // this function is used to spawn a unit on the map
-    public void SpawnUnit(Player player, int row, int column, Unit unitPrefab)
+    public Building SpawnBuilding(Player player, int row , int col , Building buildingprefab){
+
+        Building building = Instantiate(buildingprefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
+
+        building.playerOwner=player;
+
+        player.AddBuilding(building);
+
+        building.gameObject.AdjustSpriteSize();
+
+        mapGrid.grid[row, col].occupantTerrain = building;
+
+        building.row = row;
+
+        building.col = col;
+
+        return building; 
+
+    }
+    public Unit SpawnUnit(Player player, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
         Unit unit = Instantiate(unitPrefab, new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, -1), Quaternion.identity);
@@ -104,7 +210,7 @@ public class GameController : MonoBehaviour
         unit.row = row;
         unit.col = column;
 
-
+     return unit;
     }
 
 
