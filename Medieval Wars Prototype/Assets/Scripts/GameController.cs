@@ -49,28 +49,28 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        player1 = new GameObject("Player1").AddComponent<Player>();
-        player2 = new GameObject("Player2").AddComponent<Player>();
-        currentPlayerInControl = player1;
-        playerList.Add(player1);
-        playerList.Add(player2);
+        // player1 = new GameObject("Player1").AddComponent<Player>();
+        // player2 = new GameObject("Player2").AddComponent<Player>();
+        // currentPlayerInControl = player1;
+        // playerList.Add(player1);
+        // playerList.Add(player2);
     }
     // This method is called when the object is first enabled in the scene.
     void Start()
     {
-        mapGrid.CalculateMapGridSize();
-        mapGrid.InitialiseMapGridCells();
+        // mapGrid.CalculateMapGridSize();
+        // mapGrid.InitialiseMapGridCells();
 
-        SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
-        SpawnUnit(player1, 6, 5, Infantry1Prefab); // test 
+        // SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
+        // SpawnUnit(player1, 6, 5, Infantry1Prefab); // test 
 
-        SpawnUnit(player1, 3, 3, BanditArabPrefab);
+        // SpawnUnit(player1, 3, 3, BanditArabPrefab);
 
 
-        SpawnUnit(player2, 8, 8, Infantry2Prefab);
+        // SpawnUnit(player2, 8, 8, Infantry2Prefab);
 
-        SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
-        // SpawnUnit(2, 8, 20, Infantry2Prefab);
+        // SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
+        // // SpawnUnit(2, 8, 20, Infantry2Prefab);
 
     }
 
