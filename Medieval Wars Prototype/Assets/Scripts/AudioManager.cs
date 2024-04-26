@@ -77,10 +77,5 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void StartGame(){
-        SceneManager.LoadScene(2);
-
-
-    }
 
 }
