@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,7 +51,5 @@ public class GridCell : MonoBehaviour
         newPosition.z = 0;
         transform.position = newPosition;
     }
-
-
 
 }

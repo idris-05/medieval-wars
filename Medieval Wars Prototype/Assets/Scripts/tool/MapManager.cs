@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Linq;
+using System;
 
 public class MapManager : MonoBehaviour
 {
@@ -66,10 +67,14 @@ public class MapManager : MonoBehaviour
     // Array of lists to hold terrain sprites
     public List<TileBase>[] listOfTerrainSpritesLists = new List<TileBase>[14];
 
+    public MapGrid mapGrid;
 
     void Start()
     {
+
+        mapGrid.CalculateMapGridSize();
         LoadMapData();
+        // SliceJsonToLists("map_data.json");
     }
 
     // !!!!!
@@ -79,6 +84,7 @@ public class MapManager : MonoBehaviour
     {
         public int row;
         public int column;
+        public Vector3Int vector3Int;
         public string groundType;
         public string terrainType;
         public int groundTypeIndex;
@@ -90,6 +96,7 @@ public class MapManager : MonoBehaviour
             // column = vector3Int.x + MapManager.instance.CameraWidhtSize / 2;  //  - 0.5f
             // row = vector3Int.y + MapManager.instance.CameraHeightSize / 2;
 
+            this.vector3Int = vector3Int;
             column = vector3Int.x + 9;
 
             row = -vector3Int.y + 4;
@@ -126,8 +133,6 @@ public class MapManager : MonoBehaviour
 
     // private int CameraWidhtSize = 18;
 
-    public GridCell GridCellPrefab;
-
     public int MapHeightSize;
     public int MapWidthSize;
     public Tilemap groundsTileMap;
@@ -153,9 +158,7 @@ public class MapManager : MonoBehaviour
         listOfTerrainSpritesLists[12] = WoodTileSprites;
         listOfTerrainSpritesLists[13] = MountainTileSprites;
 
-
         MapData mapData = new MapData(MapHeightSize, MapWidthSize);
-
 
         //!!!!!!!!!!  groundsTileMap
         foreach (Vector3Int cellPosition in groundsTileMap.cellBounds.allPositionsWithin)
@@ -182,11 +185,9 @@ public class MapManager : MonoBehaviour
             if (tile != null)
             {
                 // int columnTemp = cellPosition.x + MapManager.instance.CameraWidhtSize / 2;  //  - 0.5f
-
                 // int rowTemp = cellPosition.y + MapManager.instance.CameraHeightSize / 2;
 
                 int columnTemp = cellPosition.x + 9;
-
                 int rowTemp = -cellPosition.y + 4;
 
                 mapData.cells[rowTemp, columnTemp].terrainType = tile.name; // hadi hya cell , doka nzidlha les info t3 terrain&building
@@ -241,11 +242,52 @@ public class MapManager : MonoBehaviour
         return json;
     }
 
+
+    public List<string> SliceJsonToLists(string jsonString)
+    {
+        //!!! kayen PARSE w9il n9der ndir biha direct .
+
+        // Trim the whitespace and remove leading/trailing square brackets
+        jsonString = jsonString.Trim();
+        jsonString = jsonString.Substring(1, jsonString.Length - 2);
+
+        // Split the JSON string by '],[' to separate the lists
+        string[] mainLists = jsonString.Split(new string[] { "],[" }, StringSplitOptions.None);
+
+        // Convert each substring into a list of strings
+        List<string> resultList = new List<string>();
+
+        foreach (string list in mainLists)
+        {
+            // Split each list by ',' to separate the items
+            string[] items = list.Split(new string[] { "," }, StringSplitOptions.None);
+
+            // Add each item to the formatted list
+            foreach (string item in items)
+            {
+                // Remove leading/trailing whitespace and add to the formatted list
+                resultList.Add(item.Trim());
+            }
+        }
+
+        // foreach (string item in resultList)
+        // {
+        //     Debug.Log(item);
+        // }
+        return resultList;
+    }
+
+
     public void LoadMapData()
     {
         string jsonFilePath = "map_data.json"; // Path to the JSON file containing map data
 
-        if (File.Exists(jsonFilePath))
+        if (!File.Exists(jsonFilePath))
+        {
+            Debug.LogError("The map JSON file does not exist: " + jsonFilePath);
+            return;
+        }
+        else
         {
             string json = File.ReadAllText(jsonFilePath);
 
@@ -255,34 +297,61 @@ public class MapManager : MonoBehaviour
             // Access the map data
             List<CellData> cells = mapData.cells;
 
-
-            // Load all sprites from a specific folder
-            Sprite[] sprites = Resources.LoadAll<Sprite>("TilePalette");
-
             foreach (CellData cell in cells)
             {
                 // Debug.Log("Row: " + cell.row + ", Column: " + cell.column + ", Ground Type: " + cell.groundType + ", Terrain Type: " + cell.terrainType);
 
+                // !!!! GROUND TILES.
+                // Get the tile base for the ground type
+                TileBase tileBaseGround = groundsTileMap.GetTile(cell.vector3Int);
 
-                // 
-                GameObject groundGameObject = new GameObject();
-                groundGameObject.transform.position = new Vector3(-MapGrid.Horizontal + cell.column + 0.5f, MapGrid.Vertical - cell.row - 0.5f, 0);
+                if (tileBaseGround == null)
+                { Debug.Log("The tile base for the ground type does not exist ground: " + cell.groundType); }
+                else
+                {
+                    GameObject groundGameObject = new GameObject();
+                    groundGameObject.transform.position = new Vector3(-MapGrid.Horizontal + cell.column + 0.5f, MapGrid.Vertical - cell.row - 0.5f, 0);
+                    // groundGameObject.transform.SetParent(groundGameObjectsHolder.transform);
 
-                // groundGameObject.transform.SetParent(groundGameObjectsHolder.transform);
+                    // Get the sprite of the tile
+                    Sprite tileSprite = ((Tile)tileBaseGround).sprite;
+
+                    // Set the SpriteRenderer's sprite to the sprite of the tile
+                    groundGameObject.AddComponent<SpriteRenderer>();
+                    groundGameObject.GetComponent<SpriteRenderer>().sprite = tileSprite;
+
+                    groundGameObject.name = $"groundGameObject ({cell.row}, {cell.column})";
+
+                }
 
 
-                // Instantiate a GridCell prefab at the specified position
-                GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-MapGrid.Horizontal + cell.column + 0.5f, MapGrid.Vertical - cell.row - 0.5f, 0), Quaternion.identity);
-                // gridCell.transform.SetParent(GridCellsHolder.transform);
 
+                //!!! TERRAIN TILES.
+                // Get the tile base for the ground type
+                TileBase tileBaseTerrain = terrainsAndBuilingsTileMap.GetTile(cell.vector3Int);
+                if (tileBaseTerrain == null)
+                {
+                    Debug.Log("The tile base for the ground type does not exist terrain: " + cell.terrainType);
+                }
+                else
+                {
+
+                    GameObject gridCell = new GameObject();
+                    gridCell.transform.position = new Vector3(-MapGrid.Horizontal + cell.column + 0.5f, MapGrid.Vertical - cell.row - 0.5f, 0);
+                    // gridCell.transform.SetParent(GridCellsHolder.transform);
+
+                    // Get the sprite of the tile
+                    Sprite tileSprite = ((Tile)tileBaseTerrain).sprite;
+
+                    // Set the SpriteRenderer's sprite to the sprite of the tile
+                    gridCell.AddComponent<SpriteRenderer>();
+                    gridCell.GetComponent<SpriteRenderer>().sprite = tileSprite;
+                    gridCell.name = $"gridCell ({cell.row}, {cell.column})";
+                }
             }
         }
-        else
-        {
-            Debug.LogError("The map JSON file does not exist: " + jsonFilePath);
-        }
-    }
 
+    }
 
 
 
