@@ -45,6 +45,7 @@ public class MapGrid : MonoBehaviour
                 // Instantiate a GridCell prefab at the specified position
                 GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
                 // Debug.Log("grid cell : " + GameUtil.GetOriginalSpriteSize(gridCell.gameObject));
+                
 
                 if (row == 3 && col == 8)
                 {
@@ -75,7 +76,7 @@ public class MapGrid : MonoBehaviour
 
 
                 // Adjust the sprite size of the instantiated GridCell and the terrain
-                // gridCell.gameObject.AdjustSpriteSize();
+                gridCell.gameObject.AdjustSpriteSize();
                 // gridCell.occupantTerrain.gameObject.AdjustSpriteSize();
                 // Debug.Log("grid cell : " + GameUtil.GetOriginalSpriteSize(gridCell.gameObject));
 

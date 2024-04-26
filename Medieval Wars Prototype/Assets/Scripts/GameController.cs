@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
         Unit unit = Instantiate(unitPrefab, new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, -1), Quaternion.identity);
 
-        unit.playerOwner = player;
+        // unit.playerOwner = player;
 
         player.AddUnit(unit);
 

@@ -15,7 +15,7 @@ public class Building : Terrain
         Debug.Log("rani dit l biulding sibon");
         Debug.Log("building wlaa ta3 palyer number  " + GameController.Instance.currentPlayerInControl.ToString());
         
-        AffetcBuildingToPlayer(unit.playerOwner);
+        // AffetcBuildingToPlayer(unit.playerOwner);
     }
 
 
