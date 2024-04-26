@@ -3,6 +3,8 @@ using UnityEngine;
 public class UnitUtil : MonoBehaviour
 {
 
+
+
     public enum ActionToDoWhenButtonIsClicked
     {
         NONE,
@@ -32,6 +34,14 @@ public class UnitUtil : MonoBehaviour
         RAMSHIP,
         CHALVARY,
     }
+
+   /* public enum animationState
+    {
+        IDLE(""), // only side idle , which side is determined according to which player does the unit belong to
+        UP_WALK,
+        DOWN_WALK,
+        SIDE_WALK, // which side it is walking towards is treated within the movement code implementation , i did it eventhough it's not maintanable because this won't be used anywhere else
+    } */
 
 
 

@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2654075239046433566}
   - component: {fileID: -2080499793171882692}
   - component: {fileID: -6857914708629168600}
+  - component: {fileID: 3810206441201150901}
   m_Layer: 0
-  m_Name: Bandit1
+  m_Name: BanditArab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,15 +77,15 @@ SpriteRenderer:
   m_SortingLayerID: 1965938827
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 312139308, guid: e22c918bbe6619f499273bf0bc2febc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.32}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2654075239046433566
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da1919fc36067d46aed2db47b7c561c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOwner: {fileID: 0}
   mapGrid: {fileID: 0}
   unitView: {fileID: 0}
   unitIndex: 0
@@ -106,13 +108,11 @@ MonoBehaviour:
   occupiedCell: {fileID: 0}
   row: 0
   col: 0
-  playerNumber: 1
   healthPoints: 100
   moveRange: 8
   ration: 0
   rationPerDay: 0
   lineOfSight: 0
-  moveCost: 0
   hasMoved: 0
   numbState: 0
   walkableGridCells: []
@@ -156,8 +156,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
-    newSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -177,3 +177,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873822b55360c634e9a732ff9352106e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3810206441201150901
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265668595456362624}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5db6b2c7e8e71034fbe6cec29deddf43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

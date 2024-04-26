@@ -1759,13 +1759,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapGrid: {fileID: 2079233363}
+  BanditArabPrefab: {fileID: 2654075239046433566, guid: f473b15a94159414a8b90632a8e1d69a, type: 3}
   Infantry1Prefab: {fileID: -7903265091803169806, guid: e3b6cb70c23b96d47a8fff974a9f4b45, type: 3}
   Infantry1PrefabTransport: {fileID: 5655664627314001093, guid: 3cbf74a8795bc3a499951dd5d8fd6206, type: 3}
   Infantry2Prefab: {fileID: 3053719795026352162, guid: f59bae1b4fcb1614c8e49fa00a52fd5c, type: 3}
-  selectedUnit: {fileID: 0}
   currentPlayerInControl: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  CurrentDayCounter: 0
+  playerList: []
 --- !u!4 &961498743
 Transform:
   m_ObjectHideFlags: 0
@@ -4731,6 +4733,8 @@ MonoBehaviour:
   GridCellPrefab: {fileID: -3587581034812915052, guid: df91c92e29b3f2a40b52fbc0a3d2ebe6, type: 3}
   TerrainPlainPrefab: {fileID: 424858643333420328, guid: 2c9407b977a5c1247a182de2a554ca3c, type: 3}
   CastleBuildingPrefab: {fileID: 5121689741534307688, guid: 9fe01633facad284eab9ff8195b48d63, type: 3}
+  GridCellsHolder: {fileID: 2027242808}
+  TerrainsHolder: {fileID: 2052672419}
 --- !u!1 &2146100146
 GameObject:
   m_ObjectHideFlags: 0

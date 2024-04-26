@@ -20,6 +20,11 @@ public class UnitView : MonoBehaviour
     bool isUnitHovered = false;
     bool rightButtonHolded = false;
 
+   
+
+    public Animator animator;
+   // public UnitUtil.animationState currentAnimatonState;
+
 
     void Start()
     {
@@ -27,6 +32,7 @@ public class UnitView : MonoBehaviour
         unit = GetComponent<Unit>();
         unitTransform = GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -191,6 +197,17 @@ public class UnitView : MonoBehaviour
         (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.ResetHighlitedCell());
         (unit as UnitAttack).attackableGridCells.Clear();
     }
+
+  /*  public void ChangeAnimationState(UnitUtil.animationState newAnimationState)
+    {
+
+        // to avoid the animation overwriting it self  
+        if ( currentAnimatonState == newAnimationState) return;
+
+        // animator.Play();
+
+
+    } */
 
 
 

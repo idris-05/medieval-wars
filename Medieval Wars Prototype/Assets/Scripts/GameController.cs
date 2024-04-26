@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour
 
     public MapGrid mapGrid; // linked from the editor 
 
+    public Unit BanditArabPrefab;
+
     public Unit Infantry1Prefab; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
 
     public Unit Infantry1PrefabTransport; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
@@ -61,6 +63,8 @@ public class GameController : MonoBehaviour
 
         SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
         SpawnUnit(player1, 6, 5, Infantry1Prefab); // test 
+
+        SpawnUnit(player1, 3, 3, BanditArabPrefab);
 
 
         SpawnUnit(player2, 8, 8, Infantry2Prefab);

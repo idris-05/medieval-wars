@@ -19,6 +19,9 @@ public class MapGrid : MonoBehaviour
 
     SpriteRenderer TerainSpriteRenderer;
 
+    public GameObject GridCellsHolder;
+    public GameObject TerrainsHolder;
+
 
     public static int Vertical, Horizontal, Columns, Rows;
 
@@ -29,19 +32,20 @@ public class MapGrid : MonoBehaviour
         Columns = Horizontal * 2;
         Rows = Vertical * 2;
 
-        grid = new GridCell[Rows, Columns];
+        grid = new GridCell[100,100];
     }
 
     public void InitialiseMapGridCells()
     {
         // Loop through each row and column of the map grid
-        for (int row = 0; row < MapGrid.Rows; row++)
+        for (int row = 0; row < 50 ; row++) /*row < MapGrid.Rows*/
         {
-            for (int col = 0; col < MapGrid.Columns; col++)
+            for (int col = 0; col < 50; col++) /*col < MapGrid.Columns*/
             {
 
                 // Instantiate a GridCell prefab at the specified position
                 GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
+                gridCell.transform.SetParent(GridCellsHolder.transform);
 
                 if (row == 3 && col == 8)
                 {
@@ -62,6 +66,9 @@ public class MapGrid : MonoBehaviour
                     // set the terrain for the gridcell
                     gridCell.occupantTerrain = terrain;
                 }
+
+                gridCell.occupantTerrain.transform.SetParent(TerrainsHolder.transform);
+
                 // ! hadi ttbdel 3la 7ssab kifach tessar generation t3 lmaps , en tous les cas , normal yeb9a hada howa lprincipe ta3ha , t'ajouti component terrain l cell 3la 7ssab wchmen terrain kayen (hadi tji mel maps)
                 // ! whna yji probleme t3 lazem t5bi les terrains fkch plassa . (3zma f kach liste fl game controller f script map generator .)  
                 // get the sprite renderer of the terrain
