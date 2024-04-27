@@ -13,7 +13,7 @@ public class CameraHandler : MonoBehaviour
 
     private void Start()
     {
-       cameraFollow.Setup(() => cameraFollowPosition, () => zoom);
+        cameraFollow.Setup(() => cameraFollowPosition, () => zoom);
     }
 
     private void Update()
@@ -28,7 +28,7 @@ public class CameraHandler : MonoBehaviour
     {
         float zoomChangeAmount = 100f;
 
-        if ( Input.mouseScrollDelta.y > 0)
+        if (Input.mouseScrollDelta.y > 0)
         {
             zoom -= zoomChangeAmount * Time.deltaTime;
         }
@@ -37,11 +37,12 @@ public class CameraHandler : MonoBehaviour
             zoom += zoomChangeAmount * Time.deltaTime;
         }
 
-        zoom = Mathf.Clamp(zoom,2f,250f);
+        zoom = Mathf.Clamp(zoom, 2f, 250f);
     }
 
     private void HandleManualMovement()
     {
+
         float moveAmount = 10f;
         if (Input.GetKey(KeyCode.W))
         {
@@ -60,8 +61,18 @@ public class CameraHandler : MonoBehaviour
             cameraFollowPosition.x += moveAmount * Time.deltaTime;
         }
 
-        // cameraFollowPosition.x = Mathf.Clamp(cameraFollowPosition.x,mapGrid.minHorizontalMapBorder,mapGrid.maxHorizontalMapBorder);
-        // cameraFollowPosition.y = Mathf.Clamp(cameraFollowPosition.y,mapGrid.minVerticalMapBorder,mapGrid.maxVerticalMapBorder);
+       
+        float minx = mapGrid.grid[8, 16].transform.position.x - 0.5f;
+
+        float maxx = mapGrid.grid[0, MapGrid.Columns - 16].transform.position.x - 0.5f;
+
+        float miny = mapGrid.grid[MapGrid.Rows - 10, 0].transform.position.y - 0.5f;
+
+        float maxy = mapGrid.grid[8, 16].transform.position.y - 0.5f;
+
+        cameraFollowPosition.x = Mathf.Clamp(cameraFollowPosition.x, minx, maxx);
+        cameraFollowPosition.y = Mathf.Clamp(cameraFollowPosition.y, miny , maxy);
+
     }
 
     private void HandleEdgeScrolling()

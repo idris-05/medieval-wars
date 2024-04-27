@@ -80,7 +80,7 @@ public class MapManager : MonoBehaviour
     void Awake()
     {
         InitializeListOfTerrainSpritesLists();
-        mapGrid.CreateMapGridCellsMatrix();
+        // mapGrid.CreateMapGridCellsMatrix();
         LoadMapData();
     }
 
@@ -308,7 +308,7 @@ public class MapManager : MonoBehaviour
                 if (tileBaseTerrain == null) { Debug.Log("The tile base for the ground type does not exist terrain: " + cell.terrainType); return; }
 
                     
-                    Terrain terrain = Instantiate(terrainPrefabs[cell.terrainTypeIndex], new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, 0), Quaternion.identity);
+                    Terrain terrain = Instantiate(terrainPrefabs[cell.terrainTypeIndex], new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, -0.5f), Quaternion.identity);
 
                     terrain.transform.SetParent(TerrainsHolder.transform);
 

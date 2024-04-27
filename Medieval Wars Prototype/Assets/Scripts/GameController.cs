@@ -29,6 +29,16 @@ public class GameController : MonoBehaviour
     }
 
 
+    //!     Order in Layer :
+
+    //! GridCells : 0
+    //! Units : -1
+    //! BlockInteractionsLayer : -2
+    //! GridCellsWhenMadeInteractable : -3
+    //! UnitsWhenMade(Attackable/Suppliable) : -3
+    //! ActionButtons : -4
+
+
     public MapGrid mapGrid; // linked from the editor 
 
     public Unit BanditArabPrefab;
@@ -49,11 +59,11 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-         player1 = new GameObject("Player1").AddComponent<Player>();
-         player2 = new GameObject("Player2").AddComponent<Player>();
-         currentPlayerInControl = player1;
-         playerList.Add(player1);
-         playerList.Add(player2);
+        player1 = new GameObject("Player1").AddComponent<Player>();
+        player2 = new GameObject("Player2").AddComponent<Player>();
+        currentPlayerInControl = player1;
+        playerList.Add(player1);
+        playerList.Add(player2);
     }
     // This method is called when the object is first enabled in the scene.
     void Start()

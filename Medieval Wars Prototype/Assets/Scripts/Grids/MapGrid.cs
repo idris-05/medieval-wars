@@ -14,7 +14,7 @@ public class MapGrid : MonoBehaviour
     {
         Rows = MapManager.Instance.numberOfRowsInTheMap;
         Columns = MapManager.Instance.numberOfColumnsInTheMap;
-        grid = new GridCell[Rows,Columns];
+        grid = new GridCell[Rows ,Columns]; 
     }
 
 }
