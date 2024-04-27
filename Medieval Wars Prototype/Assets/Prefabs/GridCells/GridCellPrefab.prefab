@@ -47,12 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0aaddc32c0dfa4eb6b7c5d6bf1620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridCellView: {fileID: 0}
+  gridCellView: {fileID: -3754383695415407137}
   isWalkable: 0
   row: 0
   column: 0
   occupantUnit: {fileID: 0}
-  occupantTerrain: {fileID: 424858643333420328, guid: 2c9407b977a5c1247a182de2a554ca3c, type: 3}
+  occupantTerrain: {fileID: 0}
+  Pathlist: []
   moveCost: 1
 --- !u!114 &-3754383695415407137
 MonoBehaviour:
@@ -66,7 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb5e6de5fc6e3a43bcf18b20e92dc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 0}
+  rend: {fileID: 4884540965997139755}
+  isHighlightedAsAttackble: 0
 --- !u!212 &4884540965997139755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -108,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: -1561711499
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1950010644, guid: 118314553d786624eafbcfdbb7908139, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,7 +118,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &7654521201180512791

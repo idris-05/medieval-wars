@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 424858643333420328}
   - component: {fileID: -2743200511141304461}
   m_Layer: 0
-  m_Name: TerrainPlainPrefab
+  m_Name: 0TerrainBarrackPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc64c87369320a499913d89402e244d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainName: 11
-  spriteRenderer: {fileID: 0}
-  TerrainIndex: 11
+  terrainName: 0
+  spriteRenderer: {fileID: -2743200511141304461}
+  TerrainIndex: 0
   incomingFunds: 0
   row: 0
   col: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 691148938, guid: 118314553d786624eafbcfdbb7908139, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

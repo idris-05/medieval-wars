@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
     public void SpawnUnit(Player player, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
-        Unit unit = Instantiate(unitPrefab, new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, -1), Quaternion.identity);
+        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 8 - row - 0.5f, -1), Quaternion.identity);
 
         unit.playerOwner = player;
 

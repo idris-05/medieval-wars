@@ -12,7 +12,7 @@ public class MapGrid : MonoBehaviour
     // map grid is a matrix of gridCell
     public GridCell[,] grid;
 
-    public GridCell GridCellPrefab;
+    /*public GridCell GridCellPrefab;
 
     public Terrain TerrainPlainPrefab;
     public Building CastleBuildingPrefab;
@@ -28,108 +28,17 @@ public class MapGrid : MonoBehaviour
 
     // the 2 following will be calculated using the last gridcell spawned ( will depend on the map
     public float maxHorizontalMapBorder;
-    public float minVerticalMapBorder;
+    public float minVerticalMapBorder;*/
 
 
-    public static int Vertical, Horizontal, Columns, Rows;
+    public static int Columns;
+    public static int Rows;
 
-    public void CalculateMapGridSize()
+    public void CreateMapGridCellsMatrix()
     {
-        Vertical = (int)Camera.main.orthographicSize;         //  unite de calcul : metres
-        Horizontal = Vertical * Screen.width / Screen.height; //  unite de calcul : metres
-        Columns = Horizontal * 2;
-        Rows = Vertical * 2;
-
-        grid = new GridCell[100,100];
+        Rows = MapManager.Instance.numberOfRowsInTheMap;
+        Columns = MapManager.Instance.numberOfColumnsInTheMap;
+        grid = new GridCell[Rows,Columns];
     }
-
-    /*
-         if (row == 0 && col == 0)
-                {
-                    maxVerticalMapBorder = gridCell.transform.position.y;
-                    minHorizontalMapBorder = gridCell.transform.position.x;
-                }
-
-                if (row == 50 && col == 50)
-                {
-                    minVerticalMapBorder = gridCell.transform.position.y;
-                    maxHorizontalMapBorder = gridCell.transform.position.x;
-                }
-     */
-
-    public void InitialiseMapGridCells()
-    {
-
-
-
-        // Loop through each row and column of the map grid
-        for (int row = 0; row < 50 ; row++) /*row < MapGrid.Rows*/
-        {
-            for (int col = 0; col < 50; col++) /*col < MapGrid.Columns*/
-            {
-
-                
-
-                // Instantiate a GridCell prefab at the specified position
-                GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f, 0), Quaternion.identity);
-                gridCell.transform.SetParent(GridCellsHolder.transform);
-
-              
-
-
-                if (row == 3 && col == 8)
-                {
-                    Building building = Instantiate(CastleBuildingPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
-                    // TerainSpriteRenderer = CastleBuilding.GetComponent<SpriteRenderer>(); // had la ligne brk bch n7et  Castle f posiiton hadik
-                    building.row = row;
-                    building.col = col;
-                    gridCell.occupantTerrain = building;
-                }
-                else
-                {
-
-                    // Instantiate a Terrain prefab at the specified position
-                    Terrain terrain = Instantiate(TerrainPlainPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
-                    terrain.row = row;
-                    terrain.col = col;
-
-                    // set the terrain for the gridcell
-                    gridCell.occupantTerrain = terrain;
-                }
-
-                gridCell.occupantTerrain.transform.SetParent(TerrainsHolder.transform);
-
-                // ! hadi ttbdel 3la 7ssab kifach tessar generation t3 lmaps , en tous les cas , normal yeb9a hada howa lprincipe ta3ha , t'ajouti component terrain l cell 3la 7ssab wchmen terrain kayen (hadi tji mel maps)
-                // ! whna yji probleme t3 lazem t5bi les terrains fkch plassa . (3zma f kach liste fl game controller f script map generator .)  
-                // get the sprite renderer of the terrain
-
-                TerainSpriteRenderer = gridCell.occupantTerrain.GetComponent<SpriteRenderer>();
-                gridCell.GetComponent<SpriteRenderer>().sprite = TerainSpriteRenderer.sprite;
-
-
-
-                // Adjust the sprite size of the instantiated GridCell and the terrain
-                gridCell.gameObject.AdjustSpriteSize();
-                gridCell.occupantTerrain.gameObject.AdjustSpriteSize();
-
-                // Set the name of the GridCell
-                gridCell.name = $"GridCell ({row}, {col})";
-
-                // Set the row and column properties of the GridCell
-                gridCell.row = row;
-                gridCell.column = col;
-
-                //!!!!!!!!!!!!!!!! this affectation is temporary
-                // gridCell.terrain = Instantiate(TerrainGrassPrefab, new Vector3(-MapGrid.Horizontal + col + 0.5f, MapGrid.Vertical - row - 0.5f), Quaternion.identity);
-
-                // Assign the GridCell to the corresponding position in the map grid
-                grid[row, col] = gridCell;
-            }
-        }
-
-        
-    }
-
-
 
 }

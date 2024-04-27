@@ -23,7 +23,7 @@ public class UnitView : MonoBehaviour
    
 
     public Animator animator;
-   // public UnitUtil.animationState currentAnimatonState;
+    public UnitUtil.animationState currentAnimatonState;
 
 
     void Start()
@@ -96,13 +96,13 @@ public class UnitView : MonoBehaviour
 
     public void SetUnitPosition(int newRow, int newCol)
     {
-        Vector3 position = new Vector3(-MapGrid.Horizontal + newCol + 0.5f, MapGrid.Vertical - newRow - 0.5f, unitTransform.position.z);
+        Vector3 position = new Vector3(-16 + newCol + 0.5f, 8 - newRow - 0.5f, unitTransform.position.z);
         transform.position = position;
     }
 
     public void AnimateMovement(int row, int column)
     {
-        Vector3 position = new Vector3(-MapGrid.Horizontal + column + 0.5f, MapGrid.Vertical - row - 0.5f, unitTransform.position.z);
+        Vector3 position = new Vector3(-16 + column + 0.5f, 8 - row - 0.5f, unitTransform.position.z);
         StartCoroutine(StartMovement(position));
     }
 
@@ -201,7 +201,7 @@ public class UnitView : MonoBehaviour
         (unit as UnitAttack).attackableGridCells.Clear();
     }
 
-  /*  public void ChangeAnimationState(UnitUtil.animationState newAnimationState)
+    public void ChangeAnimationState(UnitUtil.animationState newAnimationState)
     {
 
         // to avoid the animation overwriting it self  
@@ -210,7 +210,7 @@ public class UnitView : MonoBehaviour
         // animator.Play();
 
 
-    } */
+    }
 
 
 
