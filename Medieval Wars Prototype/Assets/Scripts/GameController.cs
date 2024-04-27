@@ -49,28 +49,25 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        // player1 = new GameObject("Player1").AddComponent<Player>();
-        // player2 = new GameObject("Player2").AddComponent<Player>();
-        // currentPlayerInControl = player1;
-        // playerList.Add(player1);
-        // playerList.Add(player2);
+         player1 = new GameObject("Player1").AddComponent<Player>();
+         player2 = new GameObject("Player2").AddComponent<Player>();
+         currentPlayerInControl = player1;
+         playerList.Add(player1);
+         playerList.Add(player2);
     }
     // This method is called when the object is first enabled in the scene.
     void Start()
     {
-        // mapGrid.CalculateMapGridSize();
-        // mapGrid.InitialiseMapGridCells();
 
-        // SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
-        // SpawnUnit(player1, 6, 5, Infantry1Prefab); // test 
+        SpawnUnit(player1, 5, 5, BanditArabPrefab); // test 
+        SpawnUnit(player1, 6, 5, BanditArabPrefab); // test 
 
-        // SpawnUnit(player1, 3, 3, BanditArabPrefab);
+        SpawnUnit(player1, 3, 3, BanditArabPrefab);
 
 
-        // SpawnUnit(player2, 8, 8, Infantry2Prefab);
+        SpawnUnit(player2, 8, 8, Infantry2Prefab);
 
-        // SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
-        // // SpawnUnit(2, 8, 20, Infantry2Prefab);
+        SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
 
     }
 
@@ -85,14 +82,11 @@ public class GameController : MonoBehaviour
     public void SpawnUnit(Player player, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
-        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 8 - row - 0.5f, -1), Quaternion.identity);
+        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f, -1), Quaternion.identity);
 
         unit.playerOwner = player;
 
         player.AddUnit(unit);
-
-        // adjust the size of the unit sprite to fit the grid cell size , this function is defined in GameUtil.cs    
-        unit.gameObject.AdjustSpriteSize();
 
         // set the occupantUnit of the grid cell to the unit 
         mapGrid.grid[row, column].occupantUnit = unit;

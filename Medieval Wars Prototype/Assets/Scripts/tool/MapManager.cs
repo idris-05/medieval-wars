@@ -68,30 +68,20 @@ public class MapManager : MonoBehaviour
     public List<TileBase> MountainTileSprites = new List<TileBase>();
 
     // Array of lists to hold terrain sprites
-    public List<TileBase>[] listOfTerrainSpritesLists = new List<TileBase>[14];
+    public List<TileBase>[] listOfTerrainSpritesLists ;
 
     public GridCell GridCellPrefab;
     public Terrain []terrainPrefabs = new Terrain[14];
 
     public MapGrid mapGrid;
 
-   /* [System.Serializable]
-    public class ListOfTerrainSpriteLists
+
+
+    void Awake()
     {
-        public List<TileBase>[] listOfTerrainSpritesLists = new List<TileBase>[14];
-    } */
-
-
-    private void Awake()
-    {
-
-      
-
-    }
-
-    void Start()
-    {
-       LoadMapData();
+        InitializeListOfTerrainSpritesLists();
+        mapGrid.CreateMapGridCellsMatrix();
+        LoadMapData();
     }
 
     // !!!!!
@@ -152,6 +142,7 @@ public class MapManager : MonoBehaviour
     // Function to save map data to a JSON file
     public void SaveMapData()
     {
+        InitializeListOfTerrainSpritesLists();
 
         MapData mapData = new MapData(numberOfRowsInTheMap, numberOfColumnsInTheMap);
 
@@ -244,6 +235,21 @@ public class MapManager : MonoBehaviour
     public void LoadMapData()
     {
 
+        listOfTerrainSpritesLists[0] = BarrackTileSprites;
+        listOfTerrainSpritesLists[1] = DockTileSprites;
+        listOfTerrainSpritesLists[2] = StableTileSprites;
+        listOfTerrainSpritesLists[3] = CastleTileSprites;
+        listOfTerrainSpritesLists[4] = VillageTileSprites;
+        listOfTerrainSpritesLists[5] = RoadTileSprites;
+        listOfTerrainSpritesLists[6] = BridgeTileSprites;
+        listOfTerrainSpritesLists[7] = RiverTileSprites;
+        listOfTerrainSpritesLists[8] = SeaTileSprites;
+        listOfTerrainSpritesLists[9] = ShoalTileSprites;
+        listOfTerrainSpritesLists[10] = ReefTileSprites;
+        listOfTerrainSpritesLists[11] = PlainTileSprites;
+        listOfTerrainSpritesLists[12] = WoodTileSprites;
+        listOfTerrainSpritesLists[13] = MountainTileSprites;
+
         mapGrid.CreateMapGridCellsMatrix();
 
         string jsonFilePath = "map_data.json"; // Path to the JSON file containing map data
@@ -276,7 +282,7 @@ public class MapManager : MonoBehaviour
                 // error handler ( if u missed a ground tile )
                 if (tileBaseGround == null) { Debug.Log("The tile base for the ground type does not exist ground: " + cell.groundType); return; }
 
-                    GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-16 + cell.column + 0.5f, 8 - cell.row - 0.5f, 0), Quaternion.identity);
+                    GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, 0), Quaternion.identity);
                     gridCell.transform.SetParent(GridCellsHolder.transform);
 
                     // Get the sprite of the tile
@@ -302,7 +308,7 @@ public class MapManager : MonoBehaviour
                 if (tileBaseTerrain == null) { Debug.Log("The tile base for the ground type does not exist terrain: " + cell.terrainType); return; }
 
                     
-                    Terrain terrain = Instantiate(terrainPrefabs[cell.terrainTypeIndex], new Vector3(-16 + cell.column + 0.5f, 8 - cell.row - 0.5f, 0), Quaternion.identity);
+                    Terrain terrain = Instantiate(terrainPrefabs[cell.terrainTypeIndex], new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, 0), Quaternion.identity);
 
                     terrain.transform.SetParent(TerrainsHolder.transform);
 
@@ -379,6 +385,26 @@ public class MapManager : MonoBehaviour
         }
 
         return jsonString;
+    }
+
+    private void InitializeListOfTerrainSpritesLists()
+    {
+        listOfTerrainSpritesLists = new List<TileBase>[14] {
+        BarrackTileSprites,
+        DockTileSprites,
+        StableTileSprites,
+        CastleTileSprites,
+        VillageTileSprites,
+        RoadTileSprites,
+        BridgeTileSprites,
+        RiverTileSprites,
+        SeaTileSprites,
+        ShoalTileSprites,
+        ReefTileSprites,
+        PlainTileSprites,
+        WoodTileSprites,
+        MountainTileSprites
+        };
     }
 
 }

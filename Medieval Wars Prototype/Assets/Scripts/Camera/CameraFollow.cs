@@ -39,7 +39,7 @@ using UnityEngine;
         // Update is called once per frame
         void Update() {
             HandleMovement();
-            HandleZoom();
+            //HandleZoom();
         }
 
         private void HandleMovement() {

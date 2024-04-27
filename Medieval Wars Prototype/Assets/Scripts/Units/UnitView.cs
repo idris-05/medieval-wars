@@ -96,13 +96,13 @@ public class UnitView : MonoBehaviour
 
     public void SetUnitPosition(int newRow, int newCol)
     {
-        Vector3 position = new Vector3(-16 + newCol + 0.5f, 8 - newRow - 0.5f, unitTransform.position.z);
+        Vector3 position = new Vector3(-16 + newCol + 0.5f, 9 - newRow - 0.5f, unitTransform.position.z);
         transform.position = position;
     }
 
     public void AnimateMovement(int row, int column)
     {
-        Vector3 position = new Vector3(-16 + column + 0.5f, 8 - row - 0.5f, unitTransform.position.z);
+        Vector3 position = new Vector3(-16 + column + 0.5f, 9 - row - 0.5f, unitTransform.position.z);
         StartCoroutine(StartMovement(position));
     }
 

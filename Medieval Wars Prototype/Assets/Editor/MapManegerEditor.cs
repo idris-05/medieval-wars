@@ -18,5 +18,6 @@ public class MapManagerEditor : Editor
             
             MapManager.Instance.SaveMapData();
         }
+
     }
 }

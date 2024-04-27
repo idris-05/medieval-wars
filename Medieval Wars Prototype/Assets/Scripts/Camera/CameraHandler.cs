@@ -13,12 +13,12 @@ public class CameraHandler : MonoBehaviour
 
     private void Start()
     {
-        cameraFollow.Setup(() => cameraFollowPosition, () => zoom);
+       cameraFollow.Setup(() => cameraFollowPosition, () => zoom);
     }
 
     private void Update()
     {
-        HandleZoom();
+        //HandleZoom();
         HandleManualMovement();
         //! i removed edge scrolling ( it's kind of annoying to be honest )
         // HandleEdgeScrolling(); 
