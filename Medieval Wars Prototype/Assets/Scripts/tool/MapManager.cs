@@ -72,8 +72,8 @@ public class MapManager : MonoBehaviour
     void Start()
     {
 
-        mapGrid.CalculateMapGridSize();
-        LoadMapData();
+        // mapGrid.CalculateMapGridSize();
+        // LoadMapData();
         // SliceJsonToLists("map_data.json");
     }
 
