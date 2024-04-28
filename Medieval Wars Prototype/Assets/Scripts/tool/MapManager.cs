@@ -66,12 +66,14 @@ public class MapManager : MonoBehaviour
     public List<TileBase> PlainTileSprites = new List<TileBase>();
     public List<TileBase> WoodTileSprites = new List<TileBase>();
     public List<TileBase> MountainTileSprites = new List<TileBase>();
+    public List<TileBase> AccessoriesSprites = new List<TileBase>();
+
 
     // Array of lists to hold terrain sprites
-    public List<TileBase>[] listOfTerrainSpritesLists ;
+    public List<TileBase>[] listOfTerrainSpritesLists;
 
     public GridCell GridCellPrefab;
-    public Terrain []terrainPrefabs = new Terrain[14];
+    public Terrain[] terrainPrefabs = new Terrain[15];
 
     public MapGrid mapGrid;
 
@@ -99,7 +101,7 @@ public class MapManager : MonoBehaviour
         public CellData(Vector3Int vector3Int)
         {
             column = vector3Int.x + 16;
-            row = - vector3Int.y + 8;
+            row = -vector3Int.y + 8;
         }
     }
 
@@ -178,7 +180,7 @@ public class MapManager : MonoBehaviour
                 mapData.cells[rowTemp, columnTemp].terrainType = tile.name; // hadi hya cell , doka nzidlha les info t3 terrain&building
                 mapData.cells[rowTemp, columnTemp].terrainTypeIndex = terrainIndexOfTile(tile);
             }
-        } 
+        }
 
         string json = ConvertMatrixToJson(mapData.cells);
         File.WriteAllText("map_data.json", json);
@@ -249,6 +251,7 @@ public class MapManager : MonoBehaviour
         listOfTerrainSpritesLists[11] = PlainTileSprites;
         listOfTerrainSpritesLists[12] = WoodTileSprites;
         listOfTerrainSpritesLists[13] = MountainTileSprites;
+        listOfTerrainSpritesLists[14] = AccessoriesSprites;
 
         mapGrid.CreateMapGridCellsMatrix();
 
@@ -277,24 +280,24 @@ public class MapManager : MonoBehaviour
 
                 TileBase tileBaseGround = listOfTerrainSpritesLists[cell.groundTypeIndex].FirstOrDefault(tile => tile.name == cell.groundType);
 
-                
-                
+
+
                 // error handler ( if u missed a ground tile )
                 if (tileBaseGround == null) { Debug.Log("The tile base for the ground type does not exist ground: " + cell.groundType); return; }
 
-                    GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, 0), Quaternion.identity);
-                    gridCell.transform.SetParent(GridCellsHolder.transform);
+                GridCell gridCell = Instantiate(GridCellPrefab, new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, 0), Quaternion.identity);
+                gridCell.transform.SetParent(GridCellsHolder.transform);
 
-                    // Get the sprite of the tile
-                    Sprite tileSprite = ((Tile)tileBaseGround).sprite;
+                // Get the sprite of the tile
+                Sprite tileSprite = ((Tile)tileBaseGround).sprite;
 
-                    // Set the SpriteRenderer's sprite to the sprite of the tile
-                    gridCell.gridCellView.rend.sprite = tileSprite;
+                // Set the SpriteRenderer's sprite to the sprite of the tile
+                gridCell.gridCellView.rend.sprite = tileSprite;
 
-                    gridCell.name = $"gridcell ({cell.row}, {cell.column})";
+                gridCell.name = $"gridcell ({cell.row}, {cell.column})";
 
-                    gridCell.row = cell.row;
-                    gridCell.column = cell.column;
+                gridCell.row = cell.row;
+                gridCell.column = cell.column;
 
 
 
@@ -307,22 +310,22 @@ public class MapManager : MonoBehaviour
                 // error handler ( if u missed a terrain tile )
                 if (tileBaseTerrain == null) { Debug.Log("The tile base for the ground type does not exist terrain: " + cell.terrainType); return; }
 
-                    
-                    Terrain terrain = Instantiate(terrainPrefabs[cell.terrainTypeIndex], new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, -0.5f), Quaternion.identity);
 
-                    terrain.transform.SetParent(TerrainsHolder.transform);
+                Terrain terrain = Instantiate(terrainPrefabs[cell.terrainTypeIndex], new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, -0.5f), Quaternion.identity);
 
-                    // Get the sprite of the tile
-                    tileSprite = ((Tile)tileBaseTerrain).sprite;
+                terrain.transform.SetParent(TerrainsHolder.transform);
 
-                    // Set the SpriteRenderer's sprite to the sprite of the tile
-                    terrain.spriteRenderer.sprite = tileSprite;
+                // Get the sprite of the tile
+                tileSprite = ((Tile)tileBaseTerrain).sprite;
 
-                    terrain.name = $"terrain ({cell.row}, {cell.column})";
+                // Set the SpriteRenderer's sprite to the sprite of the tile
+                terrain.spriteRenderer.sprite = tileSprite;
 
-                    terrain.row = cell.row;
-                    terrain.col = cell.column;
-               
+                terrain.name = $"terrain ({cell.row}, {cell.column})";
+
+                terrain.row = cell.row;
+                terrain.col = cell.column;
+
 
                 gridCell.occupantTerrain = terrain;
 
@@ -389,7 +392,7 @@ public class MapManager : MonoBehaviour
 
     private void InitializeListOfTerrainSpritesLists()
     {
-        listOfTerrainSpritesLists = new List<TileBase>[14] {
+        listOfTerrainSpritesLists = new List<TileBase>[15] {
         BarrackTileSprites,
         DockTileSprites,
         StableTileSprites,
@@ -403,7 +406,8 @@ public class MapManager : MonoBehaviour
         ReefTileSprites,
         PlainTileSprites,
         WoodTileSprites,
-        MountainTileSprites
+        MountainTileSprites,
+        AccessoriesSprites
         };
     }
 
