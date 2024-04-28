@@ -66,6 +66,7 @@ public static class TerrainsUtils
 
     // ligne terrain , colonne unité
     // "-"1 means the unit can't move on this terrain
+
     public static int[,] MoveCost =
     {
     // CARAVAN | ARCHERS | CARAC | FIRESHIP | INFANTRY | TSHIP | SPIKEMAN | RCHALVARY | TREBUCHET | BANDIT | CATAPULTE | RAMSHIP | CHALVARY |  Terrain    // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -101,20 +102,20 @@ public static class TerrainsUtils
 
     // public static int GetMoveCost(Terrain terrain, Unit unit)
     // {
-        // switch (GameController.Instance.currentPlayerInControl.Co.coName)
-        // {
-        //     case COUtil.COName.SATAN:
-                // return Satan.GetTerrainMoveCost(terrain, unit);
+    // switch (GameController.Instance.currentPlayerInControl.Co.coName)
+    // {
+    //     case COUtil.COName.SATAN:
+    // return Satan.GetTerrainMoveCost(terrain, unit);
 
-        //     // case COUtil.COName.AHMEDPLAYER:
-        //     // case COUtil.COName.AHMEDPLAYERCLONE:
-        //     //     return AhmedPlayer.GetTerrainMoveCostInSuperPower(terrain, unit);
+    //     // case COUtil.COName.AHMEDPLAYER:
+    //     // case COUtil.COName.AHMEDPLAYERCLONE:
+    //     //     return AhmedPlayer.GetTerrainMoveCostInSuperPower(terrain, unit);
 
 
-        //     default:
-                // return MoveCost[terrain.TerrainIndex, unit.unitIndex];
-        // }
-        // unit.playerOwner.Co.GetTerrainMoveCost(terrain, unit);
+    //     default:
+    // return MoveCost[terrain.TerrainIndex, unit.unitIndex];
+    // }
+    // unit.playerOwner.Co.GetTerrainMoveCost(terrain, unit);
 
     // }
 

@@ -1,6 +1,27 @@
 public class PopUrbanII : CO
 {
     //!!!!!! PASSIVE POWER
+
+
+    public override void ActivateDailyPower()
+    {
+        foreach (Unit unit in playerOwner.unitList)
+        {
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.CARAC:
+                case UnitUtil.UnitName.FIRESHIP:
+                case UnitUtil.UnitName.RAMSHIP:
+                case UnitUtil.UnitName.TSHIP:
+                    unit.moveRange++;
+                    break;
+            }
+        }
+
+        SetAttackAndDefenseBoostsForAllUnits();
+    }
+
+
     public void SetAttackAndDefenseBoostsForAllUnits()
     {
         foreach (Unit unit in playerOwner.unitList)
@@ -19,9 +40,6 @@ public class PopUrbanII : CO
             case UnitUtil.UnitName.RAMSHIP:
             case UnitUtil.UnitName.TSHIP:
                 unit.SetAttackAndDefenseBoosts(1.20f, 1.20f);
-                break;
-
-            default:
                 break;
         }
     }
@@ -58,9 +76,6 @@ public class PopUrbanII : CO
 
 
 
-
-
-
     public void SetMoveRange(Unit unit)
     {
         switch (unit.unitName)
@@ -78,7 +93,7 @@ public class PopUrbanII : CO
     }
 
 
-    public static int GetTerrainDefenceStart(Terrain terrain)
+    public override int GetTerrainDefenceStart(Terrain terrain)
     {
         switch (terrain.terrainName)
         {

@@ -8,9 +8,26 @@ public abstract class CO : MonoBehaviour
 
 
     // overrided in AHMEDPLAYER , AHMEDPLAYERCLONE , SATAN .
-    public virtual int GetTerrainMoveCost(Terrain terrain, Unit unit)
+    public virtual int GetMoveCost(Terrain terrain, Unit unit)
     {
         return TerrainsUtils.MoveCost[terrain.TerrainIndex, unit.unitIndex];
+    }
+
+    // overrided in AHMEDPLAYER , AHMEDPLAYERCLONE .
+    public virtual float GetCaputeBoost(Unit unit)
+    {
+        return 1;
+    }
+
+    // overrided in GUYOFLUSIGNAN.
+    public virtual float BoostVulnerability(float vulnerabilitToBoost)
+    {
+        return vulnerabilitToBoost;
+    }
+
+    public virtual int GetTerrainDefenceStart(Terrain terrain)
+    {
+        return TerrainsUtils.defenceStars[terrain.TerrainIndex];
     }
 
 
@@ -18,13 +35,6 @@ public abstract class CO : MonoBehaviour
     {
         isSuperPowerActivated = true;
     }
-
-
-    public virtual void DeactivateDailyPower()
-    {
-        isSuperPowerActivated = false;
-    }
-
 
 
     public virtual void ActivateSuperPower()

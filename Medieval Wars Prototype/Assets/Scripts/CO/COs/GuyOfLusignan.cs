@@ -1,6 +1,25 @@
 public class GuyOfLusignan : CO
 {
+
+
     // !!!!!! PASSIVE POWER
+
+    public override void ActivateDailyPower()
+    {
+        foreach (Unit unit in playerOwner.unitList)
+        {
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.ARCHERS:
+                case UnitUtil.UnitName.CATAPULTE:
+                case UnitUtil.UnitName.CARAC:
+                    (unit as UnitAttack).attackRange++;
+                    break;
+            }
+        }
+
+        SetAttackAndDefenseBoostsForAllUnits();
+    }
 
     public void SetAttackAndDefenseBoostsForAllUnits()
     {
@@ -23,11 +42,11 @@ public class GuyOfLusignan : CO
             case UnitUtil.UnitName.SPIKEMAN:
                 unit.SetAttackAndDefenseBoosts(0.80f, 1.00f);
                 break;
-
-            default:
-                break;
         }
     }
+
+
+
 
 
     //!!!!!!! SUPER POWER 
@@ -61,7 +80,6 @@ public class GuyOfLusignan : CO
 
 
 
-
     public void SetAttackRange(UnitAttack unitAttack)
     {
         switch (unitAttack.unitName)
@@ -79,5 +97,49 @@ public class GuyOfLusignan : CO
 
 
 
+
+
+    public override void ActivateSuperPower()
+    {
+        isSuperPowerActivated = true;
+        foreach (Unit unit in playerOwner.unitList)
+        {
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.ARCHERS:
+                case UnitUtil.UnitName.CATAPULTE:
+                case UnitUtil.UnitName.CARAC:
+                    unit.SetSpecialAttackAndDefenseBoostsInSuperPower(1.50f, 1.00f);
+                    (unit as UnitAttack).attackRange++;
+                    break;
+            }
+        }
+
+    }
+
+
+    public override void DeactivateSuperPower()
+    {
+        isSuperPowerActivated = false;
+        foreach (Unit unit in playerOwner.unitList)
+        {
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.ARCHERS:
+                case UnitUtil.UnitName.CATAPULTE:
+                case UnitUtil.UnitName.CARAC:
+                    unit.ResetSpecialAttackAndDefenseBoostsInSuperPower();
+                    (unit as UnitAttack).attackRange--;
+                    break;
+            }
+        }
+    }
+
+    // !!!!!!!!!!!!!!!!!!!!!!
+
+    public override float BoostVulnerability(float vulnerabilitToBoost)
+    {
+        return vulnerabilitToBoost * 1.10f;
+    }
 
 }

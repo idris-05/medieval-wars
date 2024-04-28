@@ -1,8 +1,29 @@
 
+using System.Linq;
+
 public class SalahadDinElAyyubi : CO
 {
 
     //!!!!!! PASSIVE POWER
+
+    public override void ActivateDailyPower()
+    {
+        foreach (Unit unit in playerOwner.unitList)
+        {
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.ARCHERS:
+                case UnitUtil.UnitName.CATAPULTE:
+                case UnitUtil.UnitName.CARAC:
+                    (unit as UnitAttack).attackRange--;
+                    break;
+            }
+        }
+
+        SetAttackAndDefenseBoostsForAllUnits();
+    }
+
+
     public void SetAttackAndDefenseBoostsForAllUnits()
     {
         foreach (Unit unit in playerOwner.unitList)
@@ -27,11 +48,12 @@ public class SalahadDinElAyyubi : CO
             case UnitUtil.UnitName.CARAC:
                 unit.SetAttackAndDefenseBoosts(0.90f, 1.00f);
                 break;
-
-            default:
-                break;
         }
     }
+
+
+
+
 
 
     //!!!!!!! SUPER POWER 
@@ -53,32 +75,49 @@ public class SalahadDinElAyyubi : CO
             case UnitUtil.UnitName.RAMSHIP:
                 unit.SetAttackAndDefenseBoosts(1.70f, 1.10f);
                 break;
-            
+
             default:
-                break;        
+                break;
         }
     }
 
-    public void ResetSpecialAttackAndDefenseBoostsForOneUnitInSuperPower(Unit unit)
+
+    public override void ActivateSuperPower()
     {
-        unit.ResetSpecialAttackAndDefenseBoostsInSuperPower();
-    }
-
-
-
-    public void SetAttackRange(UnitAttack unitAttack){
-        switch (unitAttack.unitName)
+        isSuperPowerActivated = true;
+        foreach (Unit unit in playerOwner.unitList)
         {
-            case UnitUtil.UnitName.ARCHERS:
-            case UnitUtil.UnitName.CATAPULTE:
-            case UnitUtil.UnitName.CARAC:
-                unitAttack.attackRange -=1;
-                break;
-
-            default:
-                break;
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.CHALVARY:
+                case UnitUtil.UnitName.RCHALVARY:
+                case UnitUtil.UnitName.FIRESHIP:
+                case UnitUtil.UnitName.RAMSHIP:
+                    unit.SetSpecialAttackAndDefenseBoostsInSuperPower(1.70f, 1.10f);
+                    unit.moveRange++;
+                    break;
+            }
         }
     }
+
+    public override void DeactivateSuperPower()
+    {
+        isSuperPowerActivated = false;
+        foreach (Unit unit in playerOwner.unitList)
+        {
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.CHALVARY:
+                case UnitUtil.UnitName.RCHALVARY:
+                case UnitUtil.UnitName.FIRESHIP:
+                case UnitUtil.UnitName.RAMSHIP:
+                    unit.ResetSpecialAttackAndDefenseBoostsInSuperPower();
+                    unit.moveRange--;
+                    break;
+            }
+        }
+    }
+
 
 
 }

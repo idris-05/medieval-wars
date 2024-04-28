@@ -15,8 +15,7 @@ public class AhmedPlayer : CO
         foreach (Unit unit in playerOwner.unitList)
         {
             SetAttackAndDefenseBoostsForOneUnit(unit);
-        } 
-        // 
+        }
     }
 
     public void SetAttackAndDefenseBoostsForOneUnit(Unit unit)
@@ -28,11 +27,10 @@ public class AhmedPlayer : CO
             case UnitUtil.UnitName.BANDIT:
                 unit.SetAttackAndDefenseBoosts(1.20f, 1.10f);
                 break;
-
-            default:
-                break;
         }
     }
+
+
 
 
     //!!!!!!! SUPER POWER 
@@ -80,25 +78,6 @@ public class AhmedPlayer : CO
     // }
 
 
-
-    public override int GetTerrainMoveCost(Terrain terrain, Unit unit)
-    {
-        if (isSuperPowerActivated)
-        {
-            switch (unit.unitName)
-            {
-                case UnitUtil.UnitName.SPIKEMAN:
-                case UnitUtil.UnitName.INFANTRY:
-                case UnitUtil.UnitName.BANDIT:
-                    return 1;
-                default:
-                    return TerrainsUtils.MoveCost[terrain.TerrainIndex, unit.unitIndex];
-            }
-        }
-        // normal power
-        else return TerrainsUtils.MoveCost[terrain.TerrainIndex, unit.unitIndex];
-    }
-
     public override void ActivateSuperPower()
     {
         isSuperPowerActivated = true;
@@ -117,7 +96,6 @@ public class AhmedPlayer : CO
         }
     }
 
-
     public override void DeactivateSuperPower()
     {
         isSuperPowerActivated = false;
@@ -135,6 +113,43 @@ public class AhmedPlayer : CO
         }
     }
 
+
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    public override float GetCaputeBoost(Unit unit)
+    {
+        // always , daily and super power .
+        switch (unit.playerOwner.Co.coName)
+        {
+            case COUtil.COName.AHMEDPLAYER:
+            case COUtil.COName.AHMEDPLAYERCLONE:
+                return 1.5f;
+
+            default:
+                return 1;
+        }
+
+    }
+
+
+    public override int GetMoveCost(Terrain terrain, Unit unit)
+    {
+        if (isSuperPowerActivated)
+        {
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.SPIKEMAN:
+                case UnitUtil.UnitName.INFANTRY:
+                case UnitUtil.UnitName.BANDIT:
+                    return 1;
+                default:
+                    return TerrainsUtils.MoveCost[terrain.TerrainIndex, unit.unitIndex];
+            }
+        }
+        // daily power
+        else return TerrainsUtils.MoveCost[terrain.TerrainIndex, unit.unitIndex];
+    }
 
 
 }

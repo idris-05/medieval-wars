@@ -1,6 +1,13 @@
 public class Satan : CO
 {
     //!!!!!! PASSIVE POWER
+
+    public override void ActivateDailyPower()
+    {
+        SetAttackAndDefenseBoostsForAllUnits();
+    }
+
+
     public void SetAttackAndDefenseBoostsForAllUnits()
     {
         foreach (Unit unit in playerOwner.unitList)
@@ -44,4 +51,30 @@ public class Satan : CO
         else return 1;
     }
 
+
+
+    public override void ActivateSuperPower()
+    {
+        isSuperPowerActivated = true;
+        SetSpecialAttackAndDefenseBoostsForAllUnitsInSuperPower();
+    }
+
+
+    public override void DeactivateSuperPower()
+    {
+        isSuperPowerActivated = false;
+        foreach (Unit unit in playerOwner.unitList)
+        {
+            unit.ResetSpecialAttackAndDefenseBoostsInSuperPower();
+        }
+    }
+
+
+
+
+
+
+
 }
+
+

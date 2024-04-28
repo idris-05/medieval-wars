@@ -140,7 +140,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void TryToCapture(Building building)
     {
-        building.remainningPointsToCapture = (int)(building.remainningPointsToCapture - healthPoints * GetCaputeBoost());
+        building.remainningPointsToCapture = (int)(building.remainningPointsToCapture - healthPoints * playerOwner.Co.GetCaputeBoost(this));
         if (building.remainningPointsToCapture <= 0) building.GetCaptured(this);
     }
 
@@ -176,20 +176,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         if (playerOwner.Co.coName == COUtil.COName.RICHARDTHELIONHEART) return UnitCost *= 1.2f;
         return UnitCost;
-    }
-
-    public float GetCaputeBoost()
-    {
-        switch (playerOwner.Co.coName)
-        {
-            case COUtil.COName.AHMEDPLAYER:
-            case COUtil.COName.AHMEDPLAYERCLONE:
-                return 1.5f;
-
-            default:
-                return 1;
-        }
-
     }
 
 

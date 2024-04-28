@@ -331,6 +331,7 @@ public class AttackSystem : MonoBehaviour
 
 
     // column counter attack the row 
+
     public static bool[,] CounterAttackMatrix = {
     //             Caravan  Archers  Carac    Fireship  Infantry  T-ship  SpikeMan  R-chalvary  Bandit  Catapulte  RamShip  Chalvary
     /* Caravan */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
@@ -357,7 +358,9 @@ public class AttackSystem : MonoBehaviour
 
 
         // AttackValue = (Base.AttackBoost.SpecialAttackBoost)
-        float AttackValue = Base * AttackingUnit.attackBoost * AttackingUnit.specialAttackBoost;
+        float attackBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? AttackingUnit.specialAttackBoost : AttackingUnit.attackBoost;
+
+        float AttackValue = Base * attackBoost;
         // Debug.Log("AttackValue : " + AttackValue);
 
 
@@ -367,7 +370,10 @@ public class AttackSystem : MonoBehaviour
         // Debug.Log(TerrainStars);
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
-        float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - DefendingUnit.defenseBoost) * (1 - DefendingUnit.specialDefenseBoost);
+        float defenseBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? DefendingUnit.specialDefenseBoost : DefendingUnit.defenseBoost;
+
+        float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - defenseBoost);
+        Vulnerability = DefendingUnit.playerOwner.Co.BoostVulnerability(Vulnerability);
         Debug.Log("Vulnerability : " + Vulnerability);
 
 
