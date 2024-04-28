@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -85,10 +86,68 @@ public static class TerrainsUtils
     
 };
 
+    /*  
+        AHMEDPLAYER : bandit , spear man and infantry  
+        RichardtheLionheart
+        SATAN 
+    
+    
+    
+    
+    
+    
+     */
+
+
+    // public static int GetMoveCost(Terrain terrain, Unit unit)
+    // {
+        // switch (GameController.Instance.currentPlayerInControl.Co.coName)
+        // {
+        //     case COUtil.COName.SATAN:
+                // return Satan.GetTerrainMoveCost(terrain, unit);
+
+        //     // case COUtil.COName.AHMEDPLAYER:
+        //     // case COUtil.COName.AHMEDPLAYERCLONE:
+        //     //     return AhmedPlayer.GetTerrainMoveCostInSuperPower(terrain, unit);
+
+
+        //     default:
+                // return MoveCost[terrain.TerrainIndex, unit.unitIndex];
+        // }
+        // unit.playerOwner.Co.GetTerrainMoveCost(terrain, unit);
+
+    // }
+
+
+
+
 
     // Each Terrain has it's defense stars that will be used in the damage formula
     public static int[] defenceStars = { 3, 3, 3, 4, 3, 0, 0, 0, 0, 0, 1, 1, 2, 4 };
 
-    public static string[] reportTerrain;
+
+    public static int GetDefenceStars(Terrain terrain)
+    {
+        if (GameController.Instance.currentPlayerInControl.Co.coName == COUtil.COName.POPURBANII)
+        {
+            return PopUrbanII.GetTerrainDefenceStart(terrain);
+        }
+        return defenceStars[terrain.TerrainIndex];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // public static string[] reportTerrain;
 
 }

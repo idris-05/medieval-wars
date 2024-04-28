@@ -74,5 +74,23 @@ public class UnitAttack : Unit
 
 
 
+    // public void SetAttackRange()
+    // {
+    //     switch (playerOwner.Co.coName)
+    //     {
+    //        case COUtil.COName.AHMEDPLAYER:
+                
+    //             break;
+    //         case COUtil.COName.RICHARDTHELIONHEART:
+                
+    //             break;
+    //         case COUtil.COName.SATAN:
+                
+    //             break;
+    //         default:
+                
+    //             break;
+    //     }
+    // }
 }
 

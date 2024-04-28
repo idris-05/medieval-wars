@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public List<Unit> unitList = new List<Unit>();
     public List<Building> buildingList = new List<Building>();
 
+    public CO Co ;
+
 
     public int incomingFundsAtTheEndOfDay;
     public int availableFunds;

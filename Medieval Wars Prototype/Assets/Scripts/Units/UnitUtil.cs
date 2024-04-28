@@ -79,7 +79,53 @@ public class UnitUtil : MonoBehaviour
     /* Chalvary */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false}
     };
 
-   
+
+    private int [] unitCost = { 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 } ;
+
+    /*
+  boosts related to COs Power
+      CAPTURE BOOST
+      MOVE RANGE 
+      MOVE COST 
+      + IN HP 
+      ATTACK RANGE 
+      -snow doesn't effect the move cost of his units
+      Raine ffect his units move cost like snow effect the units of other CO
+      allunitsdefense    [BASE DAMAGE]
+
+        -navalterrainstars:+2   : 7ebb y9ol defense star t3 lma kamel sea river ... 
+        rain doesn't effect his units move cost 
+
+        all his non-infantry units who has moved can move again with 80%/70%
+
+        -rain has +7% chance to drop
+
+        units cost 
+
+        units line of sight
+
+        a 3 diamonds quare located somehow in the map all units there will get-8hp (min 1hp y3ni impossible y9tlhoum );
+
+
+
+     CAPTURE BOOST     150%  ,
+     ATTACK RANGE   -1 , +1 ,
+      MOVE RANGE   +1 ,
+      MOVE COST 
+      defense star 
+      chnace of rain drop  +7% ,
+      units Cost 120%   //!!!! 
+      vision units +1 
+
+  */
+
+
+
+    // public int GetUnitCost(Unit unit)
+    // {
+    //     // return unit.unitCost;
+    //     return unitCost[unit.unitIndex] ;
+    // }
 
 
 }

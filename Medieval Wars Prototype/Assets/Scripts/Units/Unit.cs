@@ -33,10 +33,12 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public List<GridCell> walkableGridCells = new List<GridCell>(); // this list will contain the grid cells that the unit can move to
     //
 
-    public int attackBoost;
-    public int specialAttackBoost;
-    public int defenseBoost = 0; //!!!!!!!!! pour l'instant 0
-    public int specialDefenseBoost = 0; //!!!!!!!!! pour l'instant 0;
+    public float attackBoost;
+    public float specialAttackBoost;   // by default = 1 ;
+    public float defenseBoost = 0; //!!!!!!!!! pour l'instant 0
+    public float specialDefenseBoost = 0; // by default = 0 ; 
+
+    public float UnitCost;
 
     void Start()
     {
@@ -138,9 +140,62 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void TryToCapture(Building building)
     {
-        building.remainningPointsToCapture -= healthPoints;
+        building.remainningPointsToCapture = (int)(building.remainningPointsToCapture - healthPoints * GetCaputeBoost());
         if (building.remainningPointsToCapture <= 0) building.GetCaptured(this);
     }
 
 
+
+
+    public void SetAttackAndDefenseBoosts(float attackBoost, float defenseBoost)
+    {
+        this.attackBoost = attackBoost;
+        this.defenseBoost = defenseBoost;
+    }
+
+    public void SetSpecialAttackAndDefenseBoostsInSuperPower(float specialAttackBoost, float specialDefenseBoost)
+    {
+        this.specialAttackBoost = specialAttackBoost;
+        this.specialDefenseBoost = specialDefenseBoost;
+    }
+
+    public void ResetSpecialAttackAndDefenseBoostsInSuperPower()
+    {
+        this.specialAttackBoost = 1;
+        this.specialDefenseBoost = 0;
+    }
+
+
+
+    public void SetUnitCostBoost()
+    {
+        if (playerOwner.Co.coName == COUtil.COName.RICHARDTHELIONHEART) UnitCost *= 1.2f;
+    }
+
+    public float GetUnitCostForDisplayInTradeBuildings()
+    {
+        if (playerOwner.Co.coName == COUtil.COName.RICHARDTHELIONHEART) return UnitCost *= 1.2f;
+        return UnitCost;
+    }
+
+    public float GetCaputeBoost()
+    {
+        switch (playerOwner.Co.coName)
+        {
+            case COUtil.COName.AHMEDPLAYER:
+            case COUtil.COName.AHMEDPLAYERCLONE:
+                return 1.5f;
+
+            default:
+                return 1;
+        }
+
+    }
+
+
+
+    public void BoostLineOfSight(int lineOfSightBoost)
+    {
+        lineOfSight += lineOfSightBoost;
+    }
 }
