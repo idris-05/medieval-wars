@@ -7,19 +7,24 @@ using Newtonsoft.Json;
 using UnityEditor.Playables;
 using Unity.Services.Analytics;
 using UnityEngine.TerrainUtils;
+using System.Drawing;
 
 
 
 public class GameController : MonoBehaviour
 {
     //need to be changed 
-    
-   public  Unit[] indexUnitprefab = new Unit[5];
-   public Terrain[] indexTerrainprefab = new Terrain[14]; 
+   [SerializeField] public GameObject[] Arrowprefabs = new GameObject[15];
+  [SerializeField] public  Unit[] indexUnitprefab = new Unit[5];
+ [ SerializeField] public Terrain[] indexTerrainprefab = new Terrain[14]; 
+
+ List<GameObject> arrows = new List<GameObject>();
    //this too need to be dynamic
 
 
     private static GameController instance;
+
+    public ArrowSystem arrowSystem ;
     public static GameController Instance
     {
         get
@@ -40,6 +45,7 @@ public class GameController : MonoBehaviour
             return instance;
         }
     }
+    
 
 
     public MapGrid mapGrid; // linked from the editor 
@@ -54,6 +60,9 @@ public class GameController : MonoBehaviour
     public Player currentPlayerInControl;
     public Player player1;
     public Player player2;
+    public List<GridCell> cellsPath =  new List<GridCell>();
+
+    public List<GameObject> arrow = new List<GameObject>();
 
     public int CurrentDayCounter;
 
@@ -69,15 +78,25 @@ public class GameController : MonoBehaviour
         playerList.Add(player2);
     }
     // This method is called when the object is first enabled in the scene.
+    ArrowSystem.Point point;
+    bool hasmoved;
     void Start()
     {
         mapGrid.CalculateMapGridSize();
         mapGrid.InitialiseMapGridCells();
 
-        SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
-        SpawnUnit(player1, 6, 5, Infantry1Prefab); // test 
+        arrowSystem = FindObjectOfType<ArrowSystem>();
+        point.x=-1;
+        point.y=-1;
+        point.moveleft=-1;
+        hasmoved=false;
+        
+        
 
-        SpawnUnit(player1, 3, 3, BanditArabPrefab);
+        SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
+        
+        SpawnUnit(player1, 6, 5, Infantry1Prefab);
+        
 
 
         SpawnUnit(player2, 8, 8, Infantry2Prefab);
@@ -150,16 +169,45 @@ public class GameController : MonoBehaviour
    /*  public void newGame(){
 
     } */
+    
 
 
       void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S)){
-            save();
-        }
-        if(Input.GetKeyDown(KeyCode.L)){
-            load();
-        }
+         if ( UnitController.Instance.selectedUnit == null ){
+            hasmoved=false;
+            if( arrow.Count != 0 ){
+                try{
+                foreach( GameObject item in arrow){
+                    Destroy(item);
+                }
+                
+                arrow.Clear();
+                cellsPath.Clear();
+                }catch(Exception e){
+                    Debug.Log("hi");
+                    Debug.Log(e);
+
+                }
+
+            }
+        }else{
+            if(!hasmoved){
+               point = arrowSystem.DrawArrow(Arrowprefabs,UnitController.Instance.selectedUnit.col,UnitController.Instance.selectedUnit.row,cellsPath,arrow,UnitController.Instance.selectedUnit.moveRange);
+               hasmoved = true;
+            }else{
+                
+                point = arrowSystem.DrawArrow(Arrowprefabs,point.x,point.y,cellsPath,arrow,point.moveleft);
+                if(Input.GetKeyDown(KeyCode.K)){
+                Debug.Log(point.y+" and "+point.x);
+                }
+            }
+        } 
+       /*  if (Input.GetKeyDown(KeyCode.Q)){
+            arrowSystem.DrawautoPath(mapGrid.grid[5,5].Pathlist, Arrowprefabs , cellsPath , arrow , UnitController.Instance.selectedUnit );
+        } */
+
+        
         CheckEndTurnInput();
         //! we must add the ResetAllCellsAttributsInEndTurn and ResetAllUnitsAttributsInEndTurn inside EndTurn .
     }

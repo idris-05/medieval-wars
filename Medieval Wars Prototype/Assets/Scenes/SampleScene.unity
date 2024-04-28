@@ -1059,6 +1059,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &730569072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730569074}
+  - component: {fileID: 730569073}
+  m_Layer: 0
+  m_Name: ArrowSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &730569073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730569072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede0ba9277f6a464c9e89aed3776890b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Arrowprefabs:
+  - {fileID: 4885719530822156846, guid: c5d2bade04ebdf74fba3a7bdd285a898, type: 3}
+  - {fileID: 5140520554009061462, guid: 53519e72e8f6d0146a0e5099bd54aeff, type: 3}
+  - {fileID: 5140520554009061462, guid: 52a3e6baaf236f14fa5211f9c186a663, type: 3}
+  - {fileID: 5140520554009061462, guid: 3b3e58367f4887c42853592d4c694327, type: 3}
+  - {fileID: 5140520554009061462, guid: 3f620f6956ece634f9531636def6cdd2, type: 3}
+  - {fileID: 5140520554009061462, guid: b1550d3714a806a468d8dbdfa9560499, type: 3}
+  - {fileID: 5140520554009061462, guid: c36d0fc69485de84288f25cc5210c609, type: 3}
+  - {fileID: 5140520554009061462, guid: b1550d3714a806a468d8dbdfa9560499, type: 3}
+  - {fileID: 2645902851764023609, guid: 8f3210142360be04db5d653c16b8e063, type: 3}
+  - {fileID: 236133503940381891, guid: e3f74d57068fc2f44814cc7898045758, type: 3}
+  - {fileID: 3946229278739597777, guid: 19eefb69bd4adc7479908e115aea39e4, type: 3}
+  - {fileID: 5140520554009061462, guid: 5d90b3957e6749d4a9138c33d41bc4cb, type: 3}
+  - {fileID: 5140520554009061462, guid: fea55a076a79c394ba60886baa4aeb3b, type: 3}
+  - {fileID: 5140520554009061462, guid: 05e8284b6fc5c4d40a8423414f056047, type: 3}
+  - {fileID: 5140520554009061462, guid: 3b1b5c6e0182fa241b9825480a5adb00, type: 3}
+--- !u!4 &730569074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730569072}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2023342, y: 1.717566, z: 0.06417633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745073478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1818,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e1b8b0be8dc8e48ac89b8cac9467ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrowprefabs:
+  - {fileID: 4885719530822156846, guid: c5d2bade04ebdf74fba3a7bdd285a898, type: 3}
+  - {fileID: 5140520554009061462, guid: 53519e72e8f6d0146a0e5099bd54aeff, type: 3}
+  - {fileID: 5140520554009061462, guid: 52a3e6baaf236f14fa5211f9c186a663, type: 3}
+  - {fileID: 5140520554009061462, guid: 3b3e58367f4887c42853592d4c694327, type: 3}
+  - {fileID: 5140520554009061462, guid: 3f620f6956ece634f9531636def6cdd2, type: 3}
+  - {fileID: 5140520554009061462, guid: 038c5ff453b80594b9ec0f29ae11a6a9, type: 3}
+  - {fileID: 5140520554009061462, guid: c36d0fc69485de84288f25cc5210c609, type: 3}
+  - {fileID: 5140520554009061462, guid: b1550d3714a806a468d8dbdfa9560499, type: 3}
+  - {fileID: 2645902851764023609, guid: 8f3210142360be04db5d653c16b8e063, type: 3}
+  - {fileID: 236133503940381891, guid: e3f74d57068fc2f44814cc7898045758, type: 3}
+  - {fileID: 3946229278739597777, guid: 19eefb69bd4adc7479908e115aea39e4, type: 3}
+  - {fileID: 5140520554009061462, guid: 5d90b3957e6749d4a9138c33d41bc4cb, type: 3}
+  - {fileID: 5140520554009061462, guid: fea55a076a79c394ba60886baa4aeb3b, type: 3}
+  - {fileID: 5140520554009061462, guid: 05e8284b6fc5c4d40a8423414f056047, type: 3}
+  - {fileID: 5140520554009061462, guid: 3b1b5c6e0182fa241b9825480a5adb00, type: 3}
+  indexUnitprefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  indexTerrainprefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   mapGrid: {fileID: 2079233363}
   BanditArabPrefab: {fileID: 2654075239046433566, guid: f473b15a94159414a8b90632a8e1d69a, type: 3}
   Infantry1Prefab: {fileID: -7903265091803169806, guid: e3b6cb70c23b96d47a8fff974a9f4b45, type: 3}
@@ -4869,3 +4966,4 @@ SceneRoots:
   - {fileID: 1925938514}
   - {fileID: 1159073371}
   - {fileID: 680515789}
+  - {fileID: 730569074}

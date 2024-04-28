@@ -149,6 +149,7 @@ MonoBehaviour:
   mapGrid: {fileID: 0}
   spriteRenderer: {fileID: 0}
   moveSpeed: 5
+  animator: {fileID: 0}
 --- !u!114 &-7903265091803169806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ MonoBehaviour:
   row: 0
   col: 0
   healthPoints: 100
-  moveRange: 3
+  moveRange: 6
   ration: 100
   rationPerDay: 0
   lineOfSight: 0
