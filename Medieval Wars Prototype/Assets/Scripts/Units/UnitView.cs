@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Purchasing;
+using System.Linq;
+using System.Collections.Generic;
 
 
 public class UnitView : MonoBehaviour
@@ -14,7 +16,7 @@ public class UnitView : MonoBehaviour
     public MapGrid mapGrid; //!!!!! rahi kayna deja mapgrid fl unit 
 
     public SpriteRenderer spriteRenderer;
-    public float moveSpeed = 5;
+    public float moveSpeed;
 
 
     bool isUnitHovered = false;
@@ -23,7 +25,10 @@ public class UnitView : MonoBehaviour
    
 
     public Animator animator;
-    public UnitUtil.animationState currentAnimatonState;
+    public UnitUtil.AnimationState currentAnimatonState;
+
+    GridCell gridCellTheUnitIsMovingTowards; // i need this to animate the movement
+
 
 
     void Start()
@@ -102,28 +107,93 @@ public class UnitView : MonoBehaviour
 
     public void AnimateMovement(int row, int column)
     {
-        Vector3 position = new Vector3(-16 + column + 0.5f, 9 - row - 0.5f, unitTransform.position.z);
-        StartCoroutine(StartMovement(position));
+        gridCellTheUnitIsMovingTowards = mapGrid.grid[row, column];
+
+        // Store the starting position
+        Vector3 startPosition = transform.position;
+
+        // Create a list to store all target positions
+        List<Vector3> targetPositions = new List<Vector3>();
+
+        foreach (GridCell gridCell in gridCellTheUnitIsMovingTowards.Pathlist)
+        {
+            // Calculate target position
+            Vector3 targetPosition = CalculateWorldPosition(gridCell.row, gridCell.column);
+            targetPositions.Add(targetPosition);
+        }
+
+        // Start moving the character along the path
+        StartCoroutine(MoveAlongPath(targetPositions));
+
+        // this is just to make sure our character gets to the right position
+        transform.position = new Vector3(mapGrid.grid[row, column].transform.position.x, mapGrid.grid[row, column].transform.position.y + 0.125f, -1 );
+        ChangeAnimationState(UnitUtil.AnimationState.IDLE); ;
     }
 
-    // Method to move the unit to the specified position
-    // IEnumerator is used to make the movement smooth // and to wait for the movement to finish before executing the next line of code
-    public IEnumerator StartMovement(Vector2 position)
+    private IEnumerator MoveAlongPath(List<Vector3> targetPositions)
     {
-
-        while (transform.position.x != position.x)
+        foreach (Vector3 targetPosition in targetPositions)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(position.x, transform.position.y, unitTransform.position.z), moveSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        while (transform.position.y != position.y)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, position.y, unitTransform.position.z), moveSpeed * Time.deltaTime);
-            yield return null;
+            ChangeAnimationState(WhichAnimationToPlayWhenMoving(targetPosition));
+            // Smoothly move towards the target position
+            while (Vector3.Distance(transform.position, targetPosition) > 0.01f ) 
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                yield return null;
+            }
+            RestoreFlip();
         }
     }
 
+    private UnitUtil.AnimationState WhichAnimationToPlayWhenMoving(Vector3 targetPosition)
+    {
+        if ( transform.position.x - targetPosition.x > 0 && unit.playerOwner == GameController.Instance.player1 )
+        {
+            this.spriteRenderer.flipX = true;
+            return UnitUtil.AnimationState.SIDE_WALK;
+        }
+
+        if (transform.position.x - targetPosition.x > 0 && unit.playerOwner == GameController.Instance.player2)
+        {
+            return UnitUtil.AnimationState.SIDE_WALK;
+        }
+
+        if (transform.position.x - targetPosition.x < 0 && unit.playerOwner == GameController.Instance.player1)
+        {
+            return UnitUtil.AnimationState.SIDE_WALK;
+        }
+
+        if (transform.position.x - targetPosition.x < 0 && unit.playerOwner == GameController.Instance.player2)
+        {
+            this.spriteRenderer.flipX = true;
+            return UnitUtil.AnimationState.SIDE_WALK;
+        }
+
+        if (transform.position.y - targetPosition.y > 0 )
+        {
+            return UnitUtil.AnimationState.DOWN_WALK;
+        }
+
+        if (transform.position.y - targetPosition.y < 0)
+        {
+            return UnitUtil.AnimationState.UP_WALK;
+        }
+
+        return UnitUtil.AnimationState.IDLE;
+    }
+
+    public void RestoreFlip()
+    {
+        if (unit.playerOwner == GameController.Instance.player1) this.spriteRenderer.flipX = false;
+        if (unit.playerOwner == GameController.Instance.player2) this.spriteRenderer.flipX = true;
+    }
+
+    private Vector3 CalculateWorldPosition(int row, int column)
+    {
+        // Adjust this calculation based on your grid cell size and layout
+        Vector3 position = new Vector3(-16 + column + 0.5f, 9 - row + 0.125f - 0.5f, unitTransform.position.z);
+        return position;
+    }
 
 
     public void HighlightAsEnemy()
@@ -201,15 +271,32 @@ public class UnitView : MonoBehaviour
         (unit as UnitAttack).attackableGridCells.Clear();
     }
 
-    public void ChangeAnimationState(UnitUtil.animationState newAnimationState)
+    public void ChangeAnimationState(UnitUtil.AnimationState newAnimationState)
     {
-
         // to avoid the animation overwriting it self  
-        if ( currentAnimatonState == newAnimationState) return;
+        if (currentAnimatonState == newAnimationState) return;
 
-        // animator.Play();
+        animator.Play(GetAnimationStateString(newAnimationState));
 
+        currentAnimatonState = newAnimationState ;
 
+    }
+
+    public static string GetAnimationStateString(UnitUtil.AnimationState state)
+    {
+        switch (state)
+        {
+            case UnitUtil.AnimationState.IDLE:
+                return "right side idle";
+            case UnitUtil.AnimationState.UP_WALK:
+                return "up side walk";
+            case UnitUtil.AnimationState.DOWN_WALK:
+                return "down side walk";
+            case UnitUtil.AnimationState.SIDE_WALK:
+                return "right side walk";
+            default:
+                return "Unknown";
+        }
     }
 
 

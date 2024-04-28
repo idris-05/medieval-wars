@@ -29,6 +29,7 @@ public class GridCellView : MonoBehaviour
     public void HighlightAsWalkable()
     {
         rend.color = Color.green;
+        gridCell.occupantTerrain.spriteRenderer.color = Color.green;
         // isWalkable = true; //! ???????????????????
     }
 
@@ -50,6 +51,7 @@ public class GridCellView : MonoBehaviour
         gridCell.isWalkable = false ;
         isHighlightedAsAttackble = false ; //!! ??????
         rend.color = Color.white;
+        gridCell.occupantTerrain.spriteRenderer.color = Color.white;
     }
 
 

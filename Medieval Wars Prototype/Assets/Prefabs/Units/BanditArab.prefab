@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2654075239046433566}
   - component: {fileID: -2080499793171882692}
   - component: {fileID: -6857914708629168600}
+  - component: {fileID: 2825069361472597197}
   - component: {fileID: 3810206441201150901}
   m_Layer: 0
   m_Name: BanditArab
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1965938827
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayer: 4
+  m_SortingOrder: 10
   m_Sprite: {fileID: 312139308, guid: e22c918bbe6619f499273bf0bc2febc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOwner: {fileID: 0}
   mapGrid: {fileID: 0}
-  unitView: {fileID: 0}
+  unitView: {fileID: 2825069361472597197}
   unitIndex: 0
   unitName: 0
   occupiedCell: {fileID: 0}
@@ -110,7 +111,7 @@ MonoBehaviour:
   col: 0
   healthPoints: 100
   moveRange: 8
-  ration: 0
+  ration: 100
   rationPerDay: 0
   lineOfSight: 0
   hasMoved: 0
@@ -152,7 +153,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.09615384}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -177,6 +178,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873822b55360c634e9a732ff9352106e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2825069361472597197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265668595456362624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d470229f18e5145bff8bb9a5cb0cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitTransform: {fileID: 0}
+  mapGrid: {fileID: 0}
+  spriteRenderer: {fileID: -8740393964230367777}
+  moveSpeed: 2
+  animator: {fileID: 0}
+  currentAnimatonState: 0
 --- !u!95 &3810206441201150901
 Animator:
   serializedVersion: 5

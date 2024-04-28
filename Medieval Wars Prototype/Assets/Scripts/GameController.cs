@@ -75,9 +75,9 @@ public class GameController : MonoBehaviour
         SpawnUnit(player1, 3, 3, BanditArabPrefab);
 
 
-        SpawnUnit(player2, 8, 8, Infantry2Prefab);
+        SpawnUnit(player2, 8, 8, BanditArabPrefab);
 
-        SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
+        //SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
 
     }
 
@@ -92,7 +92,7 @@ public class GameController : MonoBehaviour
     public void SpawnUnit(Player player, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
-        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f, -1), Quaternion.identity);
+        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f , -1), Quaternion.identity);
 
         unit.playerOwner = player;
 
@@ -108,6 +108,9 @@ public class GameController : MonoBehaviour
         unit.row = row;
         unit.col = column;
 
+        if (unit.unitView == null) Debug.Log("perfect cell");
+
+        if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
     }
 

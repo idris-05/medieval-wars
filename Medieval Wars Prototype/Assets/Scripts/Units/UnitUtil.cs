@@ -35,7 +35,7 @@ public class UnitUtil : MonoBehaviour
         CHALVARY,
     }
 
-    public enum animationState
+    public enum AnimationState
     {
         IDLE, // only side idle , which side is determined according to which player does the unit belong to
         UP_WALK,
@@ -78,5 +78,8 @@ public class UnitUtil : MonoBehaviour
     /* RamShip */  {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
     /* Chalvary */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false}
     };
+
+   
+
 
 }
