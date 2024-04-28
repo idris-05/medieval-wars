@@ -71,9 +71,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         this.row = row;
         this.col = col;
 
-
         unitView.ResetHighlightedUnit();
-
     }
 
     public void RecieveDamage(int inflictedDamage)

@@ -55,7 +55,6 @@ public class MovementSystem : MonoBehaviour
         mapGrid = FindObjectOfType<MapGrid>();
     }
 
-
     public void Movement(Unit unit, int row, int col)
     {
 
@@ -69,10 +68,10 @@ public class MovementSystem : MonoBehaviour
                 unit.unitView.ResetHighlitedWalkableCells();
 
                 unit.PrepareUnitToGetLoadedInTransporter();
-                unit.unitView.AnimateMovement(row, col);
-                unit.TransitionToNumbState();
-                unitTransport.Load(unit);
+                unit.unitView.AnimateMovement(row, col,true);
+              
 
+                
                 return;
             }
         }
@@ -85,7 +84,7 @@ public class MovementSystem : MonoBehaviour
 
         //! hna n7ssbo moveCost ( n7ssbo ch7al n9ssolha men ration ki mchat ) wnmdoh parametre lel UpdateAttributsAfterMoving .
         unit.UpdateAttributsAfterMoving(row, col);
-        unit.unitView.AnimateMovement(row, col);
+        unit.unitView.AnimateMovement(row, col,false);
         unit.unitView.ResetHighlitedWalkableCells();
 
     }

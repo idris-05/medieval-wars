@@ -105,7 +105,7 @@ public class UnitView : MonoBehaviour
         transform.position = position;
     }
 
-    public void AnimateMovement(int row, int column)
+    public void AnimateMovement(int row, int column,bool loadIntended)
     {
         gridCellTheUnitIsMovingTowards = mapGrid.grid[row, column];
 
@@ -123,26 +123,43 @@ public class UnitView : MonoBehaviour
         }
 
         // Start moving the character along the path
-        StartCoroutine(MoveAlongPath(targetPositions));
+        StartCoroutine(MoveAlongPath(targetPositions,row,column,loadIntended));
 
-        // this is just to make sure our character gets to the right position
-        transform.position = new Vector3(mapGrid.grid[row, column].transform.position.x, mapGrid.grid[row, column].transform.position.y + 0.125f, -1 );
-        ChangeAnimationState(UnitUtil.AnimationState.IDLE); ;
     }
-
-    private IEnumerator MoveAlongPath(List<Vector3> targetPositions)
+    private IEnumerator MoveAlongPath(List<Vector3> targetPositions, int row, int column, bool loadIntended)
     {
         foreach (Vector3 targetPosition in targetPositions)
         {
             ChangeAnimationState(WhichAnimationToPlayWhenMoving(targetPosition));
             // Smoothly move towards the target position
-            while (Vector3.Distance(transform.position, targetPosition) > 0.01f ) 
+            while (Vector3.Distance(transform.position, targetPosition) != 0 ) 
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 yield return null;
             }
             RestoreFlip();
         }
+
+        // this is just to make sure our character gets to the right position
+
+        transform.position = new Vector3(mapGrid.grid[row, column].transform.position.x, mapGrid.grid[row, column].transform.position.y + 0.125f, -1);
+        ChangeAnimationState(UnitUtil.AnimationState.IDLE);
+
+        CancelScript.Instance.Cancel();
+
+        // here we need to check if the moved unit still hahve another actions to do , or it will enter the NumbState MODE
+        if (!loadIntended)
+        {
+            ActionsHandler.Instance.FillButtonsToDisplay(this.unit);
+            if (ButtonsUI.Instance.buttonsToDisplay.Any() == false) this.unit.TransitionToNumbState();
+            ButtonsUI.Instance.buttonsToDisplay.Clear();
+        }
+        else
+        {
+            this.unit.TransitionToNumbState();
+            (mapGrid.grid[row,column].occupantUnit as UnitTransport).Load(unit);
+        }
+
     }
 
     private UnitUtil.AnimationState WhichAnimationToPlayWhenMoving(Vector3 targetPosition)
@@ -165,7 +182,7 @@ public class UnitView : MonoBehaviour
 
         if (transform.position.x - targetPosition.x < 0 && unit.playerOwner == GameController.Instance.player2)
         {
-            this.spriteRenderer.flipX = true;
+            this.spriteRenderer.flipX = false;
             return UnitUtil.AnimationState.SIDE_WALK;
         }
 

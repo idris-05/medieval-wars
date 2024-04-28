@@ -41,13 +41,13 @@ public class GridCellController : MonoBehaviour
 
                 ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitToMove.walkableGridCells);
                 MovementSystem.Instance.Movement(unitToMove, cellThatGotClickedOn.row, cellThatGotClickedOn.column);
-                CancelScript.Instance.Cancel();
+                /* CancelScript.Instance.Cancel();
 
                 // here we need to check if the moved unit still hahve another actions to do , or it will enter the NumbState MODE
 
                 ActionsHandler.Instance.FillButtonsToDisplay(unitToMove);
                 if (ButtonsUI.Instance.buttonsToDisplay.Any() == false) unitToMove.TransitionToNumbState();
-                ButtonsUI.Instance.buttonsToDisplay.Clear();
+                ButtonsUI.Instance.buttonsToDisplay.Clear(); */
 
                 break;
 
