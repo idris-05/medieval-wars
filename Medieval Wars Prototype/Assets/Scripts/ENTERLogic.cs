@@ -3,26 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class ENTERLogic : MonoBehaviour
+public class ENTERlogic : MonoBehaviour
 {
     [SerializeField] Animator transitionAnim;
 
     void Update()
     {
-        if (Input.GetKey("enter"))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            StartCoroutine(LoadMainMenu());
+           StartCoroutine(LoadMainMenu());
         }
-
     }
-
     IEnumerator LoadMainMenu()
     {
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(1);
         transitionAnim.SetTrigger("Start");
-
     }
 }
