@@ -36,10 +36,13 @@ public class AttackSystem : MonoBehaviour
 
     public MapGrid mapGrid;
 
+    public DamageIcon damageIcon;
+
 
     private void Awake()
     {
         mapGrid = FindObjectOfType<MapGrid>();
+        damageIcon = FindObjectOfType<DamageIcon>();
     }
 
     // base damage[Attacker,Defender]  //!!!!!!!!!!!! marahomch m9lobin ????
@@ -460,6 +463,12 @@ public class AttackSystem : MonoBehaviour
         //!!!!!!!!!!! lazem verification belli ki tmot TransporterUnit , uniti li rahi rafdetha m3aha hya tani tmot .
         int inflictedDamage = CalculateDamage(AttackingUnit, DefendingUnit);
         DefendingUnit.RecieveDamage(inflictedDamage);
+
+        // instantiate the damage icon after receiving damage
+
+        DamageIcon damageIconInstance = Instantiate(damageIcon,DefendingUnit.transform.position + new Vector3(0,0.3f,0) , Quaternion.identity );
+        damageIconInstance.Setup(inflictedDamage);
+
         AttackingUnit.UpdateAttributsAfterAttack();
         AttackingUnit.TransitionToNumbState();
 
@@ -487,6 +496,12 @@ public class AttackSystem : MonoBehaviour
 
         inflictedDamage = CalculateDamage(DefendingUnit, AttackingUnit);
         AttackingUnit.RecieveDamage(inflictedDamage);
+
+        // instantiate the damage icon after receiving damage
+
+        damageIconInstance = Instantiate(damageIcon, DefendingUnit.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+        damageIconInstance.Setup(inflictedDamage);
+
 
         if (AttackingUnit.healthPoints <= 0)
         {
