@@ -9,8 +9,10 @@ public static class SavingSystem
 {
     //hello
     
-   public static string PATH1 = "C:/Users/PC/AppData/LocalLow/DefaultCompany/Medieval Wars Prototype/player1stats.json";
-   public static string PATH2 = "C:/Users/PC/AppData/LocalLow/DefaultCompany/Medieval Wars Prototype/player2stats.json";
+   public static string PATH1 = Path.Combine(Application.dataPath, "player1stats.json");
+   public static string PATH2 = Path.Combine(Application.dataPath, "player2stats.json");
+   public static string PATHN = Path.Combine(Application.dataPath, "neutrestats.json");
+   
     const string PATHneutre = "" ; 
     public struct playerUnitsInfos {
         public int player;

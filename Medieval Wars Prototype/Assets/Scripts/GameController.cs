@@ -60,6 +60,8 @@ public class GameController : MonoBehaviour
     public Player currentPlayerInControl;
     public Player player1;
     public Player player2;
+
+    public Player neutre;
     public List<GridCell> cellsPath =  new List<GridCell>();
 
     public List<GameObject> arrow = new List<GameObject>();
@@ -73,7 +75,9 @@ public class GameController : MonoBehaviour
     {
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
+        neutre = new GameObject("Neutre").AddComponent<Player>();
         currentPlayerInControl = player1;
+        playerList.Add(neutre);
         playerList.Add(player1);
         playerList.Add(player2);
     }
@@ -88,6 +92,7 @@ public class GameController : MonoBehaviour
         arrowSystem = FindObjectOfType<ArrowSystem>();
         point.x=-1;
         point.y=-1;
+        ///
         point.moveleft=-1;
         hasmoved=false;
         
@@ -96,6 +101,8 @@ public class GameController : MonoBehaviour
         SpawnUnit(player1, 5, 5, Infantry1Prefab); // test 
         
         SpawnUnit(player1, 6, 5, Infantry1Prefab);
+
+       // SpawnBuilding(neutre,3,4,  (Building) indexTerrainprefab[3]);
         
 
 
@@ -109,8 +116,12 @@ public class GameController : MonoBehaviour
         Player player ;
         if(playerInfos.player == 1){
             player = player1;
-        }else{
+        }else{ if(playerInfos.player == 2){
             player=player2;
+        }else{
+            player=neutre;
+
+        }
         }
         player.buildingList.Clear();
         foreach( SavingSystem.Buildingdata buildingdata in playerInfos.buildings){
@@ -155,16 +166,21 @@ public class GameController : MonoBehaviour
             unitPlayerdatas.unitdatas= new List<SavingSystem.UnitData>();
            unitPlayerdatas = SavingSystem.Infoload(path);
            Debug.Log("loaded");
+           if( unitPlayerdatas.player != 0){
            LaodUnitsToMap(unitPlayerdatas);
+           }
            LoadbuildingsToMap(unitPlayerdatas);
+           
     }
     public void save(){
        SavingSystem.savePlayer(player1,SavingSystem.PATH1,1);
        SavingSystem.savePlayer(player2,SavingSystem.PATH2,2);
+       SavingSystem.savePlayer(neutre,SavingSystem.PATHN,0);
     }
     public void load(){
         loadplayer(SavingSystem.PATH1);
         loadplayer(SavingSystem.PATH2);
+        loadplayer(SavingSystem.PATHN);
     }
    /*  public void newGame(){
 
@@ -174,7 +190,14 @@ public class GameController : MonoBehaviour
 
       void Update()
     {
-         if ( UnitController.Instance.selectedUnit == null ){
+        if(Input.GetKeyDown(KeyCode.S)){
+            save();
+
+        }
+        if(Input.GetKeyDown(KeyCode.L)){
+            load();
+        }
+         /* if ( UnitController.Instance.selectedUnit == null ){
             hasmoved=false;
             if( arrow.Count != 0 ){
                 try{
@@ -202,7 +225,7 @@ public class GameController : MonoBehaviour
                 Debug.Log(point.y+" and "+point.x);
                 }
             }
-        } 
+        }  */
        /*  if (Input.GetKeyDown(KeyCode.Q)){
             arrowSystem.DrawautoPath(mapGrid.grid[5,5].Pathlist, Arrowprefabs , cellsPath , arrow , UnitController.Instance.selectedUnit );
         } */

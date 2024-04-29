@@ -1094,7 +1094,7 @@ MonoBehaviour:
   - {fileID: 5140520554009061462, guid: 52a3e6baaf236f14fa5211f9c186a663, type: 3}
   - {fileID: 5140520554009061462, guid: 3b3e58367f4887c42853592d4c694327, type: 3}
   - {fileID: 5140520554009061462, guid: 3f620f6956ece634f9531636def6cdd2, type: 3}
-  - {fileID: 5140520554009061462, guid: b1550d3714a806a468d8dbdfa9560499, type: 3}
+  - {fileID: 5140520554009061462, guid: 038c5ff453b80594b9ec0f29ae11a6a9, type: 3}
   - {fileID: 5140520554009061462, guid: c36d0fc69485de84288f25cc5210c609, type: 3}
   - {fileID: 5140520554009061462, guid: b1550d3714a806a468d8dbdfa9560499, type: 3}
   - {fileID: 2645902851764023609, guid: 8f3210142360be04db5d653c16b8e063, type: 3}
@@ -1835,15 +1835,16 @@ MonoBehaviour:
   - {fileID: 5140520554009061462, guid: 05e8284b6fc5c4d40a8423414f056047, type: 3}
   - {fileID: 5140520554009061462, guid: 3b1b5c6e0182fa241b9825480a5adb00, type: 3}
   indexUnitprefab:
+  - {fileID: 5655664627314001093, guid: 3cbf74a8795bc3a499951dd5d8fd6206, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -7903265091803169806, guid: e3b6cb70c23b96d47a8fff974a9f4b45, type: 3}
   indexTerrainprefab:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 5121689741534307688, guid: 9fe01633facad284eab9ff8195b48d63, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1854,7 +1855,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  arrowSystem: {fileID: 0}
   mapGrid: {fileID: 2079233363}
   BanditArabPrefab: {fileID: 2654075239046433566, guid: f473b15a94159414a8b90632a8e1d69a, type: 3}
   Infantry1Prefab: {fileID: -7903265091803169806, guid: e3b6cb70c23b96d47a8fff974a9f4b45, type: 3}
@@ -1863,6 +1864,9 @@ MonoBehaviour:
   currentPlayerInControl: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  neutre: {fileID: 0}
+  cellsPath: []
+  arrow: []
   CurrentDayCounter: 0
   playerList: []
 --- !u!4 &961498743
@@ -3174,6 +3178,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325cb3e55fbc88044b37a02dfb7bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrowprefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1424069242
 MonoBehaviour:
   m_ObjectHideFlags: 0

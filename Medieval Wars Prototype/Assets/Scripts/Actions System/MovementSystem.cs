@@ -138,11 +138,10 @@ public class MovementSystem : MonoBehaviour
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
 
-                    if ((mapGrid.grid[y - 1, x].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y - 1, x].occupantUnit == null)
-                    {
+                  
                         unit.walkableGridCells.Add(mapGrid.grid[y - 1, x]);
                         mapGrid.grid[y - 1, x].isWalkable = true;
-                    }
+                    
                     queue.Enqueue(temp2);
 
                 }
@@ -165,12 +164,11 @@ public class MovementSystem : MonoBehaviour
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
 
-                    if ((mapGrid.grid[y, x + 1].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y, x + 1].occupantUnit == null)
-                    {
+                   
                         unit.walkableGridCells.Add(mapGrid.grid[y, x + 1]);
                         mapGrid.grid[y, x + 1].isWalkable = true;
 
-                    }
+                    
                     queue.Enqueue(temp2);
 
 
@@ -193,12 +191,10 @@ public class MovementSystem : MonoBehaviour
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
 
-                    if ((mapGrid.grid[y + 1, x].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y + 1, x].occupantUnit == null)
-                    {
                         unit.walkableGridCells.Add(mapGrid.grid[y + 1, x]);
                         mapGrid.grid[y + 1, x].isWalkable = true;
 
-                    }
+                    
                     queue.Enqueue(temp2);
 
 
@@ -222,12 +218,10 @@ public class MovementSystem : MonoBehaviour
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
 
-                    if ((mapGrid.grid[y, x - 1].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y, x - 1].occupantUnit == null)
-                    {
                         unit.walkableGridCells.Add(mapGrid.grid[y, x - 1]);
                         mapGrid.grid[y, x - 1].isWalkable = true;
 
-                    }
+                    
                     queue.Enqueue(temp2);
 
                 }
