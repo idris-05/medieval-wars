@@ -10,9 +10,17 @@ GameObject:
   m_Component:
   - component: {fileID: 6074141851441042306}
   - component: {fileID: -8740393964230367777}
+<<<<<<< Updated upstream:Medieval Wars Prototype/Assets/Prefabs/Unit.prefab
   - component: {fileID: 2654075239046433566}
   - component: {fileID: 6508936576220258853}
   - component: {fileID: -2080499793171882692}
+=======
+  - component: {fileID: -2080499793171882692}
+  - component: {fileID: -6857914708629168600}
+  - component: {fileID: 5653279754166416298}
+  - component: {fileID: 2825069361472597197}
+  - component: {fileID: 3810206441201150901}
+>>>>>>> Stashed changes:Medieval Wars Prototype/Assets/Prefabs/Units/BanditArab.prefab
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -87,6 +95,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream:Medieval Wars Prototype/Assets/Prefabs/Unit.prefab
 --- !u!114 &2654075239046433566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverAmount: 0.3
+=======
+>>>>>>> Stashed changes:Medieval Wars Prototype/Assets/Prefabs/Units/BanditArab.prefab
 --- !u!61 &-2080499793171882692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,3 +176,95 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.32}
   m_EdgeRadius: 0
+<<<<<<< Updated upstream:Medieval Wars Prototype/Assets/Prefabs/Unit.prefab
+=======
+--- !u!114 &-6857914708629168600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265668595456362624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873822b55360c634e9a732ff9352106e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5653279754166416298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265668595456362624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fb1fdfbf224334eb3359a7e61e40db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOwner: {fileID: 0}
+  mapGrid: {fileID: 0}
+  unitView: {fileID: 2825069361472597197}
+  unitIndex: 8
+  unitName: 9
+  occupiedCell: {fileID: 0}
+  row: 0
+  col: 0
+  healthPoints: 100
+  moveRange: 8
+  ration: 100
+  rationPerDay: 0
+  lineOfSight: 0
+  hasMoved: 0
+  numbState: 0
+  walkableGridCells: []
+  attackBoost: 1
+  specialAttackBoost: 1
+  defenseBoost: 0
+  specialDefenseBoost: 0
+  attackRange: 1
+  minAttackRange: 0
+  durability: 0
+  hasAttacked: 0
+  enemiesInRange: []
+  attackableGridCells: []
+--- !u!114 &2825069361472597197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265668595456362624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d470229f18e5145bff8bb9a5cb0cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitTransform: {fileID: 0}
+  mapGrid: {fileID: 0}
+  spriteRenderer: {fileID: -8740393964230367777}
+  moveSpeed: 2
+  animator: {fileID: 0}
+  currentAnimatonState: 0
+--- !u!95 &3810206441201150901
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265668595456362624}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5db6b2c7e8e71034fbe6cec29deddf43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+>>>>>>> Stashed changes:Medieval Wars Prototype/Assets/Prefabs/Units/BanditArab.prefab
