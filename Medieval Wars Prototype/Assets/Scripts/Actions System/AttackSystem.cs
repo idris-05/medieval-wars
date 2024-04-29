@@ -371,7 +371,7 @@ public class AttackSystem : MonoBehaviour
         // Find Terrain Stars
         // float TerrainStars = TerrainsUtils.defenceStars[DefendingUnit.occupiedCell.occupantTerrain.TerrainIndex];
         float TerrainStars = DefendingUnit.playerOwner.Co.GetTerrainDefenceStart(DefendingUnit.occupiedCell.occupantTerrain);
-        // Debug.Log(TerrainStars);
+        Debug.Log(TerrainStars);
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
         // float defenseBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? DefendingUnit.specialDefenseBoost : DefendingUnit.defenseBoost;
