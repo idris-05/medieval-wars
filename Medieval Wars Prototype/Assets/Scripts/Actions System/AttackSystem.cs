@@ -1,4 +1,8 @@
 using System;
+// <<<<<<< HEAD
+// =======
+using System.Collections;
+// >>>>>>> origin/rayane
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -331,7 +335,6 @@ public class AttackSystem : MonoBehaviour
 
 
     // column counter attack the row 
-
     public static bool[,] CounterAttackMatrix = {
     //             Caravan  Archers  Carac    Fireship  Infantry  T-ship  SpikeMan  R-chalvary  Bandit  Catapulte  RamShip  Chalvary
     /* Caravan */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
@@ -400,9 +403,59 @@ public class AttackSystem : MonoBehaviour
 
     }
 
-
-    public static void Attack(UnitAttack AttackingUnit, Unit DefendingUnit)
+    private static UnitUtil.AnimationState WhichAttackAnimationToPlayWhenAttacking(UnitAttack unitThatWillAttack,Unit unitThatWillGetAttacked)
     {
+        if (unitThatWillAttack.transform.position.x - unitThatWillGetAttacked.transform.position.x > 0 && unitThatWillAttack.playerOwner == GameController.Instance.player1)
+        {
+            unitThatWillAttack.unitView.spriteRenderer.flipX = true;
+            return UnitUtil.AnimationState.LEFT_SIDE_ATTACK;
+        }
+
+        if (unitThatWillAttack.transform.position.x - unitThatWillGetAttacked.transform.position.x > 0 && unitThatWillAttack.playerOwner == GameController.Instance.player2)
+        {
+            return UnitUtil.AnimationState.LEFT_SIDE_ATTACK;
+        }
+
+        if (unitThatWillAttack.transform.position.x - unitThatWillGetAttacked.transform.position.x < 0 && unitThatWillAttack.playerOwner == GameController.Instance.player1)
+        {
+            return UnitUtil.AnimationState.RIGHT_SIDE_ATTACK;
+        }
+
+        if (unitThatWillAttack.transform.position.x - unitThatWillGetAttacked.transform.position.x < 0 && unitThatWillAttack.playerOwner == GameController.Instance.player2)
+        {
+            unitThatWillAttack.unitView.spriteRenderer.flipX = false;
+            return UnitUtil.AnimationState.RIGHT_SIDE_ATTACK;
+        }
+
+        if (unitThatWillAttack.transform.position.y - unitThatWillGetAttacked.transform.position.y > 0)
+        {
+            return UnitUtil.AnimationState.DOWN_ATTACK;
+        }
+
+        if (unitThatWillAttack.transform.position.y - unitThatWillGetAttacked.transform.position.y < 0)
+        {
+            return UnitUtil.AnimationState.UP_ATTACK;
+        }
+
+        return UnitUtil.AnimationState.IDLE;
+    }
+
+
+    public IEnumerator Attack(UnitAttack AttackingUnit, Unit DefendingUnit)
+    {
+
+        //! before attacking we are going to launch the attack animation
+
+        AttackingUnit.unitView.ChangeAnimationState(WhichAttackAnimationToPlayWhenAttacking(AttackingUnit, DefendingUnit));
+
+        if (VerifyCoiunterAttackPossibility(DefendingUnit, AttackingUnit) == true)
+        {
+            DefendingUnit.unitView.ChangeAnimationState(WhichAttackAnimationToPlayWhenAttacking(DefendingUnit as UnitAttack, AttackingUnit));
+        }
+        yield return new WaitForSeconds(1.6f);
+        AttackingUnit.unitView.ChangeAnimationState(UnitUtil.AnimationState.IDLE);
+        DefendingUnit.unitView.ChangeAnimationState(UnitUtil.AnimationState.IDLE);
+        //!
 
         //!!!!!!!!!!! lazem verification belli ki tmot TransporterUnit , uniti li rahi rafdetha m3aha hya tani tmot .
         int inflictedDamage = CalculateDamage(AttackingUnit, DefendingUnit);
@@ -414,38 +467,36 @@ public class AttackSystem : MonoBehaviour
         {
             if (DefendingUnit is UnitTransport DefendingUnitAsUnitTransporter)
             {
-                if (DefendingUnitAsUnitTransporter.loadedUnit != null) DefendingUnitAsUnitTransporter.loadedUnit.Kill();
+                if (DefendingUnitAsUnitTransporter.loadedUnit != null) DefendingUnitAsUnitTransporter.loadedUnit.DieAsLoaded();
             }
 
-            DefendingUnit.Kill();
+            StartCoroutine(DefendingUnit.Die());
 
             //!! is case the player LOSE .
-            if (DefendingUnit.playerOwner.unitList.Any() == false)
+            /*if (DefendingUnit.playerOwner.unitList.Any() == false)
             {
                 // DefendingUnit.playerOwner LOSE
                 GameController.Instance.EndGame(AttackingUnit.playerOwner);
-            }
-            return;
+            }*/
+            yield break;
         }
-
 
         //!! COUNTER ATTACK 
         // verify the possibility to counter attack 
-        if (VerifyCoiunterAttackPossibility(DefendingUnit, AttackingUnit) == false) return;
+        if (VerifyCoiunterAttackPossibility(DefendingUnit, AttackingUnit) == false) yield break;
 
         inflictedDamage = CalculateDamage(DefendingUnit, AttackingUnit);
         AttackingUnit.RecieveDamage(inflictedDamage);
 
         if (AttackingUnit.healthPoints <= 0)
         {
-            AttackingUnit.Kill();
-            if (AttackingUnit.playerOwner.unitList.Any() == false)
+            StartCoroutine(AttackingUnit.Die());
+           /*if (AttackingUnit.playerOwner.unitList.Any() == false)
             {
                 GameController.Instance.EndGame(DefendingUnit.playerOwner);
-            }
-            return;
+            } */
+            yield break;
         }
-
     }
 
     //! has la methode swa n5loha hekka , swa ndiro matrce t3 counterAttack fihaa chkon yder ycouter attacki chkon , lmatrice tbanli 5ir

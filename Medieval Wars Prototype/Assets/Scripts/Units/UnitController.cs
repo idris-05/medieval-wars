@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -119,25 +120,41 @@ public class UnitController : MonoBehaviour
 
                 ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(attackingUnit.enemiesInRange);
 
-                AttackSystem.Attack(attackingUnit, unitThatGotClickedOn);
-
-                //! COUNTERATTACK NEEDS TO BE ADDED HERE IN CASE THE ENEMY CAN ACTUALLY COUNTERATTACK
-                //! I DON'T REALLY KNOW HOW WE CAN HANDLE THIS I REMEMBER ADEM TALKING ABOUT IT
-                //! JUST ASK HIM ABOUT THAT , I THINK HE TALKED ABOUT A MATRIX IN WHICH THE COUNTERATTACK RELATIONS ARE STORED
-
-                //! lconterAttack ra7 yessra da5el la methode attack fl attackSystem (is case you didn't see the comment there )
-                //! ida cheft lcommentaire w 7bit tbdellha plassa, tbanli ltema 5ir . psq ki y'attacker yessra f nfss lwe9t counterattack . (tssema mklah n5roj men script wndirha fi plassa w7do5ra)
-
-                CancelScript.Instance.Cancel();
-                // we should transist the attacker to numb state , we need to check only if it doesn't die .
-                if (attackingUnit != null) attackingUnit.TransitionToNumbState();
+                StartCoroutine(AttackAndFollowUp(attackingUnit, unitThatGotClickedOn));
 
                 break;
+                ;
+
+                
 
             default:
                 break;
         }
 
+    }
+
+
+    //! i needed this method because i need cancel and transition to numb state to be executed only after the attack coroutine ( because of animations )
+    IEnumerator AttackAndFollowUp(UnitAttack attackingUnit, Unit unitThatGotClickedOn)
+    {
+        // Start the attack coroutine
+        yield return StartCoroutine(AttackSystem.Instance.Attack(attackingUnit, unitThatGotClickedOn));
+
+        // This code will execute after the attack coroutine has completely finished
+        // Here you can put any follow-up actions you want to perform
+
+        // Add the logic for counterattacks here if needed
+
+        // Cancel any ongoing actions
+        CancelScript.Instance.Cancel();
+
+        // Transition the attacker to the "numb" state if it's still alive
+        if (attackingUnit != null)
+        {
+            attackingUnit.TransitionToNumbState();
+        }
+
+        // Any code placed here will execute after the attack coroutine has finished
     }
 
 }

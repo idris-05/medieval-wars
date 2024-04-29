@@ -130,7 +130,7 @@ public class UnitView : MonoBehaviour
     {
         foreach (Vector3 targetPosition in targetPositions)
         {
-            ChangeAnimationState(WhichAnimationToPlayWhenMoving(targetPosition));
+            ChangeAnimationState(WhichMoveAnimationToPlayWhenMoving(targetPosition));
             // Smoothly move towards the target position
             while (Vector3.Distance(transform.position, targetPosition) != 0 ) 
             {
@@ -162,7 +162,7 @@ public class UnitView : MonoBehaviour
 
     }
 
-    private UnitUtil.AnimationState WhichAnimationToPlayWhenMoving(Vector3 targetPosition)
+    private UnitUtil.AnimationState WhichMoveAnimationToPlayWhenMoving(Vector3 targetPosition)
     {
         if ( transform.position.x - targetPosition.x > 0 && unit.playerOwner == GameController.Instance.player1 )
         {
@@ -311,12 +311,20 @@ public class UnitView : MonoBehaviour
                 return "down side walk";
             case UnitUtil.AnimationState.SIDE_WALK:
                 return "right side walk";
+            case UnitUtil.AnimationState.UP_ATTACK:
+                return "up side attack";
+            case UnitUtil.AnimationState.DOWN_ATTACK:
+                return "down side attack";
+            case UnitUtil.AnimationState.RIGHT_SIDE_ATTACK:
+                return "right side attack";
+            case UnitUtil.AnimationState.LEFT_SIDE_ATTACK:
+                return "left side attack";
+            case UnitUtil.AnimationState.DIE_ANIMATION:
+                return "die animation";
             default:
                 return "Unknown";
         }
     }
-
-
 
 
 }

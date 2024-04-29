@@ -28,7 +28,6 @@ public class UnitUtil : MonoBehaviour
         TSHIP,
         SPIKEMAN,
         RCHALVARY,
-        TREBUCHET,
         BANDIT,
         CATAPULTE,
         RAMSHIP,
@@ -41,6 +40,11 @@ public class UnitUtil : MonoBehaviour
         UP_WALK,
         DOWN_WALK,
         SIDE_WALK, // which side it is walking towards is treated within the movement code implementation , i did it eventhough it's not maintanable because this won't be used anywhere else
+        UP_ATTACK,
+        DOWN_ATTACK,
+        RIGHT_SIDE_ATTACK,
+        LEFT_SIDE_ATTACK,
+        DIE_ANIMATION,
     }
 
 

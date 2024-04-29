@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -79,13 +80,23 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void RecieveDamage(int inflictedDamage)
     {
         this.healthPoints -= inflictedDamage; // hna events
+        if ( this.healthPoints <=  0 ) { this.healthPoints = 0; }
     }
 
-    public void Kill()
+    public void DieAsLoaded()
     {
-        // w occupant Unit t3 cell li kan fiha ? wla w7dha tweli null , l3fayes li kima hadi wchnohom kamel
         playerOwner.unitList.Remove(this);
         Destroy(this.gameObject);
+    }
+
+    public IEnumerator Die()
+    {
+        // w occupant Unit t3 cell li kan fiha ? wla w7dha tweli null , l3fayes li kima hadi wchnohom kamel
+        this.unitView.ChangeAnimationState(UnitUtil.AnimationState.DIE_ANIMATION);
+        yield return new WaitForSeconds(1.6f);
+        playerOwner.unitList.Remove(this);
+        Destroy(this.gameObject);
+        yield break;
     }
 
 
