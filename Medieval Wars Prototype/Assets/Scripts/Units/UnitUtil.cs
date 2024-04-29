@@ -80,7 +80,8 @@ public class UnitUtil : MonoBehaviour
     };
 
 
-    private int [] unitCost = { 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 , 1000 } ;
+    public static float[] unitCost = { 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000 };
+    
 
     /*
   boosts related to COs Power
@@ -120,12 +121,6 @@ public class UnitUtil : MonoBehaviour
   */
 
 
-
-    // public int GetUnitCost(Unit unit)
-    // {
-    //     // return unit.unitCost;
-    //     return unitCost[unit.unitIndex] ;
-    // }
 
 
 }

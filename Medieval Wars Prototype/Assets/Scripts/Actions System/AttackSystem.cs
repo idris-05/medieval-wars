@@ -144,7 +144,7 @@ public class AttackSystem : MonoBehaviour
             if ((y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !cells.Contains(mapGrid.grid[y - 1, x]))
             {
                 // int moveleft = temp.moveleft - 1;// use movecosts
-                int moveleft = temp.moveleft - TerrainsUtils.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain, unit);
                 if (mapGrid.grid[y - 1, x].occupantUnit != null && mapGrid.grid[y - 1, x].occupantUnit.playerOwner != cuurentPlayer)
                 {
                     moveleft = -1;
@@ -164,7 +164,7 @@ public class AttackSystem : MonoBehaviour
             if ((y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y, x + 1])))
             {
                 // int moveleft = temp.moveleft - 1;// use movecost
-                int moveleft = temp.moveleft - TerrainsUtils.GetMoveCost(mapGrid.grid[y, x + 1].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x + 1].occupantTerrain, unit);
 
                 if (mapGrid.grid[y, x + 1].occupantUnit != null && mapGrid.grid[y, x + 1].occupantUnit.playerOwner != cuurentPlayer)
                 {
@@ -186,7 +186,7 @@ public class AttackSystem : MonoBehaviour
             if ((y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y + 1, x])))
             {
                 // int moveleft = temp.moveleft - 1;//!!use move cost
-                int moveleft = temp.moveleft - TerrainsUtils.GetMoveCost(mapGrid.grid[y + 1, x].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y + 1, x].occupantTerrain, unit);
                 if (mapGrid.grid[y + 1, x].occupantUnit != null && mapGrid.grid[y + 1, x].occupantUnit.playerOwner != cuurentPlayer)
                 {
                     moveleft = -1;
@@ -206,7 +206,7 @@ public class AttackSystem : MonoBehaviour
             if ((y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y, x - 1])))
             {
                 // int moveleft = temp.moveleft - 1; //!!!use movecost
-                int moveleft = temp.moveleft - TerrainsUtils.GetMoveCost(mapGrid.grid[y, x - 1].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x - 1].occupantTerrain, unit);
 
                 if (mapGrid.grid[y, x - 1].occupantUnit != null && mapGrid.grid[y, x - 1].occupantUnit.playerOwner != cuurentPlayer)
                 {
@@ -358,7 +358,8 @@ public class AttackSystem : MonoBehaviour
 
 
         // AttackValue = (Base.AttackBoost.SpecialAttackBoost)
-        float attackBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? AttackingUnit.specialAttackBoost : AttackingUnit.attackBoost;
+        // float attackBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? AttackingUnit.specialAttackBoost : AttackingUnit.attackBoost;
+        float attackBoost = AttackingUnit.attackBoost;
 
         float AttackValue = Base * attackBoost;
         // Debug.Log("AttackValue : " + AttackValue);
@@ -366,11 +367,12 @@ public class AttackSystem : MonoBehaviour
 
         // Find Terrain Stars
         // float TerrainStars = TerrainsUtils.defenceStars[DefendingUnit.occupiedCell.occupantTerrain.TerrainIndex];
-        float TerrainStars = TerrainsUtils.GetDefenceStars(DefendingUnit.occupiedCell.occupantTerrain);
+        float TerrainStars = DefendingUnit.playerOwner.Co.GetTerrainDefenceStart(DefendingUnit.occupiedCell.occupantTerrain);
         // Debug.Log(TerrainStars);
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
-        float defenseBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? DefendingUnit.specialDefenseBoost : DefendingUnit.defenseBoost;
+        // float defenseBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? DefendingUnit.specialDefenseBoost : DefendingUnit.defenseBoost;
+        float defenseBoost = DefendingUnit.defenseBoost;
 
         float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - defenseBoost);
         Vulnerability = DefendingUnit.playerOwner.Co.BoostVulnerability(Vulnerability);

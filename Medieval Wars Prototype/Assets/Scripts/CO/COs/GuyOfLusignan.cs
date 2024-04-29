@@ -50,6 +50,7 @@ public class GuyOfLusignan : CO
 
 
     //!!!!!!! SUPER POWER 
+
     public void SetSpecialAttackAndDefenseBoostsForAllUnitsInSuperPower()
     {
         foreach (Unit unit in playerOwner.unitList)
@@ -135,11 +136,20 @@ public class GuyOfLusignan : CO
         }
     }
 
+    
+    
+    
+    
+    
     // !!!!!!!!!!!!!!!!!!!!!!
 
     public override float BoostVulnerability(float vulnerabilitToBoost)
     {
-        return vulnerabilitToBoost * 1.10f;
+        // super power  
+        if (isSuperPowerActivated) return vulnerabilitToBoost * 1.10f;
+
+        // daily power
+        else return vulnerabilitToBoost;
     }
 
 }

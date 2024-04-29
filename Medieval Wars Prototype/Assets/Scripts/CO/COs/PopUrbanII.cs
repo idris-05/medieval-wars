@@ -45,59 +45,63 @@ public class PopUrbanII : CO
     }
 
 
+
+
+
     //!!!!!!! SUPER POWER 
-    // public void SetSpecialAttackAndDefenseBoostsForAllUnitsInSuperPower()
-    // {
-    //     foreach (Unit unit in playerOwner.unitList)
-    //     {
-    //         SetSpecialAttackAndDefenseBoostsForOneUnitInSuperPower(unit);
-    //     }
-    // }
-
-    // public void SetSpecialAttackAndDefenseBoostsForOneUnitInSuperPower(Unit unit)
-    // {
-    //     switch (unit.unitName)
-    //     {
-    //         case UnitUtil.UnitName.ARCHERS:
-    //         case UnitUtil.UnitName.INFANTRY:
-    //         case UnitUtil.UnitName.BANDIT:
-    //             unit.SetSpecialAttackAndDefenseBoostsInSuperPower(1.50f, 1.10f);
-    //             break;
-
-    //         default:
-    //             break;
-    //     }
-    // }
-
-    // public void ResetSpecialAttackAndDefenseBoostsForOneUnitInSuperPower(Unit unit)
-    // {
-    //     unit.ResetSpecialAttackAndDefenseBoostsInSuperPower();
-    // }
 
 
-
-    public void SetMoveRange(Unit unit)
+    public override void ActivateSuperPower()
     {
-        switch (unit.unitName)
+        isSuperPowerActivated = true;
+        foreach (Unit unit in playerOwner.unitList)
         {
-            case UnitUtil.UnitName.CARAC:
-            case UnitUtil.UnitName.FIRESHIP:
-            case UnitUtil.UnitName.RAMSHIP:
-            case UnitUtil.UnitName.TSHIP:
-                unit.moveRange += 1;
-                break;
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.CHALVARY:
+                case UnitUtil.UnitName.RCHALVARY:
+                case UnitUtil.UnitName.FIRESHIP:
+                case UnitUtil.UnitName.RAMSHIP:
+                    if (unit.hasMoved == true)
+                    {
+                        unit.hasMoved = false;
+                        unit.unitView.ResetHighlightedUnit();
+                        unit.SetSpecialAttackAndDefenseBoostsInSuperPower(0.80f, 0.70f);
+                    }
+                    break;
+            }
+        }
 
-            default:
-                break;
+    }
+
+
+    public override void DeactivateSuperPower()
+    {
+        isSuperPowerActivated = false;
+        foreach (Unit unit in playerOwner.unitList)
+        {
+            switch (unit.unitName)
+            {
+                case UnitUtil.UnitName.CHALVARY:
+                case UnitUtil.UnitName.RCHALVARY:
+                case UnitUtil.UnitName.FIRESHIP:
+                case UnitUtil.UnitName.RAMSHIP:
+                    unit.ResetSpecialAttackAndDefenseBoostsInSuperPower();
+                    break;
+            }
         }
     }
 
 
+    //!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
     public override int GetTerrainDefenceStart(Terrain terrain)
     {
+        // daily power ONLY 
         switch (terrain.terrainName)
         {
-            case TerrainsUtils.TerrainName.BARRACK:
+            case TerrainsUtils.TerrainName.DOCK:
             case TerrainsUtils.TerrainName.SEA:
             case TerrainsUtils.TerrainName.SHOAL:
             case TerrainsUtils.TerrainName.RIVER:

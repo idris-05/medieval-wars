@@ -126,7 +126,10 @@ public class MovementSystem : MonoBehaviour
 
 
                 // int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y - 1,x].occupantTerrain.TerrainIndex, unit.unitIndex];
-                int moveleft = temp.moveleft - TerrainsUtils.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain, unit);
+                // int moveleft = temp.moveleft - TerrainsUtils.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain, unit);
+                
+                
                 if (mapGrid.grid[y - 1, x].occupantUnit != null && mapGrid.grid[y - 1, x].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
@@ -152,7 +155,7 @@ public class MovementSystem : MonoBehaviour
             if ((y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y, x + 1].isWalkable))
             {
                 // int moveleft = temp.moveleft - 1;// TerrainsUtil.MoveCost[mapGrid.grid[y , x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
-                int moveleft = temp.moveleft - TerrainsUtils.GetMoveCost(mapGrid.grid[y, x + 1].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x + 1].occupantTerrain, unit);
                 if (mapGrid.grid[y, x + 1].occupantUnit != null && mapGrid.grid[y, x + 1].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
@@ -181,7 +184,7 @@ public class MovementSystem : MonoBehaviour
             if ((y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y + 1, x].isWalkable))
             {
                 // int moveleft = temp.moveleft - 1; //TerrainsUtil.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
-                int moveleft = temp.moveleft - TerrainsUtils.GetMoveCost(mapGrid.grid[y + 1, x].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y + 1, x].occupantTerrain, unit);
                 if (mapGrid.grid[y + 1, x].occupantUnit != null && mapGrid.grid[y + 1, x].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
@@ -209,7 +212,7 @@ public class MovementSystem : MonoBehaviour
             if ((y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y, x - 1].isWalkable))
             {
                 // int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y , x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
-                int moveleft = temp.moveleft - TerrainsUtils.GetMoveCost(mapGrid.grid[y, x - 1].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x - 1].occupantTerrain, unit);
 
                 if (mapGrid.grid[y, x - 1].occupantUnit != null && mapGrid.grid[y, x - 1].occupantUnit.playerOwner != currentPlayer)
                 {

@@ -52,18 +52,21 @@ public class GameController : MonoBehaviour
     public Player currentPlayerInControl;
     public Player player1;
     public Player player2;
-
+    public CO coForTest;
     public int CurrentDayCounter;
 
     public List<Player> playerList = new List<Player>();
 
     void Awake()
     {
+        coForTest = new GameObject("COForTest").AddComponent<CO>();
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
         currentPlayerInControl = player1;
         playerList.Add(player1);
         playerList.Add(player2);
+        player1.Co = coForTest;
+        player2.Co = coForTest;
     }
     // This method is called when the object is first enabled in the scene.
     void Start()
@@ -92,7 +95,7 @@ public class GameController : MonoBehaviour
     public void SpawnUnit(Player player, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
-        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f , -1), Quaternion.identity);
+        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f, -1), Quaternion.identity);
 
         unit.playerOwner = player;
 

@@ -55,8 +55,9 @@ public class SalahadDinElAyyubi : CO
 
 
 
-
     //!!!!!!! SUPER POWER 
+
+
     public void SetSpecialAttackAndDefenseBoostsForAllUnitsInSuperPower()
     {
         foreach (Unit unit in playerOwner.unitList)

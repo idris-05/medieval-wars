@@ -80,6 +80,7 @@ public class AhmedPlayer : CO
 
     public override void ActivateSuperPower()
     {
+        AfeectBoostsToSpesialBoostsForAllUnits();
         isSuperPowerActivated = true;
         foreach (Unit unit in playerOwner.unitList)
         {
@@ -120,15 +121,7 @@ public class AhmedPlayer : CO
     public override float GetCaputeBoost(Unit unit)
     {
         // always , daily and super power .
-        switch (unit.playerOwner.Co.coName)
-        {
-            case COUtil.COName.AHMEDPLAYER:
-            case COUtil.COName.AHMEDPLAYERCLONE:
-                return 1.5f;
-
-            default:
-                return 1;
-        }
+        return 1.5f;
 
     }
 
