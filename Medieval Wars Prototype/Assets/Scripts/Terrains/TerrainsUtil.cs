@@ -90,5 +90,6 @@ public static class TerrainsUtils
     public static int[] defenceStars = { 3, 3, 3, 4, 3, 0, 0, 0, 0, 0, 1, 1, 2, 4 };
 
     public static string[] reportTerrain;
+    
 
 }
