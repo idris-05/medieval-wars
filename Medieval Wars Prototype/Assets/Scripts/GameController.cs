@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject Menu;
 
     private static GameController instance;
     public static GameController Instance
@@ -84,6 +85,10 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+         if (Input.GetKeyDown(KeyCode.Escape))
+        {
+             Menu.SetActive(true);
+        }
         CheckEndTurnInput();
     }
 
