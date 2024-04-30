@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,8 +6,6 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject Menu;
-
     private static GameController instance;
     public static GameController Instance
     {
@@ -40,6 +39,30 @@ public class GameController : MonoBehaviour
     //! ActionButtons : -4
 
 
+
+
+    //need to be changed 
+    [SerializeField] public GameObject[] Arrowprefabs = new GameObject[15];
+    [SerializeField] public Unit[] indexUnitprefab = new Unit[5];
+    [SerializeField] public Terrain[] indexTerrainprefab = new Terrain[14];
+
+    List<GameObject> arrows = new List<GameObject>();
+    //this too need to be dynamic
+    public ArrowSystem arrowSystem;
+
+    public Player neutre;
+    public List<GridCell> cellsPath = new List<GridCell>();
+
+    public List<GameObject> arrow = new List<GameObject>();
+
+    ArrowSystem.Point point;
+
+    public bool hasmoved;
+
+
+
+
+    public GameObject Menu;
     public MapGrid mapGrid; // linked from the editor 
 
     public Unit BanditArabPrefab;
@@ -70,6 +93,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
+        arrowSystem = FindAnyObjectByType<ArrowSystem>();
         SpawnUnit(player1, 5, 5, BanditArabPrefab); // test 
         SpawnUnit(player1, 6, 5, BanditArabPrefab); // test 
 
@@ -83,21 +107,98 @@ public class GameController : MonoBehaviour
     }
 
 
+    // void Update()
+    // {
+    //      if (Input.GetKeyDown(KeyCode.Escape))
+    //     {
+    //          Menu.SetActive(true);
+    //     }
+    //     CheckEndTurnInput();
+    // }
+
+
+
     void Update()
     {
-         if (Input.GetKeyDown(KeyCode.Escape))
+        /* if (Input.GetKeyDown(KeyCode.S))
         {
-             Menu.SetActive(true);
+            save();
+
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            load();
+        } */
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (cellsPath.Count > 0)
+            {
+                GridCellController.Instance.OnCellSelection(cellsPath[cellsPath.Count - 1]);
+            }
+        }
+
+        if (UnitController.Instance.selectedUnit == null)
+        {
+            hasmoved = false;
+            if (arrow.Count != 0)
+            {
+                try
+                {
+                    foreach (GameObject item in arrow)
+                    {
+                        Destroy(item);
+                    }
+
+                    arrow.Clear();
+                    cellsPath.Clear();
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("hi");
+                    Debug.Log(e);
+
+                }
+
+            }
+        }
+        else
+        {
+            if (!hasmoved)
+            {
+                if (Arrowprefabs == null) Debug.Log("Arrowprefabs is null");
+                if (UnitController.Instance.selectedUnit == null) Debug.Log("UnitController.Instance.selectedUnit is null");
+
+                point = arrowSystem.DrawArrow(Arrowprefabs, UnitController.Instance.selectedUnit.col, UnitController.Instance.selectedUnit.row, cellsPath, arrow, UnitController.Instance.selectedUnit.moveRange);
+                hasmoved = true;
+            }
+            else
+            {
+
+                point = arrowSystem.DrawArrow(Arrowprefabs, point.x, point.y, cellsPath, arrow, point.moveleft);
+                if (Input.GetKeyDown(KeyCode.K))
+                {
+                    Debug.Log(point.y + " and " + point.x);
+                }
+            }
+        }
+        /*  if (Input.GetKeyDown(KeyCode.Q)){
+             arrowSystem.DrawautoPath(mapGrid.grid[5,5].Pathlist, Arrowprefabs , cellsPath , arrow , UnitController.Instance.selectedUnit );
+         } */
+
+
         CheckEndTurnInput();
+        //! we must add the ResetAllCellsAttributsInEndTurn and ResetAllUnitsAttributsInEndTurn inside EndTurn .
     }
+
+    //player owner don't forget it !!!
 
 
     // this function is used to spawn a unit on the map
     public void SpawnUnit(Player player, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
-        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f , -1), Quaternion.identity);
+        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f, -1), Quaternion.identity);
 
         unit.playerOwner = player;
 

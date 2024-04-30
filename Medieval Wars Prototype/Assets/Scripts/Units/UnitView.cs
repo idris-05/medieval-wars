@@ -22,13 +22,14 @@ public class UnitView : MonoBehaviour
     bool isUnitHovered = false;
     bool rightButtonHolded = false;
 
-    
+
     public Animator animator;
     public UnitUtil.AnimationState currentAnimatonState;
 
     GridCell gridCellTheUnitIsMovingTowards; // i need this to animate the movement
 
     MiniIntelController miniIntelController;
+
 
     void Start()
     {
@@ -119,11 +120,15 @@ public class UnitView : MonoBehaviour
         // Create a list to store all target positions
         List<Vector3> targetPositions = new List<Vector3>();
 
-        foreach (GridCell gridCell in gridCellTheUnitIsMovingTowards.Pathlist)
+        // foreach (GridCell gridCell in gridCellTheUnitIsMovingTowards.Pathlist)
+        foreach (GridCell gridCell in GameController.Instance.cellsPath)
+
         {
+
             // Calculate target position
             Vector3 targetPosition = CalculateWorldPosition(gridCell.row, gridCell.column);
             targetPositions.Add(targetPosition);
+
         }
 
         // Start moving the character along the path
@@ -142,6 +147,7 @@ public class UnitView : MonoBehaviour
                 yield return null;
             }
             RestoreFlip();
+            Destroy(GameController.Instance.arrow[targetPositions.IndexOf(targetPosition)]);
         }
 
         // this is just to make sure our character gets to the right position

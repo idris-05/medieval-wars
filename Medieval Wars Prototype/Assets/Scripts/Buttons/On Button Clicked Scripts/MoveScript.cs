@@ -13,7 +13,7 @@ public class MoveScript : MonoBehaviour
 
         UnitController.Instance.selectedUnit.unitView.HighlightWalkablesCells();
 
-        ManageInteractableObjects.Instance.MakeOnlySpecificCellsInteractable(UnitController.Instance.selectedUnit.walkableGridCells);
+        // ManageInteractableObjects.Instance.MakeOnlySpecificCellsInteractable(UnitController.Instance.selectedUnit.walkableGridCells);
 
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.MOVE;
 
