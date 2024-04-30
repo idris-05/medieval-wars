@@ -22,14 +22,13 @@ public class UnitView : MonoBehaviour
     bool isUnitHovered = false;
     bool rightButtonHolded = false;
 
-   
-
+    
     public Animator animator;
     public UnitUtil.AnimationState currentAnimatonState;
 
     GridCell gridCellTheUnitIsMovingTowards; // i need this to animate the movement
 
-
+    MiniIntelController miniIntelController;
 
     void Start()
     {
@@ -38,8 +37,13 @@ public class UnitView : MonoBehaviour
         unitTransform = GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        miniIntelController = FindObjectOfType<MiniIntelController>();
     }
 
+    void OnMouseEnter()
+    {
+        miniIntelController.HandleMINIIntel(unit.occupiedCell);
+    }
 
     //!!!!!!! l7kaya t3 reset highlight hadi lazem ttssgem , swa pour unitView wla pour GridCell
 
@@ -105,7 +109,7 @@ public class UnitView : MonoBehaviour
         transform.position = position;
     }
 
-    public void AnimateMovement(int row, int column,bool loadIntended)
+    public void AnimateMovement(int row, int column, bool loadIntended)
     {
         gridCellTheUnitIsMovingTowards = mapGrid.grid[row, column];
 
@@ -123,7 +127,7 @@ public class UnitView : MonoBehaviour
         }
 
         // Start moving the character along the path
-        StartCoroutine(MoveAlongPath(targetPositions,row,column,loadIntended));
+        StartCoroutine(MoveAlongPath(targetPositions, row, column, loadIntended));
 
     }
     private IEnumerator MoveAlongPath(List<Vector3> targetPositions, int row, int column, bool loadIntended)
@@ -132,7 +136,7 @@ public class UnitView : MonoBehaviour
         {
             ChangeAnimationState(WhichAnimationToPlayWhenMoving(targetPosition));
             // Smoothly move towards the target position
-            while (Vector3.Distance(transform.position, targetPosition) != 0 ) 
+            while (Vector3.Distance(transform.position, targetPosition) != 0)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 yield return null;
@@ -157,14 +161,14 @@ public class UnitView : MonoBehaviour
         else
         {
             this.unit.TransitionToNumbState();
-            (mapGrid.grid[row,column].occupantUnit as UnitTransport).Load(unit);
+            (mapGrid.grid[row, column].occupantUnit as UnitTransport).Load(unit);
         }
 
     }
 
     private UnitUtil.AnimationState WhichAnimationToPlayWhenMoving(Vector3 targetPosition)
     {
-        if ( transform.position.x - targetPosition.x > 0 && unit.playerOwner == GameController.Instance.player1 )
+        if (transform.position.x - targetPosition.x > 0 && unit.playerOwner == GameController.Instance.player1)
         {
             this.spriteRenderer.flipX = true;
             return UnitUtil.AnimationState.SIDE_WALK;
@@ -186,7 +190,7 @@ public class UnitView : MonoBehaviour
             return UnitUtil.AnimationState.SIDE_WALK;
         }
 
-        if (transform.position.y - targetPosition.y > 0 )
+        if (transform.position.y - targetPosition.y > 0)
         {
             return UnitUtil.AnimationState.DOWN_WALK;
         }
@@ -221,7 +225,8 @@ public class UnitView : MonoBehaviour
     public void HighlightAsSelected()
     {
         spriteRenderer.color = Color.green;
-    }    public void HighlightAsInNumbState()
+    }
+    public void HighlightAsInNumbState()
     {
         spriteRenderer.color = Color.black;
     }
@@ -295,7 +300,7 @@ public class UnitView : MonoBehaviour
 
         animator.Play(GetAnimationStateString(newAnimationState));
 
-        currentAnimatonState = newAnimationState ;
+        currentAnimatonState = newAnimationState;
 
     }
 

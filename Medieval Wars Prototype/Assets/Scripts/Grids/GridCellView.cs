@@ -5,11 +5,13 @@ public class GridCellView : MonoBehaviour
     private GridCell gridCell;
     public SpriteRenderer rend;
 
-   public bool  isHighlightedAsAttackble = false ; // we need it in get attackable .
+    public bool isHighlightedAsAttackble = false; // we need it in get attackable .
 
+    public MiniIntelController miniIntelController;
 
     void Start()
     {
+        miniIntelController = FindObjectOfType<MiniIntelController>();
         gridCell = GetComponent<GridCell>();
         rend = GetComponent<SpriteRenderer>();
     }
@@ -22,8 +24,22 @@ public class GridCellView : MonoBehaviour
         //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE ____AHMED AND RAYANE !!!!!!!!!!
     }
 
+    // this methode is called every frame 
+    // void OnMouseOver()
+    // {
+    //     miniIntelController.HandleMINIIntel(gridCell);
+    // }
 
-// !!! hilghiht hado nwello fi plasset la coleure nbdlo sprite .
+    // called only once when the mouse enter the cell
+    //!  hadi fiha probleme ki n5dmo biha , ki ykon 9a3ed mhovri 3la la meme cell wttbdel l'info ta3ha , mr7ch ttbdel fl INTEL hadik 7ta y5roj wy3awed yd5ollha . 
+    void OnMouseEnter()
+    {
+        miniIntelController.HandleMINIIntel(gridCell);
+    }
+
+
+
+    // !!! hilghiht hado nwello fi plasset la coleure nbdlo sprite .
 
 
     public void HighlightAsWalkable()
@@ -41,15 +57,15 @@ public class GridCellView : MonoBehaviour
 
     public void HighlightAsAttackable()
     {
-        isHighlightedAsAttackble = true ;
+        isHighlightedAsAttackble = true;
         rend.color = Color.red;
     }
 
 
     public void ResetHighlitedCell()
     {
-        gridCell.isWalkable = false ;
-        isHighlightedAsAttackble = false ; //!! ??????
+        gridCell.isWalkable = false;
+        isHighlightedAsAttackble = false; //!! ??????
         rend.color = Color.white;
         gridCell.occupantTerrain.spriteRenderer.color = Color.white;
     }

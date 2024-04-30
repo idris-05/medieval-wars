@@ -3639,7 +3639,7 @@ MonoBehaviour:
   - {fileID: 424858643333420328, guid: d6aeb6b6f5fecc94cbadf7c6a92e740d, type: 3}
   - {fileID: 424858643333420328, guid: c4ab1bc078ff44d42a1b511652d44d1d, type: 3}
   - {fileID: 424858643333420328, guid: 39ad22bc7030b74419b57073b4418c8b, type: 3}
-  - {fileID: 424858643333420328, guid: da434be78c1ac1e4b8cf5357fe3eaf13, type: 3}
+  - {fileID: -7834403587293242022, guid: da434be78c1ac1e4b8cf5357fe3eaf13, type: 3}
   - {fileID: 424858643333420328, guid: d94de2f28cb9e08449ff2666c2021eed, type: 3}
   - {fileID: 424858643333420328, guid: 44c400b1f8428594bab0ae65c0faae8f, type: 3}
   - {fileID: 424858643333420328, guid: c8337c5a9ecb80b41b18eaf6264bde9f, type: 3}
@@ -10608,6 +10608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838429716}
+  - component: {fileID: 838429717}
   m_Layer: 5
   m_Name: mini-Info
   m_TagString: Untagged
@@ -10638,6 +10639,35 @@ RectTransform:
   m_AnchoredPosition: {x: -17, y: -42}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &838429717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838429715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d056c59e9bc24c9d01a002247c364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 322461928}
+  terrain: {fileID: 235554845}
+  unit: {fileID: 1965438439}
+  loadedUnit: {fileID: 115665422}
+  terrainTitle: {fileID: 142458709}
+  terrainSprite: {fileID: 1907514157}
+  terrainDefenceNumber: {fileID: 1339477010}
+  buildingTitle: {fileID: 1539046499}
+  buildingSprite: {fileID: 1484856186}
+  buildingDefenceNumber: {fileID: 1179065347}
+  buildingCaptureNumber: {fileID: 1837240770}
+  unitTitle: {fileID: 77057294}
+  unitSprite: {fileID: 435118138}
+  unitHPNumber: {fileID: 1246365600}
+  unitDurabilityNumber: {fileID: 1372961149}
+  unitRationNumber: {fileID: 532994249}
+  loadedUnitSprite: {fileID: 1884759437}
 --- !u!1 &916025444
 GameObject:
   m_ObjectHideFlags: 0
@@ -10907,6 +10937,7 @@ MonoBehaviour:
   Infantry1Prefab: {fileID: -7903265091803169806, guid: e3b6cb70c23b96d47a8fff974a9f4b45, type: 3}
   Infantry1PrefabTransport: {fileID: 5655664627314001093, guid: 3cbf74a8795bc3a499951dd5d8fd6206, type: 3}
   Infantry2Prefab: {fileID: 3053719795026352162, guid: f59bae1b4fcb1614c8e49fa00a52fd5c, type: 3}
+  caravane: {fileID: 0}
   currentPlayerInControl: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
@@ -10934,7 +10965,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961498741}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4499e59c30457084a9ccff4f6bb81670, type: 3}
@@ -21438,6 +21469,10 @@ PrefabInstance:
     - target: {fileID: 7622157184019175378, guid: 47935a45913226248b019a12606cab2e, type: 3}
       propertyPath: m_Name
       value: Scene Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 7622157184019175378, guid: 47935a45913226248b019a12606cab2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

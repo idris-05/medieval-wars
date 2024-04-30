@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 4884540965997139755}
   isHighlightedAsAttackble: 0
+  miniIntelController: {fileID: 0}
 --- !u!212 &4884540965997139755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -158,7 +159,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
