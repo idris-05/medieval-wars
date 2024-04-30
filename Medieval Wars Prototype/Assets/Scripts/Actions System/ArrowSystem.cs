@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-// using UnityEditor.UI;
 using UnityEngine;
 using Unity.IO;
 using System.Linq;
@@ -46,10 +45,14 @@ public class ArrowSystem : MonoBehaviour
         return arrow;
 
     }
+
     public static void DestroyArrow(GameObject arrow)
     {
         Destroy(arrow);
     }
+
+
+
     public int DrawautoPath(List<GridCell> Path, GameObject[] arrowprefabs, List<GridCell> cellsPath, List<GameObject> arrows, Unit unit)
     {
         int moveleft = unit.moveRange;
@@ -59,6 +62,7 @@ public class ArrowSystem : MonoBehaviour
         }
         arrows.Clear();
         cellsPath.Clear();
+
         foreach (GridCell cell in Path)
         {
             if (cell == Path[0])
@@ -205,6 +209,10 @@ public class ArrowSystem : MonoBehaviour
         }
         return moveleft;
     }
+
+
+
+
     public struct Point
     {
         public int x;

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4268678598860308650}
-  - component: {fileID: 424858643333420328}
   - component: {fileID: -2743200511141304461}
+  - component: {fileID: -5937045402966117136}
   m_Layer: 0
   m_Name: 3TerrainCastlePrefab
   m_TagString: Untagged
@@ -33,24 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &424858643333420328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6459883537789037816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc64c87369320a499913d89402e244d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrainName: 3
-  spriteRenderer: {fileID: -2743200511141304461}
-  TerrainIndex: 3
-  incomingFunds: 0
-  row: 0
-  col: 0
 --- !u!212 &-2743200511141304461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -103,3 +85,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5937045402966117136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6459883537789037816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669b1215803b42d47af431b0c1a31606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainName: 3
+  spriteRenderer: {fileID: -2743200511141304461}
+  TerrainIndex: 3
+  incomingFunds: 0
+  row: 0
+  col: 0
+  playerOwner: {fileID: 0}
+  remainningPointsToCapture: 0
+  MaxRemainningPointsToCapture: 0

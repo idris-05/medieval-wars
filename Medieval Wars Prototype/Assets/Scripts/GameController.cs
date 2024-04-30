@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
     }
 
 
+
     //!     Order in Layer :
 
     //! GridCells : 0
@@ -42,15 +43,15 @@ public class GameController : MonoBehaviour
 
 
     //need to be changed 
+
     [SerializeField] public GameObject[] Arrowprefabs = new GameObject[15];
-    [SerializeField] public Unit[] indexUnitprefab = new Unit[5];
+    [SerializeField] public Unit[] indexUnitprefab = new Unit[13];
     [SerializeField] public Terrain[] indexTerrainprefab = new Terrain[14];
 
-    List<GameObject> arrows = new List<GameObject>();
+    // List<GameObject> arrows = new List<GameObject>();
     //this too need to be dynamic
     public ArrowSystem arrowSystem;
 
-    public Player neutre;
     public List<GridCell> cellsPath = new List<GridCell>();
 
     public List<GameObject> arrow = new List<GameObject>();
@@ -76,6 +77,7 @@ public class GameController : MonoBehaviour
     public Player currentPlayerInControl;
     public Player player1;
     public Player player2;
+    public Player playerNeutre;
 
     public int CurrentDayCounter;
 
@@ -88,10 +90,14 @@ public class GameController : MonoBehaviour
         MapManager.Instance.LoadMapData();
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
+        playerNeutre = new GameObject("PlayerNeutre").AddComponent<Player>();
         currentPlayerInControl = player1;
         playerList.Add(player1);
         playerList.Add(player2);
+
+
     }
+
     // This method is called when the object is first enabled in the scene.
     void Start()
     {
@@ -107,6 +113,8 @@ public class GameController : MonoBehaviour
 
         //SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
 
+        // SpawnBuilding(player1, 8, 7, (Building)indexTerrainprefab[3]);
+
     }
 
 
@@ -121,17 +129,153 @@ public class GameController : MonoBehaviour
 
 
 
+
+
+
+    public void LoadbuildingsToMap(SavingSystem.playerUnitsInfos playerInfos)
+    {
+        Player player;
+        if (playerInfos.player == 1)
+        {
+            player = player1;
+        }
+        else
+        {
+            if (playerInfos.player == 2)
+            {
+                player = player2;
+            }
+            else
+            {
+                player = playerNeutre;
+
+            }
+        }
+        player.buildingList.Clear();
+        foreach (SavingSystem.Buildingdata buildingdata in playerInfos.buildings)
+        {
+            Building building;
+            building = SpawnBuilding(player, buildingdata.row, buildingdata.col, (Building)indexTerrainprefab[buildingdata.Buildingtype]);
+            building.remainningPointsToCapture = buildingdata.remainningPointsToCapture;
+        }
+
+
+    }
+
+
+    public void LaodUnitsToMap(SavingSystem.playerUnitsInfos playerinfos)
+    {
+        Player player = playerinfos.player == 1 ? player1 : player2;
+        player.unitList.Clear();
+
+        foreach (SavingSystem.UnitData unitData in playerinfos.unitdatas)
+        {
+            if (unitData.ammo == -1)
+            {
+                UnitTransport unit;
+                unit = (UnitTransport)SpawnUnit(player, unitData.row, unitData.col, indexUnitprefab[unitData.type]);
+                unit.healthPoints = unitData.hp;
+                unit.hasMoved = unitData.hasMoved;
+                unit.numbState = unitData.numbState;
+                unit.ration = unitData.rations;
+            }
+            else
+            {
+                UnitAttack unit;
+                unit = (UnitAttack)SpawnUnit(player, unitData.row, unitData.col, indexUnitprefab[unitData.type]);
+                unit.durability = unitData.ammo;
+                unit.healthPoints = unitData.hp;
+                unit.hasMoved = unitData.hasMoved;
+                unit.numbState = unitData.numbState;
+                unit.ration = unitData.rations;
+            }
+        }
+
+    }
+
+
+
+    public void loadplayer(string path)
+    {
+        SavingSystem.playerUnitsInfos unitPlayerdatas = new SavingSystem.playerUnitsInfos();
+        unitPlayerdatas.unitdatas = new List<SavingSystem.UnitData>();
+        unitPlayerdatas = SavingSystem.Infoload(path);
+        Debug.Log("loaded");
+        if (unitPlayerdatas.player != 0)
+        {
+            LaodUnitsToMap(unitPlayerdatas);
+        }
+        LoadbuildingsToMap(unitPlayerdatas);
+
+    }
+
+
+
+    public void save()
+    {
+        SavingSystem.SavePlayer(player1, SavingSystem.PATH1, 1);
+        SavingSystem.SavePlayer(player2, SavingSystem.PATH2, 2);
+        SavingSystem.SavePlayer(playerNeutre, SavingSystem.PATHN, 0);
+
+        Debug.Log("saved");
+    }
+
+
+
+    public void load()
+    {
+        loadplayer(SavingSystem.PATH1);
+        loadplayer(SavingSystem.PATH2);
+        loadplayer(SavingSystem.PATHN);
+
+        Debug.Log("loaded");
+    }
+
+
+
+    /*  public void newGame(){
+
+     } */
+
+
+
+
+    public Building SpawnBuilding(Player player, int row, int col, Building buildingprefab)
+    {
+
+        Building building = Instantiate(buildingprefab, new Vector3(-16 + col + 0.5f, 9 - row - 0.5f, -1), Quaternion.identity);
+
+
+        building.playerOwner = player;
+
+        player.AddBuilding(building);
+
+        building.gameObject.AdjustSpriteSize();
+
+        mapGrid.grid[row, col].occupantTerrain = building;
+
+        building.row = row;
+
+        building.col = col;
+
+        return building;
+
+    }
+
+
+
+
     void Update()
     {
-        /* if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             save();
 
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             load();
-        } */
+        }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -198,7 +342,7 @@ public class GameController : MonoBehaviour
 
 
     // this function is used to spawn a unit on the map
-    public void SpawnUnit(Player player, int row, int column, Unit unitPrefab)
+    public Unit SpawnUnit(Player player, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
         Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f, -1), Quaternion.identity);
@@ -221,6 +365,7 @@ public class GameController : MonoBehaviour
 
         if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
+        return unit;
     }
 
 

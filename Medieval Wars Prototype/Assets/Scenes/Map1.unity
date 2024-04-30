@@ -8867,10 +8867,10 @@ MonoBehaviour:
   AccessoriesSprites: []
   GridCellPrefab: {fileID: -3587581034812915052, guid: df91c92e29b3f2a40b52fbc0a3d2ebe6, type: 3}
   terrainPrefabs:
-  - {fileID: 424858643333420328, guid: 2e6e85324e93c674884291b113162ac2, type: 3}
-  - {fileID: 424858643333420328, guid: d6aeb6b6f5fecc94cbadf7c6a92e740d, type: 3}
-  - {fileID: 424858643333420328, guid: c4ab1bc078ff44d42a1b511652d44d1d, type: 3}
-  - {fileID: 424858643333420328, guid: 39ad22bc7030b74419b57073b4418c8b, type: 3}
+  - {fileID: -4589125308858636811, guid: 2e6e85324e93c674884291b113162ac2, type: 3}
+  - {fileID: -3037413020320436805, guid: d6aeb6b6f5fecc94cbadf7c6a92e740d, type: 3}
+  - {fileID: 4624920734213554999, guid: c4ab1bc078ff44d42a1b511652d44d1d, type: 3}
+  - {fileID: -5937045402966117136, guid: 39ad22bc7030b74419b57073b4418c8b, type: 3}
   - {fileID: -7834403587293242022, guid: da434be78c1ac1e4b8cf5357fe3eaf13, type: 3}
   - {fileID: 424858643333420328, guid: d94de2f28cb9e08449ff2666c2021eed, type: 3}
   - {fileID: 424858643333420328, guid: 44c400b1f8428594bab0ae65c0faae8f, type: 3}
@@ -9703,7 +9703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &560314223
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21913,23 +21913,30 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2654075239046433566, guid: f473b15a94159414a8b90632a8e1d69a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   indexTerrainprefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  arrowSystem: {fileID: 0}
-  neutre: {fileID: 0}
+  - {fileID: -4589125308858636811, guid: 2e6e85324e93c674884291b113162ac2, type: 3}
+  - {fileID: -3037413020320436805, guid: d6aeb6b6f5fecc94cbadf7c6a92e740d, type: 3}
+  - {fileID: 4624920734213554999, guid: c4ab1bc078ff44d42a1b511652d44d1d, type: 3}
+  - {fileID: -5937045402966117136, guid: 39ad22bc7030b74419b57073b4418c8b, type: 3}
+  - {fileID: -7834403587293242022, guid: da434be78c1ac1e4b8cf5357fe3eaf13, type: 3}
+  - {fileID: 424858643333420328, guid: d94de2f28cb9e08449ff2666c2021eed, type: 3}
+  - {fileID: 424858643333420328, guid: 44c400b1f8428594bab0ae65c0faae8f, type: 3}
+  - {fileID: 424858643333420328, guid: c8337c5a9ecb80b41b18eaf6264bde9f, type: 3}
+  - {fileID: 424858643333420328, guid: 3917409f6aa3a1b4381781732a482d56, type: 3}
+  - {fileID: 424858643333420328, guid: 609f69657bbf00a4ea5b6fb2b692756f, type: 3}
+  - {fileID: 424858643333420328, guid: eb8190de027ae1749a1da72801d7e14f, type: 3}
+  - {fileID: 424858643333420328, guid: b44e0ff2f38197b41ab697271e7512cb, type: 3}
+  - {fileID: 424858643333420328, guid: 0738168fc9589bd4b9dfa8849a1f0ec8, type: 3}
+  - {fileID: 424858643333420328, guid: e0980d24eb0adca44b09cdf708b5a96a, type: 3}
+  arrowSystem: {fileID: 1392421041}
   cellsPath: []
   arrow: []
   hasmoved: 0
@@ -21942,6 +21949,7 @@ MonoBehaviour:
   currentPlayerInControl: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  playerNeutre: {fileID: 0}
   CurrentDayCounter: 0
   playerList: []
 --- !u!4 &961498743
