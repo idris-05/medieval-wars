@@ -79,12 +79,12 @@ public class MapManager : MonoBehaviour
 
 
 
-    void Awake()
-    {
-        InitializeListOfTerrainSpritesLists();
-        // mapGrid.CreateMapGridCellsMatrix();
-        LoadMapData();
-    }
+    // void Awake()
+    // {
+    //     InitializeListOfTerrainSpritesLists();
+    //     // mapGrid.CreateMapGridCellsMatrix();
+    //     LoadMapData();
+    // }
 
     // !!!!!
     // Define a class to represent a cell on the map
@@ -390,7 +390,7 @@ public class MapManager : MonoBehaviour
         return jsonString;
     }
 
-    private void InitializeListOfTerrainSpritesLists()
+    public void InitializeListOfTerrainSpritesLists()
     {
         listOfTerrainSpritesLists = new List<TileBase>[15] {
         BarrackTileSprites,

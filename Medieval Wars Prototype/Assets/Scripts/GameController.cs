@@ -83,6 +83,9 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        MapManager.Instance.InitializeListOfTerrainSpritesLists();
+        // mapGrid.CreateMapGridCellsMatrix();
+        MapManager.Instance.LoadMapData();
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
         currentPlayerInControl = player1;
