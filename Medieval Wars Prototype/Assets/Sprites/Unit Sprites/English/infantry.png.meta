@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a06dd58c7b404314590d5e31cbe8f61a
-      internalID: -1473640472
+      spriteID: f799d2e34935cc845ba044a4a59e8903
+      internalID: -1408860692
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5516cffdb5c60e47a7eec88fc0dff84
-      internalID: -2010217859
+      spriteID: 2bb6ae60a962f2b4f88c6e5fe576833f
+      internalID: -319674739
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 137c420f12399b14c92e8fd04d9ae9d6
-      internalID: 882461988
+      spriteID: a8cc05d17d0192748b680910d811e0f0
+      internalID: -1730997544
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd3ace20d74e7a549b07516bfd14cc74
-      internalID: 741579019
+      spriteID: 76eb8164584ea4f4096ceffb100adf30
+      internalID: -1974384321
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b922659d448bd24eaa60cb39ceb75df
-      internalID: 725034279
+      spriteID: 534e8f801824de84a8b1b8f322fda44a
+      internalID: -1176015088
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 363b894df83917345bb139a51c92e9ea
-      internalID: 408770424
+      spriteID: f27537b9612a75343ac0557ab7cc0c72
+      internalID: 1549537105
       vertices: []
       indices: 
       edges: []
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3279e6a5987af4429c295ae81a6c437
-      internalID: 383915225
+      spriteID: a90803a089c95e448ab87e3f7654005d
+      internalID: 1667475973
       vertices: []
       indices: 
       edges: []
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96a4a5b031ba3794a957b15263017720
-      internalID: -1427055438
+      spriteID: 106c5c857b0f7da4981232940225f24a
+      internalID: -213772897
       vertices: []
       indices: 
       edges: []
@@ -292,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 999470e0873dffd4ba89d0458b004966
-      internalID: 450917426
+      spriteID: 8c384e01bea0cfa46944b17c92e4694a
+      internalID: 824369300
       vertices: []
       indices: 
       edges: []
@@ -313,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af08d18343a85564c9a6c765c99228cf
-      internalID: 1680538806
+      spriteID: fc003f8d50deb8344ae54e02e272bac7
+      internalID: -285610292
       vertices: []
       indices: 
       edges: []
@@ -334,8 +334,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c24040d9f2b819c469d61ea27bbf1392
-      internalID: 1431132762
+      spriteID: 6120d6d4d6c699845ba5892ddd139b73
+      internalID: 1741105063
       vertices: []
       indices: 
       edges: []
@@ -355,8 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3de35a97b931973479d39001873e144a
-      internalID: 1635272919
+      spriteID: 148a899401745504a95e1d58fdfeafc1
+      internalID: 439482776
       vertices: []
       indices: 
       edges: []
@@ -376,8 +376,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e94876f268dc9434aabbacc58f80d46a
-      internalID: -1508006182
+      spriteID: 3143fefb768efd247b129a38c2e16b19
+      internalID: -2093636201
       vertices: []
       indices: 
       edges: []
@@ -397,8 +397,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff8580ad7cddc7944b90f08fcd8cb3a4
-      internalID: 2100882316
+      spriteID: 0eceb9394228d15499e65588d2ef2f74
+      internalID: 1224527268
       vertices: []
       indices: 
       edges: []
@@ -418,8 +418,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e829a24a3386ee42875b6ea2d7bdabe
-      internalID: 1978492817
+      spriteID: aa43b6f0d97e5d24bbadc4284ee7ebb1
+      internalID: -611632756
       vertices: []
       indices: 
       edges: []
@@ -439,8 +439,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e90dc7101ee62bf4cb0598d1682df4c9
-      internalID: -1830960931
+      spriteID: 0635531a4763acc4d94ce34d7c1007cd
+      internalID: 2132891906
       vertices: []
       indices: 
       edges: []
@@ -460,8 +460,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4417d6162a6146f43809b3519831375a
-      internalID: 1538895024
+      spriteID: 9682457d42d861445933f21954692714
+      internalID: 540422989
       vertices: []
       indices: 
       edges: []
@@ -481,8 +481,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 567c8fbe95cc4c6459d061eb96ff00a1
-      internalID: -1692540608
+      spriteID: bfbaedaeca5dbc842bb72ea4af1bd292
+      internalID: 1634380795
       vertices: []
       indices: 
       edges: []
@@ -502,8 +502,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3590948793bbec4782d5ad08a975197
-      internalID: 1315203142
+      spriteID: b9fb0db1d36b02a41800afe5c12db839
+      internalID: 124294307
       vertices: []
       indices: 
       edges: []
@@ -523,8 +523,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b4980e2db63e8142b596a3d4659a890
-      internalID: -127413393
+      spriteID: 2055bb94847819a42b0d7a490b420eaf
+      internalID: -732381944
       vertices: []
       indices: 
       edges: []
@@ -544,8 +544,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d040ed3f496e0c94c88a268ba2b3ad13
-      internalID: 1374922043
+      spriteID: 8c237423447951e4c9ca6e678e47d480
+      internalID: 853538184
       vertices: []
       indices: 
       edges: []
@@ -565,8 +565,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bbd9aaecfb06204da3ba1f84e949e74
-      internalID: 1846087221
+      spriteID: 259168c98b27564498ab1c7d1997a338
+      internalID: 1592839062
       vertices: []
       indices: 
       edges: []
@@ -586,8 +586,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: febf15ffd3865894b94ffa4e86806c31
-      internalID: 694886673
+      spriteID: ca84cd8e10896da4db32343ae9c04ac0
+      internalID: -887939382
       vertices: []
       indices: 
       edges: []
@@ -607,8 +607,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54918d295d7a1e44fa08d2805aec472b
-      internalID: 1160884810
+      spriteID: b1bab138dcc57d04cb56026616ffa7ab
+      internalID: 1610373183
       vertices: []
       indices: 
       edges: []
@@ -628,8 +628,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fb9c00f7ae979847add09d6ab709f6c
-      internalID: 347387904
+      spriteID: 7265952d67d47384880634e9368495cf
+      internalID: -909425458
       vertices: []
       indices: 
       edges: []
@@ -649,8 +649,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c61a0d15636ed14f9395b98ebe4606e
-      internalID: 197554687
+      spriteID: 0fe3f1a4afe352846aeca14826fbd831
+      internalID: -1480919050
       vertices: []
       indices: 
       edges: []
@@ -670,8 +670,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e6e39b2fa8914442bddebc102845198
-      internalID: 491837672
+      spriteID: cf5a69e6e1fc68143ac425a08d472b6c
+      internalID: -1053659603
       vertices: []
       indices: 
       edges: []
@@ -691,8 +691,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f62f379951ce13549a3bf5d0e1209660
-      internalID: 1132413877
+      spriteID: be9a65937d0648348b36998d781a6ae7
+      internalID: 317231591
       vertices: []
       indices: 
       edges: []
@@ -712,8 +712,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2943dff766220c4ebac9e663c6c6064
-      internalID: -716703167
+      spriteID: 4f8a7f207040e02478fb00fd7971d50a
+      internalID: -1767280745
       vertices: []
       indices: 
       edges: []
@@ -733,8 +733,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 592c40cc2ad29e449b879365f52a6d17
-      internalID: 32488969
+      spriteID: 3282df49758ed274d92c3520fab7f6bf
+      internalID: -1073192762
       vertices: []
       indices: 
       edges: []
@@ -754,8 +754,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9419defd63e61b7419643aca6853143f
-      internalID: -1846216648
+      spriteID: 91ad79993a8b9c443848bba1d3e5dac8
+      internalID: -447577996
       vertices: []
       indices: 
       edges: []
@@ -775,8 +775,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a5550c0f9b73a3459083d8edc773da4
-      internalID: -2048196055
+      spriteID: 2cefef5893f65d14cb9185cdd81341b9
+      internalID: -979242894
       vertices: []
       indices: 
       edges: []
@@ -796,8 +796,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 506672edf74281041ac18f3dc5974e62
-      internalID: 1524819079
+      spriteID: 9aa5fa1aa58ddff43aba3c0c1b2f86ca
+      internalID: 1597537297
       vertices: []
       indices: 
       edges: []
@@ -817,8 +817,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd079c22f8baa1d47a082cb04c728d23
-      internalID: -272386815
+      spriteID: b85afb74681713d4a9bc90bfabddfc81
+      internalID: -1169589095
       vertices: []
       indices: 
       edges: []
@@ -838,8 +838,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba4cd8e11fc3294fbfb1f584fa1a198
-      internalID: -1973540419
+      spriteID: 152678694fa07674ea62d62b220b118a
+      internalID: 1194215325
       vertices: []
       indices: 
       edges: []
@@ -859,8 +859,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c2cf317df7c4a9448df77401af9c834
-      internalID: 864567811
+      spriteID: 29ef25e271b5136448c10c5672937884
+      internalID: -560407266
       vertices: []
       indices: 
       edges: []
@@ -880,8 +880,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c836ce69fe48e9c419412220ee3adf91
-      internalID: -175700128
+      spriteID: 1c926159bb73ae349a9df55692b3ca48
+      internalID: 1242681666
       vertices: []
       indices: 
       edges: []
@@ -901,8 +901,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84070d2707abda842b14e1f552c4cbae
-      internalID: 1038435559
+      spriteID: 6fa7244e13fbee145b8ed7b3afb6d626
+      internalID: 1303438916
       vertices: []
       indices: 
       edges: []
@@ -922,8 +922,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f895d5c7b9f42954084c1417a1f5e298
-      internalID: -121352574
+      spriteID: 7901345bb549dbb42827fc5430eca59c
+      internalID: 1507804297
       vertices: []
       indices: 
       edges: []
@@ -943,8 +943,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 303ff3b7ed0e5ef4c9a685a9c6dec009
-      internalID: 275940617
+      spriteID: bf648f7fd0c6de2429840f5c9cca68f7
+      internalID: 1636180465
       vertices: []
       indices: 
       edges: []
@@ -964,8 +964,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaff1f576ee6ed043a73fa5efae79e6d
-      internalID: 1480892868
+      spriteID: 242f339fac48b1547b383982a639363c
+      internalID: -1411517103
       vertices: []
       indices: 
       edges: []
@@ -985,8 +985,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60e0576a9f15430468c1fc8f6b64c235
-      internalID: 2062616287
+      spriteID: 57eeeb8129ebc334ab8f67a2719fe79e
+      internalID: -725007602
       vertices: []
       indices: 
       edges: []
@@ -1006,8 +1006,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fce45ae444e27642802c05583af13a4
-      internalID: 400306357
+      spriteID: 84d183a6053c66e4f8f69b848a230b25
+      internalID: -1702768381
       vertices: []
       indices: 
       edges: []
@@ -1027,8 +1027,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dae068daad9ace4ea286c98a5b0aafa
-      internalID: 1146262680
+      spriteID: 7961f2ae7dcf1c94e9bc7606aee20f50
+      internalID: -1165983040
       vertices: []
       indices: 
       edges: []
@@ -1048,8 +1048,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df9b558d71f7910429c0b4c02724c48d
-      internalID: -616402074
+      spriteID: 7ae6feee8a9c75348aa57e2a3b6b6b54
+      internalID: -2005598816
       vertices: []
       indices: 
       edges: []
@@ -1069,8 +1069,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cb540ecdbfa81a469c05c4a8697127f
-      internalID: -929217168
+      spriteID: 4eed3441f910f624bb6945ed8e276c2b
+      internalID: -291758388
       vertices: []
       indices: 
       edges: []
@@ -1090,8 +1090,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 751b89fecd0a7cd4c8e52a894cc9f63f
-      internalID: 1065947743
+      spriteID: 1543d78ad26732443ac15b92e6411994
+      internalID: -1953845287
       vertices: []
       indices: 
       edges: []
@@ -1111,8 +1111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a52c18756bb80f46bbd84d2a242d919
-      internalID: -470119
+      spriteID: 0bfafb53ac38edb4fae15367476abf97
+      internalID: -1290199731
       vertices: []
       indices: 
       edges: []
@@ -1132,8 +1132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57594f22db5837a43900492a13d67d0d
-      internalID: -1033902798
+      spriteID: 90762aa3a6f086a428116debf731055f
+      internalID: 2123008290
       vertices: []
       indices: 
       edges: []
@@ -1153,8 +1153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f48b42c3a59eb3c4d80a3e4610e28d4d
-      internalID: -1755512471
+      spriteID: cfd8d355901287349bc2b2cc018e8979
+      internalID: -1935159864
       vertices: []
       indices: 
       edges: []
@@ -1174,8 +1174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eccf1d8409f21cf42a3d38a1f3b4943e
-      internalID: -1599354205
+      spriteID: 481d9b84e39ea6b4cb74642bd7362a9a
+      internalID: -1355980581
       vertices: []
       indices: 
       edges: []
@@ -1195,8 +1195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6410b530ed67e0d449f98cf7dd5e153e
-      internalID: 311757161
+      spriteID: 126cbc18d7f93f54facebc6f9df3f286
+      internalID: 295780842
       vertices: []
       indices: 
       edges: []
@@ -1216,8 +1216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72508b8c24e067f4a90585eed1f6836e
-      internalID: -1457778322
+      spriteID: 1ab421107796e984fa75e251891bf553
+      internalID: 234724481
       vertices: []
       indices: 
       edges: []
@@ -1237,8 +1237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a56acc76d5bbab43bdba662eb2b043d
-      internalID: -538921304
+      spriteID: beb585b700900bb43b7f8bc2970815b3
+      internalID: 324197417
       vertices: []
       indices: 
       edges: []
@@ -1258,8 +1258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1015af073446f4d42a8354a15dcf0639
-      internalID: -234553071
+      spriteID: 7183348524f8dbd44bca022b28579587
+      internalID: 599145583
       vertices: []
       indices: 
       edges: []
@@ -1279,8 +1279,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56496974f46964a4183f8a9aeebcf610
-      internalID: -1817748027
+      spriteID: 35e31f8143b51c84ba1db5847cfc2aca
+      internalID: -500169253
       vertices: []
       indices: 
       edges: []
@@ -1300,8 +1300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67e89f1eba22cd54b8c8dc16a62c5c48
-      internalID: 589512440
+      spriteID: e669e4595de35d84fb6f4ce5c5ec4794
+      internalID: -464932572
       vertices: []
       indices: 
       edges: []
@@ -1321,8 +1321,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eafa8511183ce2c48ac364f09f335b39
-      internalID: -809982178
+      spriteID: c5adc0036c0d9354ab1d2107ebbdab39
+      internalID: -563850170
       vertices: []
       indices: 
       edges: []
@@ -1342,8 +1342,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59d14128954d8e7409b77df8d0d63a55
-      internalID: -1299319851
+      spriteID: e0ad723482ec627458f34191fb7b7d39
+      internalID: 1414040472
       vertices: []
       indices: 
       edges: []
@@ -1363,8 +1363,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4fcbdeb086c7eb4eb938b784b7cece6
-      internalID: -1203207330
+      spriteID: b71a7fc44b8e89a468068169c188e84e
+      internalID: -1480866711
       vertices: []
       indices: 
       edges: []
@@ -1384,8 +1384,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a430a5e3fcdf08c4489f4755111f315d
-      internalID: -1132111784
+      spriteID: ad02ffb42f206704cbe2041e3b2fb5a3
+      internalID: -1750678369
       vertices: []
       indices: 
       edges: []
@@ -1405,8 +1405,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7d49db9ce9c04646a33cf10428f07a6
-      internalID: -1969783996
+      spriteID: b824fdb9251ee5d4ba9c6026ad1e8b91
+      internalID: 1851596592
       vertices: []
       indices: 
       edges: []
@@ -1426,8 +1426,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7aa89e8415c895e4e86ad0cb9c749bfc
-      internalID: 2015313653
+      spriteID: d7275e684c2a5724894a9ad66d56de91
+      internalID: 913920699
       vertices: []
       indices: 
       edges: []
@@ -1447,8 +1447,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7d89b70980d3354c88517d392c28e04
-      internalID: -126979953
+      spriteID: d0e7952a5f2b9424dafa7396e7f058b7
+      internalID: -501711501
       vertices: []
       indices: 
       edges: []
@@ -1468,8 +1468,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f1c0b164cc94d64294c2bebffc18cde
-      internalID: -2051778571
+      spriteID: db8c5d59ce3a2114d8d8b09f1a8f5601
+      internalID: 1523242221
       vertices: []
       indices: 
       edges: []
@@ -1489,8 +1489,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6376b9a0c6b937248aa402a0635d94da
-      internalID: -625558996
+      spriteID: 7651e8ce410ae2e47ada4fdedee6328b
+      internalID: -1013573863
       vertices: []
       indices: 
       edges: []
@@ -1510,8 +1510,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb1247717679a594598e700a08ea5129
-      internalID: -561346510
+      spriteID: c4d36be6c6fa79744b82f9915f131aee
+      internalID: -1806742655
       vertices: []
       indices: 
       edges: []
@@ -1531,8 +1531,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffe615114abfad645a97887643982cd3
-      internalID: -1345018814
+      spriteID: d5f82c4b172a10a49a9149396ba0d006
+      internalID: -581420997
       vertices: []
       indices: 
       edges: []
@@ -1552,8 +1552,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a45ee012ec48063428614f32e1d6e68d
-      internalID: -679792488
+      spriteID: 62787c40687cba44b93249daecb952b8
+      internalID: 532321529
       vertices: []
       indices: 
       edges: []
@@ -1573,8 +1573,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 742dc12ff18519841ae596144243705a
-      internalID: -2104874187
+      spriteID: d8d5e7ab9d6faeb4fa2b4c7a4f59ca00
+      internalID: 64285159
       vertices: []
       indices: 
       edges: []
@@ -1594,8 +1594,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a00b7824f1c20c4f8b75aea900717fb
-      internalID: 1979430799
+      spriteID: 2c90d65a7270386498bfe8fb312e81de
+      internalID: 359926147
       vertices: []
       indices: 
       edges: []
@@ -1615,8 +1615,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7ff22afae3526b40be15c7f858c5169
-      internalID: -461375760
+      spriteID: af3abc5f17d3e804b9d77b5c041666f5
+      internalID: 247077772
       vertices: []
       indices: 
       edges: []
@@ -1636,8 +1636,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6e615c5bd2946d48b40ed57ed226fd2
-      internalID: -770668605
+      spriteID: a645136325e38ef4b8f7f367457c5e65
+      internalID: 349550443
       vertices: []
       indices: 
       edges: []
@@ -1657,8 +1657,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b1fe4099e85a60478597603e4a7a3b7
-      internalID: -978259497
+      spriteID: 60a1b22f31de838499b49cebc717dddf
+      internalID: -999405476
       vertices: []
       indices: 
       edges: []
@@ -1678,8 +1678,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1589a9b647ac38e4982719791c5623e1
-      internalID: -1929294099
+      spriteID: 336dd30a792abf842a2d8e08dc2a4644
+      internalID: -808586889
       vertices: []
       indices: 
       edges: []
@@ -1699,8 +1699,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4d7cd498ba2c564eb0e1a7782e08279
-      internalID: -1533635345
+      spriteID: e3d8f7e396130e34bad8472c7dc65660
+      internalID: 2092596703
       vertices: []
       indices: 
       edges: []
@@ -1720,8 +1720,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87ac336b151f42747a115e126590f9db
-      internalID: -548505540
+      spriteID: 0dcd2b608fded1842a1b5f5ad4bfacc2
+      internalID: 1854993583
       vertices: []
       indices: 
       edges: []
@@ -1741,8 +1741,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c813b22db9703e046b43a0620d550c13
-      internalID: -1651387303
+      spriteID: 9be56d5566cb6b348851a9901aec33d6
+      internalID: 698131394
       vertices: []
       indices: 
       edges: []
@@ -1762,8 +1762,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8685e8958965f04490694d42e1efc03
-      internalID: 2008666364
+      spriteID: 24fe468eb83579943b2ccec677a7a6b1
+      internalID: 1551526817
       vertices: []
       indices: 
       edges: []
@@ -1783,8 +1783,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e448a3abc705a8c44aa867ab3738ddaa
-      internalID: -1083962851
+      spriteID: 67e6d40bfa840a24dafb82501b185b1d
+      internalID: -561675839
       vertices: []
       indices: 
       edges: []
@@ -1804,8 +1804,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3970f5167c374584687675eb34882c86
-      internalID: 1349273917
+      spriteID: 96961b2b9d7efe74ca8ea44895e072f8
+      internalID: 2138653225
       vertices: []
       indices: 
       edges: []
@@ -1825,8 +1825,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c102c3dd8f3f6949a8710653db57bf3
-      internalID: 1794740248
+      spriteID: 6c2cd5bd12a346b498ebe85b80aefcf4
+      internalID: -522221718
       vertices: []
       indices: 
       edges: []
@@ -1846,8 +1846,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56fad2419760f804e9d9169badea5fce
-      internalID: 1128340212
+      spriteID: 9f51d69eb96750b429c265b6c4db0e92
+      internalID: -777190680
       vertices: []
       indices: 
       edges: []
@@ -1867,8 +1867,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43eabfffdbb24334bb7ea55aba6ad1a9
-      internalID: -753799731
+      spriteID: cebbddb42674edb47af3255b3d336a74
+      internalID: 982674302
       vertices: []
       indices: 
       edges: []
@@ -1888,8 +1888,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee15eed5f2a837540bdff2c30ef56a45
-      internalID: 1931303089
+      spriteID: d686349a2c77e894cb6319205fbdc5c7
+      internalID: -456522846
       vertices: []
       indices: 
       edges: []
@@ -1909,8 +1909,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20144199be473f8428059047ff63be7c
-      internalID: 1261670476
+      spriteID: 1985c07746eedd1469e5bf1a0396e6d2
+      internalID: 1304798567
       vertices: []
       indices: 
       edges: []
@@ -1930,8 +1930,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd5dd84aaeb32d34381ed2e05d321e10
-      internalID: 500084639
+      spriteID: 0910296a1b5adf84da9381c567fd7772
+      internalID: -2071743434
       vertices: []
       indices: 
       edges: []
@@ -1951,8 +1951,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ccc48fccf948c34b8ece231f4f7a544
-      internalID: -1871097025
+      spriteID: b7c549049a492864da66f694034b83ce
+      internalID: 1881874343
       vertices: []
       indices: 
       edges: []
@@ -1972,8 +1972,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 803dee754424a1f4e95fb845c13d256f
-      internalID: 1882266662
+      spriteID: d5072acf09637584c875c5bf91c6c483
+      internalID: -738146212
       vertices: []
       indices: 
       edges: []
@@ -1993,8 +1993,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 360602fe0ecdf674c8dad6dbbc3563af
-      internalID: 546262400
+      spriteID: 81173879df6980742abb0db979de0b97
+      internalID: -99327536
       vertices: []
       indices: 
       edges: []
@@ -2014,8 +2014,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4357cb0d1c1267547bec2a044ed99d0b
-      internalID: 223883770
+      spriteID: 48f867f7c896a3d40a03be0dd00bcb6d
+      internalID: 1800793621
       vertices: []
       indices: 
       edges: []
@@ -2035,8 +2035,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d42e0d71ad9ab543b5cef9b069abd7b
-      internalID: -1336597866
+      spriteID: f06f3aa86cbb4b144b462b0a63ccbe9d
+      internalID: -11700281
       vertices: []
       indices: 
       edges: []
@@ -2056,8 +2056,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53ffa3d2a8c55f44ea7844ea753defbc
-      internalID: 389659082
+      spriteID: b375b86aae599d947a0f4c3e4ffc9762
+      internalID: 726466506
       vertices: []
       indices: 
       edges: []
@@ -2077,8 +2077,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79e819c77dded924e82a3639b68aa948
-      internalID: -1403394255
+      spriteID: 108c60e5b9e536a4997c1aa548b14b8a
+      internalID: -780457761
       vertices: []
       indices: 
       edges: []
@@ -2098,8 +2098,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fefccb2888e34945b3c1141285a7fed
-      internalID: -91449439
+      spriteID: aa6ed996e5157e64998a9d8925bdf4ca
+      internalID: 1665029763
       vertices: []
       indices: 
       edges: []
@@ -2119,8 +2119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e7c4b2037f182547b181dc947ede111
-      internalID: -1541677388
+      spriteID: 98f5f017099fdd241931f45191a0fcd8
+      internalID: -395671319
       vertices: []
       indices: 
       edges: []
@@ -2140,8 +2140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f543160b5f433d84f91478d4de9f9dee
-      internalID: 285619024
+      spriteID: 2bb2b220346e6994192b6ecb52e0467d
+      internalID: -1902063503
       vertices: []
       indices: 
       edges: []
@@ -2150,8 +2150,8 @@ TextureImporter:
       name: infantry_97
       rect:
         serializedVersion: 2
-        x: 576
-        y: 2880
+        x: 0
+        y: 2816
         width: 64
         height: 64
       alignment: 0
@@ -2161,8 +2161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af3bf441b0eef094692d1e39ad2ecd4a
-      internalID: 2119770253
+      spriteID: 5f4c7d9d586d6554dbf1658ab889cafb
+      internalID: -1179615858
       vertices: []
       indices: 
       edges: []
@@ -2171,7 +2171,7 @@ TextureImporter:
       name: infantry_98
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 2816
         width: 64
         height: 64
@@ -2182,8 +2182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1d0838a4b69ac241bc39445349df912
-      internalID: -294671242
+      spriteID: fc1b5f30c650a2547950428183e85680
+      internalID: -790666468
       vertices: []
       indices: 
       edges: []
@@ -2192,7 +2192,7 @@ TextureImporter:
       name: infantry_99
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 2816
         width: 64
         height: 64
@@ -2203,8 +2203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d27f041d4c69454eb0fa2cb5543678d
-      internalID: -1276302194
+      spriteID: 2971d677f508e1f42add80da6d256f77
+      internalID: -1983970527
       vertices: []
       indices: 
       edges: []
@@ -2213,7 +2213,7 @@ TextureImporter:
       name: infantry_100
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 2816
         width: 64
         height: 64
@@ -2224,8 +2224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4659bbdd7775a9342a4106a28b887a85
-      internalID: -1843520039
+      spriteID: 2bf92737dd503b24bb4a3fd8564fe26d
+      internalID: -297370123
       vertices: []
       indices: 
       edges: []
@@ -2234,7 +2234,7 @@ TextureImporter:
       name: infantry_101
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 2816
         width: 64
         height: 64
@@ -2245,8 +2245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ec1632fdd332d245b351ff9e0133345
-      internalID: 1357674923
+      spriteID: dccecc0de5061b543b06d86e2ad2cc7f
+      internalID: -970991686
       vertices: []
       indices: 
       edges: []
@@ -2255,7 +2255,7 @@ TextureImporter:
       name: infantry_102
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 2816
         width: 64
         height: 64
@@ -2266,8 +2266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99121937c7eb0e64ab1680914ec26614
-      internalID: -693080521
+      spriteID: c15f80a62a4f5a74cae7a453bdadad97
+      internalID: -1714278967
       vertices: []
       indices: 
       edges: []
@@ -2276,8 +2276,8 @@ TextureImporter:
       name: infantry_103
       rect:
         serializedVersion: 2
-        x: 320
-        y: 2816
+        x: 0
+        y: 2752
         width: 64
         height: 64
       alignment: 0
@@ -2287,8 +2287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20319444465427346b9603a44bd970cf
-      internalID: -742602716
+      spriteID: a358cba9ad4611d49829ccaea7c44102
+      internalID: 129518199
       vertices: []
       indices: 
       edges: []
@@ -2297,7 +2297,7 @@ TextureImporter:
       name: infantry_104
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 2752
         width: 64
         height: 64
@@ -2308,8 +2308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9708b1e11b50a048b0d31827e5938f8
-      internalID: -2131389388
+      spriteID: d3afe09bbce197743a9437a95a4e0089
+      internalID: 821544144
       vertices: []
       indices: 
       edges: []
@@ -2318,7 +2318,7 @@ TextureImporter:
       name: infantry_105
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 2752
         width: 64
         height: 64
@@ -2329,8 +2329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 921660fe3ad3507498402b2f7415b236
-      internalID: -2051561460
+      spriteID: 822136e67f62bf94e87cabbb91da4de9
+      internalID: -489227456
       vertices: []
       indices: 
       edges: []
@@ -2339,7 +2339,7 @@ TextureImporter:
       name: infantry_106
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 2752
         width: 64
         height: 64
@@ -2350,8 +2350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 907a237f1779d2144aa8b0074d435883
-      internalID: -1053598460
+      spriteID: b863b088db2999342aa8118faf9a6cb7
+      internalID: 1332859378
       vertices: []
       indices: 
       edges: []
@@ -2360,7 +2360,7 @@ TextureImporter:
       name: infantry_107
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 2752
         width: 64
         height: 64
@@ -2371,8 +2371,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472c133a4e4bb7f4db05c76499a81411
-      internalID: -141960064
+      spriteID: 37c786f3627ecf44598dc1e2585e0727
+      internalID: 1648764173
       vertices: []
       indices: 
       edges: []
@@ -2381,7 +2381,7 @@ TextureImporter:
       name: infantry_108
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 2752
         width: 64
         height: 64
@@ -2392,8 +2392,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b585e5ae6426e6e4ab0b17351030668f
-      internalID: -613475790
+      spriteID: e2d280fac77e5e546a7a30db77b64302
+      internalID: 1096962243
       vertices: []
       indices: 
       edges: []
@@ -2402,8 +2402,8 @@ TextureImporter:
       name: infantry_109
       rect:
         serializedVersion: 2
-        x: 320
-        y: 2752
+        x: 0
+        y: 2688
         width: 64
         height: 64
       alignment: 0
@@ -2413,8 +2413,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86097e7ad3b21cd419f55f44df569c92
-      internalID: 2011723421
+      spriteID: d813580c1f11da24997df22cb9027008
+      internalID: -483063434
       vertices: []
       indices: 
       edges: []
@@ -2423,7 +2423,7 @@ TextureImporter:
       name: infantry_110
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 2688
         width: 64
         height: 64
@@ -2434,8 +2434,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d51b252580436841b5c7ccdacbd98dd
-      internalID: -1567407588
+      spriteID: 351863d081429c54abe634b30a948b95
+      internalID: -644785371
       vertices: []
       indices: 
       edges: []
@@ -2444,7 +2444,7 @@ TextureImporter:
       name: infantry_111
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 2688
         width: 64
         height: 64
@@ -2455,8 +2455,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 270f6d1ac023eee458dc8a01cfb35d43
-      internalID: 27171955
+      spriteID: e3fd993697a9d7741b1715dabcb124be
+      internalID: 1378678961
       vertices: []
       indices: 
       edges: []
@@ -2465,7 +2465,7 @@ TextureImporter:
       name: infantry_112
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 2688
         width: 64
         height: 64
@@ -2476,8 +2476,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaada11fc9eb47b468fe7f76698aad05
-      internalID: -212224842
+      spriteID: dd906179075cbe3459bf1874bc3e857e
+      internalID: -1676530581
       vertices: []
       indices: 
       edges: []
@@ -2486,7 +2486,7 @@ TextureImporter:
       name: infantry_113
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 2688
         width: 64
         height: 64
@@ -2497,8 +2497,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c722ba9637458904b9b17a58f036d1f8
-      internalID: 255039751
+      spriteID: 5b94c408ea934854f83d00b870e65094
+      internalID: -726211861
       vertices: []
       indices: 
       edges: []
@@ -2507,7 +2507,7 @@ TextureImporter:
       name: infantry_114
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 2688
         width: 64
         height: 64
@@ -2518,8 +2518,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 794340e999e605d4fbc8235035ae31ff
-      internalID: 235363042
+      spriteID: 3bf7ec9522e098a40bd41f6320929071
+      internalID: 1796053391
       vertices: []
       indices: 
       edges: []
@@ -2528,8 +2528,8 @@ TextureImporter:
       name: infantry_115
       rect:
         serializedVersion: 2
-        x: 320
-        y: 2688
+        x: 0
+        y: 2624
         width: 64
         height: 64
       alignment: 0
@@ -2539,8 +2539,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97a6a9b64b38ab941a7a6b8d9da4bfdd
-      internalID: -1025397995
+      spriteID: c36a08c245ce00347b000b66b5ca4ead
+      internalID: -1017953192
       vertices: []
       indices: 
       edges: []
@@ -2549,7 +2549,7 @@ TextureImporter:
       name: infantry_116
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 2624
         width: 64
         height: 64
@@ -2560,8 +2560,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 869c742535890e747a91fa155dd12dc8
-      internalID: 1772590541
+      spriteID: 5935293a35288e84c9f516b963e40468
+      internalID: -30240200
       vertices: []
       indices: 
       edges: []
@@ -2570,7 +2570,7 @@ TextureImporter:
       name: infantry_117
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 2624
         width: 64
         height: 64
@@ -2581,8 +2581,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 313cb2d0c09238046a53db751ce66c0d
-      internalID: 1059446276
+      spriteID: 66277c301093e5546b420f1e42bd37a3
+      internalID: 1361382389
       vertices: []
       indices: 
       edges: []
@@ -2591,7 +2591,7 @@ TextureImporter:
       name: infantry_118
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 2624
         width: 64
         height: 64
@@ -2602,8 +2602,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 457d7e37d7ee2744688ed21be1c4aeb9
-      internalID: 1064191769
+      spriteID: cf601dd1ee241ee45ac9b9a87704bb6b
+      internalID: 523855460
       vertices: []
       indices: 
       edges: []
@@ -2612,7 +2612,7 @@ TextureImporter:
       name: infantry_119
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 2624
         width: 64
         height: 64
@@ -2623,8 +2623,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74dc1e4714aab2b439c009c051127a62
-      internalID: -29824872
+      spriteID: 0ff3a8dc6d3ee0f4f89df9875bff4a54
+      internalID: -832585832
       vertices: []
       indices: 
       edges: []
@@ -2633,7 +2633,7 @@ TextureImporter:
       name: infantry_120
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 2624
         width: 64
         height: 64
@@ -2644,8 +2644,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eca8b3e46c171e488cebec7f7da3d9a
-      internalID: 1698564903
+      spriteID: 616f60e8aca3c2b4b8663eb2c7ef6150
+      internalID: 1795045631
       vertices: []
       indices: 
       edges: []
@@ -2654,8 +2654,8 @@ TextureImporter:
       name: infantry_121
       rect:
         serializedVersion: 2
-        x: 320
-        y: 2624
+        x: 0
+        y: 2560
         width: 64
         height: 64
       alignment: 0
@@ -2665,8 +2665,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25dc8b43a77445b489aca8bb33ce456a
-      internalID: 1839730651
+      spriteID: 2f37cd542a4070a4583bb351adcf698a
+      internalID: -1953811021
       vertices: []
       indices: 
       edges: []
@@ -2675,7 +2675,7 @@ TextureImporter:
       name: infantry_122
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 2560
         width: 64
         height: 64
@@ -2686,8 +2686,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48e0b1edf77f75b479d5df75e2db5508
-      internalID: 1307753302
+      spriteID: 40151192fee9a3f4f9e8e21849d0db22
+      internalID: -238422124
       vertices: []
       indices: 
       edges: []
@@ -2696,7 +2696,7 @@ TextureImporter:
       name: infantry_123
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 2560
         width: 64
         height: 64
@@ -2707,8 +2707,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65405ed5d17127542bdb1626f952f60f
-      internalID: -436066738
+      spriteID: 78fa70fe91eb1bc42b30c2315fcc0fca
+      internalID: 1475058237
       vertices: []
       indices: 
       edges: []
@@ -2717,7 +2717,7 @@ TextureImporter:
       name: infantry_124
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 2560
         width: 64
         height: 64
@@ -2728,8 +2728,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1ccb7e4793252643b2047873d3764ed
-      internalID: -701771687
+      spriteID: e38f69b832a8d3f49abe07b290ae630d
+      internalID: 1954773313
       vertices: []
       indices: 
       edges: []
@@ -2738,7 +2738,7 @@ TextureImporter:
       name: infantry_125
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 2560
         width: 64
         height: 64
@@ -2749,8 +2749,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3134328bf61d8cc46bc46761e8a9d6a5
-      internalID: -505654088
+      spriteID: 9c3196e69bb877e45a429b684c47b3ba
+      internalID: -168806495
       vertices: []
       indices: 
       edges: []
@@ -2759,7 +2759,7 @@ TextureImporter:
       name: infantry_126
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 2560
         width: 64
         height: 64
@@ -2770,8 +2770,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0e72014ba6e21e43aef366c995204cc
-      internalID: 1002592374
+      spriteID: 6f7d5c1a9d38fe44ebd4a118bfc99766
+      internalID: 968256506
       vertices: []
       indices: 
       edges: []
@@ -2780,7 +2780,7 @@ TextureImporter:
       name: infantry_127
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 2560
         width: 64
         height: 64
@@ -2791,8 +2791,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4f285a0c5e07044f9672ed3594f1372
-      internalID: -427532451
+      spriteID: eb8e0cba87bb3e94d98f699ea3c786f7
+      internalID: 846662821
       vertices: []
       indices: 
       edges: []
@@ -2801,7 +2801,7 @@ TextureImporter:
       name: infantry_128
       rect:
         serializedVersion: 2
-        x: 384
+        x: 448
         y: 2560
         width: 64
         height: 64
@@ -2812,8 +2812,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bef99ae5ff9324046a595d4f20d7428a
-      internalID: 1520691324
+      spriteID: ba467a077462e3441ac37c8abce0acb9
+      internalID: 1688263582
       vertices: []
       indices: 
       edges: []
@@ -2822,7 +2822,7 @@ TextureImporter:
       name: infantry_129
       rect:
         serializedVersion: 2
-        x: 448
+        x: 512
         y: 2560
         width: 64
         height: 64
@@ -2833,8 +2833,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0d94e5a4c8ea734eb8e4fb375c379c6
-      internalID: -852170902
+      spriteID: ec4489f88fef0ea4582843d01234cb85
+      internalID: -555748426
       vertices: []
       indices: 
       edges: []
@@ -2843,7 +2843,7 @@ TextureImporter:
       name: infantry_130
       rect:
         serializedVersion: 2
-        x: 512
+        x: 576
         y: 2560
         width: 64
         height: 64
@@ -2854,8 +2854,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b045c56e5ea587248990a1f15ee2a682
-      internalID: 1259421655
+      spriteID: e23c4e40c334dc24ca66f3766ceb7c83
+      internalID: -531222352
       vertices: []
       indices: 
       edges: []
@@ -2864,7 +2864,7 @@ TextureImporter:
       name: infantry_131
       rect:
         serializedVersion: 2
-        x: 576
+        x: 640
         y: 2560
         width: 64
         height: 64
@@ -2875,8 +2875,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ea350f56689e7f4195fc4f1a6637926
-      internalID: 1591727074
+      spriteID: 4332456eb010f4349b951e0e8275be5a
+      internalID: -313401030
       vertices: []
       indices: 
       edges: []
@@ -2885,7 +2885,7 @@ TextureImporter:
       name: infantry_132
       rect:
         serializedVersion: 2
-        x: 640
+        x: 704
         y: 2560
         width: 64
         height: 64
@@ -2896,8 +2896,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 210fc11688dba11418bc6ea1f924f914
-      internalID: 1235764768
+      spriteID: ffcd275096f548040a1b480026608ca2
+      internalID: -1429126616
       vertices: []
       indices: 
       edges: []
@@ -2906,7 +2906,7 @@ TextureImporter:
       name: infantry_133
       rect:
         serializedVersion: 2
-        x: 704
+        x: 768
         y: 2560
         width: 64
         height: 64
@@ -2917,8 +2917,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a12ce621a28ad34484e305cc255f0b2
-      internalID: 1388245361
+      spriteID: 9a3757d7a4399054091f98f83873b8ea
+      internalID: -1198853660
       vertices: []
       indices: 
       edges: []
@@ -2927,8 +2927,8 @@ TextureImporter:
       name: infantry_134
       rect:
         serializedVersion: 2
-        x: 768
-        y: 2560
+        x: 0
+        y: 2496
         width: 64
         height: 64
       alignment: 0
@@ -2938,8 +2938,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1421474f9e922f419f1671a7a22047d
-      internalID: -826024946
+      spriteID: 2e889d99142795247b60ad2e15779f64
+      internalID: -2089014151
       vertices: []
       indices: 
       edges: []
@@ -2948,7 +2948,7 @@ TextureImporter:
       name: infantry_135
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 2496
         width: 64
         height: 64
@@ -2959,8 +2959,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43e15a7154133f04bb222bd93953e9f1
-      internalID: 884474829
+      spriteID: b3a4bf5832603dd45a2409ea51691d66
+      internalID: -51222816
       vertices: []
       indices: 
       edges: []
@@ -2969,7 +2969,7 @@ TextureImporter:
       name: infantry_136
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 2496
         width: 64
         height: 64
@@ -2980,8 +2980,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24d0fa3f069b2f54a974e3bcc3a222a5
-      internalID: -1786143884
+      spriteID: b43f10b76ca63d141a10b54875073b79
+      internalID: -554420077
       vertices: []
       indices: 
       edges: []
@@ -2990,7 +2990,7 @@ TextureImporter:
       name: infantry_137
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 2496
         width: 64
         height: 64
@@ -3001,8 +3001,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1bb8d305c922d54a98369141f2c36d1
-      internalID: -1859267451
+      spriteID: da6d49228b29890429b21aead88b43e7
+      internalID: -303100306
       vertices: []
       indices: 
       edges: []
@@ -3011,7 +3011,7 @@ TextureImporter:
       name: infantry_138
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 2496
         width: 64
         height: 64
@@ -3022,8 +3022,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0b3f2c2ea13b9d4ca14a6c9b03ec54b
-      internalID: -1920494107
+      spriteID: 29f86d68923f5ea4d82c82b764789c52
+      internalID: -846399452
       vertices: []
       indices: 
       edges: []
@@ -3032,7 +3032,7 @@ TextureImporter:
       name: infantry_139
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 2496
         width: 64
         height: 64
@@ -3043,8 +3043,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d94fab3ef8bb354bbdc02351b42207d
-      internalID: 1591556228
+      spriteID: 6feeabe40577d7b4a8f611bbd4f703c3
+      internalID: 1976764001
       vertices: []
       indices: 
       edges: []
@@ -3053,7 +3053,7 @@ TextureImporter:
       name: infantry_140
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 2496
         width: 64
         height: 64
@@ -3064,8 +3064,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dac051770a26ee2439483037398ca7a5
-      internalID: -792207715
+      spriteID: d6f478d324725fc49843d88161c02c2e
+      internalID: -1246760424
       vertices: []
       indices: 
       edges: []
@@ -3074,7 +3074,7 @@ TextureImporter:
       name: infantry_141
       rect:
         serializedVersion: 2
-        x: 384
+        x: 448
         y: 2496
         width: 64
         height: 64
@@ -3085,8 +3085,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f616497c433c2248a2ab17e3b734229
-      internalID: -389904375
+      spriteID: ecf913e3106c2284c921bf5673a90906
+      internalID: -489987172
       vertices: []
       indices: 
       edges: []
@@ -3095,7 +3095,7 @@ TextureImporter:
       name: infantry_142
       rect:
         serializedVersion: 2
-        x: 448
+        x: 512
         y: 2496
         width: 64
         height: 64
@@ -3106,8 +3106,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e50a226b794ab8a45b4a133d824ddc3f
-      internalID: 1092564000
+      spriteID: 22967c5b357e803459594c7a90c420ae
+      internalID: -1294841911
       vertices: []
       indices: 
       edges: []
@@ -3116,7 +3116,7 @@ TextureImporter:
       name: infantry_143
       rect:
         serializedVersion: 2
-        x: 512
+        x: 576
         y: 2496
         width: 64
         height: 64
@@ -3127,8 +3127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af2c72bd29333f34ea423f8cb4136bec
-      internalID: 1674915325
+      spriteID: ab4148c16617c724d85eeb75f709f00d
+      internalID: 685634826
       vertices: []
       indices: 
       edges: []
@@ -3137,7 +3137,7 @@ TextureImporter:
       name: infantry_144
       rect:
         serializedVersion: 2
-        x: 576
+        x: 640
         y: 2496
         width: 64
         height: 64
@@ -3148,8 +3148,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c00cc62093579ba42a146d9108a2128e
-      internalID: -1591325593
+      spriteID: 3898a39971a23e2478fb1d125b1ca06c
+      internalID: 1345927102
       vertices: []
       indices: 
       edges: []
@@ -3158,7 +3158,7 @@ TextureImporter:
       name: infantry_145
       rect:
         serializedVersion: 2
-        x: 640
+        x: 704
         y: 2496
         width: 64
         height: 64
@@ -3169,8 +3169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aefbd0f5464dade429b1b537392ca4be
-      internalID: -520658113
+      spriteID: 9ba514865d0a1ca4399e195e54368d2d
+      internalID: 425874498
       vertices: []
       indices: 
       edges: []
@@ -3179,7 +3179,7 @@ TextureImporter:
       name: infantry_146
       rect:
         serializedVersion: 2
-        x: 704
+        x: 768
         y: 2496
         width: 64
         height: 64
@@ -3190,8 +3190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1535f8969eb683429545f93353ba7dd
-      internalID: 566388836
+      spriteID: 4c9010546faadb243aee904ede11be68
+      internalID: -677013496
       vertices: []
       indices: 
       edges: []
@@ -3200,8 +3200,8 @@ TextureImporter:
       name: infantry_147
       rect:
         serializedVersion: 2
-        x: 768
-        y: 2496
+        x: 0
+        y: 2432
         width: 64
         height: 64
       alignment: 0
@@ -3211,8 +3211,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c131952a9a1adf040aad8468301fb083
-      internalID: 1448655918
+      spriteID: a3d54c338ec668141b4704367b30e1b9
+      internalID: -1001614928
       vertices: []
       indices: 
       edges: []
@@ -3221,7 +3221,7 @@ TextureImporter:
       name: infantry_148
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 2432
         width: 64
         height: 64
@@ -3232,8 +3232,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1967b26d8fd67aa4b914cde9e4527c1d
-      internalID: -1185987076
+      spriteID: 481387b3772982d4182b6b770651284f
+      internalID: -348470578
       vertices: []
       indices: 
       edges: []
@@ -3242,7 +3242,7 @@ TextureImporter:
       name: infantry_149
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 2432
         width: 64
         height: 64
@@ -3253,8 +3253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfa7170a6f16a1948b226f21d7a213ff
-      internalID: -1654188865
+      spriteID: 7a737a63240a24a438ebc014222d9d0e
+      internalID: -2008043252
       vertices: []
       indices: 
       edges: []
@@ -3263,7 +3263,7 @@ TextureImporter:
       name: infantry_150
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 2432
         width: 64
         height: 64
@@ -3274,8 +3274,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84412cd19d9e4314ebc3c7130ae8f5ad
-      internalID: 1546021511
+      spriteID: 687a75f26eab000479bd3422419efe7d
+      internalID: -1807954297
       vertices: []
       indices: 
       edges: []
@@ -3284,7 +3284,7 @@ TextureImporter:
       name: infantry_151
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 2432
         width: 64
         height: 64
@@ -3295,8 +3295,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee1a9dbb56302af46a14b792c5e4ad68
-      internalID: 260184545
+      spriteID: 194617f3fbe528b409fadb32a2b9a508
+      internalID: -683747000
       vertices: []
       indices: 
       edges: []
@@ -3305,7 +3305,7 @@ TextureImporter:
       name: infantry_152
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 2432
         width: 64
         height: 64
@@ -3316,8 +3316,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25bfd2d143801614a8c5cff18ec9e446
-      internalID: -761717132
+      spriteID: 7621707536c8cb742bb02bd540dcccbe
+      internalID: 1512336326
       vertices: []
       indices: 
       edges: []
@@ -3326,7 +3326,7 @@ TextureImporter:
       name: infantry_153
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 2432
         width: 64
         height: 64
@@ -3337,8 +3337,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f5e16635ad33e64ab194ff84649bfa4
-      internalID: -927827125
+      spriteID: 0059e1d6068bdd04fb9961b2a59f6ce8
+      internalID: -76678647
       vertices: []
       indices: 
       edges: []
@@ -3347,7 +3347,7 @@ TextureImporter:
       name: infantry_154
       rect:
         serializedVersion: 2
-        x: 384
+        x: 448
         y: 2432
         width: 64
         height: 64
@@ -3358,8 +3358,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b4b34586e3b4974699348f38dae45a8
-      internalID: 727894606
+      spriteID: f976c5536b54dc84580954b127f68a5e
+      internalID: 726132198
       vertices: []
       indices: 
       edges: []
@@ -3368,7 +3368,7 @@ TextureImporter:
       name: infantry_155
       rect:
         serializedVersion: 2
-        x: 448
+        x: 512
         y: 2432
         width: 64
         height: 64
@@ -3379,8 +3379,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7bb1ddb05e3a2c43b2498f789d7d83c
-      internalID: -372132435
+      spriteID: bffb24b553b08864cb3fc978678216f3
+      internalID: -776136368
       vertices: []
       indices: 
       edges: []
@@ -3389,7 +3389,7 @@ TextureImporter:
       name: infantry_156
       rect:
         serializedVersion: 2
-        x: 512
+        x: 576
         y: 2432
         width: 64
         height: 64
@@ -3400,8 +3400,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1253540a271581468f6fe67013959fb
-      internalID: -530206088
+      spriteID: 9bc680cdd5faf6f4b8a85e06db9d14b0
+      internalID: -809901430
       vertices: []
       indices: 
       edges: []
@@ -3410,7 +3410,7 @@ TextureImporter:
       name: infantry_157
       rect:
         serializedVersion: 2
-        x: 576
+        x: 640
         y: 2432
         width: 64
         height: 64
@@ -3421,8 +3421,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 186d0f7d12b0a7f4f86322a327ca9d5b
-      internalID: 333625573
+      spriteID: d0adf0bd986d0314485168809f10d06e
+      internalID: 736269997
       vertices: []
       indices: 
       edges: []
@@ -3431,7 +3431,7 @@ TextureImporter:
       name: infantry_158
       rect:
         serializedVersion: 2
-        x: 640
+        x: 704
         y: 2432
         width: 64
         height: 64
@@ -3442,8 +3442,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9726144308a2a3b4c888183b39b75194
-      internalID: 646420506
+      spriteID: f9c115366de0b1c4fb0c17f49bc30865
+      internalID: -2007130849
       vertices: []
       indices: 
       edges: []
@@ -3452,7 +3452,7 @@ TextureImporter:
       name: infantry_159
       rect:
         serializedVersion: 2
-        x: 704
+        x: 768
         y: 2432
         width: 64
         height: 64
@@ -3463,8 +3463,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf9383447d616240ae67ed096804964
-      internalID: 8821681
+      spriteID: 9885f0a517acbec4abd6260c90f82322
+      internalID: 1729449535
       vertices: []
       indices: 
       edges: []
@@ -3473,8 +3473,8 @@ TextureImporter:
       name: infantry_160
       rect:
         serializedVersion: 2
-        x: 768
-        y: 2432
+        x: 0
+        y: 2368
         width: 64
         height: 64
       alignment: 0
@@ -3484,8 +3484,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: facfffedc587d71419f0b394f0984512
-      internalID: 949429941
+      spriteID: 86868f090c53c5045809f050c44f2b02
+      internalID: 1432537925
       vertices: []
       indices: 
       edges: []
@@ -3494,7 +3494,7 @@ TextureImporter:
       name: infantry_161
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 2368
         width: 64
         height: 64
@@ -3505,8 +3505,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b119baae8a3f64548af5891024556c92
-      internalID: 269607173
+      spriteID: 4270f778db349504c8e8e9ec7036b1d7
+      internalID: 1649763330
       vertices: []
       indices: 
       edges: []
@@ -3515,7 +3515,7 @@ TextureImporter:
       name: infantry_162
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 2368
         width: 64
         height: 64
@@ -3526,8 +3526,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a404f47b97886974d9e3dff382ded55e
-      internalID: 1838779858
+      spriteID: 94b7b4fd6df83c440b2b58ef4099cddb
+      internalID: -159133233
       vertices: []
       indices: 
       edges: []
@@ -3536,7 +3536,7 @@ TextureImporter:
       name: infantry_163
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 2368
         width: 64
         height: 64
@@ -3547,8 +3547,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42a6615873882d3499b94d6fd2fa9396
-      internalID: 1054297131
+      spriteID: 2b75ab2413349f641916d69c92547018
+      internalID: -322930113
       vertices: []
       indices: 
       edges: []
@@ -3557,7 +3557,7 @@ TextureImporter:
       name: infantry_164
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 2368
         width: 64
         height: 64
@@ -3568,8 +3568,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cc77bd55f85c534885ffbc8b32a37b1
-      internalID: -1447217593
+      spriteID: 343a06c59387ba04fa80405e7b781d0e
+      internalID: -1803974430
       vertices: []
       indices: 
       edges: []
@@ -3578,7 +3578,7 @@ TextureImporter:
       name: infantry_165
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 2368
         width: 64
         height: 64
@@ -3589,8 +3589,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d90d6d245df1e8459a5a31543c0e7db
-      internalID: 937279157
+      spriteID: f9c604b51e660b54a9f7478c7bb21922
+      internalID: -221028185
       vertices: []
       indices: 
       edges: []
@@ -3599,7 +3599,7 @@ TextureImporter:
       name: infantry_166
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 2368
         width: 64
         height: 64
@@ -3610,8 +3610,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0648c0c034bd7349a2342987e972f10
-      internalID: 1963480438
+      spriteID: ef3f4dc83cc83004a8893b611841508b
+      internalID: 674537966
       vertices: []
       indices: 
       edges: []
@@ -3620,7 +3620,7 @@ TextureImporter:
       name: infantry_167
       rect:
         serializedVersion: 2
-        x: 384
+        x: 448
         y: 2368
         width: 64
         height: 64
@@ -3631,8 +3631,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19830f1ca2124254286087e72d08c194
-      internalID: 185216679
+      spriteID: 727ff84e200fc4440ba6e4d068292adc
+      internalID: -1560769001
       vertices: []
       indices: 
       edges: []
@@ -3641,7 +3641,7 @@ TextureImporter:
       name: infantry_168
       rect:
         serializedVersion: 2
-        x: 448
+        x: 512
         y: 2368
         width: 64
         height: 64
@@ -3652,8 +3652,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e489b3b3e3720d42b2245f118def49d
-      internalID: 364149386
+      spriteID: 67f298a40c57e0142a643535d373ebce
+      internalID: -2031343223
       vertices: []
       indices: 
       edges: []
@@ -3662,7 +3662,7 @@ TextureImporter:
       name: infantry_169
       rect:
         serializedVersion: 2
-        x: 512
+        x: 576
         y: 2368
         width: 64
         height: 64
@@ -3673,8 +3673,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dcd3064eb1b569418ab41432be58884
-      internalID: -1908039416
+      spriteID: 040003bdf34a35640a143662f3c8f466
+      internalID: -636646776
       vertices: []
       indices: 
       edges: []
@@ -3683,7 +3683,7 @@ TextureImporter:
       name: infantry_170
       rect:
         serializedVersion: 2
-        x: 576
+        x: 640
         y: 2368
         width: 64
         height: 64
@@ -3694,8 +3694,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91b39762f2741c94ca8741874d0059a8
-      internalID: -404790238
+      spriteID: d1e6eb5651b56e04faa6a38321a6ee12
+      internalID: -2088562011
       vertices: []
       indices: 
       edges: []
@@ -3704,7 +3704,7 @@ TextureImporter:
       name: infantry_171
       rect:
         serializedVersion: 2
-        x: 640
+        x: 704
         y: 2368
         width: 64
         height: 64
@@ -3715,8 +3715,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00174a6e0793314a87cfd830debaab7
-      internalID: -1082041333
+      spriteID: 08ec4d54d7750654c89f8c6db8f2ce0a
+      internalID: -1361530918
       vertices: []
       indices: 
       edges: []
@@ -3725,7 +3725,7 @@ TextureImporter:
       name: infantry_172
       rect:
         serializedVersion: 2
-        x: 704
+        x: 768
         y: 2368
         width: 64
         height: 64
@@ -3736,8 +3736,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf4ce94026141da4b96406b078cc1893
-      internalID: -1419207235
+      spriteID: 71d8dabacc0a02445a658b9c28edf115
+      internalID: 312297732
       vertices: []
       indices: 
       edges: []
@@ -3746,8 +3746,8 @@ TextureImporter:
       name: infantry_173
       rect:
         serializedVersion: 2
-        x: 768
-        y: 2368
+        x: 0
+        y: 2304
         width: 64
         height: 64
       alignment: 0
@@ -3757,8 +3757,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e116f23ae360bf48a389e3d1885817a
-      internalID: -472798498
+      spriteID: 1ca8fa8621f7f2f418cf1741a22c40da
+      internalID: 601346176
       vertices: []
       indices: 
       edges: []
@@ -3767,7 +3767,7 @@ TextureImporter:
       name: infantry_174
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 2304
         width: 64
         height: 64
@@ -3778,8 +3778,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b3719be72155cb44b24d8a77cacc9cb
-      internalID: 1379124400
+      spriteID: 142f6dfcab07a3c4d86c7fc76f6676e5
+      internalID: 605390776
       vertices: []
       indices: 
       edges: []
@@ -3788,7 +3788,7 @@ TextureImporter:
       name: infantry_175
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 2304
         width: 64
         height: 64
@@ -3799,8 +3799,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae4a7c0c664489d4f8d305b1199d49e1
-      internalID: 1145740270
+      spriteID: ac63fae8e78d50a479ff0f6fd1d37c9b
+      internalID: 322379330
       vertices: []
       indices: 
       edges: []
@@ -3809,7 +3809,7 @@ TextureImporter:
       name: infantry_176
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 2304
         width: 64
         height: 64
@@ -3820,8 +3820,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 160e435f2459f0048b36c8dcd3f27feb
-      internalID: -302291422
+      spriteID: 2804bb354b18dbe44b51718f910574c6
+      internalID: 240517219
       vertices: []
       indices: 
       edges: []
@@ -3830,7 +3830,7 @@ TextureImporter:
       name: infantry_177
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 2304
         width: 64
         height: 64
@@ -3841,8 +3841,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1a33cfe503bebd4c93b28124ef48ae0
-      internalID: -1061426562
+      spriteID: a0dc615dc41efdd49a394d149d673895
+      internalID: -456068598
       vertices: []
       indices: 
       edges: []
@@ -3851,7 +3851,7 @@ TextureImporter:
       name: infantry_178
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 2304
         width: 64
         height: 64
@@ -3862,8 +3862,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 806d8891805d76d488bb99f51b4ca7c0
-      internalID: 608217593
+      spriteID: cf29e24610a32094699d76ae26dd7f27
+      internalID: 1186983825
       vertices: []
       indices: 
       edges: []
@@ -3872,7 +3872,7 @@ TextureImporter:
       name: infantry_179
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 2304
         width: 64
         height: 64
@@ -3883,8 +3883,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1e59d1ace3289f46abc08cb2c6eeb1c
-      internalID: -358739262
+      spriteID: abc85bb3db1be9041926db0b6d66a63a
+      internalID: -90526532
       vertices: []
       indices: 
       edges: []
@@ -3893,7 +3893,7 @@ TextureImporter:
       name: infantry_180
       rect:
         serializedVersion: 2
-        x: 384
+        x: 448
         y: 2304
         width: 64
         height: 64
@@ -3904,8 +3904,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1645542bb85c7a548a35924b4bdb80c2
-      internalID: -1669635846
+      spriteID: 4f70e1bde36d14846afd26e237bcfacf
+      internalID: 1814467287
       vertices: []
       indices: 
       edges: []
@@ -3914,7 +3914,7 @@ TextureImporter:
       name: infantry_181
       rect:
         serializedVersion: 2
-        x: 448
+        x: 512
         y: 2304
         width: 64
         height: 64
@@ -3925,8 +3925,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e6cfc483470b2a41a2d705a207243a2
-      internalID: 1052347273
+      spriteID: bbadad2c9e24ceb4a9c36e29219e3cbb
+      internalID: -1313359194
       vertices: []
       indices: 
       edges: []
@@ -3935,7 +3935,7 @@ TextureImporter:
       name: infantry_182
       rect:
         serializedVersion: 2
-        x: 512
+        x: 576
         y: 2304
         width: 64
         height: 64
@@ -3946,8 +3946,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72fc0fb2eff77be4bb2db8f0c096b2b7
-      internalID: 777045694
+      spriteID: 89a2378b881d62646b2246763eac4dae
+      internalID: -2102673939
       vertices: []
       indices: 
       edges: []
@@ -3956,7 +3956,7 @@ TextureImporter:
       name: infantry_183
       rect:
         serializedVersion: 2
-        x: 576
+        x: 768
         y: 2304
         width: 64
         height: 64
@@ -3967,8 +3967,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4e79838b412fbe419e32663efd38ae0
-      internalID: 1223625243
+      spriteID: 07bdef6cc6763c9418b00587abbb3bc0
+      internalID: -1227950861
       vertices: []
       indices: 
       edges: []
@@ -3977,7 +3977,7 @@ TextureImporter:
       name: infantry_184
       rect:
         serializedVersion: 2
-        x: 640
+        x: 832
         y: 2304
         width: 64
         height: 64
@@ -3988,8 +3988,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0742db419c2fb9e45943d51bde3bbade
-      internalID: -395801699
+      spriteID: 1f50e09f4423ea9458746ca7e37adac1
+      internalID: 387781150
       vertices: []
       indices: 
       edges: []
@@ -3998,8 +3998,8 @@ TextureImporter:
       name: infantry_185
       rect:
         serializedVersion: 2
-        x: 704
-        y: 2304
+        x: 0
+        y: 2240
         width: 64
         height: 64
       alignment: 0
@@ -4009,8 +4009,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 373afaac260a1ee49866a2eb2f66f78e
-      internalID: -1595802454
+      spriteID: b9acf41c07fea2c4ab8c682e1b420051
+      internalID: -177464396
       vertices: []
       indices: 
       edges: []
@@ -4019,111 +4019,6 @@ TextureImporter:
       name: infantry_186
       rect:
         serializedVersion: 2
-        x: 768
-        y: 2304
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 922306326c8b90246ab8cb1385dac176
-      internalID: -1038453499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_187
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 2304
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14a34d2da2ed61d419c834727a01a209
-      internalID: -636817147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_188
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 2304
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb733318a17acec479bb2b61f8bc41d9
-      internalID: -548327302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_189
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 2304
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95ecbd39074bc9b46ae0c373e9787c52
-      internalID: -1527824395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_190
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2240
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f899a9865612f6f479467472b0ff90b6
-      internalID: 556343598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_191
-      rect:
-        serializedVersion: 2
         x: 64
         y: 2240
         width: 64
@@ -4135,14 +4030,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ca0713dc7f1c084ab20515758d29dff
-      internalID: 724597051
+      spriteID: 9303b78855b365d4d94b10e638753c23
+      internalID: 1142085386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_192
+      name: infantry_187
       rect:
         serializedVersion: 2
         x: 128
@@ -4156,14 +4051,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aded2e2b630e2e04696fdf729d02e41b
-      internalID: 816802691
+      spriteID: 8149d53023df72d4aae13222bb6dae4f
+      internalID: 1803645363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_193
+      name: infantry_188
       rect:
         serializedVersion: 2
         x: 192
@@ -4177,140 +4072,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7633d5e2bab71cb40b4c920b7bf1c967
-      internalID: -312997289
+      spriteID: 1555a542b23d41340a86b4ca00c016c4
+      internalID: -337233914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_194
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 2240
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c9a5bd6c10e2a64a99f2c06a4da0d6c
-      internalID: 448706932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_195
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 2240
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9886e2aac8170fb46856abb48989224d
-      internalID: 1977125471
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_196
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 2240
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48d5060e4e0354d40802f76851cec25c
-      internalID: -293837755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_197
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 2240
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c107f923570eab14e97e2c2e863c34d3
-      internalID: -1842731913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_198
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 2240
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f28f83c3bcca0e34da4b7ebd9fa99aa7
-      internalID: 1560956696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_199
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 2240
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1204261e0372f134a9a57691975e115d
-      internalID: -28221698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_200
+      name: infantry_189
       rect:
         serializedVersion: 2
         x: 704
@@ -4324,14 +4093,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58b9d5245b53e5142a6101734c46efdd
-      internalID: 1269818314
+      spriteID: 9f65e1280da9fdf45b6908388872e5be
+      internalID: -1198338052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_201
+      name: infantry_190
       rect:
         serializedVersion: 2
         x: 768
@@ -4345,14 +4114,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34c12b5c22251c64a81bfdaebe42d658
-      internalID: 1967845604
+      spriteID: 4f828bd8914431f43ad7f3a962bb5279
+      internalID: -550929388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_202
+      name: infantry_191
       rect:
         serializedVersion: 2
         x: 832
@@ -4366,14 +4135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40fe0adf548dbc24ea748f3f7812f59e
-      internalID: 1656304496
+      spriteID: 07ca8920a0c5d7e4d88634d08737648d
+      internalID: 1603109643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_203
+      name: infantry_192
       rect:
         serializedVersion: 2
         x: 960
@@ -4387,14 +4156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 356264334096cf345a29bb24e93fadf3
-      internalID: -567692268
+      spriteID: 3280ebc0f1130aa49a103ca07f58d53f
+      internalID: -503077910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_204
+      name: infantry_193
       rect:
         serializedVersion: 2
         x: 1024
@@ -4408,14 +4177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94d7d92b305e2d542a9849b64c360922
-      internalID: -1409172056
+      spriteID: bf49ac012313f8042b0b6cd20dd6a529
+      internalID: -1946947185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_205
+      name: infantry_194
       rect:
         serializedVersion: 2
         x: 0
@@ -4429,14 +4198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2eb07b48f0bee249801d46f9fc383ca
-      internalID: 1057132803
+      spriteID: 68f742fbb4354ee4b91cca3ae922c6d2
+      internalID: -1884318068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_206
+      name: infantry_195
       rect:
         serializedVersion: 2
         x: 64
@@ -4450,14 +4219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89826b10a88c5d947ab1c35710ac6e9c
-      internalID: -2050000184
+      spriteID: 436c6cd34c0836342989bdd374abd796
+      internalID: -1134448499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_207
+      name: infantry_196
       rect:
         serializedVersion: 2
         x: 128
@@ -4471,14 +4240,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc33f8f23c9607a4a9d474044b3ce9e3
-      internalID: 302233894
+      spriteID: aa3b5e1ef3dac9f42b6a7fc9d86c3666
+      internalID: 747647042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_208
+      name: infantry_197
       rect:
         serializedVersion: 2
         x: 192
@@ -4492,35 +4261,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ce534a09677a3945a024df5e292ac6b
-      internalID: 1676490408
+      spriteID: bd5655de6b550864995001478332dc3d
+      internalID: 833701028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_209
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 2176
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02361170db7712243a3baed11b9762a7
-      internalID: -609874397
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_210
+      name: infantry_198
       rect:
         serializedVersion: 2
         x: 640
@@ -4534,14 +4282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0a8445b34383994091522435ab76c31
-      internalID: 313490933
+      spriteID: c2e5746653e632745bc39862d5890143
+      internalID: -172637155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_211
+      name: infantry_199
       rect:
         serializedVersion: 2
         x: 704
@@ -4555,14 +4303,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 921bc33093f142542a44f87103270ad2
-      internalID: 325537206
+      spriteID: e19532f082b065940b93342933b4307f
+      internalID: 1494319389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_212
+      name: infantry_200
       rect:
         serializedVersion: 2
         x: 768
@@ -4576,14 +4324,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7f7ecc3c6d04d9448b53d9e1b0a0bc3
-      internalID: -656047125
+      spriteID: 70b681a443e994b499eeb35bc2afee69
+      internalID: 1280981726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_213
+      name: infantry_201
       rect:
         serializedVersion: 2
         x: 832
@@ -4597,14 +4345,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb622e5995cc561468e4fdd97d11bb91
-      internalID: 688682278
+      spriteID: bcdab056b488d98458dcdb909dee30bd
+      internalID: 1776977700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_214
+      name: infantry_202
       rect:
         serializedVersion: 2
         x: 896
@@ -4618,14 +4366,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 950d6b33b6aa4d54c949e6b9b8b24042
-      internalID: 2033577481
+      spriteID: 639ecc0ac0e104041a6849b1972a294b
+      internalID: -622629034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_215
+      name: infantry_203
       rect:
         serializedVersion: 2
         x: 960
@@ -4639,14 +4387,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 673d593d45722694aaa2cd14b653ff4e
-      internalID: -399071741
+      spriteID: e2189c7eb01395b46ae0b23514e7b955
+      internalID: 661641170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_216
+      name: infantry_204
       rect:
         serializedVersion: 2
         x: 1024
@@ -4660,14 +4408,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75cd06c5f1b4f214ca8ae7abf5a9fe25
-      internalID: 963255159
+      spriteID: b85d08178969b774187e2ab59fa96d71
+      internalID: 1186794971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_217
+      name: infantry_205
       rect:
         serializedVersion: 2
         x: 0
@@ -4681,14 +4429,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f430f2a1553518841b810a2d3d6a0156
-      internalID: -1432390672
+      spriteID: 785b50f2cc89c874eb6e65eb5863db9a
+      internalID: 299028372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_218
+      name: infantry_206
       rect:
         serializedVersion: 2
         x: 64
@@ -4702,14 +4450,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f75dbcca62045c643849569f75cb3454
-      internalID: -1053051651
+      spriteID: e5c085dac42cb854fbece9bcf4096f30
+      internalID: 1699962966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_219
+      name: infantry_207
       rect:
         serializedVersion: 2
         x: 128
@@ -4723,14 +4471,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adbf202ea8e4ead45a9cc8f8f6e5ef4d
-      internalID: 1264249238
+      spriteID: f4ff7babf5d9c6349a78475fcd1abafb
+      internalID: -1917793891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_220
+      name: infantry_208
       rect:
         serializedVersion: 2
         x: 192
@@ -4744,35 +4492,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e5a8c74739ef4545a8426d46fecb616
-      internalID: 1653550909
+      spriteID: 15bd2f8074f8bf9469cc7d68b60772a5
+      internalID: 2018213343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_221
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 2112
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09d6943a39f99884fbba720d5da720c8
-      internalID: -1975107027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_222
+      name: infantry_209
       rect:
         serializedVersion: 2
         x: 704
@@ -4786,8 +4513,281 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60b050d65fb7ed84ebadfc802d49fa89
-      internalID: 830061087
+      spriteID: b78860ee10bfc6743b146130a445049c
+      internalID: -1570049317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_210
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f55227f1ad8eac4eb3c500c31f626fa
+      internalID: 1830929849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_211
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da7ec351ccde41489fd9d337a5f2a65
+      internalID: -700824747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_212
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c28afddde4f764bafe107fa37cb0fb
+      internalID: 311875426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_213
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2112
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0cdf7764383f546b8e6c61f427148d
+      internalID: -1990612937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_214
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3979826a4643f6c44a79400dfd088f25
+      internalID: 1379424872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_215
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18694db9788623f438ad26bab80cb16e
+      internalID: -347150714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_216
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b11abd0d6998645bc296fb5a61f1c7
+      internalID: 948769998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_217
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b91b7f6793bb354f8b8e4617f54af40
+      internalID: -774639637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_218
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 876818f96f51c5641a5c92106e796af5
+      internalID: -84448979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_219
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f5e18cb64b45044cb5c43f991da0e39
+      internalID: -134872474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_220
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf4de2d9da6b59142922f902e86a2a7b
+      internalID: -1143558890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_221
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be3289f3a1d535449c716461bf31cbe
+      internalID: 258187991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infantry_222
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc54d373edd865545bdfa2c7557087e6
+      internalID: -1875357795
       vertices: []
       indices: 
       edges: []
@@ -4797,7 +4797,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 2112
+        y: 2048
         width: 64
         height: 64
       alignment: 0
@@ -4807,8 +4807,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89df61afdb959bb41943138379b4b996
-      internalID: 208694151
+      spriteID: e694d4fdf3fbd7e45a00460fc9190e21
+      internalID: 69807980
       vertices: []
       indices: 
       edges: []
@@ -4818,7 +4818,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 832
-        y: 2112
+        y: 2048
         width: 64
         height: 64
       alignment: 0
@@ -4828,8 +4828,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddd4dcf899e721648a9b433ef2b5137b
-      internalID: 1396964423
+      spriteID: 9672d47b06943da45bf10a83aae1e206
+      internalID: -2088373346
       vertices: []
       indices: 
       edges: []
@@ -4839,7 +4839,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 960
-        y: 2112
+        y: 2048
         width: 64
         height: 64
       alignment: 0
@@ -4849,8 +4849,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19b6c879846f86143bf7c13a1b2c023b
-      internalID: 648794251
+      spriteID: bcd3d4b0bc96ec744873cab3339ab97d
+      internalID: 2127444675
       vertices: []
       indices: 
       edges: []
@@ -4860,7 +4860,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 2112
+        y: 2048
         width: 64
         height: 64
       alignment: 0
@@ -4870,8 +4870,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc1381e24728ef34999420b4c065a475
-      internalID: -761453716
+      spriteID: 2fb20ccc444bb1142954596d3d1d4389
+      internalID: 370079751
       vertices: []
       indices: 
       edges: []
@@ -4881,7 +4881,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2048
+        y: 1984
         width: 64
         height: 64
       alignment: 0
@@ -4891,8 +4891,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 396fb1c66d6248a479a6be94cfcd2aac
-      internalID: -1076746098
+      spriteID: 3f72262f62eed5a4abf08bd4e7097c48
+      internalID: 794421157
       vertices: []
       indices: 
       edges: []
@@ -4902,7 +4902,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 2048
+        y: 1984
         width: 64
         height: 64
       alignment: 0
@@ -4912,8 +4912,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2f6f87b64f957341b19d09312d362b5
-      internalID: -2066847509
+      spriteID: 1d012c2b00917644485962ccb8aff97c
+      internalID: -2022933678
       vertices: []
       indices: 
       edges: []
@@ -4923,7 +4923,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 2048
+        y: 1984
         width: 64
         height: 64
       alignment: 0
@@ -4933,8 +4933,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 233e6692efc6561409b0576552e5e7dc
-      internalID: 1746955713
+      spriteID: 45a8c3dee292ae448b5c8dc292ae0da6
+      internalID: -1825853381
       vertices: []
       indices: 
       edges: []
@@ -4944,7 +4944,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 2048
+        y: 1984
         width: 64
         height: 64
       alignment: 0
@@ -4954,8 +4954,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e8fa9e01d18a15449ff1caf5c966afb
-      internalID: 1528945671
+      spriteID: 9becb739044f22845bd77a63491110d2
+      internalID: 1414639056
       vertices: []
       indices: 
       edges: []
@@ -4964,8 +4964,8 @@ TextureImporter:
       name: infantry_231
       rect:
         serializedVersion: 2
-        x: 256
-        y: 2048
+        x: 320
+        y: 1984
         width: 64
         height: 64
       alignment: 0
@@ -4975,8 +4975,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4f53803953784f4cb33c23268839652
-      internalID: 2068091098
+      spriteID: 875e7e765f771b24d987808efe671d8e
+      internalID: 1533714667
       vertices: []
       indices: 
       edges: []
@@ -4985,8 +4985,8 @@ TextureImporter:
       name: infantry_232
       rect:
         serializedVersion: 2
-        x: 320
-        y: 2048
+        x: 384
+        y: 1984
         width: 64
         height: 64
       alignment: 0
@@ -4996,8 +4996,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 159ec9f55ba9d624bb67543ee37a674e
-      internalID: -1349729623
+      spriteID: bb37efa252112eb45a82c985140b034c
+      internalID: 29093514
       vertices: []
       indices: 
       edges: []
@@ -5006,8 +5006,8 @@ TextureImporter:
       name: infantry_233
       rect:
         serializedVersion: 2
-        x: 384
-        y: 2048
+        x: 448
+        y: 1984
         width: 64
         height: 64
       alignment: 0
@@ -5017,8 +5017,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd0772922887f1e4393173a6002a3233
-      internalID: -1487233438
+      spriteID: 44855c6dc5d2ad644816e6d2a41a2666
+      internalID: -618809002
       vertices: []
       indices: 
       edges: []
@@ -5027,8 +5027,8 @@ TextureImporter:
       name: infantry_234
       rect:
         serializedVersion: 2
-        x: 448
-        y: 2048
+        x: 0
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5038,8 +5038,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52e4b872ea19efb43b70b632633e51c8
-      internalID: -574123066
+      spriteID: a8bfaa2e5fec27542ac206980680d035
+      internalID: 463771765
       vertices: []
       indices: 
       edges: []
@@ -5048,8 +5048,8 @@ TextureImporter:
       name: infantry_235
       rect:
         serializedVersion: 2
-        x: 512
-        y: 2048
+        x: 64
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5059,8 +5059,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df768d52a141e5543bd53a0fd01400e8
-      internalID: 673481801
+      spriteID: 6eb6fcc427b897a49b12fbd54b62d7fc
+      internalID: 587023781
       vertices: []
       indices: 
       edges: []
@@ -5069,8 +5069,8 @@ TextureImporter:
       name: infantry_236
       rect:
         serializedVersion: 2
-        x: 768
-        y: 2048
+        x: 128
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5080,8 +5080,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0658806bafb100349b7af8047b707ab5
-      internalID: 646239960
+      spriteID: 042498ec29eefbe42aef53d09de6abcc
+      internalID: 513362097
       vertices: []
       indices: 
       edges: []
@@ -5090,8 +5090,8 @@ TextureImporter:
       name: infantry_237
       rect:
         serializedVersion: 2
-        x: 832
-        y: 2048
+        x: 192
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5101,8 +5101,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b6ad1fa5202b0342828cb41f692b927
-      internalID: 816889602
+      spriteID: 2bea62e759204354e86864d2298967a9
+      internalID: 1615043691
       vertices: []
       indices: 
       edges: []
@@ -5111,8 +5111,8 @@ TextureImporter:
       name: infantry_238
       rect:
         serializedVersion: 2
-        x: 960
-        y: 2048
+        x: 256
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5122,8 +5122,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa0e18fb73bfea2488be5c2905887ab3
-      internalID: -1621603051
+      spriteID: c7e46b76d9f6d8540b19ea081b4b6b03
+      internalID: 799289592
       vertices: []
       indices: 
       edges: []
@@ -5132,8 +5132,8 @@ TextureImporter:
       name: infantry_239
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 2048
+        x: 320
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5143,8 +5143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fdd1c7b004b2ec41bdbe1aa47c0c467
-      internalID: 1693663893
+      spriteID: e8921c6e33348b14c881427559999597
+      internalID: -1136691716
       vertices: []
       indices: 
       edges: []
@@ -5153,8 +5153,8 @@ TextureImporter:
       name: infantry_240
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1984
+        x: 384
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5164,8 +5164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efe6993ade307d84fbd668694dca329f
-      internalID: 714034212
+      spriteID: 7f0abac68563a51479edf871c6f2ade6
+      internalID: -602034228
       vertices: []
       indices: 
       edges: []
@@ -5174,8 +5174,8 @@ TextureImporter:
       name: infantry_241
       rect:
         serializedVersion: 2
-        x: 64
-        y: 1984
+        x: 448
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5185,8 +5185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bc4c2bb0dbdb35478c6aa10e54a517c
-      internalID: -1926417056
+      spriteID: 24363292d8d6fd6479516eb1dd69dc91
+      internalID: -621680623
       vertices: []
       indices: 
       edges: []
@@ -5195,8 +5195,8 @@ TextureImporter:
       name: infantry_242
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1984
+        x: 512
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5206,8 +5206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff1d288e88e8ac74c81372710cd2d292
-      internalID: -1335606697
+      spriteID: efd8a0fba33af62479d1e01f2bea0cdd
+      internalID: -1851282867
       vertices: []
       indices: 
       edges: []
@@ -5216,8 +5216,8 @@ TextureImporter:
       name: infantry_243
       rect:
         serializedVersion: 2
-        x: 192
-        y: 1984
+        x: 576
+        y: 1920
         width: 64
         height: 64
       alignment: 0
@@ -5227,8 +5227,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b585121a96d98174d9fc213a628b3eb2
-      internalID: -831914335
+      spriteID: 4bffb78094a0f7343906fd1378562010
+      internalID: 1435780693
       vertices: []
       indices: 
       edges: []
@@ -5237,8 +5237,8 @@ TextureImporter:
       name: infantry_244
       rect:
         serializedVersion: 2
-        x: 320
-        y: 1984
+        x: 0
+        y: 1856
         width: 64
         height: 64
       alignment: 0
@@ -5248,8 +5248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79c0a05741a3f7147b2683342b8e4125
-      internalID: 1130504582
+      spriteID: e71c9f3e9777e58488a9d90a452b9eef
+      internalID: -1672831221
       vertices: []
       indices: 
       edges: []
@@ -5258,8 +5258,8 @@ TextureImporter:
       name: infantry_245
       rect:
         serializedVersion: 2
-        x: 384
-        y: 1984
+        x: 64
+        y: 1856
         width: 64
         height: 64
       alignment: 0
@@ -5269,8 +5269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27b43505a87cf3e4d92d02fbe48a0b17
-      internalID: 1486423031
+      spriteID: 4c3cd3e8bbd511a40a272e1504d073ca
+      internalID: 170047495
       vertices: []
       indices: 
       edges: []
@@ -5279,8 +5279,8 @@ TextureImporter:
       name: infantry_246
       rect:
         serializedVersion: 2
-        x: 448
-        y: 1984
+        x: 192
+        y: 1856
         width: 64
         height: 64
       alignment: 0
@@ -5290,8 +5290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a8041cbe328e0e4a9799b4e05768483
-      internalID: 1287764284
+      spriteID: 4e000cf517ffccf45b5670444201366e
+      internalID: -1960275552
       vertices: []
       indices: 
       edges: []
@@ -5300,8 +5300,8 @@ TextureImporter:
       name: infantry_247
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1984
+        x: 256
+        y: 1856
         width: 64
         height: 64
       alignment: 0
@@ -5311,8 +5311,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3c4886935653da438cf810ac28455b1
-      internalID: 966186539
+      spriteID: 4a65cd5a7ea524341b1e9a124eaec768
+      internalID: 1589394954
       vertices: []
       indices: 
       edges: []
@@ -5321,8 +5321,8 @@ TextureImporter:
       name: infantry_248
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1920
+        x: 384
+        y: 1856
         width: 64
         height: 64
       alignment: 0
@@ -5332,8 +5332,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f529ee5c011cce440acdfa8fcea9c523
-      internalID: 333007863
+      spriteID: 5f743877c4e96a54ba0862ce26986551
+      internalID: 1130542184
       vertices: []
       indices: 
       edges: []
@@ -5342,8 +5342,8 @@ TextureImporter:
       name: infantry_249
       rect:
         serializedVersion: 2
-        x: 64
-        y: 1920
+        x: 448
+        y: 1856
         width: 64
         height: 64
       alignment: 0
@@ -5353,8 +5353,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 143f2d0a2d6125145a9689f4de7f7b8b
-      internalID: 1803918803
+      spriteID: 5d06ef0df4455ec4eba4a0b58f60bd7d
+      internalID: 2024380960
       vertices: []
       indices: 
       edges: []
@@ -5363,8 +5363,8 @@ TextureImporter:
       name: infantry_250
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1920
+        x: 512
+        y: 1856
         width: 64
         height: 64
       alignment: 0
@@ -5374,8 +5374,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7582d434fd75244fb645b7b514da14f
-      internalID: 97024769
+      spriteID: c457a9d0c4fc5024e9dfb1c608976177
+      internalID: 3460598
       vertices: []
       indices: 
       edges: []
@@ -5384,8 +5384,8 @@ TextureImporter:
       name: infantry_251
       rect:
         serializedVersion: 2
-        x: 192
-        y: 1920
+        x: 576
+        y: 1856
         width: 64
         height: 64
       alignment: 0
@@ -5395,8 +5395,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abf566354e6486646a2ed12f4b87741e
-      internalID: 1678437740
+      spriteID: 0eb236388429f154698b890c712f74d7
+      internalID: 1786976529
       vertices: []
       indices: 
       edges: []
@@ -5405,8 +5405,8 @@ TextureImporter:
       name: infantry_252
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1920
+        x: 640
+        y: 1856
         width: 64
         height: 64
       alignment: 0
@@ -5416,8 +5416,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da95afeba35a8bd4381378735f6ee04a
-      internalID: -801872591
+      spriteID: dd4d44d753fd106489bd981bf20ebfd5
+      internalID: -801162853
       vertices: []
       indices: 
       edges: []
@@ -5426,8 +5426,8 @@ TextureImporter:
       name: infantry_253
       rect:
         serializedVersion: 2
-        x: 320
-        y: 1920
+        x: 0
+        y: 1792
         width: 64
         height: 64
       alignment: 0
@@ -5437,8 +5437,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1edac7c0ff7030b4a9229633823466c7
-      internalID: -617907304
+      spriteID: 0d27fc414c069264e9acb09d8c3f63b9
+      internalID: -1220606502
       vertices: []
       indices: 
       edges: []
@@ -5447,8 +5447,8 @@ TextureImporter:
       name: infantry_254
       rect:
         serializedVersion: 2
-        x: 384
-        y: 1920
+        x: 64
+        y: 1792
         width: 64
         height: 64
       alignment: 0
@@ -5458,8 +5458,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6da33370aa4eb9a47b553c6bfb663f1e
-      internalID: -2001080568
+      spriteID: f7d0428bffa4ecb459f0db8962882f96
+      internalID: 690859987
       vertices: []
       indices: 
       edges: []
@@ -5468,8 +5468,8 @@ TextureImporter:
       name: infantry_255
       rect:
         serializedVersion: 2
-        x: 448
-        y: 1920
+        x: 128
+        y: 1792
         width: 64
         height: 64
       alignment: 0
@@ -5479,8 +5479,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c48c136b4de2d834abd234501a97298f
-      internalID: -1142488565
+      spriteID: 1effb04e18cbbe94084fd7cd21278f22
+      internalID: -69436706
       vertices: []
       indices: 
       edges: []
@@ -5489,8 +5489,8 @@ TextureImporter:
       name: infantry_256
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1920
+        x: 192
+        y: 1792
         width: 64
         height: 64
       alignment: 0
@@ -5500,8 +5500,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af04d3763f59b184683ac9e43bcd867f
-      internalID: 479280636
+      spriteID: 818a59e7d6d7c9d45bd3911edd0586bb
+      internalID: -912481847
       vertices: []
       indices: 
       edges: []
@@ -5510,8 +5510,8 @@ TextureImporter:
       name: infantry_257
       rect:
         serializedVersion: 2
-        x: 576
-        y: 1920
+        x: 256
+        y: 1792
         width: 64
         height: 64
       alignment: 0
@@ -5521,8 +5521,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a60c2e6bf5066244918ece137223846
-      internalID: -864506135
+      spriteID: c4640dd81763ad544bdb31c0e969e8ac
+      internalID: 386899655
       vertices: []
       indices: 
       edges: []
@@ -5531,8 +5531,8 @@ TextureImporter:
       name: infantry_258
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1856
+        x: 320
+        y: 1792
         width: 64
         height: 64
       alignment: 0
@@ -5542,8 +5542,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ed13fa7d8507104b8ae387ad65f50a9
-      internalID: 673334577
+      spriteID: b559c9b01775cb543a332ed098283cfa
+      internalID: -196129608
       vertices: []
       indices: 
       edges: []
@@ -5552,8 +5552,8 @@ TextureImporter:
       name: infantry_259
       rect:
         serializedVersion: 2
-        x: 64
-        y: 1856
+        x: 384
+        y: 1792
         width: 64
         height: 64
       alignment: 0
@@ -5563,8 +5563,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94f0423b0e5babd4b8cbf4c6e1dd7a40
-      internalID: 1871748108
+      spriteID: 2aaa53e084296c4409c5a3be4889482b
+      internalID: -1770293738
       vertices: []
       indices: 
       edges: []
@@ -5573,8 +5573,8 @@ TextureImporter:
       name: infantry_260
       rect:
         serializedVersion: 2
-        x: 192
-        y: 1856
+        x: 448
+        y: 1792
         width: 64
         height: 64
       alignment: 0
@@ -5584,8 +5584,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb91758cce30ba742874df43e3e865ff
-      internalID: -1025199490
+      spriteID: 9423b0f8c268f1f44a0c82571117971f
+      internalID: 563820668
       vertices: []
       indices: 
       edges: []
@@ -5594,8 +5594,8 @@ TextureImporter:
       name: infantry_261
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1856
+        x: 0
+        y: 1728
         width: 64
         height: 64
       alignment: 0
@@ -5605,8 +5605,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 099c355e954a65c40bcf106ca99290ea
-      internalID: -1323871845
+      spriteID: 7e03093a96006a240bb2c9a4aecd5c57
+      internalID: -728158152
       vertices: []
       indices: 
       edges: []
@@ -5615,8 +5615,8 @@ TextureImporter:
       name: infantry_262
       rect:
         serializedVersion: 2
-        x: 320
-        y: 1856
+        x: 64
+        y: 1728
         width: 64
         height: 64
       alignment: 0
@@ -5626,8 +5626,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbc9f0127c090eb4a8a2b5bc2a9d60f9
-      internalID: -1424720716
+      spriteID: 992a0d62736c5574d912576428bf1fce
+      internalID: 213838185
       vertices: []
       indices: 
       edges: []
@@ -5636,8 +5636,8 @@ TextureImporter:
       name: infantry_263
       rect:
         serializedVersion: 2
-        x: 384
-        y: 1856
+        x: 128
+        y: 1728
         width: 64
         height: 64
       alignment: 0
@@ -5647,8 +5647,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4277d4fc73be6b241a0b2976f2b0383c
-      internalID: 1225918785
+      spriteID: b359367302a30db4790f96e6f8e776d6
+      internalID: 809222779
       vertices: []
       indices: 
       edges: []
@@ -5657,8 +5657,8 @@ TextureImporter:
       name: infantry_264
       rect:
         serializedVersion: 2
-        x: 448
-        y: 1856
+        x: 192
+        y: 1728
         width: 64
         height: 64
       alignment: 0
@@ -5668,8 +5668,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 839aff2b0ec23814b83fd509d8562147
-      internalID: -1045332166
+      spriteID: b3f3412a5efbd374db12865c7ab75b0d
+      internalID: 2041582980
       vertices: []
       indices: 
       edges: []
@@ -5678,8 +5678,8 @@ TextureImporter:
       name: infantry_265
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1856
+        x: 256
+        y: 1728
         width: 64
         height: 64
       alignment: 0
@@ -5689,8 +5689,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a222e3c335343dc4e9c3a6d427f588ac
-      internalID: -1878448971
+      spriteID: 43298a223e0f17348bd8d6ece6882eb1
+      internalID: 557555113
       vertices: []
       indices: 
       edges: []
@@ -5699,8 +5699,8 @@ TextureImporter:
       name: infantry_266
       rect:
         serializedVersion: 2
-        x: 576
-        y: 1856
+        x: 320
+        y: 1728
         width: 64
         height: 64
       alignment: 0
@@ -5710,8 +5710,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55f94cd04dd2b8c4d87295a83ef02fdc
-      internalID: -1727648449
+      spriteID: f6fe561b63a3540408df01cfdccea5bd
+      internalID: 257653392
       vertices: []
       indices: 
       edges: []
@@ -5720,8 +5720,8 @@ TextureImporter:
       name: infantry_267
       rect:
         serializedVersion: 2
-        x: 640
-        y: 1856
+        x: 384
+        y: 1728
         width: 64
         height: 64
       alignment: 0
@@ -5731,8 +5731,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d34331cf89568841a77c50d36fbba96
-      internalID: -1810267281
+      spriteID: 10d86755d1e03d6419cf52c561d20f8c
+      internalID: -822017189
       vertices: []
       indices: 
       edges: []
@@ -5741,8 +5741,8 @@ TextureImporter:
       name: infantry_268
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1792
+        x: 448
+        y: 1728
         width: 64
         height: 64
       alignment: 0
@@ -5752,329 +5752,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc531e752d8eba842b31748795926da9
-      internalID: -777714000
+      spriteID: fb42ac23f6f22b743bbe0344076c1e36
+      internalID: -1787084701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: infantry_269
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 1792
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1bae2387eb76e2489fe5b26bd9f325c
-      internalID: -888444048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_270
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 1792
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4af56bf36b7ab14a9946031303a5c5b
-      internalID: -586294250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_271
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 1792
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b46467807e920fe4ab747f12b3bfc379
-      internalID: -696825167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_272
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 1792
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9730529b10e6f7042b7b48c38ed0a8c6
-      internalID: 1920540742
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_273
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 1792
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62bc13dd0f49cfd44bf71e14e8147453
-      internalID: 98173956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_274
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 1792
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80619928758834a499a3f08d44f4a97d
-      internalID: -1742495386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_275
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 1792
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a77a7b93b50990a44b81b9a812e5aa5d
-      internalID: 163905100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_276
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1728
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 129090407ddb96147b9685981106f100
-      internalID: -1637023536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_277
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 1728
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5041630e509bdd94ca8fb9d1e47310b6
-      internalID: -664739274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_278
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 1728
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b31e88186840b7488204fdb29870a2f
-      internalID: 2050703074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_279
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 1728
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ded37333f437d7146b807de9c957d794
-      internalID: 1245428420
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_280
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 1728
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c671be6f2a33c4b41999ccaca84f21c4
-      internalID: -1494282783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_281
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 1728
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37fb1150695dc464c8d607acddea6e47
-      internalID: 466093968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_282
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 1728
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9239a15c1835ea742a5d3c8bc6a81293
-      internalID: -361949182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_283
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 1728
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12994fefcb4dcea4cb272a65585966a6
-      internalID: -1839646232
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_284
       rect:
         serializedVersion: 2
         x: 512
@@ -6088,14 +5773,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 629bcec501f15c74e8d43956b83111db
-      internalID: 199591619
+      spriteID: a3a37a9e91b9be74db390198c07ae2ef
+      internalID: -402862170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_285
+      name: infantry_270
       rect:
         serializedVersion: 2
         x: 576
@@ -6109,14 +5794,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 852f09b063dbe4846a924e6a65d666db
-      internalID: -1913394362
+      spriteID: be926b1694417e149b107cec854ea20c
+      internalID: -1134154573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_286
+      name: infantry_271
       rect:
         serializedVersion: 2
         x: 640
@@ -6130,14 +5815,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f69ec87b7589c24696f4c33883714d9
-      internalID: 61952713
+      spriteID: 4d9697239b8e20c43a5c15dc10e74b60
+      internalID: -415287757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_287
+      name: infantry_272
       rect:
         serializedVersion: 2
         x: 704
@@ -6151,14 +5836,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 846a01c7b56042046b74b5fb0964aa6a
-      internalID: 1021305085
+      spriteID: 9d142ec4439110442bedeac733fc3940
+      internalID: 921515568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_288
+      name: infantry_273
       rect:
         serializedVersion: 2
         x: 0
@@ -6172,14 +5857,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dadd40f6b385974385fee5f7a39c543
-      internalID: 533635730
+      spriteID: b7f38fcb3bd337b4284b21e88a8831ab
+      internalID: 1412450350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_289
+      name: infantry_274
       rect:
         serializedVersion: 2
         x: 64
@@ -6193,14 +5878,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 303aa2130f7a74d468e362d23bcc5fd3
-      internalID: 1092188602
+      spriteID: 9958ef19240f4de4aa90188c7ad51adf
+      internalID: 6285722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_290
+      name: infantry_275
       rect:
         serializedVersion: 2
         x: 128
@@ -6214,14 +5899,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bddf6c76cb4c5747bfcb2a857389c73
-      internalID: 1399246998
+      spriteID: 2e1705eb04f0ca842b266b7263a5f212
+      internalID: 918342774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_291
+      name: infantry_276
       rect:
         serializedVersion: 2
         x: 192
@@ -6235,14 +5920,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3805a8bb1ce0a9545b5bb663809e83fe
-      internalID: 605864151
+      spriteID: ef50df497d6b9f1499bf59a919f102a6
+      internalID: 434473093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_292
+      name: infantry_277
       rect:
         serializedVersion: 2
         x: 256
@@ -6256,14 +5941,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: befcd8140dacf334581353b54d09e02c
-      internalID: -1182178582
+      spriteID: 7f76bc546274a3546a332b1c00249621
+      internalID: -882034909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_293
+      name: infantry_278
       rect:
         serializedVersion: 2
         x: 320
@@ -6277,14 +5962,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccc9565b4024cd34987ee2166e63b01d
-      internalID: -519788453
+      spriteID: c151b429e1e58a846a1bf59823ad22c3
+      internalID: -1359946674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_294
+      name: infantry_279
       rect:
         serializedVersion: 2
         x: 384
@@ -6298,14 +5983,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e52b294600ad6f459248c3810b8c012
-      internalID: -1764562375
+      spriteID: ac3c65e764a91344fbde8726889b37b2
+      internalID: -2081828601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_295
+      name: infantry_280
       rect:
         serializedVersion: 2
         x: 448
@@ -6319,35 +6004,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8138c557d7560a54196a20fb0506ee31
-      internalID: -671535872
+      spriteID: a5586b1bad05ed941ac90ea036209026
+      internalID: -192304490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_296
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 1664
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8dea104ddd56af8408d3d2abb6927aab
-      internalID: 128316038
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_297
+      name: infantry_281
       rect:
         serializedVersion: 2
         x: 256
@@ -6361,56 +6025,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5984f8bfc3e2ba41af32bf4f29d890a
-      internalID: 502579922
+      spriteID: a955f15f264c56f4f8908362a5eef8bd
+      internalID: -1900069719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_298
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 1600
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: acc1354395ec25e47901f181615e1970
-      internalID: 1636381374
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_299
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 1600
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57910472060ba7b40b79f0b031429f64
-      internalID: 1160518298
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: infantry_300
+      name: infantry_282
       rect:
         serializedVersion: 2
         x: 448
@@ -6424,14 +6046,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1179d25ec377a6c41bd01101e8c1a9c9
-      internalID: 1287324322
+      spriteID: 3d71cd276b8736a4585f4084e498813b
+      internalID: 45026470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: infantry_301
+      name: infantry_283
       rect:
         serializedVersion: 2
         x: 640
@@ -6445,8 +6067,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a142b2ee67d43f4d877235f66472dff
-      internalID: 1644083861
+      spriteID: 4463c001838ec8543985ce7081eeff84
+      internalID: -580848485
       vertices: []
       indices: 
       edges: []
@@ -6462,308 +6084,290 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      infantry_0: -1473640472
-      infantry_1: -2010217859
-      infantry_10: 1431132762
-      infantry_100: -1843520039
-      infantry_101: 1357674923
-      infantry_102: -693080521
-      infantry_103: -742602716
-      infantry_104: -2131389388
-      infantry_105: -2051561460
-      infantry_106: -1053598460
-      infantry_107: -141960064
-      infantry_108: -613475790
-      infantry_109: 2011723421
-      infantry_11: 1635272919
-      infantry_110: -1567407588
-      infantry_111: 27171955
-      infantry_112: -212224842
-      infantry_113: 255039751
-      infantry_114: 235363042
-      infantry_115: -1025397995
-      infantry_116: 1772590541
-      infantry_117: 1059446276
-      infantry_118: 1064191769
-      infantry_119: -29824872
-      infantry_12: -1508006182
-      infantry_120: 1698564903
-      infantry_121: 1839730651
-      infantry_122: 1307753302
-      infantry_123: -436066738
-      infantry_124: -701771687
-      infantry_125: -505654088
-      infantry_126: 1002592374
-      infantry_127: -427532451
-      infantry_128: 1520691324
-      infantry_129: -852170902
-      infantry_13: 2100882316
-      infantry_130: 1259421655
-      infantry_131: 1591727074
-      infantry_132: 1235764768
-      infantry_133: 1388245361
-      infantry_134: -826024946
-      infantry_135: 884474829
-      infantry_136: -1786143884
-      infantry_137: -1859267451
-      infantry_138: -1920494107
-      infantry_139: 1591556228
-      infantry_14: 1978492817
-      infantry_140: -792207715
-      infantry_141: -389904375
-      infantry_142: 1092564000
-      infantry_143: 1674915325
-      infantry_144: -1591325593
-      infantry_145: -520658113
-      infantry_146: 566388836
-      infantry_147: 1448655918
-      infantry_148: -1185987076
-      infantry_149: -1654188865
-      infantry_15: -1830960931
-      infantry_150: 1546021511
-      infantry_151: 260184545
-      infantry_152: -761717132
-      infantry_153: -927827125
-      infantry_154: 727894606
-      infantry_155: -372132435
-      infantry_156: -530206088
-      infantry_157: 333625573
-      infantry_158: 646420506
-      infantry_159: 8821681
-      infantry_16: 1538895024
-      infantry_160: 949429941
-      infantry_161: 269607173
-      infantry_162: 1838779858
-      infantry_163: 1054297131
-      infantry_164: -1447217593
-      infantry_165: 937279157
-      infantry_166: 1963480438
-      infantry_167: 185216679
-      infantry_168: 364149386
-      infantry_169: -1908039416
-      infantry_17: -1692540608
-      infantry_170: -404790238
-      infantry_171: -1082041333
-      infantry_172: -1419207235
-      infantry_173: -472798498
-      infantry_174: 1379124400
-      infantry_175: 1145740270
-      infantry_176: -302291422
-      infantry_177: -1061426562
-      infantry_178: 608217593
-      infantry_179: -358739262
-      infantry_18: 1315203142
-      infantry_180: -1669635846
-      infantry_181: 1052347273
-      infantry_182: 777045694
-      infantry_183: 1223625243
-      infantry_184: -395801699
-      infantry_185: -1595802454
-      infantry_186: -1038453499
-      infantry_187: -636817147
-      infantry_188: -548327302
-      infantry_189: -1527824395
-      infantry_19: -127413393
-      infantry_190: 556343598
-      infantry_191: 724597051
-      infantry_192: 816802691
-      infantry_193: -312997289
-      infantry_194: 448706932
-      infantry_195: 1977125471
-      infantry_196: -293837755
-      infantry_197: -1842731913
-      infantry_198: 1560956696
-      infantry_199: -28221698
-      infantry_2: 882461988
-      infantry_20: 1374922043
-      infantry_200: 1269818314
-      infantry_201: 1967845604
-      infantry_202: 1656304496
-      infantry_203: -567692268
-      infantry_204: -1409172056
-      infantry_205: 1057132803
-      infantry_206: -2050000184
-      infantry_207: 302233894
-      infantry_208: 1676490408
-      infantry_209: -609874397
-      infantry_21: 1846087221
-      infantry_210: 313490933
-      infantry_211: 325537206
-      infantry_212: -656047125
-      infantry_213: 688682278
-      infantry_214: 2033577481
-      infantry_215: -399071741
-      infantry_216: 963255159
-      infantry_217: -1432390672
-      infantry_218: -1053051651
-      infantry_219: 1264249238
-      infantry_22: 694886673
-      infantry_220: 1653550909
-      infantry_221: -1975107027
-      infantry_222: 830061087
-      infantry_223: 208694151
-      infantry_224: 1396964423
-      infantry_225: 648794251
-      infantry_226: -761453716
-      infantry_227: -1076746098
-      infantry_228: -2066847509
-      infantry_229: 1746955713
-      infantry_23: 1160884810
-      infantry_230: 1528945671
-      infantry_231: 2068091098
-      infantry_232: -1349729623
-      infantry_233: -1487233438
-      infantry_234: -574123066
-      infantry_235: 673481801
-      infantry_236: 646239960
-      infantry_237: 816889602
-      infantry_238: -1621603051
-      infantry_239: 1693663893
-      infantry_24: 347387904
-      infantry_240: 714034212
-      infantry_241: -1926417056
-      infantry_242: -1335606697
-      infantry_243: -831914335
-      infantry_244: 1130504582
-      infantry_245: 1486423031
-      infantry_246: 1287764284
-      infantry_247: 966186539
-      infantry_248: 333007863
-      infantry_249: 1803918803
-      infantry_25: 197554687
-      infantry_250: 97024769
-      infantry_251: 1678437740
-      infantry_252: -801872591
-      infantry_253: -617907304
-      infantry_254: -2001080568
-      infantry_255: -1142488565
-      infantry_256: 479280636
-      infantry_257: -864506135
-      infantry_258: 673334577
-      infantry_259: 1871748108
-      infantry_26: 491837672
-      infantry_260: -1025199490
-      infantry_261: -1323871845
-      infantry_262: -1424720716
-      infantry_263: 1225918785
-      infantry_264: -1045332166
-      infantry_265: -1878448971
-      infantry_266: -1727648449
-      infantry_267: -1810267281
-      infantry_268: -777714000
-      infantry_269: -888444048
-      infantry_27: 1132413877
-      infantry_270: -586294250
-      infantry_271: -696825167
-      infantry_272: 1920540742
-      infantry_273: 98173956
-      infantry_274: -1742495386
-      infantry_275: 163905100
-      infantry_276: -1637023536
-      infantry_277: -664739274
-      infantry_278: 2050703074
-      infantry_279: 1245428420
-      infantry_28: -716703167
-      infantry_280: -1494282783
-      infantry_281: 466093968
-      infantry_282: -361949182
-      infantry_283: -1839646232
-      infantry_284: 199591619
-      infantry_285: -1913394362
-      infantry_286: 61952713
-      infantry_287: 1021305085
-      infantry_288: 533635730
-      infantry_289: 1092188602
-      infantry_29: 32488969
-      infantry_290: 1399246998
-      infantry_291: 605864151
-      infantry_292: -1182178582
-      infantry_293: -519788453
-      infantry_294: -1764562375
-      infantry_295: -671535872
-      infantry_296: 128316038
-      infantry_297: 502579922
-      infantry_298: 1636381374
-      infantry_299: 1160518298
-      infantry_3: 741579019
-      infantry_30: -1846216648
-      infantry_300: 1287324322
-      infantry_301: 1644083861
-      infantry_31: -2048196055
-      infantry_32: 1524819079
-      infantry_33: -272386815
-      infantry_34: -1973540419
-      infantry_35: 864567811
-      infantry_36: -175700128
-      infantry_37: 1038435559
-      infantry_38: -121352574
-      infantry_39: 275940617
-      infantry_4: 725034279
-      infantry_40: 1480892868
-      infantry_41: 2062616287
-      infantry_42: 400306357
-      infantry_43: 1146262680
-      infantry_44: -616402074
-      infantry_45: -929217168
-      infantry_46: 1065947743
-      infantry_47: -470119
-      infantry_48: -1033902798
-      infantry_49: -1755512471
-      infantry_5: 408770424
-      infantry_50: -1599354205
-      infantry_51: 311757161
-      infantry_52: -1457778322
-      infantry_53: -538921304
-      infantry_54: -234553071
-      infantry_55: -1817748027
-      infantry_56: 589512440
-      infantry_57: -809982178
-      infantry_58: -1299319851
-      infantry_59: -1203207330
-      infantry_6: 383915225
-      infantry_60: -1132111784
-      infantry_61: -1969783996
-      infantry_62: 2015313653
-      infantry_63: -126979953
-      infantry_64: -2051778571
-      infantry_65: -625558996
-      infantry_66: -561346510
-      infantry_67: -1345018814
-      infantry_68: -679792488
-      infantry_69: -2104874187
-      infantry_7: -1427055438
-      infantry_70: 1979430799
-      infantry_71: -461375760
-      infantry_72: -770668605
-      infantry_73: -978259497
-      infantry_74: -1929294099
-      infantry_75: -1533635345
-      infantry_76: -548505540
-      infantry_77: -1651387303
-      infantry_78: 2008666364
-      infantry_79: -1083962851
-      infantry_8: 450917426
-      infantry_80: 1349273917
-      infantry_81: 1794740248
-      infantry_82: 1128340212
-      infantry_83: -753799731
-      infantry_84: 1931303089
-      infantry_85: 1261670476
-      infantry_86: 500084639
-      infantry_87: -1871097025
-      infantry_88: 1882266662
-      infantry_89: 546262400
-      infantry_9: 1680538806
-      infantry_90: 223883770
-      infantry_91: -1336597866
-      infantry_92: 389659082
-      infantry_93: -1403394255
-      infantry_94: -91449439
-      infantry_95: -1541677388
-      infantry_96: 285619024
-      infantry_97: 2119770253
-      infantry_98: -294671242
-      infantry_99: -1276302194
+      infantry_0: -1408860692
+      infantry_1: -319674739
+      infantry_10: 1741105063
+      infantry_100: -297370123
+      infantry_101: -970991686
+      infantry_102: -1714278967
+      infantry_103: 129518199
+      infantry_104: 821544144
+      infantry_105: -489227456
+      infantry_106: 1332859378
+      infantry_107: 1648764173
+      infantry_108: 1096962243
+      infantry_109: -483063434
+      infantry_11: 439482776
+      infantry_110: -644785371
+      infantry_111: 1378678961
+      infantry_112: -1676530581
+      infantry_113: -726211861
+      infantry_114: 1796053391
+      infantry_115: -1017953192
+      infantry_116: -30240200
+      infantry_117: 1361382389
+      infantry_118: 523855460
+      infantry_119: -832585832
+      infantry_12: -2093636201
+      infantry_120: 1795045631
+      infantry_121: -1953811021
+      infantry_122: -238422124
+      infantry_123: 1475058237
+      infantry_124: 1954773313
+      infantry_125: -168806495
+      infantry_126: 968256506
+      infantry_127: 846662821
+      infantry_128: 1688263582
+      infantry_129: -555748426
+      infantry_13: 1224527268
+      infantry_130: -531222352
+      infantry_131: -313401030
+      infantry_132: -1429126616
+      infantry_133: -1198853660
+      infantry_134: -2089014151
+      infantry_135: -51222816
+      infantry_136: -554420077
+      infantry_137: -303100306
+      infantry_138: -846399452
+      infantry_139: 1976764001
+      infantry_14: -611632756
+      infantry_140: -1246760424
+      infantry_141: -489987172
+      infantry_142: -1294841911
+      infantry_143: 685634826
+      infantry_144: 1345927102
+      infantry_145: 425874498
+      infantry_146: -677013496
+      infantry_147: -1001614928
+      infantry_148: -348470578
+      infantry_149: -2008043252
+      infantry_15: 2132891906
+      infantry_150: -1807954297
+      infantry_151: -683747000
+      infantry_152: 1512336326
+      infantry_153: -76678647
+      infantry_154: 726132198
+      infantry_155: -776136368
+      infantry_156: -809901430
+      infantry_157: 736269997
+      infantry_158: -2007130849
+      infantry_159: 1729449535
+      infantry_16: 540422989
+      infantry_160: 1432537925
+      infantry_161: 1649763330
+      infantry_162: -159133233
+      infantry_163: -322930113
+      infantry_164: -1803974430
+      infantry_165: -221028185
+      infantry_166: 674537966
+      infantry_167: -1560769001
+      infantry_168: -2031343223
+      infantry_169: -636646776
+      infantry_17: 1634380795
+      infantry_170: -2088562011
+      infantry_171: -1361530918
+      infantry_172: 312297732
+      infantry_173: 601346176
+      infantry_174: 605390776
+      infantry_175: 322379330
+      infantry_176: 240517219
+      infantry_177: -456068598
+      infantry_178: 1186983825
+      infantry_179: -90526532
+      infantry_18: 124294307
+      infantry_180: 1814467287
+      infantry_181: -1313359194
+      infantry_182: -2102673939
+      infantry_183: -1227950861
+      infantry_184: 387781150
+      infantry_185: -177464396
+      infantry_186: 1142085386
+      infantry_187: 1803645363
+      infantry_188: -337233914
+      infantry_189: -1198338052
+      infantry_19: -732381944
+      infantry_190: -550929388
+      infantry_191: 1603109643
+      infantry_192: -503077910
+      infantry_193: -1946947185
+      infantry_194: -1884318068
+      infantry_195: -1134448499
+      infantry_196: 747647042
+      infantry_197: 833701028
+      infantry_198: -172637155
+      infantry_199: 1494319389
+      infantry_2: -1730997544
+      infantry_20: 853538184
+      infantry_200: 1280981726
+      infantry_201: 1776977700
+      infantry_202: -622629034
+      infantry_203: 661641170
+      infantry_204: 1186794971
+      infantry_205: 299028372
+      infantry_206: 1699962966
+      infantry_207: -1917793891
+      infantry_208: 2018213343
+      infantry_209: -1570049317
+      infantry_21: 1592839062
+      infantry_210: 1830929849
+      infantry_211: -700824747
+      infantry_212: 311875426
+      infantry_213: -1990612937
+      infantry_214: 1379424872
+      infantry_215: -347150714
+      infantry_216: 948769998
+      infantry_217: -774639637
+      infantry_218: -84448979
+      infantry_219: -134872474
+      infantry_22: -887939382
+      infantry_220: -1143558890
+      infantry_221: 258187991
+      infantry_222: -1875357795
+      infantry_223: 69807980
+      infantry_224: -2088373346
+      infantry_225: 2127444675
+      infantry_226: 370079751
+      infantry_227: 794421157
+      infantry_228: -2022933678
+      infantry_229: -1825853381
+      infantry_23: 1610373183
+      infantry_230: 1414639056
+      infantry_231: 1533714667
+      infantry_232: 29093514
+      infantry_233: -618809002
+      infantry_234: 463771765
+      infantry_235: 587023781
+      infantry_236: 513362097
+      infantry_237: 1615043691
+      infantry_238: 799289592
+      infantry_239: -1136691716
+      infantry_24: -909425458
+      infantry_240: -602034228
+      infantry_241: -621680623
+      infantry_242: -1851282867
+      infantry_243: 1435780693
+      infantry_244: -1672831221
+      infantry_245: 170047495
+      infantry_246: -1960275552
+      infantry_247: 1589394954
+      infantry_248: 1130542184
+      infantry_249: 2024380960
+      infantry_25: -1480919050
+      infantry_250: 3460598
+      infantry_251: 1786976529
+      infantry_252: -801162853
+      infantry_253: -1220606502
+      infantry_254: 690859987
+      infantry_255: -69436706
+      infantry_256: -912481847
+      infantry_257: 386899655
+      infantry_258: -196129608
+      infantry_259: -1770293738
+      infantry_26: -1053659603
+      infantry_260: 563820668
+      infantry_261: -728158152
+      infantry_262: 213838185
+      infantry_263: 809222779
+      infantry_264: 2041582980
+      infantry_265: 557555113
+      infantry_266: 257653392
+      infantry_267: -822017189
+      infantry_268: -1787084701
+      infantry_269: -402862170
+      infantry_27: 317231591
+      infantry_270: -1134154573
+      infantry_271: -415287757
+      infantry_272: 921515568
+      infantry_273: 1412450350
+      infantry_274: 6285722
+      infantry_275: 918342774
+      infantry_276: 434473093
+      infantry_277: -882034909
+      infantry_278: -1359946674
+      infantry_279: -2081828601
+      infantry_28: -1767280745
+      infantry_280: -192304490
+      infantry_281: -1900069719
+      infantry_282: 45026470
+      infantry_283: -580848485
+      infantry_29: -1073192762
+      infantry_3: -1974384321
+      infantry_30: -447577996
+      infantry_31: -979242894
+      infantry_32: 1597537297
+      infantry_33: -1169589095
+      infantry_34: 1194215325
+      infantry_35: -560407266
+      infantry_36: 1242681666
+      infantry_37: 1303438916
+      infantry_38: 1507804297
+      infantry_39: 1636180465
+      infantry_4: -1176015088
+      infantry_40: -1411517103
+      infantry_41: -725007602
+      infantry_42: -1702768381
+      infantry_43: -1165983040
+      infantry_44: -2005598816
+      infantry_45: -291758388
+      infantry_46: -1953845287
+      infantry_47: -1290199731
+      infantry_48: 2123008290
+      infantry_49: -1935159864
+      infantry_5: 1549537105
+      infantry_50: -1355980581
+      infantry_51: 295780842
+      infantry_52: 234724481
+      infantry_53: 324197417
+      infantry_54: 599145583
+      infantry_55: -500169253
+      infantry_56: -464932572
+      infantry_57: -563850170
+      infantry_58: 1414040472
+      infantry_59: -1480866711
+      infantry_6: 1667475973
+      infantry_60: -1750678369
+      infantry_61: 1851596592
+      infantry_62: 913920699
+      infantry_63: -501711501
+      infantry_64: 1523242221
+      infantry_65: -1013573863
+      infantry_66: -1806742655
+      infantry_67: -581420997
+      infantry_68: 532321529
+      infantry_69: 64285159
+      infantry_7: -213772897
+      infantry_70: 359926147
+      infantry_71: 247077772
+      infantry_72: 349550443
+      infantry_73: -999405476
+      infantry_74: -808586889
+      infantry_75: 2092596703
+      infantry_76: 1854993583
+      infantry_77: 698131394
+      infantry_78: 1551526817
+      infantry_79: -561675839
+      infantry_8: 824369300
+      infantry_80: 2138653225
+      infantry_81: -522221718
+      infantry_82: -777190680
+      infantry_83: 982674302
+      infantry_84: -456522846
+      infantry_85: 1304798567
+      infantry_86: -2071743434
+      infantry_87: 1881874343
+      infantry_88: -738146212
+      infantry_89: -99327536
+      infantry_9: -285610292
+      infantry_90: 1800793621
+      infantry_91: -11700281
+      infantry_92: 726466506
+      infantry_93: -780457761
+      infantry_94: 1665029763
+      infantry_95: -395671319
+      infantry_96: -1902063503
+      infantry_97: -1179615858
+      infantry_98: -790666468
+      infantry_99: -1983970527
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
