@@ -94,8 +94,6 @@ public class GameController : MonoBehaviour
         currentPlayerInControl = player1;
         playerList.Add(player1);
         playerList.Add(player2);
-
-
     }
 
     // This method is called when the object is first enabled in the scene.
@@ -111,7 +109,7 @@ public class GameController : MonoBehaviour
 
         SpawnUnit(player2, 8, 8, BanditArabPrefab);
 
-        //SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
+        SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
 
         // SpawnBuilding(player1, 8, 7, (Building)indexTerrainprefab[3]);
 

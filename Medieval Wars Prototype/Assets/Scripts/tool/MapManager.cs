@@ -73,7 +73,8 @@ public class MapManager : MonoBehaviour
     public List<TileBase>[] listOfTerrainSpritesLists;
 
     public GridCell GridCellPrefab;
-    public Terrain[] terrainPrefabs = new Terrain[15];
+    public Terrain[] terrainPrefabs = new Terrain[14];
+    public Accessory AccessoriesPrefabs;
 
     public MapGrid mapGrid;
 
@@ -95,8 +96,10 @@ public class MapManager : MonoBehaviour
         public int column;
         public string groundType;
         public string terrainType;
+        public string accessoryType;
         public int groundTypeIndex;
         public int terrainTypeIndex;
+        public int accessoryTypeIndex;
 
         public CellData(Vector3Int vector3Int)
         {
@@ -136,9 +139,11 @@ public class MapManager : MonoBehaviour
     public int numberOfColumnsInTheMap;
     public Tilemap groundsTileMap;
     public Tilemap terrainsAndBuilingsTileMap;
+    public Tilemap accessoriesTileMap;
 
     public GameObject GridCellsHolder;
     public GameObject TerrainsHolder;
+    public GameObject AccessoriesHolder;
 
 
     // Function to save map data to a JSON file
@@ -179,6 +184,23 @@ public class MapManager : MonoBehaviour
 
                 mapData.cells[rowTemp, columnTemp].terrainType = tile.name; // hadi hya cell , doka nzidlha les info t3 terrain&building
                 mapData.cells[rowTemp, columnTemp].terrainTypeIndex = terrainIndexOfTile(tile);
+            }
+        }
+
+        //!!!!!!!!!!  Accessories TielMap
+        foreach (Vector3Int cellPosition in accessoriesTileMap.cellBounds.allPositionsWithin)
+        {
+            TileBase tile = accessoriesTileMap.GetTile(cellPosition);
+            if (tile != null)
+            {
+                // int columnTemp = cellPosition.x + MapManager.instance.CameraWidhtSize / 2;  //  - 0.5f
+                // int rowTemp = cellPosition.y + MapManager.instance.CameraHeightSize / 2;
+
+                int columnTemp = cellPosition.x + 16;
+                int rowTemp = -cellPosition.y + 8;
+
+                mapData.cells[rowTemp, columnTemp].accessoryType = tile.name;
+                mapData.cells[rowTemp, columnTemp].accessoryTypeIndex = terrainIndexOfTile(tile);
             }
         }
 
@@ -330,6 +352,31 @@ public class MapManager : MonoBehaviour
                 gridCell.occupantTerrain = terrain;
 
                 mapGrid.grid[cell.row, cell.column] = gridCell;
+
+
+
+
+
+                // !!!! ACCESSOROY TILES.
+                // Get the tile for the ground type
+                if (cell.accessoryTypeIndex == 14)
+                {
+                    TileBase tileBaseAccessory = listOfTerrainSpritesLists[cell.accessoryTypeIndex].FirstOrDefault(tile => tile.name == cell.accessoryType);
+
+
+                    // error handler ( if u missed a ground tile )
+                    if (tileBaseAccessory == null) { Debug.Log("The tile base for the ground type does not exist ground: " + cell.accessoryType); return; }
+
+                    Accessory accessory = Instantiate(AccessoriesPrefabs, new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, -0.75f), Quaternion.identity, AccessoriesHolder.transform);
+
+                    // Get the sprite of the tile
+                    tileSprite = ((Tile)tileBaseAccessory).sprite;
+
+                    // Set the SpriteRenderer's sprite to the sprite of the tile
+                    accessory.spriteRenderer.sprite = tileSprite;
+
+                    accessory.name = $"accesspry ({cell.row}, {cell.column})";
+                }
             }
         }
 

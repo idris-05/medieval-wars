@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1965938827
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1782168254, guid: 61dd6d2798aa767498fe08c641b3301d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -149,6 +149,8 @@ MonoBehaviour:
   mapGrid: {fileID: 0}
   spriteRenderer: {fileID: 0}
   moveSpeed: 5
+  animator: {fileID: 0}
+  currentAnimatonState: 0
 --- !u!114 &-7903265091803169806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOwner: {fileID: 0}
   mapGrid: {fileID: 0}
-  unitView: {fileID: 0}
+  unitView: {fileID: -1249447797327588874}
   unitIndex: 4
   unitName: 4
   occupiedCell: {fileID: 0}
