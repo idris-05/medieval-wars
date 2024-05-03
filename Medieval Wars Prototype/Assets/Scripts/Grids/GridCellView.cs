@@ -27,15 +27,15 @@ public class GridCellView : MonoBehaviour
     // this methode is called every frame 
     void OnMouseOver()
     {
-        miniIntelController.HandleMINIIntel(gridCell);
+        MiniIntelController.Instance.HandleMINIIntel(gridCell);
     }
 
     // called only once when the mouse enter the cell
     //!  hadi fiha probleme ki n5dmo biha , ki ykon 9a3ed mhovri 3la la meme cell wttbdel l'info ta3ha , mr7ch ttbdel fl INTEL hadik 7ta y5roj wy3awed yd5ollha . 
-    void OnMouseEnter()
-    {
-        miniIntelController.HandleMINIIntel(gridCell);
-    }
+    // void OnMouseEnter()
+    // {
+    //     miniIntelController.HandleMINIIntel(gridCell);
+    // }
 
 
 

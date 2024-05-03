@@ -357,26 +357,26 @@ public class MapManager : MonoBehaviour
 
 
 
-                // !!!! ACCESSOROY TILES.
-                // Get the tile for the ground type
-                if (cell.accessoryTypeIndex == 14)
-                {
-                    TileBase tileBaseAccessory = listOfTerrainSpritesLists[cell.accessoryTypeIndex].FirstOrDefault(tile => tile.name == cell.accessoryType);
+                // // !!!! ACCESSOROY TILES.
+                // // Get the tile for the ground type
+                // if (cell.accessoryTypeIndex == 14)
+                // {
+                //     TileBase tileBaseAccessory = listOfTerrainSpritesLists[cell.accessoryTypeIndex].FirstOrDefault(tile => tile.name == cell.accessoryType);
 
 
-                    // error handler ( if u missed a ground tile )
-                    if (tileBaseAccessory == null) { Debug.Log("The tile base for the ground type does not exist ground: " + cell.accessoryType); return; }
+                //     // error handler ( if u missed a ground tile )
+                //     if (tileBaseAccessory == null) { Debug.Log("The tile base for the ground type does not exist ground: " + cell.accessoryType); return; }
 
-                    Accessory accessory = Instantiate(AccessoriesPrefabs, new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, -0.75f), Quaternion.identity, AccessoriesHolder.transform);
+                //     Accessory accessory = Instantiate(AccessoriesPrefabs, new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, -0.75f), Quaternion.identity, AccessoriesHolder.transform);
 
-                    // Get the sprite of the tile
-                    tileSprite = ((Tile)tileBaseAccessory).sprite;
+                //     // Get the sprite of the tile
+                //     tileSprite = ((Tile)tileBaseAccessory).sprite;
 
-                    // Set the SpriteRenderer's sprite to the sprite of the tile
-                    accessory.spriteRenderer.sprite = tileSprite;
+                //     // Set the SpriteRenderer's sprite to the sprite of the tile
+                //     accessory.spriteRenderer.sprite = tileSprite;
 
-                    accessory.name = $"accesspry ({cell.row}, {cell.column})";
-                }
+                //     accessory.name = $"accesspry ({cell.row}, {cell.column})";
+                // }
             }
         }
 

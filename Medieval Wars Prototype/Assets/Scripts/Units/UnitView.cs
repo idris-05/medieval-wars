@@ -43,7 +43,7 @@ public class UnitView : MonoBehaviour
 
     void OnMouseEnter()
     {
-        miniIntelController.HandleMINIIntel(unit.occupiedCell);
+        MiniIntelController.Instance.HandleMINIIntel(unit.occupiedCell);
     }
 
     //!!!!!!! l7kaya t3 reset highlight hadi lazem ttssgem , swa pour unitView wla pour GridCell

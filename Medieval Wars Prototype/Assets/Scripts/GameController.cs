@@ -109,6 +109,9 @@ public class GameController : MonoBehaviour
 
         SpawnUnit(player1, 3, 3, BanditArabPrefab);
 
+        SpawnUnit(player1, 15, 27, BanditArabPrefab);
+        SpawnUnit(player1, 7, 20, BanditArabPrefab);
+
 
         SpawnUnit(player2, 8, 8, BanditArabPrefab);
 
