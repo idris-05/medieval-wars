@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 
@@ -38,10 +39,13 @@ public class GameController : MonoBehaviour
     //! UnitsWhenMade(Attackable/Suppliable) : -3
     //! ActionButtons : -4
 
+    public UserInterfaceUtil userInterfaceUtil;
 
     public MapGrid mapGrid; // linked from the editor 
 
     public Unit BanditArabPrefab;
+
+    [SerializeField] public Unit CaravanArabPrefabForTesting;
 
     public Unit Infantry1Prefab; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
 
@@ -59,6 +63,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        userInterfaceUtil = FindObjectOfType<UserInterfaceUtil>();
         coForTest = new GameObject("COForTest").AddComponent<CO>();
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
@@ -68,6 +73,7 @@ public class GameController : MonoBehaviour
         player1.Co = coForTest;
         player2.Co = coForTest;
     }
+
     // This method is called when the object is first enabled in the scene.
     void Start()
     {
@@ -79,6 +85,8 @@ public class GameController : MonoBehaviour
 
 
         SpawnUnit(player2, 8, 8, BanditArabPrefab);
+
+        SpawnUnit(player1, 10, 10, CaravanArabPrefabForTesting);
 
         //SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
 
@@ -98,7 +106,6 @@ public class GameController : MonoBehaviour
         Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f, -1), Quaternion.identity);
 
         unit.playerOwner = player;
-
         player.AddUnit(unit);
 
         // set the occupantUnit of the grid cell to the unit 
@@ -111,10 +118,23 @@ public class GameController : MonoBehaviour
         unit.row = row;
         unit.col = column;
 
-        if (unit.unitView == null) Debug.Log("perfect cell");
-
+        // flip the unit in case it is a player2 unit
         if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
+        unit.unitView.spriteRenderer.material.color = new Color(0, 0, 0, 0); // set the outline to black
+
+        // create the unit's health indicator
+        SpawnHealthIcon(unit);
+
+    }
+
+    public void SpawnHealthIcon(Unit unit)
+    {
+        //! WHAT FOLLOWS IS IN ORDER TO CREATE THE HEALTH INDICATOR ON THE UNITS
+        GameObject UnitHealthIcon = Instantiate(userInterfaceUtil.UnitHealthIconPrefab, new Vector3(0, 0, 0), Quaternion.identity, unit.transform);
+        UnitHealthIcon.GetComponent<SpriteRenderer>().sprite = userInterfaceUtil.numbersFromZeroToTenSpritesForHealth[10];
+        UnitHealthIcon.transform.localPosition = new Vector3(-0.17f, 0.17f, 0);
+        unit.unitView.HealthIcon = UnitHealthIcon;
     }
 
 

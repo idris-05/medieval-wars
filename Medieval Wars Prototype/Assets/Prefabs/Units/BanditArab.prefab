@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 04fd9e9a1e0f406458a725f907ab6749, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1965938827
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: 10
   m_Sprite: {fileID: 312139308, guid: e22c918bbe6619f499273bf0bc2febc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873822b55360c634e9a732ff9352106e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: -8740393964230367777}
 --- !u!114 &2825069361472597197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,12 +159,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d470229f18e5145bff8bb9a5cb0cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: -1773237437592595331}
   unitTransform: {fileID: 0}
   mapGrid: {fileID: 0}
   spriteRenderer: {fileID: -8740393964230367777}
   moveSpeed: 2
   animator: {fileID: 3810206441201150901}
   currentAnimatonState: 0
+  HealthIcon: {fileID: 0}
+  userInterfaceUtil: {fileID: 0}
 --- !u!95 &3810206441201150901
 Animator:
   serializedVersion: 5
@@ -200,7 +204,7 @@ MonoBehaviour:
   playerOwner: {fileID: 0}
   mapGrid: {fileID: 0}
   unitView: {fileID: 2825069361472597197}
-  unitIndex: 9
+  unitIndex: 8
   unitName: 8
   occupiedCell: {fileID: 0}
   row: 0

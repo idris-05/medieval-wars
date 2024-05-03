@@ -41,6 +41,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public float UnitCost;
 
+    
+
     void Start()
     {
         // Get the UnitView component from the scene
@@ -81,6 +83,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         this.healthPoints -= inflictedDamage; // hna events
         if ( this.healthPoints <=  0 ) { this.healthPoints = 0; }
+        unitView.RecieveDamageUI(inflictedDamage);
     }
 
     public void DieAsLoaded()

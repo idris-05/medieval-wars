@@ -36,13 +36,14 @@ public class AttackSystem : MonoBehaviour
 
     public MapGrid mapGrid;
 
-    public DamageIcon damageIcon;
+    public UserInterfaceUtil userInterfaceUtil;
+
 
 
     private void Awake()
     {
         mapGrid = FindObjectOfType<MapGrid>();
-        damageIcon = FindObjectOfType<DamageIcon>();
+        userInterfaceUtil = FindObjectOfType<UserInterfaceUtil>();
     }
 
     // base damage[Attacker,Defender]  //!!!!!!!!!!!! marahomch m9lobin ????
@@ -464,11 +465,6 @@ public class AttackSystem : MonoBehaviour
         int inflictedDamage = CalculateDamage(AttackingUnit, DefendingUnit);
         DefendingUnit.RecieveDamage(inflictedDamage);
 
-        // instantiate the damage icon after receiving damage
-
-        DamageIcon damageIconInstance = Instantiate(damageIcon,DefendingUnit.transform.position + new Vector3(0,0.3f,0) , Quaternion.identity );
-        damageIconInstance.Setup(inflictedDamage);
-
         AttackingUnit.UpdateAttributsAfterAttack();
         AttackingUnit.TransitionToNumbState();
 
@@ -494,14 +490,10 @@ public class AttackSystem : MonoBehaviour
         // verify the possibility to counter attack 
         if (VerifyCoiunterAttackPossibility(DefendingUnit, AttackingUnit) == false) yield break;
 
+        Debug.Log("counter attack");
+
         inflictedDamage = CalculateDamage(DefendingUnit, AttackingUnit);
         AttackingUnit.RecieveDamage(inflictedDamage);
-
-        // instantiate the damage icon after receiving damage
-
-        damageIconInstance = Instantiate(damageIcon, DefendingUnit.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
-        damageIconInstance.Setup(inflictedDamage);
-
 
         if (AttackingUnit.healthPoints <= 0)
         {

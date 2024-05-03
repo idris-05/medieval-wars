@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DamageIcon : MonoBehaviour
 {
+
+    public Sprite[] damageSprites;
+
+
     public float lifeTime;
 
     public void Start()
@@ -11,13 +15,15 @@ public class DamageIcon : MonoBehaviour
         Invoke("Destruction",lifeTime);
     }
 
-    public void Setup(int damage)
+    public void SetupDamageToDisplay(int damage)
     {
-        // texte t3 sprite ndirou 1 wela 2 wela .....
+        GetComponent<SpriteRenderer>().sprite = damageSprites[GameUtil.GetDamageToDisplayFromRealDamage(damage)];
     }
 
     void Destruction()
     {
         Destroy(gameObject);
     }
+
+   
 }
