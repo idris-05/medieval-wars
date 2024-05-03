@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 public class ArrowSystem : MonoBehaviour
 {
     MapGrid mapGrid;
-    [SerializeField] public GameObject[] Arrowprefabs = new GameObject[15];
+    public GameObject[] Arrowprefabs = new GameObject[15];
 
 
     enum ArrowDirection
@@ -32,6 +32,7 @@ public class ArrowSystem : MonoBehaviour
         Left_Up,
 
     }
+
     void Start()
     {
         mapGrid = FindObjectOfType<MapGrid>();
@@ -39,27 +40,18 @@ public class ArrowSystem : MonoBehaviour
 
     public static GameObject Spawn_arrow(int row, int col, GameObject arrowprefab)
     {
-
         GameObject arrow = Instantiate(arrowprefab, new Vector3(-16 + col + 0.5f, 9 - row - 0.5f, -1), Quaternion.identity);
-        arrow.gameObject.AdjustSpriteSize();
+        arrow.AdjustSpriteSize();
         return arrow;
-
-    }
-
-    public static void DestroyArrow(GameObject arrow)
-    {
-        Destroy(arrow);
     }
 
 
-
-    public int DrawautoPath(List<GridCell> Path, GameObject[] arrowprefabs, List<GridCell> cellsPath, List<GameObject> arrows, Unit unit)
+    public int DrawautoPath(List<GridCell> Path, List<GridCell> cellsPath, List<GameObject> arrows, Unit unit)
     {
         int moveleft = unit.moveRange;
-        foreach (GameObject item in arrows)
-        {
-            Destroy(item);
-        }
+
+        arrows.ForEach(item => Destroy(item));
+
         arrows.Clear();
         cellsPath.Clear();
 
@@ -69,101 +61,48 @@ public class ArrowSystem : MonoBehaviour
             {
                 if (Path[1].column == cell.column)
                 {
-                    if (Path[1].row > cell.row)
-                    {
-                        arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[6]));
-                    }
-                    else
-                    {
-                        arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[5]));
-                    }
+                    if (Path[1].row > cell.row) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[6]));
+                    else arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[5]));
                 }
                 else
                 {
-                    if (Path[1].column > cell.column)
-                    {
-                        arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[3]));
-                    }
-                    else
-                    {
-                        arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[4]));
-                    }
+                    if (Path[1].column > cell.column) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[3]));
+                    else arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[4]));
                 }
             }
             else
             {
                 if (Path.IndexOf(cell) < Path.Count - 1)
                 {
-                    if (Path[Path.IndexOf(cell) - 1].column == Path[Path.IndexOf(cell) + 1].column)
-                    {
-
-                        arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[1]));
-
-                    }
+                    if (Path[Path.IndexOf(cell) - 1].column == Path[Path.IndexOf(cell) + 1].column) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[1]));
                     else
                     {
-                        if (Path[Path.IndexOf(cell) - 1].row == Path[Path.IndexOf(cell) + 1].row)
-                        {
-
-                            arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[2]));
-
-                        }
+                        if (Path[Path.IndexOf(cell) - 1].row == Path[Path.IndexOf(cell) + 1].row) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[2]));
                         else
                         {
                             if (Path[Path.IndexOf(cell) - 1].column > cell.column)
                             {
-                                if (Path[Path.IndexOf(cell) + 1].row > cell.row)
-                                {
-                                    arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[13]));
-
-                                }
-                                else
-                                {
-                                    arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[14]));
-
-                                }
+                                if (Path[Path.IndexOf(cell) + 1].row > cell.row) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[13]));
+                                else arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[14]));
                             }
                             else
                             {
                                 if (Path[Path.IndexOf(cell) - 1].column < cell.column)
                                 {
-                                    if (Path[Path.IndexOf(cell) + 1].row > cell.row)
-                                    {
-                                        arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[11]));
-
-                                    }
-                                    else
-                                    {
-                                        arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[12]));
-
-                                    }
-
+                                    if (Path[Path.IndexOf(cell) + 1].row > cell.row) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[11]));
+                                    else arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[12]));
                                 }
                                 else
                                 {
                                     if (Path[Path.IndexOf(cell) - 1].row > cell.row)
                                     {
-                                        if (Path[Path.IndexOf(cell) + 1].column > cell.column)
-                                        {
-                                            arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[13]));
-                                        }
-                                        else
-                                        {
-                                            arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[11]));
-                                        }
-
+                                        if (Path[Path.IndexOf(cell) + 1].column > cell.column) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[13]));
+                                        else arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[11]));
                                     }
                                     else
                                     {
-                                        if (Path[Path.IndexOf(cell) + 1].column > cell.column)
-                                        {
-                                            arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[14]));
-                                        }
-                                        else
-                                        {
-                                            arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[12]));
-                                        }
-
+                                        if (Path[Path.IndexOf(cell) + 1].column > cell.column) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[14]));
+                                        else arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[12]));
                                     }
                                 }
                             }
@@ -174,31 +113,19 @@ public class ArrowSystem : MonoBehaviour
                 {
                     if (Path[Path.Count - 2].column == cell.column)
                     {
-
-                        if (Path[Path.Count - 2].row > cell.row)
-                        {
-
-                            arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[7]));
-                        }
-                        else
-                        {
-                            arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[8]));
-                        }
+                        if (Path[Path.Count - 2].row > cell.row) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[7]));
+                        else arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[8]));
                     }
                     else
                     {
-                        if (Path[Path.Count - 2].column > cell.column)
-                        {
-                            arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[9]));
-                        }
-                        else
-                        {
-                            arrows.Add(Spawn_arrow(cell.row, cell.column, arrowprefabs[10]));
-                        }
+                        if (Path[Path.Count - 2].column > cell.column) arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[9]));
+                        else arrows.Add(Spawn_arrow(cell.row, cell.column, Arrowprefabs[10]));
                     }
                 }
             }
         }
+
+
         foreach (GridCell item in Path)
         {
             cellsPath.Add(item);
@@ -207,9 +134,9 @@ public class ArrowSystem : MonoBehaviour
                 moveleft = moveleft - TerrainsUtils.MoveCost[item.occupantTerrain.TerrainIndex, unit.unitIndex];
             }
         }
+
         return moveleft;
     }
-
 
 
 
@@ -217,20 +144,25 @@ public class ArrowSystem : MonoBehaviour
     {
         public int x;
         public int y;
-
         public int moveleft;
     }
 
-    public Point DrawArrow(GameObject[] arrowprefabs, int a, int b, List<GridCell> cellPath, List<GameObject> rrow, int movelft)
+
+    public Point DrawArrow(int a, int b, List<GridCell> cellPath, List<GameObject> rrow, int movelft)
     {
         Unit unit = UnitController.Instance.selectedUnit;
-        Point point = new Point();
-        point.x = a;
-        point.y = b;
-        point.moveleft = movelft;
+
+        Point point = new()
+        {
+            x = a,
+            y = b,
+            moveleft = movelft
+        };
+
         int moveleft = movelft;
         int x = a;
         int y = b;
+
         if (!(unit == null))
         {
             List<GridCell> Borders = unit.walkableGridCells;
@@ -242,18 +174,22 @@ public class ArrowSystem : MonoBehaviour
                 Arrows.Add(Spawn_arrow(y, x, Arrowprefabs[0]));
                 cellsPath.Add(mapGrid.grid[y, x]);
             }
+
             // x and y   need to be updated (done)
             // move left need to be updated(done)
             // auto drawing path (done)
             // map borders(in process)
-            if (y - 1 < 50 && y - 1 >= 0)
+
+
+
+            if (y - 1 < MapGrid.Rows && y - 1 >= 0)
             {
 
-                if (Input.GetKeyDown(KeyCode.W) && (Borders.Contains(mapGrid.grid[y - 1, x])) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y - 1, x]))
+                if (Input.GetKeyDown(KeyCode.W) && Borders.Contains(mapGrid.grid[y - 1, x]) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y - 1, x]))
                 {
                     if (cellsPath.Count == 1)
                     {
-                        Debug.Log("got in");
+                        // Debug.Log("got in");
                         Destroy(Arrows[0]);
                         Arrows.Remove(Arrows[0]);
                         Arrows.Add(Spawn_arrow(y, x, Arrowprefabs[5]));
@@ -261,14 +197,14 @@ public class ArrowSystem : MonoBehaviour
                         cellsPath.Add(mapGrid.grid[y - 1, x]);
                         moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
 
-                        y = y - 1;
-                        Debug.Log("moveleft :" + moveleft);
+                        y--;
+                        // Debug.Log("moveleft :" + moveleft);
                     }
                     else
                     {
                         if (Arrows.Count >= 2)
                         {
-                            Debug.Log(" got in 2nd division");
+                            // Debug.Log(" got in 2nd division");
                             GameObject A = Arrows[Arrows.Count - 1];
                             GridCell Gprevious = cellsPath[cellsPath.Count - 2];
                             GridCell Gcurrent = cellsPath[cellsPath.Count - 1];
@@ -293,7 +229,7 @@ public class ArrowSystem : MonoBehaviour
                             Arrows.Add(Spawn_arrow(y - 1, x, Arrowprefabs[7]));
                             cellsPath.Add(mapGrid.grid[y - 1, x]);
                             moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
-                            Debug.Log("moveleft :" + moveleft);
+                            // Debug.Log("moveleft :" + moveleft);
 
                         }
                         y = y - 1;
@@ -301,7 +237,7 @@ public class ArrowSystem : MonoBehaviour
                 }
                 else if (cellsPath.Contains(mapGrid.grid[y - 1, x]) && Input.GetKeyDown(KeyCode.W))
                 {
-                    Debug.Log("got in 3rd divsion");
+                    // Debug.Log("got in 3rd divsion");
                     GridCell B = mapGrid.grid[y - 1, x];
                     if (B.column == unit.col && B.row == unit.row)
                     {
@@ -365,22 +301,24 @@ public class ArrowSystem : MonoBehaviour
                 {
                     if (moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] < 0 && Borders.Contains(mapGrid.grid[y - 1, x]) && Input.GetKeyDown(KeyCode.W))
                     {
-                        Debug.Log("4th divsion");
+                        // Debug.Log("4th divsion");
 
-                        moveleft = DrawautoPath(mapGrid.grid[y - 1, x].Pathlist, arrowprefabs, cellsPath, Arrows, unit);
+                        moveleft = DrawautoPath(mapGrid.grid[y - 1, x].Pathlist, cellsPath, Arrows, unit);
                         y = y - 1;
                     }
 
                 }
             }
-            if (x - 1 < 50 && x - 1 >= 0)
+
+
+            if (x - 1 < MapGrid.Columns && x - 1 >= 0)
             {
 
 
 
-                if (Input.GetKeyDown(KeyCode.A) && (Borders.Contains(mapGrid.grid[y, x - 1])) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y, x - 1]))
+                if (Input.GetKeyDown(KeyCode.A) && Borders.Contains(mapGrid.grid[y, x - 1]) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y, x - 1]))
                 {
-                    Debug.Log("got in left");
+                    // Debug.Log("got in left");
                     if (cellsPath.Count == 1)
                     {
                         Destroy(Arrows[0]);
@@ -426,7 +364,7 @@ public class ArrowSystem : MonoBehaviour
                 }
                 else if (cellsPath.Contains(mapGrid.grid[y, x - 1]) && Input.GetKeyDown(KeyCode.A))
                 {
-                    Debug.Log("got in left");
+                    // Debug.Log("got in left");
                     GridCell B = mapGrid.grid[y, x - 1];
                     if (B.column == unit.col && B.row == unit.row)
                     {
@@ -491,8 +429,8 @@ public class ArrowSystem : MonoBehaviour
                 {
                     if (moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex] < 0 && Borders.Contains(mapGrid.grid[y, x - 1]) && Input.GetKeyDown(KeyCode.A))
                     {
-                        Debug.Log("got in left");
-                        moveleft = DrawautoPath(mapGrid.grid[y, x - 1].Pathlist, arrowprefabs, cellsPath, Arrows, unit);
+                        // Debug.Log("got in left");
+                        moveleft = DrawautoPath(mapGrid.grid[y, x - 1].Pathlist, cellsPath, Arrows, unit);
                         x = x - 1;
                     }
 
@@ -501,18 +439,13 @@ public class ArrowSystem : MonoBehaviour
             }
 
 
-
-
-
-
-
-            if (x + 1 < 50 && x + 1 >= 0)
+            if (x + 1 < MapGrid.Columns && x + 1 >= 0)
             {
 
 
-                if (Input.GetKeyDown(KeyCode.D) && (Borders.Contains(mapGrid.grid[y, x + 1])) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y, x + 1]))
+                if (Input.GetKeyDown(KeyCode.D) && Borders.Contains(mapGrid.grid[y, x + 1]) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y, x + 1]))
                 {
-                    Debug.Log("got in right");
+                    // Debug.Log("got in right");
                     if (cellsPath.Count == 1)
                     {
                         Destroy(Arrows[0]);
@@ -558,7 +491,7 @@ public class ArrowSystem : MonoBehaviour
                 }
                 else if (cellsPath.Contains(mapGrid.grid[y, x + 1]) && Input.GetKeyDown(KeyCode.D))
                 {
-                    Debug.Log("got in right");
+                    // Debug.Log("got in right");
                     GridCell B = mapGrid.grid[y, x + 1];
                     if (B.column == unit.col && B.row == unit.row)
                     {
@@ -622,9 +555,9 @@ public class ArrowSystem : MonoBehaviour
                 {
                     if (moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex] < 0 && Borders.Contains(mapGrid.grid[y, x + 1]) && Input.GetKeyDown(KeyCode.D))
                     {
-                        Debug.Log("got in right");
+                        // Debug.Log("got in right");
 
-                        moveleft = DrawautoPath(mapGrid.grid[y, x + 1].Pathlist, arrowprefabs, cellsPath, Arrows, unit);
+                        moveleft = DrawautoPath(mapGrid.grid[y, x + 1].Pathlist, cellsPath, Arrows, unit);
                         x = x + 1;
                     }
 
@@ -633,29 +566,12 @@ public class ArrowSystem : MonoBehaviour
             }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            if (y + 1 < 50 && y + 1 >= 0)
+            if (y + 1 < MapGrid.Rows && y + 1 >= 0)
             {
 
                 if (Input.GetKeyDown(KeyCode.S) && (Borders.Contains(mapGrid.grid[y + 1, x])) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y + 1, x]))
                 {
-                    Debug.Log("got in down");
+                    // Debug.Log("got in down");
                     if (cellsPath.Count == 1)
                     {
                         Destroy(Arrows[0]);
@@ -701,7 +617,7 @@ public class ArrowSystem : MonoBehaviour
                 }
                 else if (cellsPath.Contains(mapGrid.grid[y + 1, x]) && Input.GetKeyDown(KeyCode.S))
                 {
-                    Debug.Log("got in down 3rd layer");
+                    // Debug.Log("got in down 3rd layer");
                     GridCell B = mapGrid.grid[y + 1, x];
                     if (B.column == unit.col && B.row == unit.row)
                     {
@@ -765,9 +681,9 @@ public class ArrowSystem : MonoBehaviour
                 {
                     if (moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] < 0 && Borders.Contains(mapGrid.grid[y + 1, x]) && Input.GetKeyDown(KeyCode.S))
                     {
-                        Debug.Log("got in down");
+                        // Debug.Log("got in down");
 
-                        moveleft = DrawautoPath(mapGrid.grid[y + 1, x].Pathlist, arrowprefabs, cellsPath, Arrows, unit);
+                        moveleft = DrawautoPath(mapGrid.grid[y + 1, x].Pathlist, cellsPath, Arrows, unit);
                         y = y + 1;
                     }
 
@@ -777,18 +693,19 @@ public class ArrowSystem : MonoBehaviour
 
 
         }
+
         point.x = x;
         point.y = y;
         point.moveleft = moveleft; ;
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Debug.Log(y + " and " + x + "and " + moveleft);
-        }
+        // if (Input.GetKeyDown(KeyCode.K))
+        // {
+        //     Debug.Log(y + " and " + x + "and " + moveleft);
+        // }
 
         return point;
 
-
     }
+
 
 }

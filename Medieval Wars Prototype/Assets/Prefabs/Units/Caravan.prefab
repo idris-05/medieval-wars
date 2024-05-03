@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6074141851441042306}
   - component: {fileID: -8740393964230367777}
+  - component: {fileID: 4778790420618163850}
   - component: {fileID: -2080499793171882692}
   - component: {fileID: -6857914708629168600}
-  - component: {fileID: -398069540202467275}
+  - component: {fileID: 534779355674997472}
   m_Layer: 0
-  m_Name: FireshipFrench
+  m_Name: Caravan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,6 +88,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4778790420618163850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265668595456362624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d470229f18e5145bff8bb9a5cb0cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitTransform: {fileID: 6074141851441042306}
+  mapGrid: {fileID: 0}
+  spriteRenderer: {fileID: -8740393964230367777}
+  moveSpeed: 2
+  animator: {fileID: 0}
+  currentAnimatonState: 0
 --- !u!61 &-2080499793171882692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873822b55360c634e9a732ff9352106e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-398069540202467275
+--- !u!114 &534779355674997472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,22 +172,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5265668595456362624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6fb1fdfbf224334eb3359a7e61e40db, type: 3}
+  m_Script: {fileID: 11500000, guid: a1229c64913b81944bd817157ac59918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerOwner: {fileID: 0}
   mapGrid: {fileID: 0}
-  unitView: {fileID: 0}
-  unitIndex: 3
-  unitName: 3
+  unitView: {fileID: 4778790420618163850}
+  unitIndex: 0
+  unitName: 0
   occupiedCell: {fileID: 0}
   row: 0
   col: 0
   healthPoints: 10
   moveRange: 6
-  ration: 99
+  ration: 70
   rationPerDay: 0
-  lineOfSight: 3
+  lineOfSight: 1
   hasMoved: 0
   numbState: 0
   walkableGridCells: []
@@ -176,9 +195,8 @@ MonoBehaviour:
   specialAttackBoost: 0
   defenseBoost: 0
   specialDefenseBoost: 0
-  attackRange: 1
-  minAttackRange: 0
-  durability: 99
-  hasAttacked: 0
-  enemiesInRange: []
-  attackableGridCells: []
+  loadedUnit: {fileID: 0}
+  hasSupply: 0
+  dropableCells: []
+  suppliableUnits: []
+  AvailableRationToShare: 0

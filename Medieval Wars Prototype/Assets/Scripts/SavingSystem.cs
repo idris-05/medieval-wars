@@ -20,24 +20,22 @@ public static class SavingSystem
         public List<Buildingdata> buildings;
         public List<UnitData> unitdatas;
     }
-    public class PlayerData
-    {
-        int placement;
-        float powerMeter;
-        int incomingFundsAtTheEndOfDay;
-        int availableFunds;
 
-    }
     public class UnitData
     {
         public int row;
         public int col;
         public int hp;
         public float rations;
-        public int ammo;
+        public int durability;
         public int type;
         public bool hasMoved;
         public bool numbState;
+        public bool hasAttacked;
+
+        public bool hasSupply;
+
+        public UnitData loadedUnit;
 
         // !!!!!!!!!!!!!!!!!!!!! hasAttacked
         // !!!!!!!!!!!!!!!!!!! info ta3 TransportUnit
@@ -137,9 +135,21 @@ public static class SavingSystem
             numbState = unit.numbState
         };
 
-        if (unit is UnitAttack unitAttack) unitData.ammo = unitAttack.durability;
-        else unitData.ammo = -1;
+        if (unit is UnitAttack unitAttack)
+        {
+            unitData.durability = unitAttack.durability;
+            unitData.hasAttacked = unitAttack.hasAttacked;
+        }
+        else
+        {
+            unitData.durability = -1;
+            if (unit is UnitTransport unitTransport)
+            {
+                unitData.loadedUnit = ConvertUnitToData(unitTransport.loadedUnit);
+                unitData.hasSupply = unitTransport.hasSupply;
+            }
 
+        }
         return unitData;
 
     }

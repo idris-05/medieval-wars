@@ -26,13 +26,11 @@ public class UnitUtil : MonoBehaviour
         FIRESHIP,
         INFANTRY,
         TSHIP,
-        SPIKEMAN,
-        RCHALVARY,
-        TREBUCHET,
+        SPEARMAN,
+        RCAVALRY,
         BANDIT,
         CATAPULTE,
-        RAMSHIP,
-        CHALVARY,
+        CAVALRY,
     }
 
     public enum AnimationState
@@ -79,7 +77,7 @@ public class UnitUtil : MonoBehaviour
     /* Chalvary */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false}
     };
 
-   
+
 
 
 }

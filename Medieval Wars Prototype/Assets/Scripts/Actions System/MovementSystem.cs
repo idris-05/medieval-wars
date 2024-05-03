@@ -43,7 +43,7 @@ public class MovementSystem : MonoBehaviour
         }
     }
 
-    public MapGrid mapGrid;  
+    public MapGrid mapGrid;
 
 
 
@@ -68,10 +68,8 @@ public class MovementSystem : MonoBehaviour
                 unit.unitView.ResetHighlitedWalkableCells();
 
                 unit.PrepareUnitToGetLoadedInTransporter();
-                unit.unitView.AnimateMovement(row, col,true);
-              
+                unit.unitView.AnimateMovement(row, col, true);
 
-                
                 return;
             }
         }
@@ -84,7 +82,7 @@ public class MovementSystem : MonoBehaviour
 
         //! hna n7ssbo moveCost ( n7ssbo ch7al n9ssolha men ration ki mchat ) wnmdoh parametre lel UpdateAttributsAfterMoving .
         unit.UpdateAttributsAfterMoving(row, col);
-        unit.unitView.AnimateMovement(row, col,false);
+        unit.unitView.AnimateMovement(row, col, false);
         unit.unitView.ResetHighlitedWalkableCells();
 
     }
@@ -121,10 +119,8 @@ public class MovementSystem : MonoBehaviour
             y = temp.you.row;
 
 
-            if ((y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y - 1, x].isWalkable))
+            if (y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns && temp.moveleft > 0 && !mapGrid.grid[y - 1, x].isWalkable)
             {
-
-
                 // int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y - 1,x].occupantTerrain.TerrainIndex, unit.unitIndex];
                 int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
                 if (mapGrid.grid[y - 1, x].occupantUnit != null && mapGrid.grid[y - 1, x].occupantUnit.playerOwner != currentPlayer)
@@ -137,19 +133,14 @@ public class MovementSystem : MonoBehaviour
                     temp2.affval(moveleft, mapGrid.grid[y - 1, x]);
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
-
-                    if ((mapGrid.grid[y - 1, x].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y - 1, x].occupantUnit == null)
-                    {
-                        unit.walkableGridCells.Add(mapGrid.grid[y - 1, x]);
-                        mapGrid.grid[y - 1, x].isWalkable = true;
-                    }
+                    unit.walkableGridCells.Add(mapGrid.grid[y - 1, x]);
+                    mapGrid.grid[y - 1, x].isWalkable = true;
                     queue.Enqueue(temp2);
-
                 }
 
 
             }
-            if ((y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y, x + 1].isWalkable))
+            if (y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns && temp.moveleft > 0 && !mapGrid.grid[y, x + 1].isWalkable)
             {
                 // int moveleft = temp.moveleft - 1;// TerrainsUtil.MoveCost[mapGrid.grid[y , x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
                 int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
@@ -161,24 +152,16 @@ public class MovementSystem : MonoBehaviour
                 if (moveleft >= 0)
                 {
                     temp2.affval(moveleft, mapGrid.grid[y, x + 1]);
-
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
-
-                    if ((mapGrid.grid[y, x + 1].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y, x + 1].occupantUnit == null)
-                    {
-                        unit.walkableGridCells.Add(mapGrid.grid[y, x + 1]);
-                        mapGrid.grid[y, x + 1].isWalkable = true;
-
-                    }
+                    unit.walkableGridCells.Add(mapGrid.grid[y, x + 1]);
+                    mapGrid.grid[y, x + 1].isWalkable = true;
                     queue.Enqueue(temp2);
-
-
                 }
 
 
             }
-            if ((y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y + 1, x].isWalkable))
+            if (y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns && temp.moveleft > 0 && !mapGrid.grid[y + 1, x].isWalkable)
             {
                 // int moveleft = temp.moveleft - 1; //TerrainsUtil.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
                 int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
@@ -192,21 +175,14 @@ public class MovementSystem : MonoBehaviour
                     temp2.affval(moveleft, mapGrid.grid[y + 1, x]);
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
-
-                    if ((mapGrid.grid[y + 1, x].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y + 1, x].occupantUnit == null)
-                    {
-                        unit.walkableGridCells.Add(mapGrid.grid[y + 1, x]);
-                        mapGrid.grid[y + 1, x].isWalkable = true;
-
-                    }
+                    unit.walkableGridCells.Add(mapGrid.grid[y + 1, x]);
+                    mapGrid.grid[y + 1, x].isWalkable = true;
                     queue.Enqueue(temp2);
-
-
                 }
 
 
             }
-            if ((y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(mapGrid.grid[y, x - 1].isWalkable))
+            if (y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x < MapGrid.Columns && temp.moveleft > 0 && !mapGrid.grid[y, x - 1].isWalkable)
             {
                 // int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y , x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
                 int moveleft = temp.moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
@@ -221,32 +197,16 @@ public class MovementSystem : MonoBehaviour
                     temp2.affval(moveleft, mapGrid.grid[y, x - 1]);
                     temp2.you.Pathlist = temp.you.Pathlist.ToList();
                     temp2.you.Pathlist.Add(temp2.you);
-
-                    if ((mapGrid.grid[y, x - 1].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit == null) || mapGrid.grid[y, x - 1].occupantUnit == null)
-                    {
-                        unit.walkableGridCells.Add(mapGrid.grid[y, x - 1]);
-                        mapGrid.grid[y, x - 1].isWalkable = true;
-
-                    }
+                    unit.walkableGridCells.Add(mapGrid.grid[y, x - 1]);
+                    mapGrid.grid[y, x - 1].isWalkable = true;
                     queue.Enqueue(temp2);
-
                 }
-
 
             }
 
-
-
         }
 
-
-
     }
-
-
-
-
-
 
 
 }
