@@ -83,6 +83,9 @@ public class GameController : MonoBehaviour
 
     public List<Player> playerList = new List<Player>();
 
+
+
+
     void Awake()
     {
         MapManager.Instance.InitializeListOfTerrainSpritesLists();
@@ -114,19 +117,6 @@ public class GameController : MonoBehaviour
         // SpawnBuilding(player1, 8, 7, (Building)indexTerrainprefab[3]);
 
     }
-
-
-    // void Update()
-    // {
-    //      if (Input.GetKeyDown(KeyCode.Escape))
-    //     {
-    //          Menu.SetActive(true);
-    //     }
-    //     CheckEndTurnInput();
-    // }
-
-
-
 
 
 
@@ -236,8 +226,6 @@ public class GameController : MonoBehaviour
      } */
 
 
-
-
     public Building SpawnBuilding(Player player, int row, int col, Building buildingprefab)
     {
 
@@ -260,11 +248,13 @@ public class GameController : MonoBehaviour
 
     }
 
-
-
-
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Menu.SetActive(true);
+        }
+
         if (Input.GetKeyDown(KeyCode.Y))
         {
             save();
