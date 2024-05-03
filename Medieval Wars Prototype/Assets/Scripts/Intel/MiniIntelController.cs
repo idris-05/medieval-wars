@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class MiniIntelController : MonoBehaviour
 {
-
-
     private static MiniIntelController instance;
     public static MiniIntelController Instance
     {
@@ -31,6 +29,62 @@ public class MiniIntelController : MonoBehaviour
 
 
 
+    // Reference to the card object in the scene
+    public GameObject card;
+    public CanvasGroup canvasGroup;
+
+
+
+    // Offset from the bottom-right corner for card placement
+    public float offsetX;
+    public float offsetY;
+
+
+
+    // Card dimensions
+    public float cardHeight;
+    public float cardWidth;
+
+    // Sub-card dimensions
+    public float SubCardHeight;
+    public float SubCardWidth;
+
+
+
+    // x coordinate of the card position in both right and left sides
+    private float XCardRightPosition;
+    private float XCardLeftPosition;
+
+    // y coordinate of the card position 
+    public float YcardPosition;
+
+
+    // initial x coordinate of the card position in both right and left sides , (where to start the animation)
+    float initialXCardRightPosition;
+    float initialXCardLeftPosition;
+
+
+
+    // position of the card in both right and left sides
+    Vector3 rightCardPosition;
+    Vector3 leftCardPosition;
+
+    // Initial position of the card in both right and left sides
+    Vector3 InitialLeftPositionOfTheCard;
+    Vector3 InitialRightPositionOfTheCard;
+
+    // Vector3 rightCardPosition = new Vector3(637.5f, -330, 0);
+    // Vector3 leftCardPosition  =new Vector3(-637.5f, -330, 0);
+
+    public bool IsTheCardWillDisplayedInRightSide;
+    public bool SideHasChanged;
+    public bool IsAnimating;
+
+
+    public float HideAnimationDuration; // Adjust as needed
+    public float AppearAnimationDuration; // Adjust as needed
+
+
     public GameObject building;
     public GameObject terrain;
     public GameObject unit;
@@ -40,6 +94,16 @@ public class MiniIntelController : MonoBehaviour
 
     Vector3 buildingAndTerrainPositionInRightSide = new(175, 0, 0);
     Vector3 loadedUnitPositionInRightSide = new(-175, 0, 0);
+
+
+
+
+
+    private RectTransform canvasRect;
+
+    public bool IsTheCardActivaed = false;
+
+
 
     public void SetComponentAsActive(GameObject intelComponent)
     {
@@ -114,8 +178,36 @@ public class MiniIntelController : MonoBehaviour
 
 
 
+    void Start()
+    {
+        XCardRightPosition = Screen.width / 2 - cardWidth / 2 - offsetX;
+        XCardLeftPosition = -XCardRightPosition;
+
+        initialXCardRightPosition = Screen.width / 2 + cardWidth / 2 + offsetX;
+        initialXCardLeftPosition = -initialXCardRightPosition;
+
+
+        YcardPosition = -Screen.height / 2 + cardHeight / 2 + offsetY;
+
+
+        rightCardPosition = new Vector3(XCardRightPosition, YcardPosition, 0);
+        leftCardPosition = new Vector3(XCardLeftPosition, YcardPosition, 0);
+
+
+        InitialRightPositionOfTheCard = new Vector3(initialXCardRightPosition, YcardPosition, 0);
+        InitialLeftPositionOfTheCard = new Vector3(initialXCardLeftPosition, YcardPosition, 0);
+
+
+        // Get the RectTransform component of the Canvas
+        canvasRect = GetComponent<RectTransform>();
+    }
+
+
+
     public void HandleMINIIntel(GridCell gridCell)
     {
+        if (!IsTheCardActivaed) ActivateCard();
+
         SetComponentAsDesactive(building);
         SetComponentAsDesactive(terrain);
         SetComponentAsDesactive(unit);
@@ -157,24 +249,60 @@ public class MiniIntelController : MonoBehaviour
 
         }
 
-        CardDisplayController.Instance.CalculateCardPosition();
-        ReorderTheMiniCardsDisplay(CardDisplayController.Instance.IsTheCardWillDisplayedInRightSide);
-
+        AnimateTheCardMouvement();
 
     }
 
 
-    public void ReorderTheMiniCardsDisplay(bool IsTheCardWillDisplayedInRightSide)
+
+
+    // Calculate the position of the card relative to the bottom-right corner of the Canvas
+    public void AnimateTheCardMouvement()
     {
+        // Get the mouse position in screen coordinates
+        Vector3 mousePos = Input.mousePosition;
+
+        // Convert the mouse position to Canvas local coordinates
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, mousePos, null, out _);
+
+        // Determine the new side based on the mouse position
+        bool newIsRightSide = mousePos.x < Screen.width / 2;
+
+        // Check if the side has changed
+        if (newIsRightSide != IsTheCardWillDisplayedInRightSide)
+        {
+            SideHasChanged = true;
+            // Don't update card position if animation is ongoing
+            if (!IsAnimating)
+            {
+                IsTheCardWillDisplayedInRightSide = newIsRightSide;
+                StartCoroutine(AnimateCard());
+            }
+        }
+        else
+        {
+            SideHasChanged = false;
+            // Don't update card position if animation is ongoing
+            if (!IsAnimating)
+            {
+                ReorderTheMiniCardsDisplay();
+                card.transform.localPosition = newIsRightSide ? rightCardPosition : leftCardPosition;
+            }
+        }
+    }
+
+
+    public void ReorderTheMiniCardsDisplay()
+    {
+        //  les positions sont par rapport au la carte principale 
 
         if (IsTheCardWillDisplayedInRightSide)
         {
-            //  correct the ordre of the cards
+            //  correct the ordre of the cards 
             building.transform.localPosition = buildingAndTerrainPositionInRightSide;
             terrain.transform.localPosition = buildingAndTerrainPositionInRightSide;
 
             loadedUnit.transform.localPosition = loadedUnitPositionInRightSide;
-
             return;
         }
 
@@ -186,4 +314,59 @@ public class MiniIntelController : MonoBehaviour
 
 
     }
+
+
+    private IEnumerator AnimateCard()
+    {
+        IsAnimating = true;
+
+        Vector3 initialPosition = IsTheCardWillDisplayedInRightSide ? leftCardPosition : rightCardPosition;
+        Vector3 targetPosition = IsTheCardWillDisplayedInRightSide ? InitialLeftPositionOfTheCard : InitialRightPositionOfTheCard;
+
+
+        float startTime = Time.time;
+        float endTime = startTime + HideAnimationDuration;
+
+        while (Time.time < endTime)
+        {
+            float t = (Time.time - startTime) / HideAnimationDuration;
+            float easedT = t;
+            card.transform.localPosition = Vector3.Lerp(initialPosition, targetPosition, easedT);
+            yield return null;
+        }
+
+        // Ensure final position is accurate
+        card.transform.localPosition = targetPosition;
+        ReorderTheMiniCardsDisplay();
+
+        card.transform.localPosition = IsTheCardWillDisplayedInRightSide ? InitialRightPositionOfTheCard : InitialLeftPositionOfTheCard;
+        initialPosition = card.transform.localPosition;
+        targetPosition = IsTheCardWillDisplayedInRightSide ? rightCardPosition : leftCardPosition;
+
+        startTime = Time.time;
+        endTime = startTime + AppearAnimationDuration;
+
+        while (Time.time < endTime)
+        {
+            float t = (Time.time - startTime) / AppearAnimationDuration;
+            float easedT = 1f - (1f - t) * (1f - t) * (1f - t); // Cubic easing function
+            card.transform.localPosition = Vector3.Lerp(initialPosition, targetPosition, easedT);
+            yield return null;
+        }
+
+        IsAnimating = false;
+
+    }
+
+
+    public void ActivateCard()
+    {
+        IsTheCardActivaed = true;
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.interactable = true;
+    }
+
+
 }
+

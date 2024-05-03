@@ -10931,7 +10931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -637.5, y: -330}
+  m_AnchoredPosition: {x: 673.5, y: -330}
   m_SizeDelta: {x: 525, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838429717
@@ -10946,11 +10946,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d802249cb116a64a847f5ba500243b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 838429715}
+  canvasGroup: {fileID: 838429718}
+  offsetX: 60
+  offsetY: 60
+  cardHeight: 300
+  cardWidth: 525
+  SubCardHeight: 300
+  SubCardWidth: 175
+  YcardPosition: -750
+  IsTheCardWillDisplayedInRightSide: 0
+  SideHasChanged: 0
+  IsAnimating: 0
+  HideAnimationDuration: 0.2
+  AppearAnimationDuration: 0.6
   building: {fileID: 322461928}
   terrain: {fileID: 235554845}
   unit: {fileID: 1965438439}
   loadedUnit: {fileID: 115665422}
   numberOfMiniCardsActivated: 0
+  IsTheCardActivaed: 0
   terrainTitle: {fileID: 142458709}
   terrainSprite: {fileID: 1907514157}
   terrainDefenceNumber: {fileID: 1339477010}
@@ -10964,27 +10979,18 @@ MonoBehaviour:
   unitDurabilityNumber: {fileID: 1372961149}
   unitRationNumber: {fileID: 532994249}
   loadedUnitSprite: {fileID: 1884759437}
---- !u!114 &838429718
-MonoBehaviour:
+--- !u!225 &838429718
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838429715}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94fe2a73f1a800943ae533b1198375c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card: {fileID: 838429715}
-  offsetX: 60
-  offsetY: 60
-  cardHeight: 300
-  cardWidth: 525
-  SubCardHeight: 300
-  SubCardWidth: 175
-  YcardPosition: 0
-  IsTheCardWillDisplayedInRightSide: 0
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &866762118
 GameObject:
   m_ObjectHideFlags: 0

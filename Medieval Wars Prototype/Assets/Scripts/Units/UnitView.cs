@@ -28,7 +28,6 @@ public class UnitView : MonoBehaviour
 
     GridCell gridCellTheUnitIsMovingTowards; // i need this to animate the movement
 
-    MiniIntelController miniIntelController;
 
 
     void Start()
@@ -38,7 +37,6 @@ public class UnitView : MonoBehaviour
         unitTransform = GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        miniIntelController = FindObjectOfType<MiniIntelController>();
     }
 
     void OnMouseEnter()

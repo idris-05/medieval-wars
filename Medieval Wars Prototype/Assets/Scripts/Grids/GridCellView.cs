@@ -7,11 +7,9 @@ public class GridCellView : MonoBehaviour
 
     public bool isHighlightedAsAttackble = false; // we need it in get attackable .
 
-    public MiniIntelController miniIntelController;
 
     void Start()
     {
-        miniIntelController = FindObjectOfType<MiniIntelController>();
         gridCell = GetComponent<GridCell>();
         rend = GetComponent<SpriteRenderer>();
     }
@@ -24,19 +22,11 @@ public class GridCellView : MonoBehaviour
         //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE ____AHMED AND RAYANE !!!!!!!!!!
     }
 
-    // this methode is called every frame 
+    // // this methode is called every frame 
     void OnMouseOver()
     {
         MiniIntelController.Instance.HandleMINIIntel(gridCell);
     }
-
-    // called only once when the mouse enter the cell
-    //!  hadi fiha probleme ki n5dmo biha , ki ykon 9a3ed mhovri 3la la meme cell wttbdel l'info ta3ha , mr7ch ttbdel fl INTEL hadik 7ta y5roj wy3awed yd5ollha . 
-    // void OnMouseEnter()
-    // {
-    //     miniIntelController.HandleMINIIntel(gridCell);
-    // }
-
 
 
     // !!! hilghiht hado nwello fi plasset la coleure nbdlo sprite .
