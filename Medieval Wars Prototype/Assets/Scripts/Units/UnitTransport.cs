@@ -71,10 +71,10 @@ public class UnitTransport : Unit
 
         List<GridCell> dropableCellsCondidates = new List<GridCell>();
 
-        if (currentRow - 1 >= 0) dropableCellsCondidates.Add(mapGrid.grid[currentRow - 1, currentCol]);   // top cell
-        if (currentRow + 1 < mapGrid.grid.GetLength(0)) dropableCellsCondidates.Add(mapGrid.grid[currentRow + 1, currentCol]);   // bottom cell
-        if (currentCol - 1 >= 0) dropableCellsCondidates.Add(mapGrid.grid[currentRow, currentCol - 1]);  // left cell
-        if (currentCol + 1 < mapGrid.grid.GetLength(1)) dropableCellsCondidates.Add(mapGrid.grid[currentRow, currentCol + 1]);// right cell
+        if (currentRow - 1 >= 0) dropableCellsCondidates.Add(MapGrid.Instance.grid[currentRow - 1, currentCol]);   // top cell
+        if (currentRow + 1 < MapGrid.Instance.grid.GetLength(0)) dropableCellsCondidates.Add(MapGrid.Instance.grid[currentRow + 1, currentCol]);   // bottom cell
+        if (currentCol - 1 >= 0) dropableCellsCondidates.Add(MapGrid.Instance.grid[currentRow, currentCol - 1]);  // left cell
+        if (currentCol + 1 < MapGrid.Instance.grid.GetLength(1)) dropableCellsCondidates.Add(MapGrid.Instance.grid[currentRow, currentCol + 1]);// right cell
 
 
         foreach (GridCell cell in dropableCellsCondidates)
@@ -91,7 +91,7 @@ public class UnitTransport : Unit
         int currentRow = row;
         int currentCol = col;
 
-        if (currentRow - 1 >= 0 && mapGrid.grid[currentRow - 1, currentCol].occupantUnit is Unit suppliableUnit1)
+        if (currentRow - 1 >= 0 && MapGrid.Instance.grid[currentRow - 1, currentCol].occupantUnit is Unit suppliableUnit1)
         {
             if (suppliableUnit1.playerOwner == this.playerOwner)
             {
@@ -99,7 +99,7 @@ public class UnitTransport : Unit
             }
         }
 
-        if (currentRow + 1 < mapGrid.grid.GetLength(0) && mapGrid.grid[currentRow + 1, currentCol].occupantUnit is Unit suppliableUnit2)
+        if (currentRow + 1 < MapGrid.Instance.grid.GetLength(0) && MapGrid.Instance.grid[currentRow + 1, currentCol].occupantUnit is Unit suppliableUnit2)
         {
             if (suppliableUnit2.playerOwner == this.playerOwner)
             {
@@ -107,7 +107,7 @@ public class UnitTransport : Unit
             }
         }
 
-        if (currentCol - 1 >= 0 && mapGrid.grid[currentRow, currentCol - 1].occupantUnit is Unit suppliableUnit3)
+        if (currentCol - 1 >= 0 && MapGrid.Instance.grid[currentRow, currentCol - 1].occupantUnit is Unit suppliableUnit3)
         {
             if (suppliableUnit3.playerOwner == this.playerOwner)
             {
@@ -115,7 +115,7 @@ public class UnitTransport : Unit
             }
         }
 
-        if (currentCol + 1 < mapGrid.grid.GetLength(1) && mapGrid.grid[currentRow, currentCol + 1].occupantUnit is Unit suppliableUnit4)
+        if (currentCol + 1 < MapGrid.Instance.grid.GetLength(1) && MapGrid.Instance.grid[currentRow, currentCol + 1].occupantUnit is Unit suppliableUnit4)
         {
             if (suppliableUnit4.playerOwner == this.playerOwner)
             {

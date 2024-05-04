@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.4743034, y: -0.023713361, z: -1}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1965938827
-  m_SortingLayer: 7
+  m_SortingLayer: 12
   m_SortingOrder: 10
   m_Sprite: {fileID: 312139308, guid: e22c918bbe6619f499273bf0bc2febc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -146,8 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: -1773237437592595331}
-  unitTransform: {fileID: 0}
-  mapGrid: {fileID: 0}
+  unitTransform: {fileID: 6074141851441042306}
   spriteRenderer: {fileID: -8740393964230367777}
   moveSpeed: 2
   animator: {fileID: 3810206441201150901}
@@ -187,7 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOwner: {fileID: 0}
-  mapGrid: {fileID: 0}
   unitView: {fileID: 2825069361472597197}
   unitIndex: 8
   unitName: 8

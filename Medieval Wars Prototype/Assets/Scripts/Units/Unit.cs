@@ -7,7 +7,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
 
     public Player playerOwner;
-    public MapGrid mapGrid;
     public UnitView unitView;
 
     public int unitIndex;
@@ -43,14 +42,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     
 
-    void Start()
-    {
-        // Get the UnitView component from the scene
-        unitView = GetComponent<UnitView>();
-        // Get the MapGrid component from the scene
-        mapGrid = FindObjectOfType<MapGrid>();   //!!! ttna7a
 
-    }
 
 
     // //!!!!! le nom t3 method hadi 3yan , fiha UpdateAttributsAfterMoving , bssah hadi UpdateAttributsAfterMoving marahich vraiment t'updai kolch wch lazem , psq WalkableGridCells mazalhom .
@@ -68,9 +60,9 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         occupiedCell.occupantUnit = null; // remove the unit from the old grid cell
 
         // hadi ntb3oha parametre w5las !? cell li tro7 liha , wla n5loha haka tssema , tjib reference ta3ha da5el Unit ? .
-        occupiedCell = mapGrid.grid[row, col]; // set the occupiedCell of the unit to the grid cell
+        occupiedCell = MapGrid.Instance.grid[row, col]; // set the occupiedCell of the unit to the grid cell
         //! ??? , here we are modify an atribut of the MapGrid, is it a good practice ? 
-        mapGrid.grid[row, col].occupantUnit = this; // set the occupantUnit of the new grid cell to the unit    
+        MapGrid.Instance.grid[row, col].occupantUnit = this; // set the occupantUnit of the new grid cell to the unit    
 
         hasMoved = true;
         this.row = row;

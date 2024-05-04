@@ -464,6 +464,7 @@ public class AttackSystem : MonoBehaviour
                 if (DefendingUnitAsUnitTransporter.loadedUnit != null) DefendingUnitAsUnitTransporter.loadedUnit.DieAsLoaded();
             }
 
+            DefendingUnit.unitView.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[0];
             StartCoroutine(DefendingUnit.Die());
 
             //!! is case the player LOSE .
@@ -486,6 +487,7 @@ public class AttackSystem : MonoBehaviour
 
         if (AttackingUnit.healthPoints <= 0)
         {
+            AttackingUnit.unitView.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[0];
             StartCoroutine(AttackingUnit.Die());
            /*if (AttackingUnit.playerOwner.unitList.Any() == false)
             {

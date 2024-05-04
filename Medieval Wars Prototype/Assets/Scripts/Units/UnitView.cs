@@ -13,7 +13,6 @@ public class UnitView : MonoBehaviour
     public Unit unit;
 
     public Transform unitTransform; // I needed this to fix a problem where the z coordinate was set back to 0 after movement
-    public MapGrid mapGrid; //!!!!! rahi kayna deja mapgrid fl unit 
 
     public SpriteRenderer spriteRenderer;
     public float moveSpeed;
@@ -31,18 +30,6 @@ public class UnitView : MonoBehaviour
     GridCell gridCellTheUnitIsMovingTowards; // i need this to animate the movement
 
     public GameObject HealthIcon;
-
- 
-
-
-
-    void Start()
-    {
-        mapGrid = FindObjectOfType<MapGrid>();  // ttna7a
-        unitTransform = GetComponent<Transform>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-    } 
 
 
     //!!!!!!! l7kaya t3 reset highlight hadi lazem ttssgem , swa pour unitView wla pour GridCell
@@ -86,7 +73,7 @@ public class UnitView : MonoBehaviour
                 return;
             }
 
-            AttackSystem.Instance.GetAttackableCells(unit as UnitAttack, mapGrid);
+            AttackSystem.Instance.GetAttackableCells(unit as UnitAttack, MapGrid.Instance);
 
             HighlightAttackableCells(); // Display attackable cells
         }
@@ -112,7 +99,7 @@ public class UnitView : MonoBehaviour
 
     public void AnimateMovement(int row, int column,bool loadIntended)
     {
-        gridCellTheUnitIsMovingTowards = mapGrid.grid[row, column];
+        gridCellTheUnitIsMovingTowards = MapGrid.Instance.grid[row, column];
 
         // Store the starting position
         Vector3 startPosition = transform.position;
@@ -147,7 +134,7 @@ public class UnitView : MonoBehaviour
 
         // this is just to make sure our character gets to the right position
 
-        transform.position = new Vector3(mapGrid.grid[row, column].transform.position.x, mapGrid.grid[row, column].transform.position.y + 0.125f, -1);
+        transform.position = new Vector3(MapGrid.Instance.grid[row, column].transform.position.x, MapGrid.Instance.grid[row, column].transform.position.y + 0.125f, -1);
         ChangeAnimationState(UnitUtil.AnimationState.IDLE);
 
         CancelScript.Instance.Cancel();
@@ -162,7 +149,7 @@ public class UnitView : MonoBehaviour
         else
         {
             this.unit.TransitionToNumbState();
-            (mapGrid.grid[row,column].occupantUnit as UnitTransport).Load(unit);
+            (MapGrid.Instance.grid[row,column].occupantUnit as UnitTransport).Load(unit);
         }
 
     }
@@ -225,20 +212,22 @@ public class UnitView : MonoBehaviour
 
     public void HighlightAsSelected()
     {
+
         this.spriteRenderer.material.color = Color.green;
-    }    
+    }
 
     public void HighlightAsInNumbState()
     {
-        spriteRenderer.color = new Color(0,0,0,0.5f);
+        this.spriteRenderer.color = Color.gray;
+        this.spriteRenderer.material.color = Color.gray;
     }
 
     public void ResetHighlightedUnit()
     {
         if (spriteRenderer != null)
         {
-            this.spriteRenderer.material.color = Color.white;
-            spriteRenderer.color = new Color(255, 62, 255, 0);
+            this.spriteRenderer.material.color = new Color(255, 82, 0, 255);
+            spriteRenderer.color = Color.white;
         }
     }
 
@@ -371,7 +360,7 @@ public class UnitView : MonoBehaviour
     public void RecieveDamageUI(int inflictedDamage)
     {
         // instantiate the damage icon after receiving damage
-        DamageIcon damageIconInstance = Instantiate(UserInterfaceUtil.Instance.damageIconPrefab, this.transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+        DamageIcon damageIconInstance = Instantiate(UserInterfaceUtil.Instance.damageIconPrefab, this.transform.position + new Vector3(-0.1f, +0.675f, 0), Quaternion.identity);
         damageIconInstance.SetupDamageToDisplay(inflictedDamage);
         // UPDATE THE HEALTH ICON OF THE DEFENDING UNIT ( ALWAYS TAKES ONLY THE SECOND DIGIT OF THE HEALTH )
         this.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[GameUtil.GetHPToDisplayFromRealHP(this.unit.healthPoints)];

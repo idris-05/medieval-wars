@@ -113,8 +113,10 @@ public class GameController : MonoBehaviour
         // flip the unit in case it is a player2 unit
         if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
-        unit.unitView.spriteRenderer.material.color = new Color(255,62,255, 0); // set the outline to Orange
+        unit.unitView.spriteRenderer.material.color = new Color(255,82,0,255); // set the outline to Orange
 
+
+        unit.unitView.spriteRenderer.material.SetFloat(Shader.PropertyToID("_Thickness"), 0.001f);
         // create the unit's health indicator
         SpawnHealthIcon(unit);
 
@@ -125,7 +127,14 @@ public class GameController : MonoBehaviour
         //! WHAT FOLLOWS IS IN ORDER TO CREATE THE HEALTH INDICATOR ON THE UNITS
         GameObject UnitHealthIcon = Instantiate(UserInterfaceUtil.Instance.UnitHealthIconPrefab, new Vector3(0, 0, 0), Quaternion.identity, unit.transform);
         UnitHealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[10];
-        UnitHealthIcon.transform.localPosition = new Vector3(-0.17f, 0.17f, 0);
+
+        if ( unit.playerOwner == player1 ) UnitHealthIcon.transform.localPosition = new Vector3(-0.17f, -0.3f, 0);
+        if ( unit.playerOwner == player2 ) UnitHealthIcon.transform.localPosition = new Vector3(+0.17f, -0.3f, 0);
+
+
+        UnitHealthIcon.GetComponent<SpriteRenderer>().material.SetFloat(Shader.PropertyToID("_Thickness"), 0.005f);
+        UnitHealthIcon.GetComponent<SpriteRenderer>().material.color = Color.red;
+
         unit.unitView.HealthIcon = UnitHealthIcon;
     }
 

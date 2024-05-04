@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class UserInterfaceUtil : MonoBehaviour
 {
@@ -40,4 +41,8 @@ public class UserInterfaceUtil : MonoBehaviour
     [SerializeField] public List<GameObject> GlowLinesWhenHighlightedPrefabs;
 
     public List<GameObject> GlowLinesThatExistOnTheScene;
+
+    // public GameObject HighlightLightPrefab;
+
+    // public Light2D HighlightLight;
 }
