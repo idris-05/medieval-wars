@@ -47,7 +47,7 @@ TagManager:
   - name: FoundationWhenHighlighted
     uniqueID: 2364257725
     locked: 0
-  - name: Terrain&BuildingWhenHighlighted
+  - name: TerrainBuildingWhenHighlighted
     uniqueID: 3571158189
     locked: 0
   - name: WalkableLines
@@ -59,7 +59,7 @@ TagManager:
   - name: ButtonsInGame
     uniqueID: 4159636399
     locked: 0
-  - name: Terrain&Building
+  - name: TerrainBuilding
     uniqueID: 3035851921
     locked: 0
   - name: Unit
@@ -82,4 +82,7 @@ TagManager:
     locked: 0
   - name: GlowLinesWhenHighlighted
     uniqueID: 431278343
+    locked: 0
+  - name: NegativeTarget
+    uniqueID: 3477541167
     locked: 0

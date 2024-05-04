@@ -3,28 +3,13 @@ using UnityEngine.UIElements;
 
 public class GridCellView : MonoBehaviour
 {
-    private GridCell gridCell;
+    public GridCell gridCell;
     public SpriteRenderer rend;
-
-    public MapGrid mapGrid; // needed this for UI
-    public UserInterfaceUtil userInterfaceUtil; // needed this for UI
 
     public bool  isHighlightedAsAttackble = false ; // we need it in get attackable .
     public bool  isHighlighted = false ; // I need this for UI ( RuleTiles )
 
-    private int indexOfThePrefab;
-
-    
-
-    void Start()
-    {
-        gridCell = GetComponent<GridCell>();
-        rend = GetComponent<SpriteRenderer>();
-        mapGrid = FindObjectOfType<MapGrid>();
-        userInterfaceUtil = FindObjectOfType<UserInterfaceUtil>();
-    }
-
-
+    public int indexOfThePrefab;
 
     void OnMouseDown()
     {
@@ -38,10 +23,13 @@ public class GridCellView : MonoBehaviour
 
     public void HighlightAsWalkable()
     {
-        this.rend.sortingLayerID = SortingLayer.NameToID("FoundationWhenHighlighted");
-        this.gridCell.occupantTerrain.spriteRenderer.sortingLayerID = SortingLayer.NameToID("Terrain&BuildingWhenHighlighted");
+        
 
-        AddBoundsGlowIfNeeded();
+        this.rend.sortingLayerID = SortingLayer.NameToID("FoundationWhenHighlighted");
+        this.gridCell.occupantTerrain.spriteRenderer.sortingLayerID = SortingLayer.NameToID("TerrainBuildingWhenHighlighted");
+
+
+        AddBoundsGlowIfNeeded(1);
 
 
 
@@ -53,9 +41,10 @@ public class GridCellView : MonoBehaviour
     public void HighlightAsDropable()
     {
         this.rend.sortingLayerID = SortingLayer.NameToID("FoundationWhenHighlighted");
-        this.gridCell.occupantTerrain.spriteRenderer.sortingLayerID = SortingLayer.NameToID("Terrain&BuildingWhenHighlighted");
+        this.gridCell.occupantTerrain.spriteRenderer.sortingLayerID = SortingLayer.NameToID("TerrainBuildingWhenHighlighted");
 
-        AddBoundsGlowIfNeeded();
+        AddBoundsGlowIfNeeded(0);
+
 
         //rend.color = Color.blue;
         //gridCell.occupantTerrain.spriteRenderer.color = Color.blue;
@@ -67,9 +56,9 @@ public class GridCellView : MonoBehaviour
         isHighlightedAsAttackble = true ;
 
         this.rend.sortingLayerID = SortingLayer.NameToID("FoundationWhenHighlighted");
-        this.gridCell.occupantTerrain.spriteRenderer.sortingLayerID = SortingLayer.NameToID("Terrain&BuildingWhenHighlighted");
+        this.gridCell.occupantTerrain.spriteRenderer.sortingLayerID = SortingLayer.NameToID("TerrainBuildingWhenHighlighted");
 
-        AddBoundsGlowIfNeeded();
+        AddBoundsGlowIfNeeded(2);
 
 
         // rend.color = Color.red;
@@ -80,7 +69,7 @@ public class GridCellView : MonoBehaviour
     public void ResetHighlitedCell()
     {
         this.rend.sortingLayerID = SortingLayer.NameToID("Foundation");
-        this.gridCell.occupantTerrain.spriteRenderer.sortingLayerID = SortingLayer.NameToID("Terrain&Building");
+        this.gridCell.occupantTerrain.spriteRenderer.sortingLayerID = SortingLayer.NameToID("TerrainBuilding");
 
 
 
@@ -90,18 +79,38 @@ public class GridCellView : MonoBehaviour
         // gridCell.occupantTerrain.spriteRenderer.color = Color.white;
     }
 
-    public void AddBoundsGlowIfNeeded()
+    // which highlight 
+    // 0 : drop
+    // 1 : walkable
+    // 2 : attackable
+
+
+    public void AddBoundsGlowIfNeeded(int WhichHighlight)
     {
-        GridCell upperGridCell = mapGrid.grid[this.gridCell.row - 1, this.gridCell.column];
-        GridCell LowerGridCell = mapGrid.grid[this.gridCell.row + 1, this.gridCell.column];
-        GridCell RightGridCell = mapGrid.grid[this.gridCell.row, this.gridCell.column + 1];
-        GridCell LeftGridCell = mapGrid.grid[this.gridCell.row, this.gridCell.column - 1];
+        if ( this.gridCell.row - 1 >= 0)
+        {
+            GridCell upperGridCell = MapGrid.Instance.grid[this.gridCell.row - 1, this.gridCell.column];
+            if (upperGridCell.gridCellView.isHighlighted == false) UpperGlowLineHighlight(WhichHighlight);
+        }
 
-        if (upperGridCell.gridCellView.isHighlighted == false) UpperGlowLineHighlight();
-        if (LowerGridCell.gridCellView.isHighlighted == false) LowerGlowLineHighlight();
-        if (RightGridCell.gridCellView.isHighlighted == false) RightGlowLineHighlight();
-        if (LeftGridCell.gridCellView.isHighlighted == false)  LeftGlowLineHighlight();
+        if ( this.gridCell.row + 1 <= MapGrid.Instance.Rows - 1)
+        {
+            GridCell LowerGridCell = MapGrid.Instance.grid[this.gridCell.row + 1, this.gridCell.column];
+            if (LowerGridCell.gridCellView.isHighlighted == false) LowerGlowLineHighlight(WhichHighlight);
+        }
 
+        if (this.gridCell.column + 1 <= MapGrid.Instance.Columns - 1)
+        {
+            GridCell RightGridCell = MapGrid.Instance.grid[this.gridCell.row, this.gridCell.column + 1];
+            if (RightGridCell.gridCellView.isHighlighted == false) RightGlowLineHighlight(WhichHighlight);
+        }
+
+        if (this.gridCell.column - 1 >= 0 )
+        {
+            GridCell LeftGridCell = MapGrid.Instance.grid[this.gridCell.row, this.gridCell.column - 1];
+            if (LeftGridCell.gridCellView.isHighlighted == false) LeftGlowLineHighlight(WhichHighlight);
+
+        }
 
     }
 
@@ -112,76 +121,75 @@ public class GridCellView : MonoBehaviour
     // 4 : rh
     // 5 : rv
 
-    public void UpperGlowLineHighlight()
+    // which highlight 
+    // 0 : drop
+    // 1 : walkable
+    // 2 : attackable
+
+    public void UpperGlowLineHighlight(int WhichHighlight)
     {
 
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK) SetIndexOfThePrefab(4);
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE) SetIndexOfThePrefab(2);
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.DROP) SetIndexOfThePrefab(0);
+        if (WhichHighlight == 2) { Debug.Log("4") ; SetIndexOfThePrefab(4); };
+        if (WhichHighlight == 1) { Debug.Log("2"); SetIndexOfThePrefab(2); }
+        if (WhichHighlight == 0) { Debug.Log("0"); SetIndexOfThePrefab(0); }
+
+
 
         Vector3 position = new Vector3(this.gridCell.transform.position.x, this.gridCell.transform.position.y ,0);
-        position.x = position.x + 0.5f;
-        position.y = position.y + 1;
-
-        Debug.Log(indexOfThePrefab);
-
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.Add(Instantiate(userInterfaceUtil.GlowLinesWhenHighlightedPrefabs[indexOfThePrefab], position , Quaternion.identity));
-    }
-
-    public void LowerGlowLineHighlight()
-    {
-
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK) SetIndexOfThePrefab(4);
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE) SetIndexOfThePrefab(2);
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.DROP) SetIndexOfThePrefab(0);
-
-
-
-        Vector3 position = new Vector3(this.gridCell.transform.position.x, this.gridCell.transform.position.y, 0);
-        position.x = position.x + 0.5f;
-
-        Debug.Log(indexOfThePrefab);
-
-
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.Add(Instantiate(userInterfaceUtil.GlowLinesWhenHighlightedPrefabs[indexOfThePrefab], position, Quaternion.identity));
-    }
-
-    public void RightGlowLineHighlight()
-    {
-
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK) SetIndexOfThePrefab(5);
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE) SetIndexOfThePrefab(3);
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.DROP) SetIndexOfThePrefab(1);
-
-        Vector3 position = new Vector3(this.gridCell.transform.position.x, this.gridCell.transform.position.y, 0);
-        position.x = position.x + 1;
         position.y = position.y + 0.5f;
 
-        Debug.Log(indexOfThePrefab);
+
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Add(Instantiate(UserInterfaceUtil.Instance.GlowLinesWhenHighlightedPrefabs[indexOfThePrefab], position , Quaternion.identity));
+    }
+
+    public void LowerGlowLineHighlight(int WhichHighlight)
+    {
+
+        if (WhichHighlight == 2) { Debug.Log("4"); SetIndexOfThePrefab(4); };
+        if (WhichHighlight == 1) { Debug.Log("2"); SetIndexOfThePrefab(2); }
+        if (WhichHighlight == 0) { Debug.Log("0"); SetIndexOfThePrefab(0); }
 
 
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.Add(Instantiate(userInterfaceUtil.GlowLinesWhenHighlightedPrefabs[indexOfThePrefab], position, Quaternion.identity));
+
+        Vector3 position = new Vector3(this.gridCell.transform.position.x, this.gridCell.transform.position.y, 0);
+        position.y = position.y - 0.5f;
+
+
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Add(Instantiate(UserInterfaceUtil.Instance.GlowLinesWhenHighlightedPrefabs[indexOfThePrefab], position, Quaternion.identity));
+    }
+
+    public void RightGlowLineHighlight(int WhichHighlight)
+    {
+
+        if (WhichHighlight == 2) { Debug.Log("5"); SetIndexOfThePrefab(5); };
+        if (WhichHighlight == 1) { Debug.Log("3"); SetIndexOfThePrefab(3); };
+        if (WhichHighlight == 0) { Debug.Log("1"); SetIndexOfThePrefab(1); };
+
+        Vector3 position = new Vector3(this.gridCell.transform.position.x, this.gridCell.transform.position.y, 0);
+        position.x = position.x + 0.5f;
+
+
+
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Add(Instantiate(UserInterfaceUtil.Instance.GlowLinesWhenHighlightedPrefabs[indexOfThePrefab], position, Quaternion.identity));
 
     }
 
-    public void LeftGlowLineHighlight()
+    public void LeftGlowLineHighlight(int WhichHighlight)
     {
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.ATTACK) SetIndexOfThePrefab(5);
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE) SetIndexOfThePrefab(3);
-        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.DROP) SetIndexOfThePrefab(1);
-
+        if (WhichHighlight == 2) { Debug.Log("5"); SetIndexOfThePrefab(5); };
+        if (WhichHighlight == 1) { Debug.Log("3"); SetIndexOfThePrefab(3); };
+        if (WhichHighlight == 0) { Debug.Log("1"); SetIndexOfThePrefab(1); };
         Vector3 position = new Vector3(this.gridCell.transform.position.x, this.gridCell.transform.position.y, 0);
-        position.y = position.y + 0.5f;
+        position.x = position.x - 0.5f;
 
-        Debug.Log(indexOfThePrefab);
 
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.Add(Instantiate(userInterfaceUtil.GlowLinesWhenHighlightedPrefabs[indexOfThePrefab], position, Quaternion.identity));
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Add(Instantiate(UserInterfaceUtil.Instance.GlowLinesWhenHighlightedPrefabs[indexOfThePrefab], position, Quaternion.identity));
     }
 
     private void SetIndexOfThePrefab(int index)
     {
         this.indexOfThePrefab = index;
     }
-
-
+   
+    
 }

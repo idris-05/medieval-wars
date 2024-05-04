@@ -12,7 +12,7 @@ public class UnitTransport : Unit
     public List<GridCell> dropableCells = new List<GridCell>();  // cells where the transporter can drop the loaded unit .
     public List<Unit> suppliableUnits = new List<Unit>();  // unit that can get supplyRation from the transporter .
 
-    public UserInterfaceUtil userInterfaceUtil;
+
 
 
     public float AvailableRationToShare; //!!! ch7al rahi rafda ration , bach tmed ll units lo5rin 
@@ -24,11 +24,10 @@ public class UnitTransport : Unit
     {
         loadedUnit = unit;
         unit.unitView.HideUnitWhenLoaded();
-        userInterfaceUtil = FindObjectOfType<UserInterfaceUtil>();
     }
 
     // Method to drop a unit onto a grid cell
-    public void Drop(GridCell cell)
+    public IEnumerator Drop(GridCell cell)
     {
         //!!!!! remove the hide from the unit .
 
@@ -42,9 +41,14 @@ public class UnitTransport : Unit
         // set the new position of the unit .
         this.loadedUnit.unitView.SetUnitPosition(cell.row, cell.column);
         this.loadedUnit.unitView.ShowUnitAfterDrop();
+        this.loadedUnit.unitView.ChangeAnimationState(UnitUtil.AnimationState.SHADOW_CLONE_JUTSU);
+        yield return new WaitForSeconds(0.45f);
+        this.loadedUnit.unitView.ChangeAnimationState(UnitUtil.AnimationState.IDLE);
         this.loadedUnit.TransitionToNumbState();
 
         loadedUnit = null;
+
+        yield break;
 
     }
 
@@ -131,9 +135,9 @@ public class UnitTransport : Unit
     public void HighlightDropableCells()
     {
         // highlight the dropable cells
-        this.unitView.userInterfaceUtil.CellhighlightHolder.transform.position = this.transform.position;
-        this.unitView.userInterfaceUtil.CellhighlightLines.SetActive(true);
-        this.unitView.userInterfaceUtil.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.blue;
+        UserInterfaceUtil.Instance.CellhighlightHolder.transform.position = this.transform.position;
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(true);
+        UserInterfaceUtil.Instance.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.blue;
 
         dropableCells.ForEach(dropableCell => dropableCell.gridCellView.isHighlighted = true); // i need this for UI
 
@@ -143,13 +147,13 @@ public class UnitTransport : Unit
     //
     public void ResetDropableCells()
     {
-        this.unitView.userInterfaceUtil.CellhighlightLines.SetActive(false);
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(false);
 
         dropableCells.ForEach(dropableCell => dropableCell.gridCellView.isHighlighted = false); // i need this for UI
         dropableCells.ForEach(dropableCell => dropableCell.gridCellView.ResetHighlitedCell());
 
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.ForEach(glowLine => Destroy(glowLine)); // DESTROY ALL THE GLOWLINES THAT HAVE ALREADY BEEN CREATED
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.Clear();
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.ForEach(glowLine => Destroy(glowLine)); // DESTROY ALL THE GLOWLINES THAT HAVE ALREADY BEEN CREATED
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Clear();
         dropableCells.Clear();
     }
 

@@ -32,7 +32,7 @@ public class UnitView : MonoBehaviour
 
     public GameObject HealthIcon;
 
-    public UserInterfaceUtil userInterfaceUtil;
+ 
 
 
 
@@ -42,8 +42,7 @@ public class UnitView : MonoBehaviour
         unitTransform = GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        userInterfaceUtil = FindObjectOfType<UserInterfaceUtil>();
-    }
+    } 
 
 
     //!!!!!!! l7kaya t3 reset highlight hadi lazem ttssgem , swa pour unitView wla pour GridCell
@@ -53,6 +52,7 @@ public class UnitView : MonoBehaviour
     // Reset isUnitHovered flag when the mouse exits the unit
     private void OnMouseExit()
     {
+        isUnitHovered = false;
         isUnitHovered = false;
         rightButtonHolded = false;
         ResetHighlitedAttackableCells();
@@ -67,7 +67,7 @@ public class UnitView : MonoBehaviour
             {
                 return;
             }
-            // Debug.Log("left click on unit");
+            Debug.Log("left click on unit");
             UnitController.Instance.OnUnitSelection(unit); // singleton
         }
 
@@ -75,7 +75,7 @@ public class UnitView : MonoBehaviour
     // Check if right mouse button is held down display the attackableCells
     void Update()
     {
-        if (!isUnitHovered) return;
+        if (!isUnitHovered || UnitController.Instance.CurrentActionStateBasedOnClickedButton != UnitUtil.ActionToDoWhenButtonIsClicked.NONE) return;
 
         if (Input.GetMouseButton(1) && !rightButtonHolded)
         {
@@ -106,7 +106,7 @@ public class UnitView : MonoBehaviour
 
     public void SetUnitPosition(int newRow, int newCol)
     {
-        Vector3 position = new Vector3(-16 + newRow + 0.5f, 9 - newCol - 0.5f + 0.125f, unitTransform.position.z);
+        Vector3 position = new Vector3(-16 + newCol + 0.5f, 9 - newRow - 0.5f + 0.125f, unitTransform.position.z);
         transform.position = position;
     }
 
@@ -238,7 +238,7 @@ public class UnitView : MonoBehaviour
         if (spriteRenderer != null)
         {
             this.spriteRenderer.material.color = Color.white;
-            spriteRenderer.color = Color.white;
+            spriteRenderer.color = new Color(255, 62, 255, 0);
         }
     }
 
@@ -252,6 +252,7 @@ public class UnitView : MonoBehaviour
     public void ShowUnitAfterDrop()
     {
         gameObject.SetActive(true);
+        this.spriteRenderer.color = Color.white;
         // show unit after it get dropped from the transporter unit .
     }
 
@@ -275,34 +276,35 @@ public class UnitView : MonoBehaviour
 
     public void HighlightWalkablesCells()
     {
-        userInterfaceUtil.CellhighlightHolder.transform.position = this.unit.transform.position;
-        userInterfaceUtil.CellhighlightLines.SetActive(true);
-        userInterfaceUtil.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.green;
+        UserInterfaceUtil.Instance.CellhighlightHolder.transform.position = this.unit.transform.position;
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(true);
+        UserInterfaceUtil.Instance.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.green;
 
-        unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.isHighlighted = true); // i need this for UI
-
+        unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.isHighlighted = true);
+       
         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.HighlightAsWalkable());
+
     }
 
     public void ResetHighlitedWalkableCells()
     {
-        userInterfaceUtil.CellhighlightLines.SetActive(false);
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(false);
 
-        unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.isHighlighted = false); // i need this for UI
+         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.isHighlighted = false); // i need this for UI
 
         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.ResetHighlitedCell());
 
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.ForEach(glowLine => Destroy(glowLine)); // DESTROY ALL THE GLOWLINES THAT HAVE ALREADY BEEN CREATED
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.Clear();
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.ForEach(glowLine => Destroy(glowLine)); // DESTROY ALL THE GLOWLINES THAT HAVE ALREADY BEEN CREATED
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Clear();
         unit.walkableGridCells.Clear();
     }
 
 
     public void HighlightAttackableCells()
     {
-        userInterfaceUtil.CellhighlightHolder.transform.position = this.unit.transform.position;
-        userInterfaceUtil.CellhighlightLines.SetActive(true);
-        userInterfaceUtil.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.red;
+        UserInterfaceUtil.Instance.CellhighlightHolder.transform.position = this.unit.transform.position;
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(true);
+        UserInterfaceUtil.Instance.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.red;
 
         (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.isHighlighted = true); // i need this for UI
 
@@ -314,15 +316,15 @@ public class UnitView : MonoBehaviour
         if ((unit is UnitAttack) == false) return;
 
 
-        userInterfaceUtil.CellhighlightLines.SetActive(false);
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(false);
 
         (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.isHighlighted = false); // i need this for UI
 
         (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.ResetHighlitedCell());
 
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.ForEach(glowLine => Destroy(glowLine)); // DESTROY ALL THE GLOWLINES THAT HAVE ALREADY BEEN CREATED
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.ForEach(glowLine => Destroy(glowLine)); // DESTROY ALL THE GLOWLINES THAT HAVE ALREADY BEEN CREATED
 
-        userInterfaceUtil.GlowLinesThatExistOnTheScene.Clear();
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Clear();
         (unit as UnitAttack).attackableGridCells.Clear();
     }
 
@@ -359,6 +361,8 @@ public class UnitView : MonoBehaviour
                 return "left side attack";
             case UnitUtil.AnimationState.DIE_ANIMATION:
                 return "die animation";
+            case UnitUtil.AnimationState.SHADOW_CLONE_JUTSU:
+                return "shadow clone jutsu";
             default:
                 return "Unknown";
         }
@@ -367,10 +371,10 @@ public class UnitView : MonoBehaviour
     public void RecieveDamageUI(int inflictedDamage)
     {
         // instantiate the damage icon after receiving damage
-        DamageIcon damageIconInstance = Instantiate(userInterfaceUtil.damageIconPrefab, this.transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+        DamageIcon damageIconInstance = Instantiate(UserInterfaceUtil.Instance.damageIconPrefab, this.transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
         damageIconInstance.SetupDamageToDisplay(inflictedDamage);
         // UPDATE THE HEALTH ICON OF THE DEFENDING UNIT ( ALWAYS TAKES ONLY THE SECOND DIGIT OF THE HEALTH )
-        this.HealthIcon.GetComponent<SpriteRenderer>().sprite = GameController.Instance.userInterfaceUtil.numbersFromZeroToTenSpritesForHealth[GameUtil.GetHPToDisplayFromRealHP(this.unit.healthPoints)];
+        this.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[GameUtil.GetHPToDisplayFromRealHP(this.unit.healthPoints)];
     }
 
     

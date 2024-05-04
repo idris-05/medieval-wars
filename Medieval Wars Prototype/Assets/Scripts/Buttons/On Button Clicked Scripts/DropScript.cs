@@ -12,6 +12,7 @@ public class DropScript : MonoBehaviour
         unitTransport.GetDropableCells();
 
         unitTransport.HighlightDropableCells();
+
         ManageInteractableObjects.Instance.MakeOnlySpecificCellsInteractable(unitTransport.dropableCells);
 
         UnitController.Instance.CurrentActionStateBasedOnClickedButton = UnitUtil.ActionToDoWhenButtonIsClicked.DROP;

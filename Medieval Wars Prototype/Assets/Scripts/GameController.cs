@@ -39,7 +39,6 @@ public class GameController : MonoBehaviour
     //! UnitsWhenMade(Attackable/Suppliable) : -3
     //! ActionButtons : -4
 
-    public UserInterfaceUtil userInterfaceUtil;
 
     public MapGrid mapGrid; // linked from the editor 
 
@@ -47,11 +46,6 @@ public class GameController : MonoBehaviour
 
     [SerializeField] public Unit CaravanArabPrefabForTesting;
 
-    public Unit Infantry1Prefab; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
-
-    public Unit Infantry1PrefabTransport; // test , //: hada , n7to list fiha t3 player 1 , w list pour player 2
-
-    public Unit Infantry2Prefab; // test
 
     public Player currentPlayerInControl;
     public Player player1;
@@ -63,7 +57,6 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        userInterfaceUtil = FindObjectOfType<UserInterfaceUtil>();
         coForTest = new GameObject("COForTest").AddComponent<CO>();
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
@@ -77,7 +70,6 @@ public class GameController : MonoBehaviour
     // This method is called when the object is first enabled in the scene.
     void Start()
     {
-
         SpawnUnit(player1, 5, 5, BanditArabPrefab); // test 
         SpawnUnit(player1, 6, 5, BanditArabPrefab); // test 
 
@@ -88,14 +80,14 @@ public class GameController : MonoBehaviour
 
         SpawnUnit(player1, 10, 10, CaravanArabPrefabForTesting);
 
-        //SpawnUnit(player1, 2, 5, Infantry1PrefabTransport);
+       //SpawnUnit(player1, 2, 5, Infantry1PrefabTransport); 
 
     }
 
 
     void Update()
     {
-        CheckEndTurnInput();
+       CheckEndTurnInput(); 
     }
 
 
@@ -121,7 +113,7 @@ public class GameController : MonoBehaviour
         // flip the unit in case it is a player2 unit
         if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
-        unit.unitView.spriteRenderer.material.color = new Color(0, 0, 0, 0); // set the outline to black
+        unit.unitView.spriteRenderer.material.color = new Color(255,62,255, 0); // set the outline to Orange
 
         // create the unit's health indicator
         SpawnHealthIcon(unit);
@@ -131,8 +123,8 @@ public class GameController : MonoBehaviour
     public void SpawnHealthIcon(Unit unit)
     {
         //! WHAT FOLLOWS IS IN ORDER TO CREATE THE HEALTH INDICATOR ON THE UNITS
-        GameObject UnitHealthIcon = Instantiate(userInterfaceUtil.UnitHealthIconPrefab, new Vector3(0, 0, 0), Quaternion.identity, unit.transform);
-        UnitHealthIcon.GetComponent<SpriteRenderer>().sprite = userInterfaceUtil.numbersFromZeroToTenSpritesForHealth[10];
+        GameObject UnitHealthIcon = Instantiate(UserInterfaceUtil.Instance.UnitHealthIconPrefab, new Vector3(0, 0, 0), Quaternion.identity, unit.transform);
+        UnitHealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[10];
         UnitHealthIcon.transform.localPosition = new Vector3(-0.17f, 0.17f, 0);
         unit.unitView.HealthIcon = UnitHealthIcon;
     }

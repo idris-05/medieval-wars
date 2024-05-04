@@ -8,9 +8,9 @@ using UnityEngine;
 public class GridCell : MonoBehaviour
 {
 
-    public GridCellView gridCellView;
+     public GridCellView gridCellView;
 
-     public bool isWalkable;   //!!! ?????? wch rana ndiro bih hada ,, update : raho 9rib ytir .
+    public bool isWalkable;   //!!! ?????? wch rana ndiro bih hada ,, update : raho 9rib ytir .
 
     public int row;
     public int column;
@@ -21,10 +21,7 @@ public class GridCell : MonoBehaviour
 
     public int moveCost = 1; //!!!!!!!!!!!! for now
 
-    void Start()
-    {
-        gridCellView = GetComponent<GridCellView>();
-    }
+
 
 
     // Method to reset the GridCell to its original state  

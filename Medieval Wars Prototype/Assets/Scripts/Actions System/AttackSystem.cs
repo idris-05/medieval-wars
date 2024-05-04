@@ -34,17 +34,6 @@ public class AttackSystem : MonoBehaviour
     }
 
 
-    public MapGrid mapGrid;
-
-    public UserInterfaceUtil userInterfaceUtil;
-
-
-
-    private void Awake()
-    {
-        mapGrid = FindObjectOfType<MapGrid>();
-        userInterfaceUtil = FindObjectOfType<UserInterfaceUtil>();
-    }
 
     // base damage[Attacker,Defender]  //!!!!!!!!!!!! marahomch m9lobin ????
     struct MIcell
@@ -72,25 +61,25 @@ public class AttackSystem : MonoBehaviour
         {
             x = cell.column;
             y = cell.row;
-            unit.attackableGridCells.Add(mapGrid.grid[y, x]);
-            if (y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns)
+            unit.attackableGridCells.Add(MapGrid.Instance.grid[y, x]);
+            if (y - 1 >= 0 && y - 1 < MapGrid.Instance.Rows && x >= 0 && x < MapGrid.Instance.Columns)
             {
-                unit.attackableGridCells.Add(mapGrid.grid[y - 1, x]);
+                unit.attackableGridCells.Add(MapGrid.Instance.grid[y - 1, x]);
                 // mapGrid.grid[y - 1, x].gridCellView.HighlightAsAttackable();
             }
-            if (y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns)
+            if (y >= 0 && y < MapGrid.Instance.Rows && x + 1 >= 0 && x + 1 < MapGrid.Instance.Columns)
             {
-                unit.attackableGridCells.Add(mapGrid.grid[y, x + 1]);
+                unit.attackableGridCells.Add(MapGrid.Instance.grid[y, x + 1]);
                 // mapGrid.grid[y, x + 1].gridCellView.HighlightAsAttackable();
             }
-            if (y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns)
+            if (y + 1 >= 0 && y + 1 < MapGrid.Instance.Rows && x >= 0 && x < MapGrid.Instance.Columns)
             {
-                unit.attackableGridCells.Add(mapGrid.grid[y + 1, x]);
+                unit.attackableGridCells.Add(MapGrid.Instance.grid[y + 1, x]);
                 // mapGrid.grid[y + 1, x].gridCellView.HighlightAsAttackable();
             }
-            if (y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x - 1 < MapGrid.Columns)
+            if (y >= 0 && y < MapGrid.Instance.Rows && x - 1 >= 0 && x - 1 < MapGrid.Instance.Columns)
             {
-                unit.attackableGridCells.Add(mapGrid.grid[y, x - 1]);
+                unit.attackableGridCells.Add(MapGrid.Instance.grid[y, x - 1]);
                 // mapGrid.grid[y, x - 1].gridCellView.HighlightAsAttackable();
             }
         }
@@ -114,12 +103,12 @@ public class AttackSystem : MonoBehaviour
                 int nextRow = currentPos.x + row;
                 int nextCol = currentPos.y + col;
 
-                if (nextRow >= 0 && nextRow < MapGrid.Rows && nextCol >= 0 && nextCol < MapGrid.Columns)
+                if (nextRow >= 0 && nextRow < MapGrid.Instance.Rows && nextCol >= 0 && nextCol < MapGrid.Instance.Columns)
                 {
 
                     if (MathF.Abs(row) + MathF.Abs(col) <= moveRange && MathF.Abs(row) + MathF.Abs(col) > unit.minAttackRange)
-                    {
-                        unit.attackableGridCells.Add(mapGrid.grid[nextRow, nextCol]);
+                    {   
+                        unit.attackableGridCells.Add(MapGrid.Instance.grid[nextRow, nextCol]);
                         // mapGrid.grid[nextRow, nextCol].gridCellView.HighlightAsAttackable();
                     }
                 }
@@ -136,8 +125,8 @@ public class AttackSystem : MonoBehaviour
         int y = unit.row;
         int x = unit.col;
         int Mrange = unit.moveRange;
-        MIcell temp = new MIcell(Mrange, mapGrid.grid[y, x]);
-        MIcell temp2 = new MIcell(Mrange, mapGrid.grid[y, x]);
+        MIcell temp = new MIcell(Mrange, MapGrid.Instance.grid[y, x]);
+        MIcell temp2 = new MIcell(Mrange, MapGrid.Instance.grid[y, x]);
         Queue<MIcell> queue = new Queue<MIcell>();
         queue.Enqueue(temp);
         cells.Add(temp.you);
@@ -149,18 +138,18 @@ public class AttackSystem : MonoBehaviour
             y = temp.you.row;
 
 
-            if ((y - 1 >= 0 && y - 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !cells.Contains(mapGrid.grid[y - 1, x]))
+            if ((y - 1 >= 0 && y - 1 < MapGrid.Instance.Rows && x >= 0 && x < MapGrid.Instance.Columns) && temp.moveleft > 0 && !cells.Contains(MapGrid.Instance.grid[y - 1, x]))
             {
                 // int moveleft = temp.moveleft - 1;// use movecosts
-                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain, unit);
-                if (mapGrid.grid[y - 1, x].occupantUnit != null && mapGrid.grid[y - 1, x].occupantUnit.playerOwner != cuurentPlayer)
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(MapGrid.Instance.grid[y - 1, x].occupantTerrain, unit);
+                if (MapGrid.Instance.grid[y - 1, x].occupantUnit != null && MapGrid.Instance.grid[y - 1, x].occupantUnit.playerOwner != cuurentPlayer)
                 {
                     moveleft = -1;
                 }
 
                 if (moveleft >= 0)
                 {
-                    temp2.affval(moveleft, mapGrid.grid[y - 1, x]);
+                    temp2.affval(moveleft, MapGrid.Instance.grid[y - 1, x]);
 
 
                     cells.Add(temp2.you);
@@ -169,19 +158,19 @@ public class AttackSystem : MonoBehaviour
 
 
             }
-            if ((y >= 0 && y < MapGrid.Rows && x + 1 >= 0 && x + 1 < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y, x + 1])))
+            if ((y >= 0 && y < MapGrid.Instance.Rows && x + 1 >= 0 && x + 1 < MapGrid.Instance.Columns) && temp.moveleft > 0 && !(cells.Contains(MapGrid.Instance.grid[y, x + 1])))
             {
                 // int moveleft = temp.moveleft - 1;// use movecost
-                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x + 1].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(MapGrid.Instance.grid[y, x + 1].occupantTerrain, unit);
 
-                if (mapGrid.grid[y, x + 1].occupantUnit != null && mapGrid.grid[y, x + 1].occupantUnit.playerOwner != cuurentPlayer)
+                if (MapGrid.Instance.grid[y, x + 1].occupantUnit != null && MapGrid.Instance.grid[y, x + 1].occupantUnit.playerOwner != cuurentPlayer)
                 {
                     moveleft = -1;
                 }
 
                 if (moveleft >= 0)
                 {
-                    temp2.affval(moveleft, mapGrid.grid[y, x + 1]);
+                    temp2.affval(moveleft, MapGrid.Instance.grid[y, x + 1]);
 
 
                     cells.Add(temp2.you);
@@ -191,18 +180,18 @@ public class AttackSystem : MonoBehaviour
 
 
             }
-            if ((y + 1 >= 0 && y + 1 < MapGrid.Rows && x >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y + 1, x])))
+            if ((y + 1 >= 0 && y + 1 < MapGrid.Instance.Rows && x >= 0 && x < MapGrid.Instance.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y + 1, x])))
             {
                 // int moveleft = temp.moveleft - 1;//!!use move cost
-                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y + 1, x].occupantTerrain, unit);
-                if (mapGrid.grid[y + 1, x].occupantUnit != null && mapGrid.grid[y + 1, x].occupantUnit.playerOwner != cuurentPlayer)
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(MapGrid.Instance.grid[y + 1, x].occupantTerrain, unit);
+                if (MapGrid.Instance.grid[y + 1, x].occupantUnit != null && MapGrid.Instance.grid[y + 1, x].occupantUnit.playerOwner != cuurentPlayer)
                 {
                     moveleft = -1;
                 }
 
                 if (moveleft >= 0)
                 {
-                    temp2.affval(moveleft, mapGrid.grid[y + 1, x]);
+                    temp2.affval(moveleft, MapGrid.Instance.grid[y + 1, x]);
 
                     cells.Add(temp2.you);
                     queue.Enqueue(temp2);
@@ -211,18 +200,18 @@ public class AttackSystem : MonoBehaviour
 
 
             }
-            if ((y >= 0 && y < MapGrid.Rows && x - 1 >= 0 && x < MapGrid.Columns) && temp.moveleft > 0 && !(cells.Contains(mapGrid.grid[y, x - 1])))
+            if ((y >= 0 && y < MapGrid.Instance.Rows && x - 1 >= 0 && x < MapGrid.Instance.Columns) && temp.moveleft > 0 && !(cells.Contains(MapGrid.Instance.grid[y, x - 1])))
             {
                 // int moveleft = temp.moveleft - 1; //!!!use movecost
-                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x - 1].occupantTerrain, unit);
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(MapGrid.Instance.grid[y, x - 1].occupantTerrain, unit);
 
-                if (mapGrid.grid[y, x - 1].occupantUnit != null && mapGrid.grid[y, x - 1].occupantUnit.playerOwner != cuurentPlayer)
+                if (MapGrid.Instance.grid[y, x - 1].occupantUnit != null && MapGrid.Instance.grid[y, x - 1].occupantUnit.playerOwner != cuurentPlayer)
                 {
                     moveleft = -1;
                 }
                 if (moveleft >= 0)
                 {
-                    temp2.affval(moveleft, mapGrid.grid[y, x - 1]);
+                    temp2.affval(moveleft, MapGrid.Instance.grid[y, x - 1]);
 
                     cells.Add(temp2.you);
                     queue.Enqueue(temp2);
@@ -244,11 +233,11 @@ public class AttackSystem : MonoBehaviour
 
         if (unit.attackRange == 1)
         {
-            GetCloseAttackble(unit, mapGrid);
+            GetCloseAttackble(unit, MapGrid.Instance);
         }
         else if (unit.attackRange >= 2)
         {
-            GetFarAttackble(unit, mapGrid);
+            GetFarAttackble(unit, MapGrid.Instance);
         }
     }
 

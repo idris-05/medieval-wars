@@ -45,6 +45,7 @@ public class UnitUtil : MonoBehaviour
         RIGHT_SIDE_ATTACK,
         LEFT_SIDE_ATTACK,
         DIE_ANIMATION,
+        SHADOW_CLONE_JUTSU, // APPEAR IN SHADOW CLONE JUSTSU ( NARUTO LE GOAT )
     }
 
 
