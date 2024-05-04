@@ -89,7 +89,22 @@ public static class TerrainsUtils
     // Each Terrain has it's defense stars that will be used in the damage formula
     public static int[] defenceStars = { 3, 3, 3, 4, 3, 0, 0, 0, 0, 0, 1, 1, 2, 4 };
 
-    public static string[] reportTerrain;
-    
+    public static string[] ReportTerrain => new string[] {
+                "Barracks are the main building of the army, they are used to train infantry units.",
+                "Docks are used to build ships and transport units.",
+                "Stables are used to train cavalry units.",
+                "Castles are the main building of the army, they are used to train infantry units.",
+                "Villages are used to build ships and transport units.",
+                "Roads are used to build ships and transport units.",
+                "Bridges are used to train cavalry units.",
+                "Rivers are used to train cavalry units.",
+                "Seas are used to train cavalry units.",
+                "Shoals are used to train cavalry units.",
+                "Reefs are used to train cavalry units.",
+                "Plains are used to train cavalry units.",
+                "Woods are used to train cavalry units.",
+                "Mountains are used to train cavalry units."
+            };
+
 
 }

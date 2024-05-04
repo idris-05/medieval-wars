@@ -22,10 +22,17 @@ public class GridCellView : MonoBehaviour
         //! GETWALKABLE TILES YOU NEED TO CHECK IF A LOADED TRANSPORTER IS THERE ____AHMED AND RAYANE !!!!!!!!!!
     }
 
+
     // // this methode is called every frame 
     void OnMouseOver()
     {
         MiniIntelController.Instance.HandleMINIIntel(gridCell);
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            InfoCardController.Instance.UpdateTerrainBIGIntel(gridCell.occupantTerrain , Input.mousePosition);
+            // Debug.Log("Right Clicked on " + gridCell.occupantTerrain.terrainName);
+        }
     }
 
 

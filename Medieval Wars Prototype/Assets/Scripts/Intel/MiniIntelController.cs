@@ -79,6 +79,7 @@ public class MiniIntelController : MonoBehaviour
     public bool IsTheCardWillDisplayedInRightSide;
     public bool SideHasChanged;
     public bool IsAnimating;
+    public bool TheMiniCardIsLocked = false;
 
 
     public float HideAnimationDuration; // Adjust as needed
@@ -101,7 +102,7 @@ public class MiniIntelController : MonoBehaviour
 
     private RectTransform canvasRect;
 
-    public bool IsTheCardActivaed = false;
+    public bool IsTheCardActivated = false;
 
 
 
@@ -206,7 +207,7 @@ public class MiniIntelController : MonoBehaviour
 
     public void HandleMINIIntel(GridCell gridCell)
     {
-        if (!IsTheCardActivaed) ActivateCard();
+        if (!TheMiniCardIsLocked && !IsTheCardActivated) ActivateCard();
 
         SetComponentAsDesactive(building);
         SetComponentAsDesactive(terrain);
@@ -361,12 +362,30 @@ public class MiniIntelController : MonoBehaviour
 
     public void ActivateCard()
     {
-        IsTheCardActivaed = true;
+        IsTheCardActivated = true;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.interactable = true;
     }
 
+    public void DesActivateCard()
+    {
+        IsTheCardActivated = false;
+        canvasGroup.alpha = 0f;
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
+    }
 
+
+
+    public void LockTheMiniCard()
+    {
+        TheMiniCardIsLocked = true;
+    }
+
+    public void UnLockTheMiniCard()
+    {
+        TheMiniCardIsLocked = false;
+    }
 }
 
