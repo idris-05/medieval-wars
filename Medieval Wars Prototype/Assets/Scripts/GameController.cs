@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
     public Player player2;
     public Player playerNeutre;
 
-    public CO coForTest;
+    // public CO coForTest;
     public int CurrentDayCounter;
     public List<Player> playerList = new List<Player>();
 
@@ -79,15 +79,15 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        coForTest = new GameObject("COForTest").AddComponent<CO>();
+        // coForTest = new GameObject("COForTest").AddComponent<CO>();
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
         playerNeutre = new GameObject("PlayerNeutre").AddComponent<Player>();
         currentPlayerInControl = player1;
         playerList.Add(player1);
         playerList.Add(player2);
-        player1.Co = coForTest;
-        player2.Co = coForTest;
+        // player1.Co = coForTest;
+        // player2.Co = coForTest;
     }
 
     // This method is called when the object is first enabled in the scene.
@@ -95,18 +95,18 @@ public class GameController : MonoBehaviour
     {
 
         arrowSystem = FindAnyObjectByType<ArrowSystem>();
-        SpawnUnit(player1, 5, 5, BanditArabPrefab); // test 
-        SpawnUnit(player1, 6, 5, BanditArabPrefab); // test 
+        // SpawnUnit(player1, 5, 5, BanditArabPrefab); // test 
+        // SpawnUnit(player1, 6, 5, BanditArabPrefab); // test 
 
-        SpawnUnit(player1, 3, 3, BanditArabPrefab);
+        // SpawnUnit(player1, 3, 3, BanditArabPrefab);
 
-        SpawnUnit(player1, 15, 27, BanditArabPrefab);
-        SpawnUnit(player1, 7, 20, BanditArabPrefab);
+        // SpawnUnit(player1, 15, 27, BanditArabPrefab);
+        // SpawnUnit(player1, 7, 20, BanditArabPrefab);
 
 
-        SpawnUnit(player2, 8, 8, BanditArabPrefab);
+        // SpawnUnit(player2, 8, 8, BanditArabPrefab);
 
-        SpawnUnit(player1, 10, 10, CaravanArabPrefabForTesting);
+        // SpawnUnit(player1, 10, 10, CaravanArabPrefabForTesting);
 
         //SpawnUnit(player1, 2, 5, Infantry1PrefabTransport); 
 

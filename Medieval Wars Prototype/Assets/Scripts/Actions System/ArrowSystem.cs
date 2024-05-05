@@ -182,7 +182,7 @@ public class ArrowSystem : MonoBehaviour
 
 
 
-            if (y - 1 < MapGrid.Rows && y - 1 >= 0)
+            if (y - 1 < MapGrid.Instance.Rows && y - 1 >= 0)
             {
 
                 if (Input.GetKeyDown(KeyCode.W) && Borders.Contains(mapGrid.grid[y - 1, x]) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y - 1, x]))
@@ -311,7 +311,7 @@ public class ArrowSystem : MonoBehaviour
             }
 
 
-            if (x - 1 < MapGrid.Columns && x - 1 >= 0)
+            if (x - 1 < MapGrid.Instance.Columns && x - 1 >= 0)
             {
 
 
@@ -439,7 +439,7 @@ public class ArrowSystem : MonoBehaviour
             }
 
 
-            if (x + 1 < MapGrid.Columns && x + 1 >= 0)
+            if (x + 1 < MapGrid.Instance.Columns && x + 1 >= 0)
             {
 
 
@@ -566,7 +566,7 @@ public class ArrowSystem : MonoBehaviour
             }
 
 
-            if (y + 1 < MapGrid.Rows && y + 1 >= 0)
+            if (y + 1 < MapGrid.Instance.Rows && y + 1 >= 0)
             {
 
                 if (Input.GetKeyDown(KeyCode.S) && (Borders.Contains(mapGrid.grid[y + 1, x])) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y + 1, x]))
@@ -690,6 +690,7 @@ public class ArrowSystem : MonoBehaviour
 
                 }
             }
+
 
 
         }
