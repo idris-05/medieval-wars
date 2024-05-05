@@ -58,7 +58,7 @@ public class GridCellController : MonoBehaviour
                 UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;
                 ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitTransport.dropableCells);
                 unitTransport.ResetDropableCells();
-                unitTransport.Drop(cellThatGotClickedOn);
+                StartCoroutine(unitTransport.Drop(cellThatGotClickedOn));
                 CancelScript.Instance.Cancel();
                 
                 break;

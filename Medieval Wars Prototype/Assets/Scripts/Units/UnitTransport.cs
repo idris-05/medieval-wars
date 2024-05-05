@@ -13,6 +13,8 @@ public class UnitTransport : Unit
     public List<Unit> suppliableUnits = new List<Unit>();  // unit that can get supplyRation from the transporter .
 
 
+
+
     public float AvailableRationToShare; //!!! ch7al rahi rafda ration , bach tmed ll units lo5rin 
 
     // lazemna valuere max t3 AvailableRationToShare
@@ -25,7 +27,7 @@ public class UnitTransport : Unit
     }
 
     // Method to drop a unit onto a grid cell
-    public void Drop(GridCell cell)
+    public IEnumerator Drop(GridCell cell)
     {
         //!!!!! remove the hide from the unit .
 
@@ -39,9 +41,14 @@ public class UnitTransport : Unit
         // set the new position of the unit .
         this.loadedUnit.unitView.SetUnitPosition(cell.row, cell.column);
         this.loadedUnit.unitView.ShowUnitAfterDrop();
+        this.loadedUnit.unitView.ChangeAnimationState(UnitUtil.AnimationState.SHADOW_CLONE_JUTSU);
+        yield return new WaitForSeconds(0.45f);
+        this.loadedUnit.unitView.ChangeAnimationState(UnitUtil.AnimationState.IDLE);
         this.loadedUnit.TransitionToNumbState();
 
         loadedUnit = null;
+
+        yield break;
 
     }
 
@@ -64,10 +71,10 @@ public class UnitTransport : Unit
 
         List<GridCell> dropableCellsCondidates = new List<GridCell>();
 
-        if (currentRow - 1 >= 0) dropableCellsCondidates.Add(mapGrid.grid[currentRow - 1, currentCol]);   // top cell
-        if (currentRow + 1 < mapGrid.grid.GetLength(0)) dropableCellsCondidates.Add(mapGrid.grid[currentRow + 1, currentCol]);   // bottom cell
-        if (currentCol - 1 >= 0) dropableCellsCondidates.Add(mapGrid.grid[currentRow, currentCol - 1]);  // left cell
-        if (currentCol + 1 < mapGrid.grid.GetLength(1)) dropableCellsCondidates.Add(mapGrid.grid[currentRow, currentCol + 1]);// right cell
+        if (currentRow - 1 >= 0) dropableCellsCondidates.Add(MapGrid.Instance.grid[currentRow - 1, currentCol]);   // top cell
+        if (currentRow + 1 < MapGrid.Instance.grid.GetLength(0)) dropableCellsCondidates.Add(MapGrid.Instance.grid[currentRow + 1, currentCol]);   // bottom cell
+        if (currentCol - 1 >= 0) dropableCellsCondidates.Add(MapGrid.Instance.grid[currentRow, currentCol - 1]);  // left cell
+        if (currentCol + 1 < MapGrid.Instance.grid.GetLength(1)) dropableCellsCondidates.Add(MapGrid.Instance.grid[currentRow, currentCol + 1]);// right cell
 
 
         foreach (GridCell cell in dropableCellsCondidates)
@@ -84,7 +91,7 @@ public class UnitTransport : Unit
         int currentRow = row;
         int currentCol = col;
 
-        if (currentRow - 1 >= 0 && mapGrid.grid[currentRow - 1, currentCol].occupantUnit is Unit suppliableUnit1)
+        if (currentRow - 1 >= 0 && MapGrid.Instance.grid[currentRow - 1, currentCol].occupantUnit is Unit suppliableUnit1)
         {
             if (suppliableUnit1.playerOwner == this.playerOwner)
             {
@@ -92,7 +99,7 @@ public class UnitTransport : Unit
             }
         }
 
-        if (currentRow + 1 < mapGrid.grid.GetLength(0) && mapGrid.grid[currentRow + 1, currentCol].occupantUnit is Unit suppliableUnit2)
+        if (currentRow + 1 < MapGrid.Instance.grid.GetLength(0) && MapGrid.Instance.grid[currentRow + 1, currentCol].occupantUnit is Unit suppliableUnit2)
         {
             if (suppliableUnit2.playerOwner == this.playerOwner)
             {
@@ -100,7 +107,7 @@ public class UnitTransport : Unit
             }
         }
 
-        if (currentCol - 1 >= 0 && mapGrid.grid[currentRow, currentCol - 1].occupantUnit is Unit suppliableUnit3)
+        if (currentCol - 1 >= 0 && MapGrid.Instance.grid[currentRow, currentCol - 1].occupantUnit is Unit suppliableUnit3)
         {
             if (suppliableUnit3.playerOwner == this.playerOwner)
             {
@@ -108,7 +115,7 @@ public class UnitTransport : Unit
             }
         }
 
-        if (currentCol + 1 < mapGrid.grid.GetLength(1) && mapGrid.grid[currentRow, currentCol + 1].occupantUnit is Unit suppliableUnit4)
+        if (currentCol + 1 < MapGrid.Instance.grid.GetLength(1) && MapGrid.Instance.grid[currentRow, currentCol + 1].occupantUnit is Unit suppliableUnit4)
         {
             if (suppliableUnit4.playerOwner == this.playerOwner)
             {
@@ -128,14 +135,25 @@ public class UnitTransport : Unit
     public void HighlightDropableCells()
     {
         // highlight the dropable cells
+        UserInterfaceUtil.Instance.CellhighlightHolder.transform.position = this.transform.position;
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(true);
+        UserInterfaceUtil.Instance.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.blue;
+
+        dropableCells.ForEach(dropableCell => dropableCell.gridCellView.isHighlighted = true); // i need this for UI
+
         dropableCells.ForEach(dropableCell => dropableCell.gridCellView.HighlightAsDropable());
     }
 
     //
     public void ResetDropableCells()
     {
-        // highlight the dropable cells
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(false);
+
+        dropableCells.ForEach(dropableCell => dropableCell.gridCellView.isHighlighted = false); // i need this for UI
         dropableCells.ForEach(dropableCell => dropableCell.gridCellView.ResetHighlitedCell());
+
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.ForEach(glowLine => Destroy(glowLine)); // DESTROY ALL THE GLOWLINES THAT HAVE ALREADY BEEN CREATED
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Clear();
         dropableCells.Clear();
     }
 

@@ -9,7 +9,7 @@ public class CameraHandler : MonoBehaviour
 
     private Vector3 cameraFollowPosition;
 
-    private float zoom = 5f;
+    private float zoom = 0f;
 
     private void Start()
     {
@@ -18,9 +18,8 @@ public class CameraHandler : MonoBehaviour
 
     private void Update()
     {
-        //HandleZoom();
+        HandleZoom();
         HandleManualMovement();
-        //! i removed edge scrolling ( it's kind of annoying to be honest )
         // HandleEdgeScrolling(); 
     }
 
@@ -60,19 +59,6 @@ public class CameraHandler : MonoBehaviour
         {
             cameraFollowPosition.x += moveAmount * Time.deltaTime;
         }
-
-       
-        float minx = mapGrid.grid[8, 16].transform.position.x - 0.5f;
-
-        float maxx = mapGrid.grid[0, MapGrid.Columns - 16].transform.position.x - 0.5f;
-
-        float miny = mapGrid.grid[MapGrid.Rows - 10, 0].transform.position.y - 0.5f;
-
-        float maxy = mapGrid.grid[8, 16].transform.position.y - 0.5f;
-
-        cameraFollowPosition.x = Mathf.Clamp(cameraFollowPosition.x, minx, maxx);
-        cameraFollowPosition.y = Mathf.Clamp(cameraFollowPosition.y, miny , maxy);
-
     }
 
     private void HandleEdgeScrolling()

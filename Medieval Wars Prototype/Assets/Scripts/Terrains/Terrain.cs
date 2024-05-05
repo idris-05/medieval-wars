@@ -31,17 +31,13 @@ public class Terrain : MonoBehaviour
     public int col;
 
 
-    void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
    
     public void UpdateTerrainSpriteWhenWhetherChanges(Whether whether)
     {
         // spriteRenderer = spritesRendererList[whether.whetherIndex] ;
     }
 
+   
 
 
 

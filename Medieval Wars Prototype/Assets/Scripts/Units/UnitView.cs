@@ -10,10 +10,9 @@ public class UnitView : MonoBehaviour
 {
     //!!! WE MUST FIX THIS , unit is referenced inside unitView and unitView is referenced inside unit 
     // ida llah ghaleb makach solution , hadi tkon priavte , wlo5ra public normal .
-    private Unit unit;
+    public Unit unit;
 
     public Transform unitTransform; // I needed this to fix a problem where the z coordinate was set back to 0 after movement
-    public MapGrid mapGrid; //!!!!! rahi kayna deja mapgrid fl unit 
 
     public SpriteRenderer spriteRenderer;
     public float moveSpeed;
@@ -28,16 +27,7 @@ public class UnitView : MonoBehaviour
 
     GridCell gridCellTheUnitIsMovingTowards; // i need this to animate the movement
 
-
-
-    void Start()
-    {
-        mapGrid = FindObjectOfType<MapGrid>();  // ttna7a
-        unit = GetComponent<Unit>();
-        unitTransform = GetComponent<Transform>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-    }
+    public GameObject HealthIcon;
 
     void OnMouseEnter()
     {
@@ -52,6 +42,7 @@ public class UnitView : MonoBehaviour
     private void OnMouseExit()
     {
         isUnitHovered = false;
+        isUnitHovered = false;
         rightButtonHolded = false;
         ResetHighlitedAttackableCells();
     }
@@ -65,7 +56,7 @@ public class UnitView : MonoBehaviour
             {
                 return;
             }
-            // Debug.Log("left click on unit");
+            Debug.Log("left click on unit");
             UnitController.Instance.OnUnitSelection(unit); // singleton
         }
 
@@ -73,7 +64,7 @@ public class UnitView : MonoBehaviour
     // Check if right mouse button is held down display the attackableCells
     void Update()
     {
-        if (!isUnitHovered) return;
+        if (!isUnitHovered || UnitController.Instance.CurrentActionStateBasedOnClickedButton != UnitUtil.ActionToDoWhenButtonIsClicked.NONE) return;
 
         if (Input.GetMouseButton(1) && !rightButtonHolded)
         {
@@ -84,7 +75,7 @@ public class UnitView : MonoBehaviour
                 return;
             }
 
-            AttackSystem.Instance.GetAttackableCells(unit as UnitAttack, mapGrid);
+            AttackSystem.Instance.GetAttackableCells(unit as UnitAttack, MapGrid.Instance);
 
             HighlightAttackableCells(); // Display attackable cells
         }
@@ -104,13 +95,13 @@ public class UnitView : MonoBehaviour
 
     public void SetUnitPosition(int newRow, int newCol)
     {
-        Vector3 position = new Vector3(-16 + newCol + 0.5f, 9 - newRow - 0.5f, unitTransform.position.z);
+        Vector3 position = new Vector3(-16 + newCol + 0.5f, 9 - newRow - 0.5f + 0.125f, unitTransform.position.z);
         transform.position = position;
     }
 
     public void AnimateMovement(int row, int column, bool loadIntended)
     {
-        gridCellTheUnitIsMovingTowards = mapGrid.grid[row, column];
+        gridCellTheUnitIsMovingTowards = MapGrid.Instance.grid[row, column];
 
         // Store the starting position
         Vector3 startPosition = transform.position;
@@ -137,7 +128,7 @@ public class UnitView : MonoBehaviour
     {
         foreach (Vector3 targetPosition in targetPositions)
         {
-            ChangeAnimationState(WhichAnimationToPlayWhenMoving(targetPosition));
+            ChangeAnimationState(WhichMoveAnimationToPlayWhenMoving(targetPosition));
             // Smoothly move towards the target position
             while (Vector3.Distance(transform.position, targetPosition) != 0)
             {
@@ -150,7 +141,7 @@ public class UnitView : MonoBehaviour
 
         // this is just to make sure our character gets to the right position
 
-        transform.position = new Vector3(mapGrid.grid[row, column].transform.position.x, mapGrid.grid[row, column].transform.position.y + 0.125f, -1);
+        transform.position = new Vector3(MapGrid.Instance.grid[row, column].transform.position.x, MapGrid.Instance.grid[row, column].transform.position.y + 0.125f, -1);
         ChangeAnimationState(UnitUtil.AnimationState.IDLE);
 
         CancelScript.Instance.Cancel();
@@ -165,12 +156,12 @@ public class UnitView : MonoBehaviour
         else
         {
             this.unit.TransitionToNumbState();
-            (mapGrid.grid[row, column].occupantUnit as UnitTransport).Load(unit);
+            (MapGrid.Instance.grid[row,column].occupantUnit as UnitTransport).Load(unit);
         }
 
     }
 
-    private UnitUtil.AnimationState WhichAnimationToPlayWhenMoving(Vector3 targetPosition)
+    private UnitUtil.AnimationState WhichMoveAnimationToPlayWhenMoving(Vector3 targetPosition)
     {
         if (transform.position.x - targetPosition.x > 0 && unit.playerOwner == GameController.Instance.player1)
         {
@@ -223,24 +214,28 @@ public class UnitView : MonoBehaviour
 
     public void HighlightAsEnemy()
     {
-        spriteRenderer.color = Color.red;
+        this.spriteRenderer.material.color = Color.red;
     }
 
     public void HighlightAsSelected()
     {
-        spriteRenderer.color = Color.green;
+
+        this.spriteRenderer.material.color = Color.green;
     }
+
     public void HighlightAsInNumbState()
     {
-        spriteRenderer.color = Color.black;
+        this.spriteRenderer.color = Color.gray;
+        this.spriteRenderer.material.color = Color.gray;
     }
+
     public void ResetHighlightedUnit()
     {
         if (spriteRenderer != null)
         {
+            this.spriteRenderer.material.color = new Color(255, 82, 0, 255);
             spriteRenderer.color = Color.white;
         }
-        //!!!!!!!!!!!!
     }
 
 
@@ -253,6 +248,7 @@ public class UnitView : MonoBehaviour
     public void ShowUnitAfterDrop()
     {
         gameObject.SetActive(true);
+        this.spriteRenderer.color = Color.white;
         // show unit after it get dropped from the transporter unit .
     }
 
@@ -276,24 +272,55 @@ public class UnitView : MonoBehaviour
 
     public void HighlightWalkablesCells()
     {
+        UserInterfaceUtil.Instance.CellhighlightHolder.transform.position = this.unit.transform.position;
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(true);
+        UserInterfaceUtil.Instance.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.green;
+
+        unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.isHighlighted = true);
+       
         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.HighlightAsWalkable());
+
     }
+
     public void ResetHighlitedWalkableCells()
     {
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(false);
+
+         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.isHighlighted = false); // i need this for UI
+
         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.ResetHighlitedCell());
+
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.ForEach(glowLine => Destroy(glowLine)); // DESTROY ALL THE GLOWLINES THAT HAVE ALREADY BEEN CREATED
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Clear();
         unit.walkableGridCells.Clear();
     }
 
 
     public void HighlightAttackableCells()
     {
+        UserInterfaceUtil.Instance.CellhighlightHolder.transform.position = this.unit.transform.position;
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(true);
+        UserInterfaceUtil.Instance.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.red;
+
+        (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.isHighlighted = true); // i need this for UI
+
         (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.HighlightAsAttackable());
     }
+
     public void ResetHighlitedAttackableCells()
     {
         if ((unit is UnitAttack) == false) return;
 
+
+        UserInterfaceUtil.Instance.CellhighlightLines.SetActive(false);
+
+        (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.isHighlighted = false); // i need this for UI
+
         (unit as UnitAttack).attackableGridCells.ForEach(attackableGridCell => attackableGridCell.gridCellView.ResetHighlitedCell());
+
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.ForEach(glowLine => Destroy(glowLine)); // DESTROY ALL THE GLOWLINES THAT HAVE ALREADY BEEN CREATED
+
+        UserInterfaceUtil.Instance.GlowLinesThatExistOnTheScene.Clear();
         (unit as UnitAttack).attackableGridCells.Clear();
     }
 
@@ -320,12 +347,32 @@ public class UnitView : MonoBehaviour
                 return "down side walk";
             case UnitUtil.AnimationState.SIDE_WALK:
                 return "right side walk";
+            case UnitUtil.AnimationState.UP_ATTACK:
+                return "up side attack";
+            case UnitUtil.AnimationState.DOWN_ATTACK:
+                return "down side attack";
+            case UnitUtil.AnimationState.RIGHT_SIDE_ATTACK:
+                return "right side attack";
+            case UnitUtil.AnimationState.LEFT_SIDE_ATTACK:
+                return "left side attack";
+            case UnitUtil.AnimationState.DIE_ANIMATION:
+                return "die animation";
+            case UnitUtil.AnimationState.SHADOW_CLONE_JUTSU:
+                return "shadow clone jutsu";
             default:
                 return "Unknown";
         }
     }
 
+    public void RecieveDamageUI(int inflictedDamage)
+    {
+        // instantiate the damage icon after receiving damage
+        DamageIcon damageIconInstance = Instantiate(UserInterfaceUtil.Instance.damageIconPrefab, this.transform.position + new Vector3(-0.1f, +0.675f, 0), Quaternion.identity);
+        damageIconInstance.SetupDamageToDisplay(inflictedDamage);
+        // UPDATE THE HEALTH ICON OF THE DEFENDING UNIT ( ALWAYS TAKES ONLY THE SECOND DIGIT OF THE HEALTH )
+        this.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[GameUtil.GetHPToDisplayFromRealHP(this.unit.healthPoints)];
+    }
 
-
+    
 
 }

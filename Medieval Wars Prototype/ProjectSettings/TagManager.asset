@@ -44,21 +44,45 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FoundationWhenHighlighted
+    uniqueID: 2364257725
+    locked: 0
+  - name: TerrainBuildingWhenHighlighted
+    uniqueID: 3571158189
+    locked: 0
+  - name: WalkableLines
+    uniqueID: 3480472331
+    locked: 0
   - name: Foundation
     uniqueID: 2733255797
     locked: 0
   - name: ButtonsInGame
     uniqueID: 4159636399
     locked: 0
-  - name: Terrain&Building
+  - name: TerrainBuilding
     uniqueID: 3035851921
-    locked: 0
-  - name: Unit
-    uniqueID: 1965938827
     locked: 0
   - name: BlockInteractionsLayer
     uniqueID: 2319485385
     locked: 0
   - name: Cursor
     uniqueID: 2361231779
+    locked: 0
+  - name: EmptyWhiteSquare
+    uniqueID: 3327101879
+    locked: 0
+  - name: GlowLinesWhenHighlighted
+    uniqueID: 431278343
+    locked: 0
+  - name: Unit
+    uniqueID: 1965938827
+    locked: 0
+  - name: Damageicon
+    uniqueID: 1738098975
+    locked: 0
+  - name: UnitHealthIcon
+    uniqueID: 844689943
+    locked: 0
+  - name: NegativeTarget
+    uniqueID: 3477541167
     locked: 0

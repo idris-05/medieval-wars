@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,6 +66,7 @@ public static class TerrainsUtils
 
     // ligne terrain , colonne unité
     // "-"1 means the unit can't move on this terrain
+
     public static int[,] MoveCost =
     {
     // CARAVAN | ARCHERS | CARAC | FIRESHIP | INFANTRY | TSHIP | SPIKEMAN | RCHALVARY | TREBUCHET | BANDIT | CATAPULTE | RAMSHIP | CHALVARY |  Terrain    // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -84,6 +86,7 @@ public static class TerrainsUtils
     {   999    ,    2    ,  999  ,   999    ,    2     ,  999  ,    1     ,    999     ,    999    ,   2    ,     999   ,   999   ,   999   }, // Mountain
     
 };
+
 
 
     // Each Terrain has it's defense stars that will be used in the damage formula

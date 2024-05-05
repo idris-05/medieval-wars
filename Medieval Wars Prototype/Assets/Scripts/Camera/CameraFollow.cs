@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 
-    private Camera myCamera;
+    public CinemachineVirtualCamera VirtualCamera;
     private Func<Vector3> GetCameraFollowPositionFunc;
     private Func<float> GetCameraZoomFunc;
 
@@ -17,10 +18,6 @@ public class CameraFollow : MonoBehaviour
         this.GetCameraZoomFunc = GetCameraZoomFunc;
     }
 
-    private void Start()
-    {
-        myCamera = transform.GetComponent<Camera>();
-    }
 
     public void SetCameraFollowPosition(Vector3 cameraFollowPosition)
     {
@@ -42,12 +39,14 @@ public class CameraFollow : MonoBehaviour
         this.GetCameraZoomFunc = GetCameraZoomFunc;
     }
 
+  
 
-    // Update is called once per frame
+
+
     void Update()
     {
         HandleMovement();
-        //HandleZoom();
+        HandleZoom();
     }
 
     private void HandleMovement()
@@ -79,23 +78,23 @@ public class CameraFollow : MonoBehaviour
     {
         float cameraZoom = GetCameraZoomFunc();
 
-        float cameraZoomDifference = cameraZoom - myCamera.orthographicSize;
+        float cameraZoomDifference = cameraZoom - VirtualCamera.m_Lens.OrthographicSize;
         float cameraZoomSpeed = 1f;
 
-        myCamera.orthographicSize += cameraZoomDifference * cameraZoomSpeed * Time.deltaTime;
+        VirtualCamera.m_Lens.OrthographicSize += cameraZoomDifference * cameraZoomSpeed * Time.deltaTime;
 
         if (cameraZoomDifference > 0)
         {
-            if (myCamera.orthographicSize > cameraZoom)
+            if (VirtualCamera.m_Lens.OrthographicSize > cameraZoom)
             {
-                myCamera.orthographicSize = cameraZoom;
+                VirtualCamera.m_Lens.OrthographicSize = cameraZoom;
             }
         }
         else
         {
-            if (myCamera.orthographicSize < cameraZoom)
+            if (VirtualCamera.m_Lens.OrthographicSize < cameraZoom)
             {
-                myCamera.orthographicSize = cameraZoom;
+                VirtualCamera.m_Lens.OrthographicSize = cameraZoom;
             }
         }
     }
