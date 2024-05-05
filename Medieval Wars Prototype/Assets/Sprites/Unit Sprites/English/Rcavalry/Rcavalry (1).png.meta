@@ -1,0 +1,809 @@
+fileFormatVersion: 2
+guid: 93a94e7944c2f134d89929c39990e74b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rcavalry (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 696
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f598102b901484582e4c0c8519a68a
+      internalID: 1932203507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 696
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 253721b694be96843842523705192116
+      internalID: -461261468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_2
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 696
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6af18012b582524f8bc71caf07e197b
+      internalID: 1162411792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_3
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 696
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb80cf67e7ba46d4ba1d2e932d1710b5
+      internalID: 1228720572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_4
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 696
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb44c389ca848794f999151c8cdf18b4
+      internalID: -24271788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_5
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 696
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76854f1ac7675574980a207d9f35f5df
+      internalID: 1825962771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_6
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 696
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89db1822f0cf71b4e98efba624295dc8
+      internalID: -155570029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_7
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 696
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd16d4a9883a0c4b9a2dcd8d5df63d7
+      internalID: 2139620961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_8
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 696
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac752a87bc821cd498a63ea4a31f8564
+      internalID: 1282812406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 549
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccbffe26adcffd48b801a46438639e6
+      internalID: 1709371138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_10
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 549
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10edab1a787a4554f86e1aba23529d29
+      internalID: 307080219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_11
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 549
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a24f5eb109911dc4da257e65afb39465
+      internalID: 894203649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_12
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 549
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47fa6935fc2b97f45886dfca09c2e812
+      internalID: 25168818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_13
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 549
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f02321672493254fb764429369d8bfa
+      internalID: 384848255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_14
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 549
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1660348f8568fe242890670041a900eb
+      internalID: 841321603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_15
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 549
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 564364d338fdc7945a10ca3ee8aef9e3
+      internalID: 856675485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_16
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 549
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de4ecc54accce67498f1bedd92c746eb
+      internalID: -637311041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_17
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 549
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e08ce6dd03b0e40a0165b11781c47a
+      internalID: -1164372685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 402
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d49d0e07bda021499aed1b7443f5a17
+      internalID: 1256826419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_19
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 402
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b3fb68f82c04f4baba092d3f7ef59a
+      internalID: 1118216510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_20
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 402
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e552374c18bca2445bbc2dec65e5a8a7
+      internalID: 332667776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_21
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 402
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31e2041893871045882f6cf0f35b875
+      internalID: -865739573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_22
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 402
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425f9918778619e498a7d2704c87551c
+      internalID: 1831304754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_23
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 402
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 460ddc682029fe145839bd845b8c8618
+      internalID: -109593366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_24
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 402
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c22ccd0b5018e4fa0bc396de67e522
+      internalID: 1745796637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_25
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 402
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc5ad29c361ed2a4c85e5c8c48c789ab
+      internalID: -88218446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 255
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb9d673b2bd827488a63c93ede39092
+      internalID: 773629413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_27
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 255
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08a3ce22ed57054cae016adfd197d31
+      internalID: 1591400605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_28
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 255
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ae031b22215e234ba29d0b14e6350e0
+      internalID: 1212482415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_29
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 255
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb569f575dd2a4468589b082a0828f0
+      internalID: -211373332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rcavalry (1)_30
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 255
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151c3b99f32c8f7458ca1fa833a0e70c
+      internalID: 1501962496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Rcavalry (1)_0: 1932203507
+      Rcavalry (1)_1: -461261468
+      Rcavalry (1)_10: 307080219
+      Rcavalry (1)_11: 894203649
+      Rcavalry (1)_12: 25168818
+      Rcavalry (1)_13: 384848255
+      Rcavalry (1)_14: 841321603
+      Rcavalry (1)_15: 856675485
+      Rcavalry (1)_16: -637311041
+      Rcavalry (1)_17: -1164372685
+      Rcavalry (1)_18: 1256826419
+      Rcavalry (1)_19: 1118216510
+      Rcavalry (1)_2: 1162411792
+      Rcavalry (1)_20: 332667776
+      Rcavalry (1)_21: -865739573
+      Rcavalry (1)_22: 1831304754
+      Rcavalry (1)_23: -109593366
+      Rcavalry (1)_24: 1745796637
+      Rcavalry (1)_25: -88218446
+      Rcavalry (1)_26: 773629413
+      Rcavalry (1)_27: 1591400605
+      Rcavalry (1)_28: 1212482415
+      Rcavalry (1)_29: -211373332
+      Rcavalry (1)_3: 1228720572
+      Rcavalry (1)_30: 1501962496
+      Rcavalry (1)_4: -24271788
+      Rcavalry (1)_5: 1825962771
+      Rcavalry (1)_6: -155570029
+      Rcavalry (1)_7: 2139620961
+      Rcavalry (1)_8: 1282812406
+      Rcavalry (1)_9: 1709371138
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

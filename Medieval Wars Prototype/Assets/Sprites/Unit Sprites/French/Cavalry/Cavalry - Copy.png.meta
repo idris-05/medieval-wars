@@ -1,0 +1,809 @@
+fileFormatVersion: 2
+guid: 883e52ace29c82f4aa262c0c73c0e2c9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cavalry - Copy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 691
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce3733a2af8a4b4a9b77812c9ec28e4
+      internalID: -1642783108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 691
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28596f18e1e0fc54bb5e074a6851a895
+      internalID: 1520344517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_2
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 691
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0363035afaa0691478200b214d454df1
+      internalID: -748557424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_3
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 691
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19bc1fdc4dda2894e86b14daa5ed0976
+      internalID: -715831835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_4
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 691
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56914833624ade642b8cdec7409ad328
+      internalID: -522939823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_5
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 691
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dd45711358dab94db1edb383b062ac8
+      internalID: 682170696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_6
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 691
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c1defe84dcba8049912f47a59abd8b4
+      internalID: -1529489423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_7
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 691
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9138b539212c4e74f8190f0a822c3695
+      internalID: 252292284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_8
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 691
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a9584c8d79c854b950717627886417
+      internalID: 1618723048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 544
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43395aa8d747a2428feb6eb025cdb42
+      internalID: 1657299545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_10
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 544
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf91cec2ee99df4a8c0cce0459d6883
+      internalID: 623070899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_11
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 544
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b645867ec2011c34cbcb84b989c543db
+      internalID: -994989561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_12
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 544
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62850ed0a8b67542a5ffb6618b1ac05
+      internalID: 725094474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_13
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 544
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be055843b5246de4a8862399073f8234
+      internalID: -802669018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_14
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 544
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f63d967e6d7ef2439c278b2da370d97
+      internalID: -1377344476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_15
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 544
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 304e696eacd312f43b2d4a71028474b9
+      internalID: 1984221266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_16
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 544
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9299b8a55e2d8468dfe2bae1192b11
+      internalID: -404335005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_17
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 544
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ea533f92f28ac45880b4be74fb1da2
+      internalID: -1002211429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 397
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9780761a2cef2409ece1f6673a8886
+      internalID: 1539759102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_19
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 397
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c364c493c7e944698f1c71c84305b5
+      internalID: 1090651624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_20
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 397
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df21dc87439eb824d8b126270a82ea07
+      internalID: -1189582060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_21
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 397
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7bcb62e047375d43bbfbc8a0a9b7ab0
+      internalID: -898740770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_22
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 397
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2e36c7269097a45a540988562160db
+      internalID: 1242811093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_23
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 397
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cffb47e1c69b4e94396ddaf89067aa2d
+      internalID: -565568098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_24
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 397
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a23c58584436ee4eb133ace9b7887ff
+      internalID: -769615779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_25
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 397
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82385bb2b970c654daebb144a6c4b501
+      internalID: -1867882760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 250
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4dd8f104b65b544a8b27a2074c97e6a
+      internalID: -1636804393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_27
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 250
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96f952295bd595f4a91bdcf6f4806484
+      internalID: -1359556995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_28
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 250
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35843b349d1bb524bb45a28f3287529e
+      internalID: -509854486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_29
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 250
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ac6e1381367bd43b77f799ea86308f
+      internalID: 1942265631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavalry - Copy_30
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 250
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408abe3fc2c7dbe4da8802d077e10abf
+      internalID: -1175438234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Cavalry - Copy_0: -1642783108
+      Cavalry - Copy_1: 1520344517
+      Cavalry - Copy_10: 623070899
+      Cavalry - Copy_11: -994989561
+      Cavalry - Copy_12: 725094474
+      Cavalry - Copy_13: -802669018
+      Cavalry - Copy_14: -1377344476
+      Cavalry - Copy_15: 1984221266
+      Cavalry - Copy_16: -404335005
+      Cavalry - Copy_17: -1002211429
+      Cavalry - Copy_18: 1539759102
+      Cavalry - Copy_19: 1090651624
+      Cavalry - Copy_2: -748557424
+      Cavalry - Copy_20: -1189582060
+      Cavalry - Copy_21: -898740770
+      Cavalry - Copy_22: 1242811093
+      Cavalry - Copy_23: -565568098
+      Cavalry - Copy_24: -769615779
+      Cavalry - Copy_25: -1867882760
+      Cavalry - Copy_26: -1636804393
+      Cavalry - Copy_27: -1359556995
+      Cavalry - Copy_28: -509854486
+      Cavalry - Copy_29: 1942265631
+      Cavalry - Copy_3: -715831835
+      Cavalry - Copy_30: -1175438234
+      Cavalry - Copy_4: -522939823
+      Cavalry - Copy_5: 682170696
+      Cavalry - Copy_6: -1529489423
+      Cavalry - Copy_7: 252292284
+      Cavalry - Copy_8: 1618723048
+      Cavalry - Copy_9: 1657299545
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
