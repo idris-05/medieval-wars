@@ -58,7 +58,6 @@ public class GameController : MonoBehaviour
     public bool hasmoved;
 
 
-    public GameObject Menu;
     public MapGrid mapGrid; // linked from the editor 
 
     public Unit BanditArabPrefab;
@@ -311,7 +310,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Menu.SetActive(true);
+            MainMenuController.Instance.ActivateMenu();
         }
 
         if (Input.GetKeyDown(KeyCode.Y))
