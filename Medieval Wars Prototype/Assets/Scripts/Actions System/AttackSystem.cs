@@ -400,33 +400,39 @@ public class AttackSystem : MonoBehaviour
     {
         if (unitThatWillAttack.transform.position.x - unitThatWillGetAttacked.transform.position.x > 0 && unitThatWillAttack.playerOwner == GameController.Instance.player1)
         {
+            unitThatWillAttack.unitView.WhereTOSpawnDamageIcon = 0;
             unitThatWillAttack.unitView.spriteRenderer.flipX = true;
             return UnitUtil.AnimationState.LEFT_SIDE_ATTACK;
         }
 
         if (unitThatWillAttack.transform.position.x - unitThatWillGetAttacked.transform.position.x > 0 && unitThatWillAttack.playerOwner == GameController.Instance.player2)
         {
+            unitThatWillAttack.unitView.WhereTOSpawnDamageIcon = 0;
             return UnitUtil.AnimationState.LEFT_SIDE_ATTACK;
         }
 
         if (unitThatWillAttack.transform.position.x - unitThatWillGetAttacked.transform.position.x < 0 && unitThatWillAttack.playerOwner == GameController.Instance.player1)
         {
+            unitThatWillAttack.unitView.WhereTOSpawnDamageIcon = 0;
             return UnitUtil.AnimationState.RIGHT_SIDE_ATTACK;
         }
 
         if (unitThatWillAttack.transform.position.x - unitThatWillGetAttacked.transform.position.x < 0 && unitThatWillAttack.playerOwner == GameController.Instance.player2)
         {
+            unitThatWillAttack.unitView.WhereTOSpawnDamageIcon = 0;
             unitThatWillAttack.unitView.spriteRenderer.flipX = false;
             return UnitUtil.AnimationState.RIGHT_SIDE_ATTACK;
         }
 
         if (unitThatWillAttack.transform.position.y - unitThatWillGetAttacked.transform.position.y > 0)
         {
+            unitThatWillAttack.unitView.WhereTOSpawnDamageIcon = 1;
             return UnitUtil.AnimationState.DOWN_ATTACK;
         }
 
         if (unitThatWillAttack.transform.position.y - unitThatWillGetAttacked.transform.position.y < 0)
         {
+            unitThatWillAttack.unitView.WhereTOSpawnDamageIcon = 2;
             return UnitUtil.AnimationState.UP_ATTACK;
         }
 
@@ -505,6 +511,5 @@ public class AttackSystem : MonoBehaviour
 
         return CounterAttackMatrix[unitWillGetCounterAttacked.unitIndex, unitThatWantToCounterAttack.unitIndex];
     }
-
 
 }

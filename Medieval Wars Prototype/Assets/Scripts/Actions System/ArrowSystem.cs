@@ -41,7 +41,7 @@ public class ArrowSystem : MonoBehaviour
     public static GameObject Spawn_arrow(int row, int col, GameObject arrowprefab)
     {
         GameObject arrow = Instantiate(arrowprefab, new Vector3(-16 + col + 0.5f, 9 - row - 0.5f, -1), Quaternion.identity);
-        arrow.AdjustSpriteSize();
+        // arrow.AdjustSpriteSize();
         return arrow;
     }
 

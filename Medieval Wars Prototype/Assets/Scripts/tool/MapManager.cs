@@ -76,16 +76,14 @@ public class MapManager : MonoBehaviour
     public Terrain[] terrainPrefabs = new Terrain[14];
     public Accessory AccessoriesPrefabs;
 
-    public MapGrid mapGrid;
 
 
 
-    // void Awake()
-    // {
-    //     InitializeListOfTerrainSpritesLists();
-    //     // mapGrid.CreateMapGridCellsMatrix();
-    //     LoadMapData();
-    // }
+    void Awake()
+    {
+         InitializeListOfTerrainSpritesLists();
+         LoadMapData();
+    }
 
     // !!!!!
     // Define a class to represent a cell on the map
@@ -258,6 +256,7 @@ public class MapManager : MonoBehaviour
 
     public void LoadMapData()
     {
+        MapGrid.Instance.CreateMapGridCellsMatrix();
 
         listOfTerrainSpritesLists[0] = BarrackTileSprites;
         listOfTerrainSpritesLists[1] = DockTileSprites;
@@ -274,8 +273,6 @@ public class MapManager : MonoBehaviour
         listOfTerrainSpritesLists[12] = WoodTileSprites;
         listOfTerrainSpritesLists[13] = MountainTileSprites;
         listOfTerrainSpritesLists[14] = AccessoriesSprites;
-
-        mapGrid.CreateMapGridCellsMatrix();
 
         string jsonFilePath = "map_data.json"; // Path to the JSON file containing map data
 
@@ -351,7 +348,8 @@ public class MapManager : MonoBehaviour
 
                 gridCell.occupantTerrain = terrain;
 
-                mapGrid.grid[cell.row, cell.column] = gridCell;
+
+                MapGrid.Instance.grid[cell.row, cell.column] = gridCell;
 
 
 

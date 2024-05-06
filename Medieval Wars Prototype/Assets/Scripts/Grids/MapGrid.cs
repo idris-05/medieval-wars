@@ -29,13 +29,12 @@ public class MapGrid : MonoBehaviour
 
     public GridCell[,] grid;
 
-    public int Columns;
-    public int Rows;
+    [SerializeField] public int Columns;
+    [SerializeField] public int Rows;
 
     public void CreateMapGridCellsMatrix()
     {
-        Rows = MapManager.Instance.numberOfRowsInTheMap;
-        Columns = MapManager.Instance.numberOfColumnsInTheMap;
+        Debug.Log(Columns + " " + Rows);
         grid = new GridCell[Rows ,Columns]; 
     }
 

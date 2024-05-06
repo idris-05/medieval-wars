@@ -29,6 +29,11 @@ public class UnitView : MonoBehaviour
 
     public GameObject HealthIcon;
 
+    public int WhereTOSpawnDamageIcon;    // 0 : above the unit
+                                          // 1 : on the right side of the unit
+                                          // 2 : on the left side of the unit
+
+
     void OnMouseEnter()
     {
         MiniIntelController.Instance.HandleMINIIntel(unit.occupiedCell);
@@ -233,7 +238,8 @@ public class UnitView : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            this.spriteRenderer.material.color = new Color(255, 82, 0, 255);
+            if ( this.unit.playerOwner == GameController.Instance.player1 ) unit.unitView.spriteRenderer.material.color = new Color(0, 50, 255, 255);
+            if ( this.unit.playerOwner == GameController.Instance.player2 ) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255);
             spriteRenderer.color = Color.white;
         }
     }
@@ -366,11 +372,28 @@ public class UnitView : MonoBehaviour
 
     public void RecieveDamageUI(int inflictedDamage)
     {
+
+        Vector3 position = RelativePositionToInstantiateDamageIcon(); // this is the position of the damage icon relative to the unit's position
+     
         // instantiate the damage icon after receiving damage
-        DamageIcon damageIconInstance = Instantiate(UserInterfaceUtil.Instance.damageIconPrefab, this.transform.position + new Vector3(-0.1f, +0.675f, 0), Quaternion.identity);
+        DamageIcon damageIconInstance = Instantiate(UserInterfaceUtil.Instance.damageIconPrefab, this.transform.position + position , Quaternion.identity);
         damageIconInstance.SetupDamageToDisplay(inflictedDamage);
         // UPDATE THE HEALTH ICON OF THE DEFENDING UNIT ( ALWAYS TAKES ONLY THE SECOND DIGIT OF THE HEALTH )
         this.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[GameUtil.GetHPToDisplayFromRealHP(this.unit.healthPoints)];
+    }
+
+    private Vector3 RelativePositionToInstantiateDamageIcon()
+    {
+        // 0 : above the unit
+        // 1 : on the right side of the unit
+        // 2 : on the left side of the unit
+
+        if ( WhereTOSpawnDamageIcon == 0 ) return new Vector3(-0.1f, +0.675f, 0);
+        if ( WhereTOSpawnDamageIcon == 1 ) return new Vector3(0.5f, 0.5f, 0);
+        if ( WhereTOSpawnDamageIcon == 2 ) return new Vector3(-0.7f, -0.5f, 0);
+
+        Debug.Log("ERROR AT DEFINING POSITION TO INSTANTIATE DAMAGE ICON");
+        return new Vector3(0, 0, 0);
     }
 
     

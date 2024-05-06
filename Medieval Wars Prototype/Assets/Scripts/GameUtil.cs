@@ -32,52 +32,21 @@ public static class GameUtil
 
     public static int GetHPToDisplayFromRealHP(int number) // recieves an integer which is between 0 and 100 always 
     {
-        if (number == 100)
-        {
-            return 10;
-        }
-        if (number > 0 && number <= 99)
-        {
-            // Get the second digit of the number
-            int secondDigit = (number / 10) % 10;
-            return secondDigit;
-        }
-        if ( number == 0)
-        {
-            return 1;
-        }
+        if (number == 100) return 10;
+        if (number >= 1 && number <= 9) return 1;
+        if (number == 0) return 1;
+        if (number > 9 && number <= 99) return number / 10;
         return -1 ; //! THIS WILL NEVER HAPPEN
     }
 
-        public static int GetDamageToDisplayFromRealDamage(int damage)
+    public static int GetDamageToDisplayFromRealDamage(int damage)
         {
-            // Check if the number is 0
-            if (damage == 0)
-            {
-                return 0;
-            }
-
-            if ( 0 < damage && damage < 10)
-            {
-                return 1;
-            }
-
-            // Check if the number is between 1 and 99
-            if (damage >= 10 && damage < 100)
-            {
-                // Return the leftmost digit
-                return damage / 10;
-            }
-
-            // If the number is 100, return 10
-            if (damage == 100)
-            {
-                return 10;
-            }
-
-            // If the number is out of range, return -1 (or handle as needed)
-            return -1; // or throw an exception or handle it differently based on your requirements
-        }
+            if (damage == 0) return 0;
+            if ( 0 < damage && damage < 10) return 1;
+            if (damage >= 10 && damage < 100) return damage / 10;
+            if (damage == 100) return 10;
+            return -1;
+    }
     
 
 }

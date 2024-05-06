@@ -94,21 +94,18 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
-        arrowSystem = FindAnyObjectByType<ArrowSystem>();
-        // SpawnUnit(player1, 5, 5, BanditArabPrefab); // test 
-        // SpawnUnit(player1, 6, 5, BanditArabPrefab); // test 
-
-        // SpawnUnit(player1, 3, 3, BanditArabPrefab);
-
-        // SpawnUnit(player1, 15, 27, BanditArabPrefab);
-        // SpawnUnit(player1, 7, 20, BanditArabPrefab);
+         arrowSystem = FindAnyObjectByType<ArrowSystem>();
+         SpawnUnit(player1, 5, 5, BanditArabPrefab); 
+         SpawnUnit(player1, 6, 5, BanditArabPrefab); 
+         SpawnUnit(player1, 3, 3, BanditArabPrefab);
 
 
-        // SpawnUnit(player2, 8, 8, BanditArabPrefab);
 
-        // SpawnUnit(player1, 10, 10, CaravanArabPrefabForTesting);
+        SpawnUnit(player2, 8, 8, BanditArabPrefab);
+        SpawnUnit(player2, 10, 11, BanditArabPrefab);
+        SpawnUnit(player2, 12, 10, BanditArabPrefab);
 
-        //SpawnUnit(player1, 2, 5, Infantry1PrefabTransport); 
+        SpawnUnit(player1, 10, 10, CaravanArabPrefabForTesting);
 
     }
 
@@ -167,8 +164,8 @@ public class GameController : MonoBehaviour
         // flip the unit in case it is a player2 unit
         if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
-        unit.unitView.spriteRenderer.material.color = new Color(255, 82, 0, 255); // set the outline to Orange
-
+        if ( player == player1 ) unit.unitView.spriteRenderer.material.color = new Color(0, 50, 255, 255); // set the outline to Blue
+        if ( player == player2) unit.unitView.spriteRenderer.material.color =  new Color(255, 0, 0, 255); // set the outline to Red
 
         unit.unitView.spriteRenderer.material.SetFloat(Shader.PropertyToID("_Thickness"), 0.001f);
         // create the unit's health indicator
@@ -298,7 +295,7 @@ public class GameController : MonoBehaviour
 
         player.AddBuilding(building);
 
-        building.gameObject.AdjustSpriteSize();
+        // building.gameObject.AdjustSpriteSize();
 
         mapGrid.grid[row, col].occupantTerrain = building;
 
@@ -331,7 +328,14 @@ public class GameController : MonoBehaviour
         {
             if (cellsPath.Count > 0)
             {
-                GridCellController.Instance.OnCellSelection(cellsPath[cellsPath.Count - 1]);
+                if (cellsPath[cellsPath.Count - 1].occupantUnit is UnitAttack) // added this to forbid moving to the same cell as ur ally attacking unit
+                {
+                    Debug.Log("Can't move on ally UnitAttack");
+                }
+                else
+                {
+                    GridCellController.Instance.OnCellSelection(cellsPath[cellsPath.Count - 1]);
+                }
             }
         }
 
