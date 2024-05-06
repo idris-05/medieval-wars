@@ -329,6 +329,9 @@ public class MapManager : MonoBehaviour
                 // error handler ( if u missed a terrain tile )
                 if (tileBaseTerrain == null) { Debug.Log("The tile base for the ground type does not exist terrain: " + cell.terrainType); return; }
 
+                Debug.Log("hada houwa l print li rani n7ws 3lih " + cell.terrainTypeIndex);
+                Debug.Log(terrainPrefabs[cell.terrainTypeIndex]);
+
 
                 Terrain terrain = Instantiate(terrainPrefabs[cell.terrainTypeIndex], new Vector3(-16 + cell.column + 0.5f, 9 - cell.row - 0.5f, -0.5f), Quaternion.identity);
 

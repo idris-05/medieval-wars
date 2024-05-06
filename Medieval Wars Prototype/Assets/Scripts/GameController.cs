@@ -96,32 +96,32 @@ public class GameController : MonoBehaviour
     {
 
          arrowSystem = FindAnyObjectByType<ArrowSystem>();
-         SpawnUnit(player1, 0, 4, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 1, 4, FrenchUnitPrefabsList[1]); 
-         // SpawnUnit(player1, 2, 0, FrenchUnitPrefabsList[0]); 
-         // SpawnUnit(player1, 3, 0, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 4, 4, FrenchUnitPrefabsList[4]);
-         // SpawnUnit(player1, 5, 0, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 6, 4, FrenchUnitPrefabsList[6]);
+         SpawnUnit(player1, 0, 0, FrenchUnitPrefabsList[0]);
+         SpawnUnit(player1, 1, 0, FrenchUnitPrefabsList[1]); 
+         SpawnUnit(player1, 12, 0, FrenchUnitPrefabsList[2]); 
+         SpawnUnit(player1, 13, 0, FrenchUnitPrefabsList[3]);
+         SpawnUnit(player1, 2, 0, FrenchUnitPrefabsList[4]);
+         SpawnUnit(player1, 14, 0, FrenchUnitPrefabsList[5]);
+         SpawnUnit(player1, 3, 0, FrenchUnitPrefabsList[6]);
          // SpawnUnit(player1, 7, 0, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 8, 4, FrenchUnitPrefabsList[8]);
-         SpawnUnit(player1, 9, 4, FrenchUnitPrefabsList[9]);
-        // SpawnUnit(player1, 10, 0, FrenchUnitPrefabsList[0]);
+         SpawnUnit(player1, 4, 0, FrenchUnitPrefabsList[8]);
+         SpawnUnit(player1, 5, 0, FrenchUnitPrefabsList[9]);
+        SpawnUnit(player1, 6, 0, FrenchUnitPrefabsList[10]);
         // SpawnUnit(player1, 11, 0, FrenchUnitPrefabsList[0]);
 
 
 
-        SpawnUnit(player2, 0, 14, EnglishUnitPrefabsList[0]);
-        SpawnUnit(player2, 1, 14, EnglishUnitPrefabsList[1]);
-        // SpawnUnit(player1, 2, 0, FrenchUnitPrefabsList[0]); 
-        // SpawnUnit(player1, 3, 0, FrenchUnitPrefabsList[0]);
-        SpawnUnit(player2, 4, 14, EnglishUnitPrefabsList[4]);
-        // SpawnUnit(player1, 5, 0, FrenchUnitPrefabsList[0]);
-        SpawnUnit(player2, 6, 14, EnglishUnitPrefabsList[6]);
+        SpawnUnit(player2, 0, 1, EnglishUnitPrefabsList[0]);
+        SpawnUnit(player2, 1, 1, EnglishUnitPrefabsList[1]);
+        SpawnUnit(player1, 0, 22, FrenchUnitPrefabsList[1]); 
+        SpawnUnit(player1, 12 ,1, FrenchUnitPrefabsList[2]);
+        SpawnUnit(player2, 14, 1, EnglishUnitPrefabsList[4]);
+        SpawnUnit(player1, 0, 1, FrenchUnitPrefabsList[5]);
+        SpawnUnit(player2, 3, 1, EnglishUnitPrefabsList[6]);
         // SpawnUnit(player1, 7, 0, FrenchUnitPrefabsList[0]);
-        SpawnUnit(player2, 8, 14, EnglishUnitPrefabsList[8]);
-        SpawnUnit(player2, 9, 14, EnglishUnitPrefabsList[9]);
-        // SpawnUnit(player1, 10, 0, FrenchUnitPrefabsList[0]);
+        SpawnUnit(player2, 4, 1, EnglishUnitPrefabsList[8]);
+        SpawnUnit(player2, 5, 1, EnglishUnitPrefabsList[9]);
+        SpawnUnit(player1, 6, 1, FrenchUnitPrefabsList[10]);
         // SpawnUnit(player1, 11, 0, FrenchUnitPrefabsList[0]);
 
     }
