@@ -90,6 +90,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         this.unitView.ChangeAnimationState(UnitUtil.AnimationState.DIE_ANIMATION);
         yield return new WaitForSeconds(1.6f);
         playerOwner.unitList.Remove(this);
+        this.occupiedCell.occupantUnit = null;
         Destroy(this.gameObject);
         yield break;
     }
