@@ -42,6 +42,8 @@ public class UserInterfaceUtil : MonoBehaviour
 
     public List<GameObject> GlowLinesThatExistOnTheScene;
 
+    public GameObject RedDaggerPrefab;
+
     // public GameObject HighlightLightPrefab;
 
     // public Light2D HighlightLight;

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Purchasing;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 
 public class UnitView : MonoBehaviour
@@ -28,6 +29,8 @@ public class UnitView : MonoBehaviour
     GridCell gridCellTheUnitIsMovingTowards; // i need this to animate the movement
 
     public GameObject HealthIcon;
+
+    public GameObject redDagger; // this will be only when unit is highlighted as attackable
 
     public int WhereTOSpawnDamageIcon;    // 0 : above the unit
                                           // 1 : on the right side of the unit
@@ -219,13 +222,15 @@ public class UnitView : MonoBehaviour
 
     public void HighlightAsEnemy()
     {
-        this.spriteRenderer.material.color = Color.red;
+        GameObject RedDagger = Instantiate(UserInterfaceUtil.Instance.RedDaggerPrefab, this.transform.position , Quaternion.identity);
+        this.redDagger = RedDagger;
+        this.spriteRenderer.color = Color.red;
     }
 
     public void HighlightAsSelected()
     {
 
-        this.spriteRenderer.material.color = Color.green;
+        this.spriteRenderer.material.color = new Color(171,0,255,255);
     }
 
     public void HighlightAsInNumbState()
@@ -238,9 +243,10 @@ public class UnitView : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            if ( this.unit.playerOwner == GameController.Instance.player1 ) unit.unitView.spriteRenderer.material.color = new Color(0, 50, 255, 255);
+            if ( this.unit.playerOwner == GameController.Instance.player1 ) unit.unitView.spriteRenderer.material.color = Color.black;
             if ( this.unit.playerOwner == GameController.Instance.player2 ) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255);
             spriteRenderer.color = Color.white;
+            Destroy(this.redDagger);
         }
     }
 
@@ -365,6 +371,8 @@ public class UnitView : MonoBehaviour
                 return "die animation";
             case UnitUtil.AnimationState.SHADOW_CLONE_JUTSU:
                 return "shadow clone jutsu";
+            case UnitUtil.AnimationState.GROUND_EXPLOSION:
+                return "GroundExplosion";
             default:
                 return "Unknown";
         }

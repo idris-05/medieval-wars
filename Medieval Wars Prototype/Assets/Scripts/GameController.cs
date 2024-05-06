@@ -96,31 +96,31 @@ public class GameController : MonoBehaviour
     {
 
          arrowSystem = FindAnyObjectByType<ArrowSystem>();
-         SpawnUnit(player1, 0, 0, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 1, 0, FrenchUnitPrefabsList[1]); 
+         SpawnUnit(player1, 0, 4, FrenchUnitPrefabsList[0]);
+         SpawnUnit(player1, 1, 4, FrenchUnitPrefabsList[1]); 
          // SpawnUnit(player1, 2, 0, FrenchUnitPrefabsList[0]); 
          // SpawnUnit(player1, 3, 0, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 4, 0, FrenchUnitPrefabsList[4]);
+         SpawnUnit(player1, 4, 4, FrenchUnitPrefabsList[4]);
          // SpawnUnit(player1, 5, 0, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 6, 0, FrenchUnitPrefabsList[6]);
+         SpawnUnit(player1, 6, 4, FrenchUnitPrefabsList[6]);
          // SpawnUnit(player1, 7, 0, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 8, 0, FrenchUnitPrefabsList[8]);
-         SpawnUnit(player1, 9, 0, FrenchUnitPrefabsList[9]);
+         SpawnUnit(player1, 8, 4, FrenchUnitPrefabsList[8]);
+         SpawnUnit(player1, 9, 4, FrenchUnitPrefabsList[9]);
         // SpawnUnit(player1, 10, 0, FrenchUnitPrefabsList[0]);
         // SpawnUnit(player1, 11, 0, FrenchUnitPrefabsList[0]);
 
 
 
-        SpawnUnit(player2, 0, 10, EnglishUnitPrefabsList[0]);
-        SpawnUnit(player2, 1, 10, EnglishUnitPrefabsList[1]);
+        SpawnUnit(player2, 0, 14, EnglishUnitPrefabsList[0]);
+        SpawnUnit(player2, 1, 14, EnglishUnitPrefabsList[1]);
         // SpawnUnit(player1, 2, 0, FrenchUnitPrefabsList[0]); 
         // SpawnUnit(player1, 3, 0, FrenchUnitPrefabsList[0]);
-        SpawnUnit(player2, 4, 10, EnglishUnitPrefabsList[4]);
+        SpawnUnit(player2, 4, 14, EnglishUnitPrefabsList[4]);
         // SpawnUnit(player1, 5, 0, FrenchUnitPrefabsList[0]);
-        SpawnUnit(player2, 6, 10, EnglishUnitPrefabsList[6]);
+        SpawnUnit(player2, 6, 14, EnglishUnitPrefabsList[6]);
         // SpawnUnit(player1, 7, 0, FrenchUnitPrefabsList[0]);
-        SpawnUnit(player2, 8, 10, EnglishUnitPrefabsList[8]);
-        SpawnUnit(player2, 9, 10, EnglishUnitPrefabsList[9]);
+        SpawnUnit(player2, 8, 14, EnglishUnitPrefabsList[8]);
+        SpawnUnit(player2, 9, 14, EnglishUnitPrefabsList[9]);
         // SpawnUnit(player1, 10, 0, FrenchUnitPrefabsList[0]);
         // SpawnUnit(player1, 11, 0, FrenchUnitPrefabsList[0]);
 
@@ -181,7 +181,7 @@ public class GameController : MonoBehaviour
         // flip the unit in case it is a player2 unit
         if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
-        if ( player == player1 ) unit.unitView.spriteRenderer.material.color = new Color(0, 50, 255, 255); // set the outline to Blue
+        if ( player == player1 ) unit.unitView.spriteRenderer.material.color = Color.black; // set the outline to Blue
         if ( player == player2) unit.unitView.spriteRenderer.material.color =  new Color(255, 0, 0, 255); // set the outline to Red
 
         unit.unitView.spriteRenderer.material.SetFloat(Shader.PropertyToID("_Thickness"), 0.001f);
