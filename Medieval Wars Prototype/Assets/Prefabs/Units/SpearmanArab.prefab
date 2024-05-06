@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6074141851441042306}
   - component: {fileID: -8740393964230367777}
+  - component: {fileID: 1080835668908723782}
   - component: {fileID: 2654075239046433566}
   - component: {fileID: -2080499793171882692}
   - component: {fileID: -6857914708629168600}
   - component: {fileID: 2430520093583796703}
   m_Layer: 0
-  m_Name: SpearmanArab
+  m_Name: SpearManArab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,6 +89,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1080835668908723782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265668595456362624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d470229f18e5145bff8bb9a5cb0cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitTransform: {fileID: 0}
+  mapGrid: {fileID: 0}
+  spriteRenderer: {fileID: -8740393964230367777}
+  moveSpeed: 0
+  animator: {fileID: 2430520093583796703}
+  currentAnimatonState: 0
 --- !u!114 &2654075239046433566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +139,6 @@ MonoBehaviour:
   specialAttackBoost: 0
   defenseBoost: 0
   specialDefenseBoost: 0
-  UnitCost: 0
 --- !u!61 &-2080499793171882692
 BoxCollider2D:
   m_ObjectHideFlags: 0

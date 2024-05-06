@@ -139,7 +139,6 @@ MonoBehaviour:
   specialAttackBoost: 0
   defenseBoost: 0
   specialDefenseBoost: 0
-  UnitCost: 0
 --- !u!61 &-2080499793171882692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -207,7 +206,7 @@ Animator:
   m_GameObject: {fileID: 5265668595456362624}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c382bb550d2ed1b4e84426eda20e17f3, type: 2}
+  m_Controller: {fileID: 9100000, guid: ec065deb0441fb642ae1b9775787860c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
