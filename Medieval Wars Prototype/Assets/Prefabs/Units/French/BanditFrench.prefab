@@ -152,6 +152,7 @@ MonoBehaviour:
   animator: {fileID: 3810206441201150901}
   currentAnimatonState: 0
   HealthIcon: {fileID: 0}
+  redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
 --- !u!95 &3810206441201150901
 Animator:

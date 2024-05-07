@@ -100,13 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d470229f18e5145bff8bb9a5cb0cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
+  unit: {fileID: 2300102013414473709}
   unitTransform: {fileID: 6074141851441042306}
   spriteRenderer: {fileID: -8740393964230367777}
   moveSpeed: 3
   animator: {fileID: 4521283896953316892}
   currentAnimatonState: 0
   HealthIcon: {fileID: 0}
+  redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
 --- !u!61 &-2080499793171882692
 BoxCollider2D:
@@ -163,7 +164,7 @@ Animator:
   m_GameObject: {fileID: 5265668595456362624}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9cd355e3b1d280e41bcb72888abd7d14, type: 2}
+  m_Controller: {fileID: 9100000, guid: f545f1e6a8872064cb7d85308cbb5fce, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

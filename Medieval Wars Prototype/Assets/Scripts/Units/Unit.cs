@@ -69,6 +69,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         this.col = col;
 
         unitView.ResetHighlightedUnit();
+
+        if (this.moveRange > 1) TransitionToNumbState();
     }
 
     public void RecieveDamage(int inflictedDamage)

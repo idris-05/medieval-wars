@@ -96,32 +96,31 @@ public class GameController : MonoBehaviour
     {
 
          arrowSystem = FindAnyObjectByType<ArrowSystem>();
-         SpawnUnit(player1, 0, 0, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 1, 0, FrenchUnitPrefabsList[1]); 
-         SpawnUnit(player1, 12, 0, FrenchUnitPrefabsList[2]); 
-         SpawnUnit(player1, 13, 0, FrenchUnitPrefabsList[3]);
-         SpawnUnit(player1, 2, 0, FrenchUnitPrefabsList[4]);
-         SpawnUnit(player1, 14, 0, FrenchUnitPrefabsList[5]);
-         SpawnUnit(player1, 3, 0, FrenchUnitPrefabsList[6]);
-         // SpawnUnit(player1, 7, 0, FrenchUnitPrefabsList[0]);
-         SpawnUnit(player1, 4, 0, FrenchUnitPrefabsList[8]);
-         SpawnUnit(player1, 5, 0, FrenchUnitPrefabsList[9]);
-        SpawnUnit(player1, 6, 0, FrenchUnitPrefabsList[10]);
-        // SpawnUnit(player1, 11, 0, FrenchUnitPrefabsList[0]);
+         SpawnUnit(player1, 0, 1, EnglishUnitPrefabsList[0]);
+         SpawnUnit(player1, 1, 1, EnglishUnitPrefabsList[1]); 
+         //SpawnUnit(player1, 12,1, EnglishUnitPrefabsList[2]); 
+         //SpawnUnit(player1, 13,1, EnglishUnitPrefabsList[3]);
+         SpawnUnit(player1, 2, 1, EnglishUnitPrefabsList[4]);
+         //SpawnUnit(player1, 14, 1, EnglishUnitPrefabsList[5]);
+         SpawnUnit(player1, 3, 1, EnglishUnitPrefabsList[6]);
+         // SpawnUnit(player1, 7, 0, EnglishUnitPrefabsList[0]);
+         SpawnUnit(player1, 4, 1, EnglishUnitPrefabsList[8]);
+         SpawnUnit(player1, 5, 1, EnglishUnitPrefabsList[9]);
+         //SpawnUnit(player1, 11, 0, EnglishUnitPrefabsList[4]);
 
 
 
-        SpawnUnit(player2, 0, 1, EnglishUnitPrefabsList[0]);
-        SpawnUnit(player2, 1, 1, EnglishUnitPrefabsList[1]);
-        SpawnUnit(player1, 0, 22, FrenchUnitPrefabsList[1]); 
-        SpawnUnit(player1, 12 ,1, FrenchUnitPrefabsList[2]);
-        SpawnUnit(player2, 14, 1, EnglishUnitPrefabsList[4]);
-        SpawnUnit(player1, 0, 1, FrenchUnitPrefabsList[5]);
-        SpawnUnit(player2, 3, 1, EnglishUnitPrefabsList[6]);
+        SpawnUnit(player2, 0, 4, FrenchUnitPrefabsList[0]);
+        SpawnUnit(player2, 1, 4, FrenchUnitPrefabsList[1]);
+        //SpawnUnit(player2, 12, 4, FrenchUnitPrefabsList[2]); 
+        //SpawnUnit(player2, 13 ,4, FrenchUnitPrefabsList[3]);
+        SpawnUnit(player2, 2, 4,  FrenchUnitPrefabsList[4]);
+        //SpawnUnit(player2, 14, 4, FrenchUnitPrefabsList[5]);
+        SpawnUnit(player2, 3, 4, FrenchUnitPrefabsList[6]);
         // SpawnUnit(player1, 7, 0, FrenchUnitPrefabsList[0]);
-        SpawnUnit(player2, 4, 1, EnglishUnitPrefabsList[8]);
-        SpawnUnit(player2, 5, 1, EnglishUnitPrefabsList[9]);
-        SpawnUnit(player1, 6, 1, FrenchUnitPrefabsList[10]);
+        //SpawnUnit(player2, 4, 4, FrenchUnitPrefabsList[8]);
+        SpawnUnit(player2, 5, 4, FrenchUnitPrefabsList[9]);
+        //SpawnUnit(player1, 6, 1, FrenchUnitPrefabsList[10]);
         // SpawnUnit(player1, 11, 0, FrenchUnitPrefabsList[0]);
 
     }
@@ -181,6 +180,8 @@ public class GameController : MonoBehaviour
         // flip the unit in case it is a player2 unit
         if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
+        Debug.Log("cell li rah yesra fiha le probleme  " + unit.occupiedCell.row + " " + unit.occupiedCell.column);
+
         if ( player == player1 ) unit.unitView.spriteRenderer.material.color = Color.black; // set the outline to Blue
         if ( player == player2) unit.unitView.spriteRenderer.material.color =  new Color(255, 0, 0, 255); // set the outline to Red
 
@@ -197,6 +198,7 @@ public class GameController : MonoBehaviour
         GameObject UnitHealthIcon = Instantiate(UserInterfaceUtil.Instance.UnitHealthIconPrefab, new Vector3(0, 0, 0), Quaternion.identity, unit.transform);
         UnitHealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[10];
 
+
         if (unit.playerOwner == player1) UnitHealthIcon.transform.localPosition = new Vector3(-0.17f, -0.3f, 0);
         if (unit.playerOwner == player2) UnitHealthIcon.transform.localPosition = new Vector3(+0.17f, -0.3f, 0);
 
@@ -207,6 +209,7 @@ public class GameController : MonoBehaviour
         unit.unitView.HealthIcon = UnitHealthIcon;
     }
 
+ 
 
 
     public void LaodUnitsToMap(SavingSystem.playerUnitsInfos playerinfos)
