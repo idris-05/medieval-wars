@@ -34,8 +34,13 @@ public class TradeBuilding : Building
         GameController.Instance.SpawnUnit(GameController.Instance.currentPlayerInControl, row, col, unit);
     }
 
+    // void on
 
 
+    public void OnMouseDown()
+    {
+        TradeBuildingsController.Instance.ActivateOneTradeBuilding(this);
+    }
 
 
 }

@@ -22,14 +22,14 @@ public class UnitUtil : MonoBehaviour
     {
         CARAVAN,
         ARCHERS,
-        CARAC,
+        CARRACK,
         FIRESHIP,
         INFANTRY,
         TSHIP,
         SPEARMAN,
         RCAVALRY,
         BANDIT,
-        CATAPULTE,
+        CATAPULT,
         CAVALRY,
     }
 

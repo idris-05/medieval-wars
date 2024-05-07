@@ -32,7 +32,7 @@ public class InfoCardController : MonoBehaviour
 
     public GameObject card;
     public CanvasGroup canvasGroup;
-    private RectTransform canvasRect;
+    public RectTransform canvasRect;
 
 
     // Card dimensions
@@ -126,7 +126,6 @@ public class InfoCardController : MonoBehaviour
         InitialRightPositionOfTheCard = new Vector3(initialXCardRightPosition, initialYCardPosition, 0);
         InitialLeftPositionOfTheCard = new Vector3(initialXCardLeftPosition, initialYCardPosition, 0);
 
-        canvasRect = GetComponent<RectTransform>();
     }
 
 
@@ -198,12 +197,13 @@ public class InfoCardController : MonoBehaviour
         while (Time.time < endTime)
         {
             float t = (Time.time - startTime) / HideAnimationDuration;
-            float easedT = t; // Cubic easing function
+            float easedT = t;
             card.transform.localPosition = Vector3.Lerp(initialPosition, targetPosition, easedT);
             yield return null;
         }
 
         IsAnimating = false;
+        DesActivateCard();
 
     }
 
@@ -212,13 +212,17 @@ public class InfoCardController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+
             StartCoroutine(AnimateCardWhenItHides());
+            // DesActivateCard();
         }
     }
 
 
     public void ActivateCard()
     {
+        CancelScript.Instance.OnCancelButtonClicked();
+        ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
         IsTheCardActivated = true;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
@@ -227,6 +231,7 @@ public class InfoCardController : MonoBehaviour
 
     public void DesActivateCard()
     {
+        ManageInteractableObjects.Instance.DesctivateBlockInteractionsLayer();
         IsTheCardActivated = false;
         canvasGroup.alpha = 0f;
         canvasGroup.blocksRaycasts = false;

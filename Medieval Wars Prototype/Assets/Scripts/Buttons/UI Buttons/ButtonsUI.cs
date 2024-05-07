@@ -39,6 +39,7 @@ public class ButtonsUI : MonoBehaviour
 
 
     public List<Button> buttonsToDisplay = new List<Button>();
+    public float[] buttonsPositionsonY = { 186 , 120 , 54 , -12 , -78 , -144} ;  //position par rapport a CANVAS . 
 
 
     //!!! we should search for a way to automate that the buttons are displayed in the right palces ,
@@ -49,6 +50,7 @@ public class ButtonsUI : MonoBehaviour
         foreach (Button button in buttonsToDisplay)
         {
             button.gameObject.SetActive(true);
+            button.transform.localPosition = new Vector3(button.transform.localPosition.x, buttonsPositionsonY[buttonsToDisplay.IndexOf(button)], button.transform.localPosition.z);
         }
     }
 
