@@ -127,7 +127,7 @@ public class GameController : MonoBehaviour
 
 
 
-    public void LoadbuildingsToMap(SavingSystem.playerUnitsInfos playerInfos)
+    /* public void LoadbuildingsToMap(SavingSystem.playerUnitsInfos playerInfos)
     {
         Player player;
         if (playerInfos.player == 1)
@@ -155,7 +155,7 @@ public class GameController : MonoBehaviour
         }
 
 
-    }
+    }*/
 
 
     // this function is used to spawn a unit on the map
