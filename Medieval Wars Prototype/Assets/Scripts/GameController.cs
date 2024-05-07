@@ -94,31 +94,36 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
-         arrowSystem = FindAnyObjectByType<ArrowSystem>();
-         SpawnUnit(player1, 0, 1, EnglishUnitPrefabsList[0]);
-         SpawnUnit(player1, 1, 1, EnglishUnitPrefabsList[1]); 
-         //SpawnUnit(player1, 12,1, EnglishUnitPrefabsList[2]); 
-         //SpawnUnit(player1, 13,1, EnglishUnitPrefabsList[3]);
-         SpawnUnit(player1, 2, 1, EnglishUnitPrefabsList[4]);
-         //SpawnUnit(player1, 14, 1, EnglishUnitPrefabsList[5]);
-         SpawnUnit(player1, 3, 1, EnglishUnitPrefabsList[6]);
-         // SpawnUnit(player1, 7, 0, EnglishUnitPrefabsList[0]);
-         SpawnUnit(player1, 4, 1, EnglishUnitPrefabsList[8]);
-         SpawnUnit(player1, 5, 1, EnglishUnitPrefabsList[9]);
-         //SpawnUnit(player1, 11, 0, EnglishUnitPrefabsList[4]);
+
+        arrowSystem = FindAnyObjectByType<ArrowSystem>();
+        SpawnUnit(player1, 3, 6, EnglishUnitPrefabsList[0]);
+        SpawnUnit(player1, 2, 4, EnglishUnitPrefabsList[1]);
+        SpawnUnit(player1, 15, 10, EnglishUnitPrefabsList[2]);
+        SpawnUnit(player1, 12, 12, EnglishUnitPrefabsList[3]);
+        // SpawnUnit(player1, 7, 21, EnglishUnitPrefabsList[4]);
+        SpawnUnit(player1, 6, 6, EnglishUnitPrefabsList[4]);
+        SpawnUnit(player1, 4, 5, EnglishUnitPrefabsList[4]);
+        //SpawnUnit(player1, 14, 1, EnglishUnitPrefabsList[5]);
+        SpawnUnit(player1, 6, 2, EnglishUnitPrefabsList[6]);
+        // SpawnUnit(player1, 7, 0, EnglishUnitPrefabsList[0]);
+        //  SpawnUnit(player1, 4, 1, EnglishUnitPrefabsList[8]);
+        SpawnUnit(player1, 7, 9, EnglishUnitPrefabsList[9]);
+        //SpawnUnit(player1, 11, 0, EnglishUnitPrefabsList[4]);
 
 
 
-        SpawnUnit(player2, 0, 4, FrenchUnitPrefabsList[0]);
-        SpawnUnit(player2, 1, 4, FrenchUnitPrefabsList[1]);
-        //SpawnUnit(player2, 12, 4, FrenchUnitPrefabsList[2]); 
+        SpawnUnit(player2, 4, 25, FrenchUnitPrefabsList[0]);
+        SpawnUnit(player2, 8, 29, FrenchUnitPrefabsList[1]);
+        SpawnUnit(player2, 15, 23, FrenchUnitPrefabsList[2]);
         //SpawnUnit(player2, 13 ,4, FrenchUnitPrefabsList[3]);
-        SpawnUnit(player2, 2, 4,  FrenchUnitPrefabsList[4]);
+        SpawnUnit(player2, 6, 26, FrenchUnitPrefabsList[4]);
+        SpawnUnit(player2, 8, 24, FrenchUnitPrefabsList[4]);
+        // SpawnUnit(player2, 7, 1, FrenchUnitPrefabsList[4]);
         //SpawnUnit(player2, 14, 4, FrenchUnitPrefabsList[5]);
-        SpawnUnit(player2, 3, 4, FrenchUnitPrefabsList[6]);
+        SpawnUnit(player2, 5, 23, FrenchUnitPrefabsList[6]);
         // SpawnUnit(player1, 7, 0, FrenchUnitPrefabsList[0]);
         //SpawnUnit(player2, 4, 4, FrenchUnitPrefabsList[8]);
-        SpawnUnit(player2, 5, 4, FrenchUnitPrefabsList[9]);
+        SpawnUnit(player2, 8, 19, FrenchUnitPrefabsList[9]);
         //SpawnUnit(player1, 6, 1, FrenchUnitPrefabsList[10]);
         // SpawnUnit(player1, 11, 0, FrenchUnitPrefabsList[0]);
 
@@ -181,8 +186,8 @@ public class GameController : MonoBehaviour
 
         Debug.Log("cell li rah yesra fiha le probleme  " + unit.occupiedCell.row + " " + unit.occupiedCell.column);
 
-        if ( player == player1 ) unit.unitView.spriteRenderer.material.color = Color.black; // set the outline to Blue
-        if ( player == player2) unit.unitView.spriteRenderer.material.color =  new Color(255, 0, 0, 255); // set the outline to Red
+        if (player == player1) unit.unitView.spriteRenderer.material.color = Color.black; // set the outline to Blue
+        if (player == player2) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255); // set the outline to Red
 
         unit.unitView.spriteRenderer.material.SetFloat(Shader.PropertyToID("_Thickness"), 0.001f);
         // create the unit's health indicator
@@ -194,7 +199,8 @@ public class GameController : MonoBehaviour
     public void SpawnHealthIcon(Unit unit)
     {
         //! WHAT FOLLOWS IS IN ORDER TO CREATE THE HEALTH INDICATOR ON THE UNITS
-        GameObject UnitHealthIcon = Instantiate(UserInterfaceUtil.Instance.UnitHealthIconPrefab, new Vector3(0, 0, 0), Quaternion.identity, unit.transform);
+        GameObject UnitHealthIcon = Instantiate(UserInterfaceUtil.Instance.UnitHealthIconPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        UnitHealthIcon.transform.SetParent(unit.transform ,true );
         UnitHealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[10];
 
 
@@ -208,7 +214,7 @@ public class GameController : MonoBehaviour
         unit.unitView.HealthIcon = UnitHealthIcon;
     }
 
- 
+
 
 
     public void LaodUnitsToMap(SavingSystem.playerUnitsInfos playerinfos)
