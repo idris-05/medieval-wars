@@ -93,18 +93,18 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
-         arrowSystem = FindAnyObjectByType<ArrowSystem>();
-         SpawnUnit(player1, 5, 5, BanditArabPrefab); 
-         SpawnUnit(player1, 6, 5, BanditArabPrefab); 
-         SpawnUnit(player1, 3, 3, BanditArabPrefab);
+        arrowSystem = FindAnyObjectByType<ArrowSystem>();
+        //  SpawnUnit(player1, 5, 5, BanditArabPrefab); 
+        //  SpawnUnit(player1, 6, 5, BanditArabPrefab); 
+        //  SpawnUnit(player1, 3, 3, BanditArabPrefab);
 
 
 
-        SpawnUnit(player2, 8, 8, BanditArabPrefab);
-        SpawnUnit(player2, 10, 11, BanditArabPrefab);
-        SpawnUnit(player2, 12, 10, BanditArabPrefab);
+        // SpawnUnit(player2, 8, 8, BanditArabPrefab);
+        // SpawnUnit(player2, 10, 11, BanditArabPrefab);
+        // SpawnUnit(player2, 12, 10, BanditArabPrefab);
 
-        SpawnUnit(player1, 10, 10, CaravanArabPrefabForTesting);
+        // SpawnUnit(player1, 10, 10, CaravanArabPrefabForTesting);
 
     }
 
@@ -163,8 +163,8 @@ public class GameController : MonoBehaviour
         // flip the unit in case it is a player2 unit
         if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
-        if ( player == player1 ) unit.unitView.spriteRenderer.material.color = new Color(0, 50, 255, 255); // set the outline to Blue
-        if ( player == player2) unit.unitView.spriteRenderer.material.color =  new Color(255, 0, 0, 255); // set the outline to Red
+        if (player == player1) unit.unitView.spriteRenderer.material.color = new Color(0, 50, 255, 255); // set the outline to Blue
+        if (player == player2) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255); // set the outline to Red
 
         unit.unitView.spriteRenderer.material.SetFloat(Shader.PropertyToID("_Thickness"), 0.001f);
         // create the unit's health indicator
