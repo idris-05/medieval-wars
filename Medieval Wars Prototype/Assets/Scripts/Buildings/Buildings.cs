@@ -10,7 +10,7 @@ public class Building : Terrain
 
     public void GetCaptured(Unit unit)
     {
-        Debug.Log("building wlaa ta3 palyer number  " + unit.playerOwner.ToString());
+        Debug.Log("building is now owned by the player :  " + unit.playerOwner.ToString());
 
         if (this.terrainName == TerrainsUtils.TerrainName.CASTLE && this.playerOwner != null)
         {
