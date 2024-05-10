@@ -131,7 +131,7 @@ public class ArrowSystem : MonoBehaviour
             cellsPath.Add(item);
             if (item != Path[0])
             {
-                moveleft = moveleft - TerrainsUtils.MoveCost[item.occupantTerrain.TerrainIndex, unit.unitIndex];
+                moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(item.occupantTerrain, unit);
             }
         }
 
@@ -185,7 +185,7 @@ public class ArrowSystem : MonoBehaviour
             if (y - 1 < MapGrid.Instance.Rows && y - 1 >= 0)
             {
 
-                if (Input.GetKeyDown(KeyCode.W) && Borders.Contains(mapGrid.grid[y - 1, x]) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y - 1, x]))
+                if (Input.GetKeyDown(KeyCode.W) && Borders.Contains(mapGrid.grid[y - 1, x]) && moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain , unit) >= 0 && !cellsPath.Contains(mapGrid.grid[y - 1, x]))
                 {
                     if (cellsPath.Count == 1)
                     {
@@ -195,7 +195,7 @@ public class ArrowSystem : MonoBehaviour
                         Arrows.Add(Spawn_arrow(y, x, Arrowprefabs[5]));
                         Arrows.Add(Spawn_arrow(y - 1, x, Arrowprefabs[7]));
                         cellsPath.Add(mapGrid.grid[y - 1, x]);
-                        moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                        moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain, unit);
 
                         y--;
                         // Debug.Log("moveleft :" + moveleft);
@@ -228,7 +228,7 @@ public class ArrowSystem : MonoBehaviour
                             }
                             Arrows.Add(Spawn_arrow(y - 1, x, Arrowprefabs[7]));
                             cellsPath.Add(mapGrid.grid[y - 1, x]);
-                            moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                            moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain , unit);
                             // Debug.Log("moveleft :" + moveleft);
 
                         }
@@ -272,7 +272,7 @@ public class ArrowSystem : MonoBehaviour
                         {
                             if (item != cellsPath[0])
                             {
-                                moveleft = moveleft - TerrainsUtils.MoveCost[item.occupantTerrain.TerrainIndex, unit.unitIndex];
+                                moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(item.occupantTerrain, unit);
                             }
                         }
                         Destroy(Arrows[Arrows.Count - 1]);
@@ -299,7 +299,7 @@ public class ArrowSystem : MonoBehaviour
                 }
                 else
                 {
-                    if (moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] < 0 && Borders.Contains(mapGrid.grid[y - 1, x]) && Input.GetKeyDown(KeyCode.W))
+                    if (moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y - 1, x].occupantTerrain , unit) < 0 && Borders.Contains(mapGrid.grid[y - 1, x]) && Input.GetKeyDown(KeyCode.W))
                     {
                         // Debug.Log("4th divsion");
 
@@ -316,7 +316,7 @@ public class ArrowSystem : MonoBehaviour
 
 
 
-                if (Input.GetKeyDown(KeyCode.A) && Borders.Contains(mapGrid.grid[y, x - 1]) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y, x - 1]))
+                if (Input.GetKeyDown(KeyCode.A) && Borders.Contains(mapGrid.grid[y, x - 1]) && moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x - 1].occupantTerrain , unit) >= 0 && !cellsPath.Contains(mapGrid.grid[y, x - 1]))
                 {
                     // Debug.Log("got in left");
                     if (cellsPath.Count == 1)
@@ -326,7 +326,7 @@ public class ArrowSystem : MonoBehaviour
                         Arrows.Add(Spawn_arrow(y, x, Arrowprefabs[4]));
                         Arrows.Add(Spawn_arrow(y, x - 1, Arrowprefabs[9]));
                         cellsPath.Add(mapGrid.grid[y, x - 1]);
-                        moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                        moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x - 1].occupantTerrain , unit);
                         x = x - 1;
                     }
                     else
@@ -356,7 +356,7 @@ public class ArrowSystem : MonoBehaviour
                             }
                             Arrows.Add(Spawn_arrow(y, x - 1, Arrowprefabs[9]));
                             cellsPath.Add(mapGrid.grid[y, x - 1]);
-                            moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                            moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x - 1].occupantTerrain , unit);
 
                         }
                         x = x - 1;
@@ -400,7 +400,7 @@ public class ArrowSystem : MonoBehaviour
                         {
                             if (item != cellsPath[0])
                             {
-                                moveleft = moveleft - TerrainsUtils.MoveCost[item.occupantTerrain.TerrainIndex, unit.unitIndex];
+                                moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(item.occupantTerrain, unit);
                             }
                         }
                         Destroy(Arrows[Arrows.Count - 1]);
@@ -427,7 +427,7 @@ public class ArrowSystem : MonoBehaviour
 
                 else
                 {
-                    if (moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex] < 0 && Borders.Contains(mapGrid.grid[y, x - 1]) && Input.GetKeyDown(KeyCode.A))
+                    if (moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x - 1].occupantTerrain , unit) < 0 && Borders.Contains(mapGrid.grid[y, x - 1]) && Input.GetKeyDown(KeyCode.A))
                     {
                         // Debug.Log("got in left");
                         moveleft = DrawautoPath(mapGrid.grid[y, x - 1].Pathlist, cellsPath, Arrows, unit);
@@ -443,7 +443,7 @@ public class ArrowSystem : MonoBehaviour
             {
 
 
-                if (Input.GetKeyDown(KeyCode.D) && Borders.Contains(mapGrid.grid[y, x + 1]) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y, x + 1]))
+                if (Input.GetKeyDown(KeyCode.D) && Borders.Contains(mapGrid.grid[y, x + 1]) && moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x + 1].occupantTerrain , unit) >= 0 && !cellsPath.Contains(mapGrid.grid[y, x + 1]))
                 {
                     // Debug.Log("got in right");
                     if (cellsPath.Count == 1)
@@ -453,7 +453,7 @@ public class ArrowSystem : MonoBehaviour
                         Arrows.Add(Spawn_arrow(y, x, Arrowprefabs[3]));
                         Arrows.Add(Spawn_arrow(y, x + 1, Arrowprefabs[10]));
                         cellsPath.Add(mapGrid.grid[y, x + 1]);
-                        moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                        moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x + 1].occupantTerrain , unit);
                         x = x + 1;
                     }
                     else
@@ -483,7 +483,7 @@ public class ArrowSystem : MonoBehaviour
                             }
                             Arrows.Add(Spawn_arrow(y, x + 1, Arrowprefabs[10]));
                             cellsPath.Add(mapGrid.grid[y, x + 1]);
-                            moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                            moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x + 1].occupantTerrain , unit);
 
                         }
                         x = x + 1;
@@ -527,7 +527,7 @@ public class ArrowSystem : MonoBehaviour
                         {
                             if (item != cellsPath[0])
                             {
-                                moveleft = moveleft - TerrainsUtils.MoveCost[item.occupantTerrain.TerrainIndex, unit.unitIndex];
+                                moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(item.occupantTerrain, unit);
                             }
                         }
                         Destroy(Arrows[Arrows.Count - 1]);
@@ -553,7 +553,7 @@ public class ArrowSystem : MonoBehaviour
                 }
                 else
                 {
-                    if (moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex] < 0 && Borders.Contains(mapGrid.grid[y, x + 1]) && Input.GetKeyDown(KeyCode.D))
+                    if (moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y, x + 1].occupantTerrain , unit) < 0 && Borders.Contains(mapGrid.grid[y, x + 1]) && Input.GetKeyDown(KeyCode.D))
                     {
                         // Debug.Log("got in right");
 
@@ -569,7 +569,7 @@ public class ArrowSystem : MonoBehaviour
             if (y + 1 < MapGrid.Instance.Rows && y + 1 >= 0)
             {
 
-                if (Input.GetKeyDown(KeyCode.S) && (Borders.Contains(mapGrid.grid[y + 1, x])) && moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] >= 0 && !cellsPath.Contains(mapGrid.grid[y + 1, x]))
+                if (Input.GetKeyDown(KeyCode.S) && (Borders.Contains(mapGrid.grid[y + 1, x])) && moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y + 1, x].occupantTerrain , unit) >= 0 && !cellsPath.Contains(mapGrid.grid[y + 1, x]))
                 {
                     // Debug.Log("got in down");
                     if (cellsPath.Count == 1)
@@ -579,7 +579,7 @@ public class ArrowSystem : MonoBehaviour
                         Arrows.Add(Spawn_arrow(y, x, Arrowprefabs[6]));
                         Arrows.Add(Spawn_arrow(y + 1, x, Arrowprefabs[8]));
                         cellsPath.Add(mapGrid.grid[y + 1, x]);
-                        moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                        moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y + 1, x].occupantTerrain , unit);
                         y = y + 1;
                     }
                     else
@@ -609,7 +609,7 @@ public class ArrowSystem : MonoBehaviour
                             }
                             Arrows.Add(Spawn_arrow(y + 1, x, Arrowprefabs[8]));
                             cellsPath.Add(mapGrid.grid[y + 1, x]);
-                            moveleft = moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                            moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y + 1, x].occupantTerrain , unit);
 
                         }
                         y = y + 1;
@@ -653,7 +653,7 @@ public class ArrowSystem : MonoBehaviour
                         {
                             if (item != cellsPath[0])
                             {
-                                moveleft = moveleft - TerrainsUtils.MoveCost[item.occupantTerrain.TerrainIndex, unit.unitIndex];
+                                moveleft = moveleft - unit.playerOwner.Co.GetMoveCost(item.occupantTerrain, unit);
                             }
                         }
                         Destroy(Arrows[Arrows.Count - 1]);
@@ -679,7 +679,7 @@ public class ArrowSystem : MonoBehaviour
                 }
                 else
                 {
-                    if (moveleft - TerrainsUtils.MoveCost[mapGrid.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex] < 0 && Borders.Contains(mapGrid.grid[y + 1, x]) && Input.GetKeyDown(KeyCode.S))
+                    if (moveleft - unit.playerOwner.Co.GetMoveCost(mapGrid.grid[y + 1, x].occupantTerrain , unit) < 0 && Borders.Contains(mapGrid.grid[y + 1, x]) && Input.GetKeyDown(KeyCode.S))
                     {
                         // Debug.Log("got in down");
 

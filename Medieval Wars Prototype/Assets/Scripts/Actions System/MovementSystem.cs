@@ -111,7 +111,8 @@ public class MovementSystem : MonoBehaviour
             if (y - 1 >= 0 && y - 1 < MapGrid.Instance.Rows && x >= 0 && x < MapGrid.Instance.Columns && temp.moveleft > 0 && !MapGrid.Instance.grid[y - 1, x].isWalkable)
             {
                 // int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[mapGrid.grid[y - 1,x].occupantTerrain.TerrainIndex, unit.unitIndex];
-                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[MapGrid.Instance.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                // int moveleft = temp.moveleft - TerrainsUtils.MoveCost[MapGrid.Instance.grid[y - 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(MapGrid.Instance.grid[y - 1, x].occupantTerrain, unit);
                 if (MapGrid.Instance.grid[y - 1, x].occupantUnit != null && MapGrid.Instance.grid[y - 1, x].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
@@ -132,7 +133,7 @@ public class MovementSystem : MonoBehaviour
             if (y >= 0 && y < MapGrid.Instance.Rows && x + 1 >= 0 && x + 1 < MapGrid.Instance.Columns && temp.moveleft > 0 && !MapGrid.Instance.grid[y, x + 1].isWalkable)
             {
                 // int moveleft = temp.moveleft - 1;// TerrainsUtil.MoveCost[MapGrid.Instance.grid[y , x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
-                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[MapGrid.Instance.grid[y, x + 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(MapGrid.Instance.grid[y, x + 1].occupantTerrain, unit);
                 if (MapGrid.Instance.grid[y, x + 1].occupantUnit != null && MapGrid.Instance.grid[y, x + 1].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
@@ -153,7 +154,7 @@ public class MovementSystem : MonoBehaviour
             if (y + 1 >= 0 && y + 1 < MapGrid.Instance.Rows && x >= 0 && x < MapGrid.Instance.Columns && temp.moveleft > 0 && !MapGrid.Instance.grid[y + 1, x].isWalkable)
             {
                 // int moveleft = temp.moveleft - 1; //TerrainsUtil.MoveCost[MapGrid.Instance.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
-                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[MapGrid.Instance.grid[y + 1, x].occupantTerrain.TerrainIndex, unit.unitIndex];
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(MapGrid.Instance.grid[y + 1, x].occupantTerrain, unit);
                 if (MapGrid.Instance.grid[y + 1, x].occupantUnit != null && MapGrid.Instance.grid[y + 1, x].occupantUnit.playerOwner != currentPlayer)
                 {
                     moveleft = -1;
@@ -174,7 +175,7 @@ public class MovementSystem : MonoBehaviour
             if (y >= 0 && y < MapGrid.Instance.Rows && x - 1 >= 0 && x < MapGrid.Instance.Columns && temp.moveleft > 0 && !MapGrid.Instance.grid[y, x - 1].isWalkable)
             {
                 // int moveleft = temp.moveleft - 1;//TerrainsUtil.MoveCost[MapGrid.Instance.grid[y , x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
-                int moveleft = temp.moveleft - TerrainsUtils.MoveCost[MapGrid.Instance.grid[y, x - 1].occupantTerrain.TerrainIndex, unit.unitIndex];
+                int moveleft = temp.moveleft - unit.playerOwner.Co.GetMoveCost(MapGrid.Instance.grid[y, x - 1].occupantTerrain, unit);
 
                 if (MapGrid.Instance.grid[y, x - 1].occupantUnit != null && MapGrid.Instance.grid[y, x - 1].occupantUnit.playerOwner != currentPlayer)
                 {

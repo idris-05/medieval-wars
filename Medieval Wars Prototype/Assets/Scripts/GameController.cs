@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
     public Player player2;
     public Player playerNeutre;
 
-    // public CO coForTest;
+    public CO coForTest;
     public int CurrentDayCounter;
     public List<Player> playerList = new List<Player>();
 
@@ -79,15 +79,16 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        // coForTest = new GameObject("COForTest").AddComponent<CO>();
+        coForTest = new GameObject("COForTest").AddComponent<CO>();
+        coForTest.coName = COUtil.COName.AHMEDPLAYER;
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
         playerNeutre = new GameObject("PlayerNeutre").AddComponent<Player>();
         currentPlayerInControl = player1;
         playerList.Add(player1);
         playerList.Add(player2);
-        // player1.Co = coForTest;
-        // player2.Co = coForTest;
+        player1.Co = coForTest;
+        player2.Co = coForTest;
     }
 
     // This method is called when the object is first enabled in the scene.
@@ -174,6 +175,7 @@ public class GameController : MonoBehaviour
 
         unit.playerOwner = player;
         player.AddUnit(unit);
+        unit.playerOwner.Co.ActivateDailyPower();
 
         // set the occupantUnit of the grid cell to the unit 
         mapGrid.grid[row, column].occupantUnit = unit;
@@ -466,6 +468,8 @@ public class GameController : MonoBehaviour
             {
                 building.HealAndSupplyUnitIfPossible(mapGrid);
             }
+
+            if ( player.Co.isSuperPowerActivated) player.Co.DeactivateSuperPower();
         }
 
     }
