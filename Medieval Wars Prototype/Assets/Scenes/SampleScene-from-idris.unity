@@ -16434,8 +16434,8 @@ MonoBehaviour:
   initialXCardRightPosition: 560
   initialXCardLeftPosition: -560
   initialYCardPosition: -1080
-  HideAnimationDuration: 0.85
-  AppearAnimationDuration: 2
+  HideAnimationDuration: 0.35
+  AppearAnimationDuration: 0.55
   IsTheCardWillDisplayedInRightSide: 0
   SideHasChanged: 0
   IsAnimating: 0
@@ -18312,8 +18312,8 @@ MonoBehaviour:
   PreviousSideOfMouseIsTop: 0
   TheCoCardIsLocked: 0
   IsTheCardActivated: 0
-  AppearAnimationDuration: 0.8
-  HideAnimationDuration: 0.6
+  AppearAnimationDuration: 0.45
+  HideAnimationDuration: 0.3
   CardPosition: {x: -498, y: 365, z: 0}
   HidenPositionOfTheCard: {x: -498, y: 700, z: 0}
   CO1Fill: {fileID: 818631126}
