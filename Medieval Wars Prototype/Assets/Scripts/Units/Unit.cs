@@ -151,8 +151,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void TryToCapture(Building building)
     {
-        building.remainningPointsToCapture = building.remainningPointsToCapture - healthPoints;
-        // building.remainningPointsToCapture = (int)(building.remainningPointsToCapture - healthPoints * playerOwner.Co.GetCaputeBoost(this));
+        // building.remainningPointsToCapture = building.remainningPointsToCapture - healthPoints/10;
+        building.remainningPointsToCapture = (int)(building.remainningPointsToCapture - healthPoints/10 * playerOwner.Co.GetCaputeBoost(this));
         if (building.remainningPointsToCapture <= 0) building.GetCaptured(this);
     }
 

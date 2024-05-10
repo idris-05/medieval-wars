@@ -5595,11 +5595,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6e28359434eca704bbdc4717bbb1dc3b, type: 2}
   GridCellPrefab: {fileID: -3587581034812915052, guid: df91c92e29b3f2a40b52fbc0a3d2ebe6, type: 3}
   terrainPrefabs:
-  - {fileID: 424858643333420328, guid: 2e6e85324e93c674884291b113162ac2, type: 3}
-  - {fileID: 424858643333420328, guid: d6aeb6b6f5fecc94cbadf7c6a92e740d, type: 3}
-  - {fileID: 424858643333420328, guid: c4ab1bc078ff44d42a1b511652d44d1d, type: 3}
+  - {fileID: -3922465549616240448, guid: 2e6e85324e93c674884291b113162ac2, type: 3}
+  - {fileID: 4296508215607433218, guid: d6aeb6b6f5fecc94cbadf7c6a92e740d, type: 3}
+  - {fileID: 1800816366441984461, guid: c4ab1bc078ff44d42a1b511652d44d1d, type: 3}
   - {fileID: 8206504721708744211, guid: 39ad22bc7030b74419b57073b4418c8b, type: 3}
-  - {fileID: 424858643333420328, guid: da434be78c1ac1e4b8cf5357fe3eaf13, type: 3}
+  - {fileID: -4500310601642790188, guid: da434be78c1ac1e4b8cf5357fe3eaf13, type: 3}
   - {fileID: 424858643333420328, guid: d94de2f28cb9e08449ff2666c2021eed, type: 3}
   - {fileID: 424858643333420328, guid: 44c400b1f8428594bab0ae65c0faae8f, type: 3}
   - {fileID: 424858643333420328, guid: c8337c5a9ecb80b41b18eaf6264bde9f, type: 3}
@@ -11072,11 +11072,11 @@ MonoBehaviour:
   - {fileID: -1773237437592595331, guid: f473b15a94159414a8b90632a8e1d69a, type: 3}
   - {fileID: -1773237437592595331, guid: f473b15a94159414a8b90632a8e1d69a, type: 3}
   indexTerrainprefab:
-  - {fileID: 424858643333420328, guid: 2e6e85324e93c674884291b113162ac2, type: 3}
-  - {fileID: 424858643333420328, guid: d6aeb6b6f5fecc94cbadf7c6a92e740d, type: 3}
-  - {fileID: 424858643333420328, guid: c4ab1bc078ff44d42a1b511652d44d1d, type: 3}
+  - {fileID: -3922465549616240448, guid: 2e6e85324e93c674884291b113162ac2, type: 3}
+  - {fileID: 4296508215607433218, guid: d6aeb6b6f5fecc94cbadf7c6a92e740d, type: 3}
+  - {fileID: 1800816366441984461, guid: c4ab1bc078ff44d42a1b511652d44d1d, type: 3}
   - {fileID: 8206504721708744211, guid: 39ad22bc7030b74419b57073b4418c8b, type: 3}
-  - {fileID: 424858643333420328, guid: da434be78c1ac1e4b8cf5357fe3eaf13, type: 3}
+  - {fileID: -4500310601642790188, guid: da434be78c1ac1e4b8cf5357fe3eaf13, type: 3}
   - {fileID: 424858643333420328, guid: d94de2f28cb9e08449ff2666c2021eed, type: 3}
   - {fileID: 424858643333420328, guid: 44c400b1f8428594bab0ae65c0faae8f, type: 3}
   - {fileID: 424858643333420328, guid: c8337c5a9ecb80b41b18eaf6264bde9f, type: 3}
@@ -11121,6 +11121,7 @@ MonoBehaviour:
   player1: {fileID: 0}
   player2: {fileID: 0}
   playerNeutre: {fileID: 0}
+  coForTest: {fileID: 0}
   CurrentDayCounter: 0
   playerList: []
 --- !u!4 &961498743

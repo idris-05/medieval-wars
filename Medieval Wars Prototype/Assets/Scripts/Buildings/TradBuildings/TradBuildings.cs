@@ -20,7 +20,7 @@ public class TradeBuilding : Building
 
 
 
-    public SpriteRenderer spriteRendererForTradeBuilding;
+    // public SpriteRenderer spriteRendererForTradeBuilding;
 
     public void DisplayAvailableUnitForTrading(Player player)
     {

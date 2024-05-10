@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4268678598860308650}
-  - component: {fileID: 424858643333420328}
   - component: {fileID: -2743200511141304461}
+  - component: {fileID: 4296508215607433218}
   m_Layer: 0
   m_Name: 1TerrainDockPrefab
   m_TagString: Untagged
@@ -33,24 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &424858643333420328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6459883537789037816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc64c87369320a499913d89402e244d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrainName: 1
-  spriteRenderer: {fileID: -2743200511141304461}
-  TerrainIndex: 1
-  incomingFunds: 0
-  row: 0
-  col: 0
 --- !u!212 &-2743200511141304461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -1259115375
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 185408329, guid: f6ba3cb90a8c96342a9c7e0244711340, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +82,27 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4296508215607433218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6459883537789037816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15baf104ef9e0f44396431395fb45be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainName: 1
+  spriteRenderer: {fileID: -2743200511141304461}
+  TerrainIndex: 1
+  incomingFunds: 1000
+  row: 0
+  col: 0
+  playerOwner: {fileID: 0}
+  remainningPointsToCapture: 20
+  MaxRemainningPointsToCapture: 0
