@@ -387,5 +387,8 @@ public class MiniIntelController : MonoBehaviour
     {
         TheMiniCardIsLocked = false;
     }
+
+
+
 }
 

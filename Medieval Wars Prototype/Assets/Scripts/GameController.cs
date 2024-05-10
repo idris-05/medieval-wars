@@ -166,7 +166,11 @@ public class GameController : MonoBehaviour
     public Unit SpawnUnit(Player player, int row, int column, Unit unitPrefab)
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
-        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f, -1), Quaternion.identity);
+        // Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f, -1), Quaternion.identity);
+        float yposition = player == player1 ? UnitUtil.AdditionInYPpositionForEnglishUnits[unitPrefab.unitIndex] : UnitUtil.AdditionInYPpositionForEnglishUnits[unitPrefab.unitIndex] ;
+        Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + yposition - 0.5f, -1), Quaternion.identity);
+
+        // -0.5f deux foix , parceque f tableau hadak t3 les positions rani zayed 0.5 , donc n3awed nn7iha . 
 
         unit.playerOwner = player;
         player.AddUnit(unit);
@@ -188,7 +192,6 @@ public class GameController : MonoBehaviour
 
         if (player == player1) unit.unitView.spriteRenderer.material.color = Color.black; // set the outline to Blue
         if (player == player2) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255); // set the outline to Red
-
         unit.unitView.spriteRenderer.material.SetFloat(Shader.PropertyToID("_Thickness"), 0.001f);
         // create the unit's health indicator
         SpawnHealthIcon(unit);

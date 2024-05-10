@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.4743034, y: -0.023713361, z: -1}
-  m_LocalScale: {x: 1.9, y: 1.9, z: 1}
+  m_LocalScale: {x: 1.991622, y: 1.9916221, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.065789476}
+  m_Offset: {x: 0, y: -0.05924819}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -131,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.52631587, y: 0.5263159}
+  m_Size: {x: 0.5021033, y: 0.5021033}
   m_EdgeRadius: 0
 --- !u!114 &3143072384551667206
 MonoBehaviour:
@@ -148,10 +148,12 @@ MonoBehaviour:
   unit: {fileID: 7471181132396668834}
   unitTransform: {fileID: 3865657049105381963}
   spriteRenderer: {fileID: 7049025695125009108}
+  boxCollider2D: {fileID: 2535128964439952144}
   moveSpeed: 2
   animator: {fileID: 8016670086705515748}
   currentAnimatonState: 0
   HealthIcon: {fileID: 0}
+  redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
 --- !u!95 &8016670086705515748
 Animator:

@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.4743034, y: -0.023713361, z: -1}
-  m_LocalScale: {x: 1.5, y: 1.8, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,6 +103,7 @@ MonoBehaviour:
   unit: {fileID: 2300102013414473709}
   unitTransform: {fileID: 6074141851441042306}
   spriteRenderer: {fileID: -8740393964230367777}
+  boxCollider2D: {fileID: -2080499793171882692}
   moveSpeed: 3
   animator: {fileID: 4521283896953316892}
   currentAnimatonState: 0
@@ -152,7 +153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6666667, y: 0.5555556}
+  m_Size: {x: 0.5555556, y: 0.5555556}
   m_EdgeRadius: 0
 --- !u!95 &4521283896953316892
 Animator:

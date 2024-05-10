@@ -104,10 +104,12 @@ MonoBehaviour:
   unit: {fileID: 0}
   unitTransform: {fileID: 0}
   spriteRenderer: {fileID: -8740393964230367777}
-  moveSpeed: 0
+  boxCollider2D: {fileID: -2080499793171882692}
+  moveSpeed: 4
   animator: {fileID: 3082719098659640095}
   currentAnimatonState: 0
   HealthIcon: {fileID: 0}
+  redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
 --- !u!114 &2654075239046433566
 MonoBehaviour:

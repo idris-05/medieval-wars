@@ -97,13 +97,34 @@ public class InfoCardController : MonoBehaviour
 
 
 
+    void Start()
+    {
+        RightCardPosition = new Vector3(XCardRightPosition, YcardPosition, 0);
+        LeftCardPosition = new Vector3(XCardLeftPosition, YcardPosition, 0);
+        InitialRightPositionOfTheCard = new Vector3(initialXCardRightPosition, initialYCardPosition, 0);
+        InitialLeftPositionOfTheCard = new Vector3(initialXCardLeftPosition, initialYCardPosition, 0);
+    }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+
+            StartCoroutine(AnimateCardWhenItHides());
+            // DesActivateCard();
+        }
+    }
+
+
+
     public void UpdateTerrainBIGIntel(Terrain terrain, Vector3 mousePositionWhenClickOnTerrain)
     {
         if (!IsTheCardActivated) ActivateCard();
 
         TerrainInformationSprite.GetComponent<UnityEngine.UI.Image>().sprite = terrain.spriteRenderer.sprite;
         TerrainInformationText.GetComponent<Text>().text = terrain.terrainName.ToString();
-        TerrainInformationFillStars.GetComponent<UnityEngine.UI.Image>().fillAmount = TerrainsUtils.defenceStars[terrain.TerrainIndex] / 10f;
+        TerrainInformationFillStars.GetComponent<UnityEngine.UI.Image>().fillAmount = TerrainsUtils.defenceStars[terrain.TerrainIndex] / 5f;
         TerrainInformationNum.GetComponent<Text>().text = terrain.incomingFunds.ToString();
 
         TerrainMoveCostInf.GetComponent<Text>().text = TerrainsUtils.MoveCost[terrain.TerrainIndex, infantryIndex].ToString();
@@ -118,15 +139,6 @@ public class InfoCardController : MonoBehaviour
     }
 
 
-
-    void Start()
-    {
-        RightCardPosition = new Vector3(XCardRightPosition, YcardPosition, 0);
-        LeftCardPosition = new Vector3(XCardLeftPosition, YcardPosition, 0);
-        InitialRightPositionOfTheCard = new Vector3(initialXCardRightPosition, initialYCardPosition, 0);
-        InitialLeftPositionOfTheCard = new Vector3(initialXCardLeftPosition, initialYCardPosition, 0);
-
-    }
 
 
 
@@ -168,7 +180,8 @@ public class InfoCardController : MonoBehaviour
         while (Time.time < endTime)
         {
             float t = (Time.time - startTime) / AppearAnimationDuration;
-            float easedT = 1f - Mathf.Exp(-5f * t); // Ease-out function: 1 - e^(-5t)
+            // float easedT = 1f - Mathf.Exp(-5f * t); // Ease-out function: 1 - e^(-5t)
+            float easedT = t;
             card.transform.localPosition = Vector3.Lerp(initialPosition, targetPosition, easedT);
             yield return null;
         }
@@ -186,6 +199,7 @@ public class InfoCardController : MonoBehaviour
         MiniIntelController.Instance.ActivateCard();
         CoCardsController.Instance.UnLockTheCOCard();
         CoCardsController.Instance.ActivateCard();
+
 
         Vector3 initialPosition = card.transform.localPosition;
         bool CardIsInRightSide = card.transform.localPosition.x == RightCardPosition.x;
@@ -208,21 +222,13 @@ public class InfoCardController : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-
-            StartCoroutine(AnimateCardWhenItHides());
-            // DesActivateCard();
-        }
-    }
-
 
     public void ActivateCard()
     {
         CancelScript.Instance.OnCancelButtonClicked();
         ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
+        // MiniIntelController.Instance.LockTheMiniCard();
+        // CoCardsController.Instance.LockTheCOCard();
         IsTheCardActivated = true;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
@@ -232,10 +238,15 @@ public class InfoCardController : MonoBehaviour
     public void DesActivateCard()
     {
         ManageInteractableObjects.Instance.DesctivateBlockInteractionsLayer();
+        // MiniIntelController.Instance.UnLockTheMiniCard();
+        // CoCardsController.Instance.UnLockTheCOCard();
         IsTheCardActivated = false;
         canvasGroup.alpha = 0f;
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
     }
+
+
+
 
 }

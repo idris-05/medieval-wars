@@ -16,6 +16,8 @@ public class UnitView : MonoBehaviour
     public Transform unitTransform; // I needed this to fix a problem where the z coordinate was set back to 0 after movement
 
     public SpriteRenderer spriteRenderer;
+
+    public BoxCollider2D boxCollider2D;
     public float moveSpeed;
 
 
@@ -101,6 +103,7 @@ public class UnitView : MonoBehaviour
     //! BECAUSE IF YOU MOVE IN 2D THE Z COORDINATE WILL BE RESET TO 0 WHICH TOTALLY RUINS THE LAYER ORDER WE DEFINED IN OUR SCENE
     //! THEREFOR I USED VECTOR3 INSTEAD OF VECTOR2
 
+   
     public void SetUnitPosition(int newRow, int newCol)
     {
         Vector3 position = new Vector3(-16 + newCol + 0.5f, 9 - newRow - 0.5f + 0.125f, unitTransform.position.z);
@@ -164,7 +167,7 @@ public class UnitView : MonoBehaviour
         else
         {
             this.unit.TransitionToNumbState();
-            (MapGrid.Instance.grid[row,column].occupantUnit as UnitTransport).Load(unit);
+            (MapGrid.Instance.grid[row, column].occupantUnit as UnitTransport).Load(unit);
         }
 
     }
@@ -222,7 +225,7 @@ public class UnitView : MonoBehaviour
 
     public void HighlightAsEnemy()
     {
-        GameObject RedDagger = Instantiate(UserInterfaceUtil.Instance.RedDaggerPrefab, this.transform.position , Quaternion.identity);
+        GameObject RedDagger = Instantiate(UserInterfaceUtil.Instance.RedDaggerPrefab, this.transform.position, Quaternion.identity);
         this.redDagger = RedDagger;
         this.spriteRenderer.color = Color.red;
     }
@@ -230,7 +233,7 @@ public class UnitView : MonoBehaviour
     public void HighlightAsSelected()
     {
 
-        this.spriteRenderer.material.color = new Color(171,0,255,255);
+        this.spriteRenderer.material.color = new Color(171, 0, 255, 255);
     }
 
     public void HighlightAsInNumbState()
@@ -243,8 +246,8 @@ public class UnitView : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            if ( this.unit.playerOwner == GameController.Instance.player1 ) unit.unitView.spriteRenderer.material.color = Color.black;
-            if ( this.unit.playerOwner == GameController.Instance.player2 ) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255);
+            if (this.unit.playerOwner == GameController.Instance.player1) unit.unitView.spriteRenderer.material.color = Color.black;
+            if (this.unit.playerOwner == GameController.Instance.player2) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255);
             spriteRenderer.color = Color.white;
             Destroy(this.redDagger);
         }
@@ -289,7 +292,7 @@ public class UnitView : MonoBehaviour
         UserInterfaceUtil.Instance.CellhighlightLines.GetComponent<SpriteRenderer>().color = Color.green;
 
         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.isHighlighted = true);
-       
+
         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.HighlightAsWalkable());
 
     }
@@ -298,7 +301,7 @@ public class UnitView : MonoBehaviour
     {
         UserInterfaceUtil.Instance.CellhighlightLines.SetActive(false);
 
-         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.isHighlighted = false); // i need this for UI
+        unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.isHighlighted = false); // i need this for UI
 
         unit.walkableGridCells.ForEach(walkableGridCell => walkableGridCell.gridCellView.ResetHighlitedCell());
 
@@ -382,9 +385,9 @@ public class UnitView : MonoBehaviour
     {
 
         Vector3 position = RelativePositionToInstantiateDamageIcon(); // this is the position of the damage icon relative to the unit's position
-     
+
         // instantiate the damage icon after receiving damage
-        DamageIcon damageIconInstance = Instantiate(UserInterfaceUtil.Instance.damageIconPrefab, this.transform.position + position , Quaternion.identity);
+        DamageIcon damageIconInstance = Instantiate(UserInterfaceUtil.Instance.damageIconPrefab, this.transform.position + position, Quaternion.identity);
         damageIconInstance.SetupDamageToDisplay(inflictedDamage);
         // UPDATE THE HEALTH ICON OF THE DEFENDING UNIT ( ALWAYS TAKES ONLY THE SECOND DIGIT OF THE HEALTH )
         this.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[GameUtil.GetHPToDisplayFromRealHP(this.unit.healthPoints)];
@@ -396,14 +399,14 @@ public class UnitView : MonoBehaviour
         // 1 : on the right side of the unit
         // 2 : on the left side of the unit
 
-        if ( WhereTOSpawnDamageIcon == 0 ) return new Vector3(-0.1f, +0.675f, 0);
-        if ( WhereTOSpawnDamageIcon == 1 ) return new Vector3(0.5f, 0.5f, 0);
-        if ( WhereTOSpawnDamageIcon == 2 ) return new Vector3(-0.7f, -0.5f, 0);
+        if (WhereTOSpawnDamageIcon == 0) return new Vector3(-0.1f, +0.675f, 0);
+        if (WhereTOSpawnDamageIcon == 1) return new Vector3(0.5f, 0.5f, 0);
+        if (WhereTOSpawnDamageIcon == 2) return new Vector3(-0.7f, -0.5f, 0);
 
         Debug.Log("ERROR AT DEFINING POSITION TO INSTANTIATE DAMAGE ICON");
         return new Vector3(0, 0, 0);
     }
 
-    
+
 
 }

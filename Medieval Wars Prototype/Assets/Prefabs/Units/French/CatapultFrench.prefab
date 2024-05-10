@@ -103,10 +103,12 @@ MonoBehaviour:
   unit: {fileID: 414456203307262216}
   unitTransform: {fileID: 7403942165113014654}
   spriteRenderer: {fileID: 5736607126066438663}
+  boxCollider2D: {fileID: 7593030951450046557}
   moveSpeed: 3
   animator: {fileID: 6242749665014680111}
   currentAnimatonState: 0
   HealthIcon: {fileID: 0}
+  redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
 --- !u!61 &7593030951450046557
 BoxCollider2D:
@@ -140,7 +142,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.09615385}
+  m_Offset: {x: 0, y: -0.11005646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
