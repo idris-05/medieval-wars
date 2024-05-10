@@ -131,35 +131,7 @@ public class GameController : MonoBehaviour
 
 
 
-    public void LoadbuildingsToMap(SavingSystem.playerUnitsInfos playerInfos)
-    {
-        Player player;
-        if (playerInfos.player == 1)
-        {
-            player = player1;
-        }
-        else
-        {
-            if (playerInfos.player == 2)
-            {
-                player = player2;
-            }
-            else
-            {
-                player = playerNeutre;
-
-            }
-        }
-        player.buildingList.Clear();
-        foreach (SavingSystem.Buildingdata buildingdata in playerInfos.buildings)
-        {
-            Building building;
-            building = SpawnBuilding(player, buildingdata.row, buildingdata.col, (Building)indexTerrainprefab[buildingdata.Buildingtype]);
-            building.remainningPointsToCapture = buildingdata.remainningPointsToCapture;
-        }
-
-
-    }
+    
 
 
     // this function is used to spawn a unit on the map
@@ -184,7 +156,6 @@ public class GameController : MonoBehaviour
         // flip the unit in case it is a player2 unit
         if (player == player2) unit.unitView.spriteRenderer.flipX = true;
 
-        Debug.Log("cell li rah yesra fiha le probleme  " + unit.occupiedCell.row + " " + unit.occupiedCell.column);
 
         if (player == player1) unit.unitView.spriteRenderer.material.color = Color.black; // set the outline to Blue
         if (player == player2) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255); // set the outline to Red
@@ -217,95 +188,21 @@ public class GameController : MonoBehaviour
 
 
 
-    public void LaodUnitsToMap(SavingSystem.playerUnitsInfos playerinfos)
-    {
-        Player player = playerinfos.player == 1 ? player1 : player2;
-        player.unitList.Clear();
-        List<SavingSystem.UnitData> loadedUnitsData = new List<SavingSystem.UnitData>();
-        foreach (SavingSystem.UnitData unitData in playerinfos.unitdatas)
-        {
-            if (unitData.loadedUnit != null)
-            {
-                loadedUnitsData.Add(unitData.loadedUnit);
-            }
-        }
-
-        foreach (SavingSystem.UnitData unitData in playerinfos.unitdatas)
-        {
-            if (!loadedUnitsData.Contains(unitData))
-            {
-                if (unitData.durability == -1)
-                {
-                    UnitTransport unit;
-                    unit = (UnitTransport)SpawnUnit(player, unitData.row, unitData.col, indexUnitprefab[unitData.type]);
-                    unit.healthPoints = unitData.hp;
-                    unit.hasMoved = unitData.hasMoved;
-                    unit.numbState = unitData.numbState;
-                    unit.ration = unitData.rations;
-                    unit.hasSupply = unitData.hasSupply;
-                    /// DEJA VU i instentiated it deja !!!!???????
-                    if (unitData.loadedUnit != null)
-                    {
-                        unit.loadedUnit = (UnitAttack)SpawnUnit(player, unitData.row, unitData.col, indexUnitprefab[unitData.loadedUnit.type]);
-                        unit.Load(unit.loadedUnit);
-                        unit.loadedUnit.healthPoints = unitData.loadedUnit.hp;
-                        unit.loadedUnit.hasMoved = unitData.loadedUnit.hasMoved;
-                        unit.loadedUnit.numbState = unitData.loadedUnit.numbState;
-                        unit.loadedUnit.ration = unitData.loadedUnit.rations;
-                        ((UnitAttack)unit.loadedUnit).durability = unitData.durability;
-                        ((UnitAttack)unit.loadedUnit).hasAttacked = unitData.hasAttacked;
-                    }
-                }
-                else
-                {
-                    UnitAttack unit;
-                    unit = (UnitAttack)SpawnUnit(player, unitData.row, unitData.col, indexUnitprefab[unitData.type]);
-                    unit.durability = unitData.durability;
-                    unit.healthPoints = unitData.hp;
-                    unit.hasMoved = unitData.hasMoved;
-                    unit.numbState = unitData.numbState;
-                    unit.ration = unitData.rations;
-                    unit.hasAttacked = unitData.hasAttacked;
-                }
-            }
-
-        }
-    }
-
-
-
-    public void loadplayer(string path)
-    {
-        SavingSystem.playerUnitsInfos unitPlayerdatas = new SavingSystem.playerUnitsInfos();
-        unitPlayerdatas.unitdatas = new List<SavingSystem.UnitData>();
-        unitPlayerdatas = SavingSystem.Infoload(path);
-        Debug.Log("loaded");
-        if (unitPlayerdatas.player != 0)
-        {
-            LaodUnitsToMap(unitPlayerdatas);
-        }
-        LoadbuildingsToMap(unitPlayerdatas);
-
-    }
-
-
 
     public void save()
     {
         SavingSystem.SavePlayer(player1, SavingSystem.PATH1, 1);
         SavingSystem.SavePlayer(player2, SavingSystem.PATH2, 2);
-        SavingSystem.SavePlayer(playerNeutre, SavingSystem.PATHN, 0);
-
+        SavingSystem.SaveGame();
         Debug.Log("saved");
     }
 
 
     public void load()
     {
-        loadplayer(SavingSystem.PATH1);
-        loadplayer(SavingSystem.PATH2);
-        loadplayer(SavingSystem.PATHN);
-
+        SavingSystem.loadplayer(SavingSystem.PATH1);
+        SavingSystem.loadplayer(SavingSystem.PATH2);
+       SavingSystem.LoadGameToGame();
         Debug.Log("loaded");
     }
 
@@ -317,8 +214,10 @@ public class GameController : MonoBehaviour
 
 
         building.playerOwner = player;
+        if(player!=null){
 
         player.AddBuilding(building);
+        }
 
         // building.gameObject.AdjustSpriteSize();
 
