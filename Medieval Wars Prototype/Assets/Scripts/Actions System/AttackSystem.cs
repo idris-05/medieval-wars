@@ -107,7 +107,7 @@ public class AttackSystem : MonoBehaviour
                 {
 
                     if (MathF.Abs(row) + MathF.Abs(col) <= moveRange && MathF.Abs(row) + MathF.Abs(col) > unit.minAttackRange)
-                    {   
+                    {
                         unit.attackableGridCells.Add(MapGrid.Instance.grid[nextRow, nextCol]);
                         // mapGrid.grid[nextRow, nextCol].gridCellView.HighlightAsAttackable();
                     }
@@ -354,22 +354,22 @@ public class AttackSystem : MonoBehaviour
 
 
         // AttackValue = (Base.AttackBoost.SpecialAttackBoost)
-        // float attackBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? AttackingUnit.specialAttackBoost : AttackingUnit.attackBoost;
-        float attackBoost = AttackingUnit.attackBoost;
+        float attackBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? AttackingUnit.specialAttackBoost : AttackingUnit.attackBoost;
+        // float attackBoost = AttackingUnit.attackBoost;
 
         float AttackValue = Base * attackBoost;
         // Debug.Log("AttackValue : " + AttackValue);
 
 
         // Find Terrain Stars
-        float TerrainStars = TerrainsUtils.defenceStars[DefendingUnit.occupiedCell.occupantTerrain.TerrainIndex];
-        // float TerrainStars = DefendingUnit.playerOwner.Co.GetTerrainDefenceStart(DefendingUnit.occupiedCell.occupantTerrain);
+        // float TerrainStars = TerrainsUtils.defenceStars[DefendingUnit.occupiedCell.occupantTerrain.TerrainIndex];
+        float TerrainStars = DefendingUnit.playerOwner.Co.GetTerrainDefenceStart(DefendingUnit.occupiedCell.occupantTerrain);
         Debug.Log(TerrainStars);
 
         //Vulnerability = ( 1 - ( TerrainStars . TargetHP ) / 1000 ) . ( 1 - DefenseBoost ) ( 1 - SpecialDefenseBoost )
         // float defenseBoost = AttackingUnit.playerOwner.Co.isSuperPowerActivated ? DefendingUnit.specialDefenseBoost : DefendingUnit.defenseBoost;
-        float defenseBoost = DefendingUnit.defenseBoost;
-
+        // float defenseBoost = DefendingUnit.defenseBoost;
+        float defenseBoost = 0; //!!!! only for now , until we fix the damage formula. 
         float Vulnerability = (1 - (TerrainStars * DefendingUnit.healthPoints / 1000)) * (1 - defenseBoost);
         // Vulnerability = DefendingUnit.playerOwner.Co.BoostVulnerability(Vulnerability);
         Debug.Log("Vulnerability : " + Vulnerability);
@@ -396,7 +396,7 @@ public class AttackSystem : MonoBehaviour
 
     }
 
-    private static UnitUtil.AnimationState WhichAttackAnimationToPlayWhenAttacking(UnitAttack unitThatWillAttack,Unit unitThatWillGetAttacked)
+    private static UnitUtil.AnimationState WhichAttackAnimationToPlayWhenAttacking(UnitAttack unitThatWillAttack, Unit unitThatWillGetAttacked)
     {
         if (unitThatWillAttack.transform.position.x - unitThatWillGetAttacked.transform.position.x > 0 && unitThatWillAttack.playerOwner == GameController.Instance.player1)
         {
@@ -460,6 +460,10 @@ public class AttackSystem : MonoBehaviour
         int inflictedDamage = CalculateDamage(AttackingUnit, DefendingUnit);
         DefendingUnit.RecieveDamage(inflictedDamage);
 
+        float correctDamageToCalculateTheCoPowerAddition = DefendingUnit.GetTheCorectDamageToCalculateTheCoPowerAddition(inflictedDamage);
+        DefendingUnit.TakeCoPowerAddition(false, correctDamageToCalculateTheCoPowerAddition);
+        AttackingUnit.TakeCoPowerAddition(true, correctDamageToCalculateTheCoPowerAddition);
+
         AttackingUnit.UpdateAttributsAfterAttack();
         AttackingUnit.TransitionToNumbState();
 
@@ -491,14 +495,18 @@ public class AttackSystem : MonoBehaviour
         inflictedDamage = CalculateDamage(DefendingUnit, AttackingUnit);
         AttackingUnit.RecieveDamage(inflictedDamage);
 
+        correctDamageToCalculateTheCoPowerAddition = AttackingUnit.GetTheCorectDamageToCalculateTheCoPowerAddition(inflictedDamage);
+        AttackingUnit.TakeCoPowerAddition(false, correctDamageToCalculateTheCoPowerAddition);
+        DefendingUnit.TakeCoPowerAddition(true, correctDamageToCalculateTheCoPowerAddition);
+
         if (AttackingUnit.healthPoints <= 0)
         {
             AttackingUnit.unitView.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[0];
             StartCoroutine(AttackingUnit.Die());
-           /*if (AttackingUnit.playerOwner.unitList.Any() == false)
-            {
-                GameController.Instance.EndGame(DefendingUnit.playerOwner);
-            } */
+            /*if (AttackingUnit.playerOwner.unitList.Any() == false)
+             {
+                 GameController.Instance.EndGame(DefendingUnit.playerOwner);
+             } */
             yield break;
         }
     }

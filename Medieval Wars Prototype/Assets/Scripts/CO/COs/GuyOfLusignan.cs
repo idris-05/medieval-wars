@@ -2,6 +2,11 @@ public class GuyOfLusignan : CO
 {
 
 
+    void Start()
+    {
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+    }
+
     // !!!!!! PASSIVE POWER
 
     public override void ActivateDailyPower()
@@ -102,6 +107,8 @@ public class GuyOfLusignan : CO
 
     public override void ActivateSuperPower()
     {
+        if (CanActivateSuperPower == false) return;
+        numberOfTimeThatTheSuperPowerHasBeenUsed++;
         isSuperPowerActivated = true;
         foreach (Unit unit in playerOwner.unitList)
         {
@@ -115,7 +122,8 @@ public class GuyOfLusignan : CO
                     break;
             }
         }
-
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+        CanActivateSuperPower = false;
     }
 
 
@@ -136,11 +144,11 @@ public class GuyOfLusignan : CO
         }
     }
 
-    
-    
-    
-    
-    
+
+
+
+
+
     // !!!!!!!!!!!!!!!!!!!!!!
 
     public override float BoostVulnerability(float vulnerabilitToBoost)

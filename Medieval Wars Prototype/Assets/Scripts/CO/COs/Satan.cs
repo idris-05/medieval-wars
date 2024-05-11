@@ -1,6 +1,10 @@
 public class Satan : CO
 {
 
+    void Start()
+    {
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+    }
 
     //!!!!!! PASSIVE POWER
 
@@ -58,12 +62,16 @@ public class Satan : CO
 
     public override void ActivateSuperPower()
     {
+        if (CanActivateSuperPower == false) return;
+        numberOfTimeThatTheSuperPowerHasBeenUsed++;
         isSuperPowerActivated = true;
         foreach (Unit unit in playerOwner.unitList)
         {
             unit.SetAttackAndDefenseBoosts(1.50f, 0.9f);
         }
         ThreeDiamondeSquare();
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+        CanActivateSuperPower = false;
     }
 
 

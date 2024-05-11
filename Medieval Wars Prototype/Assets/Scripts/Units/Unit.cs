@@ -40,7 +40,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public float UnitCost;
 
-    
+
 
 
 
@@ -76,7 +76,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void RecieveDamage(int inflictedDamage)
     {
         this.healthPoints -= inflictedDamage; // hna events
-        if ( this.healthPoints <=  0 ) { this.healthPoints = 0; }
+        if (this.healthPoints <= 0) { this.healthPoints = 0; }
         unitView.RecieveDamageUI(inflictedDamage);
     }
 
@@ -152,7 +152,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void TryToCapture(Building building)
     {
         // building.remainningPointsToCapture = building.remainningPointsToCapture - healthPoints/10;
-        building.remainningPointsToCapture = (int)(building.remainningPointsToCapture - healthPoints/10 * playerOwner.Co.GetCaputeBoost(this));
+        building.remainningPointsToCapture = (int)(building.remainningPointsToCapture - healthPoints / 10 * playerOwner.Co.GetCaputeBoost(this));
         if (building.remainningPointsToCapture <= 0) building.GetCaptured(this);
     }
 
@@ -196,4 +196,26 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         lineOfSight += lineOfSightBoost;
     }
-} 
+
+
+    public void TakeCoPowerAddition(bool takeCoPowerAdditionAsAttacker, float damage)
+    {
+        if (takeCoPowerAdditionAsAttacker) playerOwner.Co.BarLevel += 0.25f * damage / 100 * this.playerOwner.Co.GetUnitCost(this);
+
+        else playerOwner.Co.BarLevel += damage / 100 * this.playerOwner.Co.GetUnitCost(this);
+
+        if (playerOwner.Co.BarLevel >= playerOwner.Co.BarLevelMustHaveToActivateCoPower)
+        {
+            playerOwner.Co.BarLevel = playerOwner.Co.BarLevelMustHaveToActivateCoPower;
+            playerOwner.Co.CanActivateSuperPower = true;
+        }
+
+    }
+
+
+    public float GetTheCorectDamageToCalculateTheCoPowerAddition(float damage)
+    {
+        if (damage > healthPoints) return healthPoints;
+        return damage;
+    }
+}

@@ -1,6 +1,12 @@
+using System.Diagnostics;
+
 public class AhmedPlayer : CO
 {
 
+    void Start()
+    {
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+    }
 
 
     //!!!!!! PASSIVE POWER
@@ -80,6 +86,9 @@ public class AhmedPlayer : CO
 
     public override void ActivateSuperPower()
     {
+        if (CanActivateSuperPower == false) return;
+        UnityEngine.Debug.Log("Ahmed super power activated");
+        numberOfTimeThatTheSuperPowerHasBeenUsed++;
         AfeectBoostsToSpesialBoostsForAllUnits();
         isSuperPowerActivated = true;
         foreach (Unit unit in playerOwner.unitList)
@@ -95,6 +104,8 @@ public class AhmedPlayer : CO
             }
             unit.Heal();
         }
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+        CanActivateSuperPower = false;
     }
 
     public override void DeactivateSuperPower()

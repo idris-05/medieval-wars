@@ -1,6 +1,13 @@
 public class RichardTheLionHeart : CO
 {
 
+
+    void Start()
+    {
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+    }
+
+
     //!!!!!! PASSIVE POWER
 
 
@@ -37,12 +44,15 @@ public class RichardTheLionHeart : CO
 
     public override void ActivateSuperPower()
     {
+        if (CanActivateSuperPower == false) return;
+        numberOfTimeThatTheSuperPowerHasBeenUsed++;
         isSuperPowerActivated = true;
         foreach (Unit unit in playerOwner.unitList)
         {
             unit.SetSpecialAttackAndDefenseBoostsInSuperPower(1.50f, 1.40f);
         }
-
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+        CanActivateSuperPower = false;
     }
 
 

@@ -1,5 +1,13 @@
 public class PopUrbanII : CO
 {
+
+
+    void Start()
+    {
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+    }
+
+
     //!!!!!! PASSIVE POWER
 
 
@@ -53,6 +61,8 @@ public class PopUrbanII : CO
 
     public override void ActivateSuperPower()
     {
+        if (CanActivateSuperPower == false) return;
+        numberOfTimeThatTheSuperPowerHasBeenUsed++;
         isSuperPowerActivated = true;
         foreach (Unit unit in playerOwner.unitList)
         {
@@ -61,7 +71,7 @@ public class PopUrbanII : CO
                 case UnitUtil.UnitName.CAVALRY:
                 case UnitUtil.UnitName.RCAVALRY:
                 case UnitUtil.UnitName.FIRESHIP:
-                // case UnitUtil.UnitName.RAMSHIP:
+                    // case UnitUtil.UnitName.RAMSHIP:
                     if (unit.hasMoved == true)
                     {
                         unit.hasMoved = false;
@@ -71,6 +81,8 @@ public class PopUrbanII : CO
                     break;
             }
         }
+        BarLevelMustHaveToActivateCoPower = GetCoPowerBarLimit();
+        CanActivateSuperPower = false;
 
     }
 
@@ -85,7 +97,7 @@ public class PopUrbanII : CO
                 case UnitUtil.UnitName.CAVALRY:
                 case UnitUtil.UnitName.RCAVALRY:
                 case UnitUtil.UnitName.FIRESHIP:
-                // case UnitUtil.UnitName.RAMSHIP:
+                    // case UnitUtil.UnitName.RAMSHIP:
                     unit.ResetSpecialAttackAndDefenseBoostsInSuperPower();
                     break;
             }

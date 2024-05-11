@@ -5,7 +5,11 @@ public class CO : MonoBehaviour
     public Player playerOwner;
     public COUtil.COName coName;
     public bool isSuperPowerActivated = false;
-    public float COPowerFill = 0;
+    public float BarLevel;
+    public float BarLevelMustHaveToActivateCoPower;
+    public int numberOfTimeThatTheSuperPowerHasBeenUsed = 0;
+
+    public bool CanActivateSuperPower = false;
 
 
 
@@ -41,11 +45,33 @@ public class CO : MonoBehaviour
     // overrided in RICHARDTHELOINHEART.
     public virtual float GetUnitCost(Unit unit)
     {
-        return UnitUtil.unitCost[unit.unitIndex] ;
+        return UnitUtil.unitCost[unit.unitIndex];
     }
 
 
+    public float GetTheBarLimitAddition()
+    {
+        return numberOfTimeThatTheSuperPowerHasBeenUsed switch
+        {
+            0 => 1,
+            1 => 1.2f,
+            2 => 1.4f,
+            3 => 1.6f,
+            4 => 1.8f,
+            5 => 2,
+            6 => 2.2f,
+            7 => 2.4f,
+            8 => 2.6f,
+            9 => 2.8f,
+            _ => 2,
+        };
+    }
 
+
+    public float GetCoPowerBarLimit()
+    {
+        return COUtil.CosPowerBarLimit[(int)coName] * GetTheBarLimitAddition();
+    }
 
 
     public virtual void ActivateDailyPower()
@@ -56,8 +82,10 @@ public class CO : MonoBehaviour
 
     public virtual void ActivateSuperPower()
     {
+        if (CanActivateSuperPower == false) return;
         AfeectBoostsToSpesialBoostsForAllUnits();
         isSuperPowerActivated = true;
+        CanActivateSuperPower = false;
     }
 
 
@@ -78,7 +106,8 @@ public class CO : MonoBehaviour
     }
 
 
-    public void SpesialBoostsForAllUnits(){
+    public void SpesialBoostsForAllUnits()
+    {
         foreach (Unit unit in playerOwner.unitList)
         {
             unit.specialAttackBoost = 1;

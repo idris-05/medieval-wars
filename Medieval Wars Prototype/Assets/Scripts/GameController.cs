@@ -71,7 +71,8 @@ public class GameController : MonoBehaviour
     public Player player2;
     public Player playerNeutre;
 
-    public CO coForTest;
+    public CO coForTest1;
+    public CO coForTest2;
     public int CurrentDayCounter;
     public List<Player> playerList = new List<Player>();
 
@@ -79,16 +80,24 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        coForTest = new GameObject("COForTest").AddComponent<CO>();
-        coForTest.coName = COUtil.COName.AHMEDPLAYER;
+        coForTest1 = new GameObject("COForTest").AddComponent<AhmedPlayer>();
+        coForTest1.coName = COUtil.COName.AHMEDPLAYER;
+        coForTest1.BarLevelMustHaveToActivateCoPower = coForTest1.GetCoPowerBarLimit();
+
+        coForTest2 = new GameObject("COForTest").AddComponent<AhmedPlayer>();
+        coForTest2.coName = COUtil.COName.AHMEDPLAYER;
+        coForTest2.BarLevelMustHaveToActivateCoPower = coForTest2.GetCoPowerBarLimit();
+
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
         playerNeutre = new GameObject("PlayerNeutre").AddComponent<Player>();
         currentPlayerInControl = player1;
         playerList.Add(player1);
         playerList.Add(player2);
-        player1.Co = coForTest;
-        player2.Co = coForTest;
+        player1.Co = coForTest1;
+        player2.Co = coForTest2;
+        coForTest1.playerOwner = player1;
+        coForTest2.playerOwner = player2;
     }
 
     // This method is called when the object is first enabled in the scene.
@@ -168,7 +177,7 @@ public class GameController : MonoBehaviour
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
         // Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f, -1), Quaternion.identity);
-        float yposition = player == player1 ? UnitUtil.AdditionInYPpositionForEnglishUnits[unitPrefab.unitIndex] : UnitUtil.AdditionInYPpositionForEnglishUnits[unitPrefab.unitIndex] ;
+        float yposition = player == player1 ? UnitUtil.AdditionInYPpositionForEnglishUnits[unitPrefab.unitIndex] : UnitUtil.AdditionInYPpositionForEnglishUnits[unitPrefab.unitIndex];
         Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + yposition - 0.5f, -1), Quaternion.identity);
 
         // -0.5f deux foix , parceque f tableau hadak t3 les positions rani zayed 0.5 , donc n3awed nn7iha . 
@@ -205,7 +214,7 @@ public class GameController : MonoBehaviour
     {
         //! WHAT FOLLOWS IS IN ORDER TO CREATE THE HEALTH INDICATOR ON THE UNITS
         GameObject UnitHealthIcon = Instantiate(UserInterfaceUtil.Instance.UnitHealthIconPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        UnitHealthIcon.transform.SetParent(unit.transform ,true );
+        UnitHealthIcon.transform.SetParent(unit.transform, true);
         UnitHealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[10];
 
 
@@ -343,16 +352,20 @@ public class GameController : MonoBehaviour
         {
             MainMenuController.Instance.ActivateMenu();
         }
-
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            save();
+            currentPlayerInControl.Co.ActivateSuperPower();
+        }
 
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            load();
-        }
+        // if (Input.GetKeyDown(KeyCode.Y))
+        // {
+        //     save();
+
+        // }
+        // if (Input.GetKeyDown(KeyCode.T))
+        // {
+        //     load();
+        // }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -469,7 +482,7 @@ public class GameController : MonoBehaviour
                 building.HealAndSupplyUnitIfPossible(mapGrid);
             }
 
-            if ( player.Co.isSuperPowerActivated) player.Co.DeactivateSuperPower();
+            if (player.Co.isSuperPowerActivated) player.Co.DeactivateSuperPower();
         }
 
     }
