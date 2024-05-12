@@ -70,7 +70,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
         unitView.ResetHighlightedUnit();
 
-        if (this is UnitAttack unitAttack && unitAttack.attackRange > 1) unitAttack.TransitionToNumbState();
+        // indirect units can't attack after moving .
+        if (this is UnitAttack unitAttack && unitAttack.minAttackRange > 1) unitAttack.hasAttacked = true;
     }
 
     public void RecieveDamage(int inflictedDamage)
