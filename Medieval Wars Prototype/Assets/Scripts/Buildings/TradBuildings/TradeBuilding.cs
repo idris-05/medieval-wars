@@ -1,8 +1,29 @@
-
 using UnityEngine;
 
 public class TradeBuilding : Building
 {
+    private static TradeBuilding instance;
+    public static TradeBuilding Instance
+    {
+        get
+        {
+            // Lazy initialization
+            if (instance == null)
+            {
+                // Check if an instance of UnitController exists in the scene
+                instance = FindObjectOfType<TradeBuilding>();
+
+                // If not found, create a new GameObject with UnitController attached
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject("TradeBuilding");
+                    instance = obj.AddComponent<TradeBuilding>();
+                }
+            }
+            return instance;
+        }
+    }
+
 
     //1.  ki tehcry , l'unit tspawni fo9 l building hadak w tkon f numbState .
     //2.  t3bezz 3liha direct , ( machi z3ma tro7elha b unit wla kch 3fssa ) .
@@ -17,11 +38,6 @@ public class TradeBuilding : Building
     //7.  bach tchry men Tradbuilding , tcklicker 3lih direct , makach 7kaya t3 tjib unit ltem wla kch 3fssa ...   
 
 
-
-
-
-    // public SpriteRenderer spriteRendererForTradeBuilding;
-
     public void DisplayAvailableUnitForTrading(Player player)
     {
 
@@ -29,9 +45,10 @@ public class TradeBuilding : Building
 
     public void BuyUnit(Player player, Unit unit)
     {
-        player.availableFunds -= TradBuildingsUtil.UnitCost[unit.unitIndex];
+        player.availableFunds -= TradeBuildingsUtil.UnitCost[unit.unitIndex];
         // GameController.Instance.SpawnUnit(player.playerNumber, row, col, unit);
-        GameController.Instance.SpawnUnit(GameController.Instance.currentPlayerInControl, row, col, unit);
+        Unit tradedUnit = GameController.Instance.SpawnUnit(GameController.Instance.currentPlayerInControl, row, col, unit);
+        tradedUnit.TransitionToNumbState();
     }
 
     // void on
@@ -39,7 +56,14 @@ public class TradeBuilding : Building
 
     public void OnMouseDown()
     {
+        if (this.playerOwner == null) return ;
         TradeBuildingsController.Instance.ActivateOneTradeBuilding(this);
+        TradeBuildingsController.Instance.currentTradeBuilding = this;
+    }
+
+    public void OnMouseOver()
+    {
+        MiniIntelController.Instance.HandleMINIIntel(MapGrid.Instance.grid[row, col]);
     }
 
 

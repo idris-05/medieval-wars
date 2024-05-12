@@ -104,5 +104,5 @@ MonoBehaviour:
   row: 0
   col: 0
   playerOwner: {fileID: 0}
-  remainningPointsToCapture: 20
-  MaxRemainningPointsToCapture: 0
+  remainningPointsToCapture: 200
+  MaxRemainningPointsToCapture: 200

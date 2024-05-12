@@ -70,7 +70,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
         unitView.ResetHighlightedUnit();
 
-        if (this.moveRange > 1) TransitionToNumbState();
+        if (this is UnitAttack unitAttack && unitAttack.attackRange > 1) unitAttack.TransitionToNumbState();
     }
 
     public void RecieveDamage(int inflictedDamage)
@@ -95,6 +95,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         yield return new WaitForSeconds(1);
         playerOwner.unitList.Remove(this);
         this.occupiedCell.occupantUnit = null;
+        Destroy(this.unitView.HealthIcon);
         Destroy(this.gameObject);
         yield break;
     }
@@ -151,8 +152,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void TryToCapture(Building building)
     {
-        // building.remainningPointsToCapture = building.remainningPointsToCapture - healthPoints/10;
-        building.remainningPointsToCapture = (int)(building.remainningPointsToCapture - healthPoints / 10 * playerOwner.Co.GetCaputeBoost(this));
+        // building.remainningPointsToCapture = building.remainningPointsToCapture - healthPoints;
+        building.remainningPointsToCapture -= (int)(healthPoints * playerOwner.Co.GetCaputeBoost(this));
         if (building.remainningPointsToCapture <= 0) building.GetCaptured(this);
     }
 

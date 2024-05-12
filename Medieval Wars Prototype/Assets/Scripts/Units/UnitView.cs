@@ -30,7 +30,7 @@ public class UnitView : MonoBehaviour
 
     GridCell gridCellTheUnitIsMovingTowards; // i need this to animate the movement
 
-    public GameObject HealthIcon;
+    public UnitHealthIcon HealthIcon;
 
     public GameObject redDagger; // this will be only when unit is highlighted as attackable
 
@@ -103,7 +103,7 @@ public class UnitView : MonoBehaviour
     //! BECAUSE IF YOU MOVE IN 2D THE Z COORDINATE WILL BE RESET TO 0 WHICH TOTALLY RUINS THE LAYER ORDER WE DEFINED IN OUR SCENE
     //! THEREFOR I USED VECTOR3 INSTEAD OF VECTOR2
 
-   
+
     public void SetUnitPosition(int newRow, int newCol)
     {
         Vector3 position = new Vector3(-16 + newCol + 0.5f, 9 - newRow - 0.5f + 0.125f, unitTransform.position.z);

@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour
     public CO coForTest2;
     public int CurrentDayCounter;
     public List<Player> playerList = new List<Player>();
+    public GameObject unitHealthIconHolder;
 
 
 
@@ -212,20 +213,17 @@ public class GameController : MonoBehaviour
 
     public void SpawnHealthIcon(Unit unit)
     {
-        //! WHAT FOLLOWS IS IN ORDER TO CREATE THE HEALTH INDICATOR ON THE UNITS
-        GameObject UnitHealthIcon = Instantiate(UserInterfaceUtil.Instance.UnitHealthIconPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        UnitHealthIcon.transform.SetParent(unit.transform, true);
-        UnitHealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[10];
+        // WHAT FOLLOWS IS IN ORDER TO CREATE THE HEALTH INDICATOR ON THE UNITS
 
+        UnitHealthIcon unitHealthIcon = Instantiate(UserInterfaceUtil.Instance.UnitHealthIconPrefab, new Vector3(-16 + unit.col + 0.5f, 9 - unit.row + 0.125f, 0), Quaternion.identity, unitHealthIconHolder.transform);
 
-        if (unit.playerOwner == player1) UnitHealthIcon.transform.localPosition = new Vector3(-0.17f, -0.3f, 0);
-        if (unit.playerOwner == player2) UnitHealthIcon.transform.localPosition = new Vector3(+0.17f, -0.3f, 0);
+        unitHealthIcon.unit = unit;
 
+        unitHealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[10];
 
-        UnitHealthIcon.GetComponent<SpriteRenderer>().material.SetFloat(Shader.PropertyToID("_Thickness"), 0.005f);
-        UnitHealthIcon.GetComponent<SpriteRenderer>().material.color = Color.red;
-
-        unit.unitView.HealthIcon = UnitHealthIcon;
+        unitHealthIcon.GetComponent<SpriteRenderer>().material.SetFloat(Shader.PropertyToID("_Thickness"), 0.008f);
+        unitHealthIcon.GetComponent<SpriteRenderer>().material.color = Color.black;
+        unit.unitView.HealthIcon = unitHealthIcon;
     }
 
 

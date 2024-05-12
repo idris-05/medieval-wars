@@ -32,7 +32,7 @@ public class UserInterfaceUtil : MonoBehaviour
 
     public DamageIcon damageIconPrefab;
 
-    public GameObject UnitHealthIconPrefab;
+    public UnitHealthIcon UnitHealthIconPrefab;
 
     [SerializeField] public GameObject CellhighlightLines;
 

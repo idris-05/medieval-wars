@@ -34,30 +34,7 @@ public class TradeBuildingsController : MonoBehaviour
     public GameObject stable;
     public GameObject dock;
 
-    public Terrain currentTradeBuilding;
-
-
-    // public void GetTheTradeBuildingsToDisplayMenu(TradeBuilding tradeBuilding)
-    // {
-    //     // Get the trade buildings to display in the menu
-    //     switch (tradeBuilding.terrainName)
-    //     {
-    //         case TerrainsUtils.TerrainName.BARRACK:
-    //             barrack.SetActive(true);
-    //             break;
-
-    //         case TerrainsUtils.TerrainName.STABLE:
-    //             stable.SetActive(true);
-    //             break;
-
-    //         case TerrainsUtils.TerrainName.DOCK:
-    //             dock.SetActive(true);
-    //             break;
-
-    //         default:
-    //             break;
-    //     }
-    // }
+    public TradeBuilding currentTradeBuilding;
 
 
     public void TradeUnit()
@@ -139,9 +116,13 @@ public class TradeBuildingsController : MonoBehaviour
 
     public void TradeOneUnit(UnitUtil.UnitName unitName)
     {
-        Debug.Log("TradeOneUnit  : " + unitName.ToString());
-        // tradebuilding.BuyUnit(GameController.Instance.currentPlayerInControl, GameController.Instance.indexUnitprefab[GetTheIndexOfUnitInEnum(unitName)]);
+        // Debug.Log("TradeOneUnit  : " + unitName.ToString());
+
+        Unit unitPrefab = GameController.Instance.currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[GetTheIndexOfUnitInEnum(unitName)] : GameController.Instance.FrenchUnitPrefabsList[GetTheIndexOfUnitInEnum(unitName)];
+
+        currentTradeBuilding.BuyUnit(GameController.Instance.currentPlayerInControl, unitPrefab);
         // GameController.Instance.SpawnUnit(GameController.Instance.currentPlayerInControl, currentTradeBuilding.row, currentTradeBuilding.col, GameController.Instance.indexUnitprefab[GetTheIndexOfUnitInEnum(unitName)]);
+
         currentTradeBuilding = null;
         DeactivateAllTradeBuildings();
 
@@ -162,9 +143,10 @@ public class TradeBuildingsController : MonoBehaviour
     }
 
 
-    public void ActivateOneTradeBuilding(Terrain tradebuilding)
+    public void ActivateOneTradeBuilding(TradeBuilding tradebuilding)
     {
         CancelScript.Instance.OnCancelButtonClicked();
+        currentTradeBuilding = tradebuilding;
 
         switch (tradebuilding.terrainName)
         {
@@ -184,7 +166,7 @@ public class TradeBuildingsController : MonoBehaviour
                 break;
         }
 
-        currentTradeBuilding = tradebuilding;
+
         ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
 
     }
