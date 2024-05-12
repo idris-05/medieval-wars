@@ -45,7 +45,7 @@ public class TradeBuilding : Building
 
     public void BuyUnit(Player player, Unit unit)
     {
-        player.availableFunds -= TradeBuildingsUtil.UnitCost[unit.unitIndex];
+        player.availableFunds -= (int)player.Co.GetUnitCost(unit.unitIndex);
         // GameController.Instance.SpawnUnit(player.playerNumber, row, col, unit);
         Unit tradedUnit = GameController.Instance.SpawnUnit(GameController.Instance.currentPlayerInControl, row, col, unit);
         tradedUnit.TransitionToNumbState();

@@ -69,6 +69,10 @@ public class UnitView : MonoBehaviour
             Debug.Log("left click on unit");
             UnitController.Instance.OnUnitSelection(unit); // singleton
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            InfoCardController.Instance.UpdateUnitBIGIntel(this.unit, Input.mousePosition);
+        }
 
     }
     // Check if right mouse button is held down display the attackableCells

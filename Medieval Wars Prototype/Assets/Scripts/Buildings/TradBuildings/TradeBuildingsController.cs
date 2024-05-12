@@ -152,14 +152,17 @@ public class TradeBuildingsController : MonoBehaviour
         {
             case TerrainsUtils.TerrainName.BARRACK:
                 barrack.SetActive(true);
+                UpdateAllUnitsCostInTheDisplayForBarrack();
                 break;
 
             case TerrainsUtils.TerrainName.STABLE:
                 stable.SetActive(true);
+                UpdateAllUnitsCostInTheDisplayForStable();
                 break;
 
             case TerrainsUtils.TerrainName.DOCK:
                 dock.SetActive(true);
+                UpdateAllUnitsCostInTheDisplayForDock();
                 break;
 
             default:
@@ -183,25 +186,59 @@ public class TradeBuildingsController : MonoBehaviour
     }
 
 
-    void Update()
+    public void UpdateAllUnitsCostInTheDisplayForBarrack()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            barrack.SetActive(true);
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            stable.SetActive(true);
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            dock.SetActive(true);
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            DeactivateAllTradeBuildings();
-        }
+        Player currentPlayerInControl = GameController.Instance.currentPlayerInControl;
+        float playerFunds = currentPlayerInControl.availableFunds;
 
+        Transform barrackTransform = barrack.transform;
+        CO currentPlayerCO = currentPlayerInControl.Co;
+
+        barrackTransform.Find("Infantry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(4);
+        barrackTransform.Find("Archer").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(1);
+        barrackTransform.Find("Bandit").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(8);
+        barrackTransform.Find("Spear Man").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(6);
+        barrackTransform.Find("Catapult").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(9);
+
+        barrackTransform.Find("Infantry").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(4).ToString();
+        barrackTransform.Find("Archer").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(1).ToString();
+        barrackTransform.Find("Bandit").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(8).ToString();
+        barrackTransform.Find("Spear Man").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(6).ToString();
+        barrackTransform.Find("Catapult").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(9).ToString();
+    }
+
+    public void UpdateAllUnitsCostInTheDisplayForStable()
+    {
+        Player currentPlayerInControl = GameController.Instance.currentPlayerInControl;
+        float playerFunds = currentPlayerInControl.availableFunds;
+
+        Transform stableTransform = stable.transform;
+        CO currentPlayerCO = currentPlayerInControl.Co;
+
+        stableTransform.Find("Cavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(10);
+        stableTransform.Find("RCavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(7);
+        stableTransform.Find("Caravan").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(0);
+
+        stableTransform.Find("Cavalry").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(10).ToString();
+        stableTransform.Find("RCavalry").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(7).ToString();
+        stableTransform.Find("Caravan").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(0).ToString();
+    }
+
+    public void UpdateAllUnitsCostInTheDisplayForDock()
+    {
+        Player currentPlayerInControl = GameController.Instance.currentPlayerInControl;
+        float playerFunds = currentPlayerInControl.availableFunds;
+
+        Transform dockTransform = dock.transform;
+        CO currentPlayerCO = currentPlayerInControl.Co;
+
+        dockTransform.Find("Carrack").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(2);
+        dockTransform.Find("Fire Ship").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(3);
+        dockTransform.Find("TShip").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(5);
+
+        dockTransform.Find("Carrack").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(2).ToString();
+        dockTransform.Find("Fire Ship").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(3).ToString();
+        dockTransform.Find("TShip").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(5).ToString();
     }
 
 

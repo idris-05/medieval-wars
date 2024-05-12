@@ -48,6 +48,11 @@ public class CO : MonoBehaviour
         return UnitUtil.unitCost[unit.unitIndex];
     }
 
+    public virtual float GetUnitCost(int unitIndex)
+    {
+        return UnitUtil.unitCost[unitIndex];
+    }
+
 
     public float GetTheBarLimitAddition()
     {

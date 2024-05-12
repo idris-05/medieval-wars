@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UnitUtil : MonoBehaviour
@@ -20,17 +21,17 @@ public class UnitUtil : MonoBehaviour
 
     public enum UnitName
     {
-        CARAVAN,
-        ARCHERS,
-        CARRACK,
-        FIRESHIP,
-        INFANTRY,
-        TSHIP,
-        SPEARMAN,
-        RCAVALRY,
-        BANDIT,
-        CATAPULT,
-        CAVALRY,
+        CARAVAN,  //0
+        ARCHERS, //1
+        CARRACK, //2
+        FIRESHIP, //3
+        INFANTRY, //4
+        TSHIP, //5
+        SPEARMAN, //6
+        RCAVALRY, //7
+        BANDIT, //8
+        CATAPULT, //9
+        CAVALRY, //10
     }
 
     public enum AnimationState
@@ -85,11 +86,23 @@ public class UnitUtil : MonoBehaviour
     };
 
 
-    public static float[] unitCost = { 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000 };
+    public static float[] unitCost = {
+        5000,  // Caravan
+        6000,  // Archers
+        28000,  // Carrack
+        18000,  // Fireship
+        1000,  // Infantry
+        12000,  // T-ship
+        3000,  // SpearMan
+        16000,  // R-cavalry
+        4000,  // Bandit
+        15000,  // Catapulte
+        7000   // Cavalry
+    };
 
-    public readonly static float[] AdditionInYPpositionForEnglishUnits = { 0.6125f , 0.625f , 0.6218f  ,  0.625f ,  0.618f , 0.618f , 0.6214f , 0.6214f , 0.6309f , 0.625f , 0.6337f };
-    
-    public readonly static float[] AdditionInYPpositionForFrenshUnits = { 0.6129651f , 0.622f , 0.632f  ,  0.6380554f ,  0.6230013f , 0.655f , 0.6179832f , 0.6214f , 0.587934f , 0.6430734f , 0.6337f };
+    public readonly static float[] AdditionInYPpositionForEnglishUnits = { 0.6125f, 0.625f, 0.6218f, 0.625f, 0.618f, 0.618f, 0.6214f, 0.6214f, 0.6309f, 0.625f, 0.6337f };
+
+    public readonly static float[] AdditionInYPpositionForFrenshUnits = { 0.6129651f, 0.622f, 0.632f, 0.6380554f, 0.6230013f, 0.655f, 0.6179832f, 0.6214f, 0.587934f, 0.6430734f, 0.6337f };
 
     //     CARAVAN,
     //     ARCHERS,
@@ -142,5 +155,17 @@ public class UnitUtil : MonoBehaviour
 
 
 
+    public static string[] unitReport = {
+    "Caravan",
+    "Archers",
+    "Carrack",
+    "Fire Ship",
+    "Infantry",
+    "T-Ship",
+    "SpearMan",
+    "R-Cavalry",
+    "Bandit",
+    "Catapult",
+    "Cavalry" };
 
 }

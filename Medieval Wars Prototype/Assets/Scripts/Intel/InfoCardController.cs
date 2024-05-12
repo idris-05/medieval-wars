@@ -34,6 +34,8 @@ public class InfoCardController : MonoBehaviour
     public CanvasGroup canvasGroup;
     public RectTransform canvasRect;
 
+    public GameObject TerrainCard;
+    public GameObject UnitCard;
 
     // Card dimensions
     public float cardHeight;
@@ -83,7 +85,7 @@ public class InfoCardController : MonoBehaviour
     int TShipIndex = 4;
 
 
-
+    #region Terrain
     [SerializeField] private GameObject TerrainInformationSprite;
     [SerializeField] private GameObject TerrainInformationText;
     [SerializeField] private GameObject TerrainInformationFillStars;
@@ -94,6 +96,21 @@ public class InfoCardController : MonoBehaviour
     [SerializeField] private GameObject TerrainMoveCostSea;
     [SerializeField] private GameObject TerrainMoveCostTShip;
     [SerializeField] private GameObject TerrainReport;
+    #endregion
+
+
+    #region Unit
+
+    [SerializeField] private GameObject UnitInformationSprite;
+    [SerializeField] private GameObject UnitInformationTitel;
+    [SerializeField] private GameObject UnitPropertiesRation;
+    [SerializeField] private GameObject UnitPropertiesLineOfSight;
+    [SerializeField] private GameObject UnitPropertiesAttackRange;
+    [SerializeField] private GameObject UnitPropertiesMoveRange;
+    [SerializeField] private GameObject UnitReport;
+
+    #endregion
+
 
 
 
@@ -121,6 +138,7 @@ public class InfoCardController : MonoBehaviour
     public void UpdateTerrainBIGIntel(Terrain terrain, Vector3 mousePositionWhenClickOnTerrain)
     {
         if (!IsTheCardActivated) ActivateCard();
+        TerrainCard.SetActive(true);
 
         TerrainInformationSprite.GetComponent<UnityEngine.UI.Image>().sprite = terrain.spriteRenderer.sprite;
         TerrainInformationText.GetComponent<Text>().text = terrain.terrainName.ToString();
@@ -138,7 +156,23 @@ public class InfoCardController : MonoBehaviour
         AnimateTheCardMouvement(mousePositionWhenClickOnTerrain);
     }
 
+    public void UpdateUnitBIGIntel(Unit unit, Vector3 mousePositionWhenClickOnTerrain)
+    {
+        if (!IsTheCardActivated) ActivateCard();
+        UnitCard.SetActive(true);
 
+        UnitInformationSprite.GetComponent<UnityEngine.UI.Image>().sprite = unit.unitView.spriteRenderer.sprite;
+        UnitInformationTitel.GetComponent<Text>().text = unit.unitName.ToString();
+        UnitPropertiesRation.GetComponent<Text>().text = unit.ration.ToString();
+        UnitPropertiesLineOfSight.GetComponent<Text>().text = unit.lineOfSight.ToString();
+        UnitPropertiesAttackRange.GetComponent<Text>().text = unit is UnitAttack ? (unit as UnitAttack).attackRange.ToString() : "0";
+        UnitPropertiesMoveRange.GetComponent<Text>().text = unit.moveRange.ToString();
+
+        UnitReport.GetComponent<Text>().text = UnitUtil.unitReport[unit.unitIndex];
+
+
+        AnimateTheCardMouvement(mousePositionWhenClickOnTerrain);
+    }
 
 
 
@@ -244,6 +278,9 @@ public class InfoCardController : MonoBehaviour
         canvasGroup.alpha = 0f;
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
+
+        TerrainCard.SetActive(false);
+        UnitCard.SetActive(false);
     }
 
 
