@@ -365,7 +365,7 @@ public class GameController : MonoBehaviour
         //     load();
         // }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (cellsPath.Count > 0)
             {

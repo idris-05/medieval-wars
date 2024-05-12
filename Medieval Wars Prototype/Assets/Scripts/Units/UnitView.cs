@@ -69,9 +69,9 @@ public class UnitView : MonoBehaviour
             Debug.Log("left click on unit");
             UnitController.Instance.OnUnitSelection(unit); // singleton
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            InfoCardController.Instance.UpdateUnitBIGIntel(this.unit, Input.mousePosition);
+            InfoCardController.Instance.UpdateTerrainBIGIntel(unit.occupiedCell.occupantTerrain, Input.mousePosition);
         }
 
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -37,10 +38,6 @@ public class InfoCardController : MonoBehaviour
     public GameObject TerrainCard;
     public GameObject UnitCard;
 
-    // Card dimensions
-    public float cardHeight;
-    public float cardWidth;
-
 
     // x coordinate of the card position in both right and left sides
     public float XCardRightPosition;
@@ -73,9 +70,15 @@ public class InfoCardController : MonoBehaviour
     public float AppearAnimationDuration; // Adjust as needed
 
     public bool IsTheCardWillDisplayedInRightSide;
-    public bool SideHasChanged;
     public bool IsAnimating;
     public bool IsTheCardActivated;
+
+    private Vector3 mousePosition;
+    private int terrainRow;
+    private int terrainColumn;
+
+    public int numberOfQKeyclicked = 0;
+
 
 
     int infantryIndex = 0;
@@ -125,11 +128,25 @@ public class InfoCardController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
+        if (IsAnimating) return;
 
-            StartCoroutine(AnimateCardWhenItHides());
-            // DesActivateCard();
+        switch (numberOfQKeyclicked)
+        {
+            case 0: return;
+            case 1:
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    Unit unitAtTheSamePositionWithTheTerrain = MapGrid.Instance.grid[terrainRow, terrainColumn].occupantUnit;
+
+                    if (unitAtTheSamePositionWithTheTerrain != null) UpdateUnitBIGIntel(unitAtTheSamePositionWithTheTerrain, mousePosition);
+                    else StartCoroutine(AnimateCardWhenItHides());
+                }
+                return;
+            case 2:
+                if (Input.GetKeyDown(KeyCode.Q)) StartCoroutine(AnimateCardWhenItHides());
+                return;
+            default:
+                return;
         }
     }
 
@@ -138,7 +155,13 @@ public class InfoCardController : MonoBehaviour
     public void UpdateTerrainBIGIntel(Terrain terrain, Vector3 mousePositionWhenClickOnTerrain)
     {
         if (!IsTheCardActivated) ActivateCard();
+
+        mousePosition = mousePositionWhenClickOnTerrain;
+        terrainRow = terrain.row;
+        terrainColumn = terrain.col;
+
         TerrainCard.SetActive(true);
+        UnitCard.SetActive(false);
 
         TerrainInformationSprite.GetComponent<UnityEngine.UI.Image>().sprite = terrain.spriteRenderer.sprite;
         TerrainInformationText.GetComponent<Text>().text = terrain.terrainName.ToString();
@@ -154,12 +177,14 @@ public class InfoCardController : MonoBehaviour
         TerrainReport.GetComponent<Text>().text = TerrainsUtils.ReportTerrain[terrain.TerrainIndex];
 
         AnimateTheCardMouvement(mousePositionWhenClickOnTerrain);
+        numberOfQKeyclicked = 1;
     }
 
     public void UpdateUnitBIGIntel(Unit unit, Vector3 mousePositionWhenClickOnTerrain)
     {
-        if (!IsTheCardActivated) ActivateCard();
+        // if (!IsTheCardActivated) ActivateCard();
         UnitCard.SetActive(true);
+        TerrainCard.SetActive(false);
 
         UnitInformationSprite.GetComponent<UnityEngine.UI.Image>().sprite = unit.unitView.spriteRenderer.sprite;
         UnitInformationTitel.GetComponent<Text>().text = unit.unitName.ToString();
@@ -171,7 +196,8 @@ public class InfoCardController : MonoBehaviour
         UnitReport.GetComponent<Text>().text = UnitUtil.unitReport[unit.unitIndex];
 
 
-        AnimateTheCardMouvement(mousePositionWhenClickOnTerrain);
+        // AnimateTheCardMouvement(mousePositionWhenClickOnTerrain);
+        numberOfQKeyclicked = 2;
     }
 
 
@@ -222,7 +248,7 @@ public class InfoCardController : MonoBehaviour
 
         card.transform.localPosition = targetPosition;
         IsAnimating = false;
-
+        // TerrainCardIsActivated = true;
     }
 
 
@@ -281,6 +307,7 @@ public class InfoCardController : MonoBehaviour
 
         TerrainCard.SetActive(false);
         UnitCard.SetActive(false);
+        numberOfQKeyclicked = 0;
     }
 
 

@@ -2398,7 +2398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &246574289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6559,7 +6559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &599403856
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24913,8 +24913,8 @@ MonoBehaviour:
   card: {fileID: 1379587732}
   canvasGroup: {fileID: 1379587735}
   canvasRect: {fileID: 1379587733}
-  cardHeight: 960
-  cardWidth: 640
+  TerrainCard: {fileID: 599403855}
+  UnitCard: {fileID: 246574288}
   XCardRightPosition: 560
   XCardLeftPosition: -560
   YcardPosition: 0
@@ -24924,9 +24924,9 @@ MonoBehaviour:
   HideAnimationDuration: 0.35
   AppearAnimationDuration: 0.55
   IsTheCardWillDisplayedInRightSide: 0
-  SideHasChanged: 0
   IsAnimating: 0
   IsTheCardActivated: 0
+  numberOfQKeyclicked: 0
   TerrainInformationSprite: {fileID: 1370858828}
   TerrainInformationText: {fileID: 216981956}
   TerrainInformationFillStars: {fileID: 589888939}

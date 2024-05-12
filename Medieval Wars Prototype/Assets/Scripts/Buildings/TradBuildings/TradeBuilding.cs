@@ -56,7 +56,7 @@ public class TradeBuilding : Building
 
     public void OnMouseDown()
     {
-        if (this.playerOwner == null) return ;
+        if (this.playerOwner == null) return;
         TradeBuildingsController.Instance.ActivateOneTradeBuilding(this);
         TradeBuildingsController.Instance.currentTradeBuilding = this;
     }
@@ -64,6 +64,10 @@ public class TradeBuilding : Building
     public void OnMouseOver()
     {
         MiniIntelController.Instance.HandleMINIIntel(MapGrid.Instance.grid[row, col]);
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            InfoCardController.Instance.UpdateTerrainBIGIntel(this, Input.mousePosition);
+        }
     }
 
 
