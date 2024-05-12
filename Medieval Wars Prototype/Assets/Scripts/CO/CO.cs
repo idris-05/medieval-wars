@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CO : MonoBehaviour
 {
@@ -77,6 +78,24 @@ public class CO : MonoBehaviour
     {
         return COUtil.CosPowerBarLimit[(int)coName] * GetTheBarLimitAddition();
     }
+
+    public void UpdateCoPowerBarView()
+    {
+        GameObject fill1 = CoCardsController.Instance.CO1Fill;
+        GameObject fill2 = CoCardsController.Instance.CO2Fill;
+
+        // Calculate the fill amount based on BarLevel
+        float targetFillAmount = (1 - 0.41f) / GameController.Instance.player1.Co.BarLevelMustHaveToActivateCoPower * GameController.Instance.player1.Co.BarLevel + 0.41f;
+        fill1.GetComponent<Image>().fillAmount = targetFillAmount;
+
+        targetFillAmount = (1 - 0.41f) / GameController.Instance.player2.Co.BarLevelMustHaveToActivateCoPower * GameController.Instance.player2.Co.BarLevel + 0.41f;
+        fill2.GetComponent<Image>().fillAmount = targetFillAmount;
+    }
+
+    // void Update()
+    // {
+    //     UpdateCoPowerBarView();
+    // }
 
 
     public virtual void ActivateDailyPower()

@@ -211,6 +211,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
             playerOwner.Co.CanActivateSuperPower = true;
         }
 
+        playerOwner.Co.UpdateCoPowerBarView();
+
     }
 
 

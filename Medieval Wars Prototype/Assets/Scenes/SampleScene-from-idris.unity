@@ -5966,7 +5966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.4868, y: -12.8024}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 594.9735, y: 293.6048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &493667784
@@ -14349,7 +14349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.4868, y: -12.8024}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 594.9735, y: 293.6048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818631128
@@ -14377,7 +14377,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.41
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -14795,7 +14795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.4868, y: -12.8024}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 594.9735, y: 293.6048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &894075599
@@ -29541,7 +29541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -148, y: 13.1019}
+  m_AnchoredPosition: {x: -148, y: 28}
   m_SizeDelta: {x: -99.6494, y: 73.7963}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2101318739
@@ -29736,7 +29736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.4868, y: -12.8024}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 594.9735, y: 293.6048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106195971
@@ -29764,7 +29764,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.41
   m_FillClockwise: 1
   m_FillOrigin: 1
   m_UseSpriteMesh: 0

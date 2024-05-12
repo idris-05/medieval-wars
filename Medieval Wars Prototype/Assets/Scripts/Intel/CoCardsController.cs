@@ -48,8 +48,8 @@ public class CoCardsController : MonoBehaviour
     Vector3 mousePos;
 
 
-    [SerializeField] private GameObject CO1Fill;
-    [SerializeField] private GameObject CO2Fill;
+    [SerializeField] public GameObject CO1Fill;
+    [SerializeField] public GameObject CO2Fill;
 
 
     void Start()
