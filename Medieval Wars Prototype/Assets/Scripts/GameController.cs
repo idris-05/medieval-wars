@@ -369,14 +369,15 @@ public class GameController : MonoBehaviour
         {
             if (cellsPath.Count > 0)
             {
-                if (cellsPath[cellsPath.Count - 1].occupantUnit is UnitAttack) // added this to forbid moving to the same cell as ur ally attacking unit
-                {
-                    Debug.Log("Can't move on ally UnitAttack");
-                }
-                else
-                {
+                // if (cellsPath[cellsPath.Count - 1].occupantUnit is UnitAttack) // added this to forbid moving to the same cell as ur ally attacking unit
+                // {
+                //     Debug.Log("Can't move on ally UnitAttack");
+                // }
+                // else
+                // {
+                if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE)
                     GridCellController.Instance.OnCellSelection(cellsPath[cellsPath.Count - 1]);
-                }
+                // }
             }
         }
 
