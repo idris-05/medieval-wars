@@ -38,6 +38,9 @@ public class UnitView : MonoBehaviour
                                           // 1 : on the right side of the unit
                                           // 2 : on the left side of the unit
 
+    public SupplyLackApple SupplyLackApple;
+
+
 
     void OnMouseEnter()
     {
@@ -425,6 +428,42 @@ public class UnitView : MonoBehaviour
         return new Vector3(0, 0, 0);
     }
 
+    public IEnumerator PlaySpawnAnimationWhenBought()
+    {
+
+        GameObject buySpawnEffect = Instantiate(UserInterfaceUtil.Instance.BuySpawnEffect, new Vector3(-16 + this.unit.col + 0.5f, 9 - this.unit.row - 0.4f, -1), Quaternion.identity);
+
+        yield return new WaitForSeconds(0.67f);
+
+        Destroy(buySpawnEffect.gameObject);
+
+        yield break;
+    }
+
+    public IEnumerator PlaySRecieveRationSupplyAnimation()
+    {
+
+        GameObject recieveSupplyIconPrefab = Instantiate(UserInterfaceUtil.Instance.RecieveSupplyIconPrefab, new Vector3(-16 + this.unit.col + 0.8f, 9 - this.unit.row , -1), Quaternion.identity);
+
+        yield return new WaitForSeconds(2);
+
+        Destroy(recieveSupplyIconPrefab.gameObject);
+
+        yield break;
+    }
 
 
+    public IEnumerator PlaySRecieveHealAnimation()
+    {
+
+        GameObject recieveHealEffectPrefab = Instantiate(UserInterfaceUtil.Instance.RecieveHealEffectPrefab, new Vector3(-16 + this.unit.col + 0.5f, 9 - this.unit.row -0.5f, -1), Quaternion.identity);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Destroy(recieveHealEffectPrefab.gameObject);
+
+        yield break;
+    }
+
+  
 }

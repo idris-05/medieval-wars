@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Unit : MonoBehaviour       // this class will not be instantiated , maybe abstract ?
 {
@@ -55,6 +56,22 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     //! n9dro nzido paramter movecost 
     //! YCONSOMI 3LA 7SAB LI MCHA 3LIHOUM ( sema lazem best path )
+
+
+    private void Update()
+    {
+        if (this.ration <= 20 && this.unitView.SupplyLackApple == null && this.healthPoints > 0 )
+        {
+            this.unitView.SupplyLackApple = Instantiate(UserInterfaceUtil.Instance.SupplyLackApplePrefab, new Vector3(-16 + this.col + 0.5f, 9 - this.row - 0.5f, -1), Quaternion.identity);
+            this.unitView.SupplyLackApple.unit = this;
+        }
+
+        if (this.ration > 20 && this.unitView.SupplyLackApple != null)
+        {
+            Destroy(this.unitView.SupplyLackApple.gameObject);
+        }
+    }
+
     public void UpdateAttributsAfterMoving(int row, int col)
     {
         occupiedCell.occupantUnit = null; // remove the unit from the old grid cell
@@ -90,6 +107,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public IEnumerator Die()
     {
         // w occupant Unit t3 cell li kan fiha ? wla w7dha tweli null , l3fayes li kima hadi wchnohom kamel
+        Destroy(this.unitView.SupplyLackApple.gameObject);
         this.unitView.ChangeAnimationState(UnitUtil.AnimationState.DIE_ANIMATION);
         yield return new WaitForSeconds(1.6f);
         Destroy(this.unitView.HealthIcon.gameObject);
@@ -111,6 +129,9 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public void Heal()
     {
+        StartCoroutine(this.unitView.PlaySRecieveHealAnimation());
+        this.unitView.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[GameUtil.GetHPToDisplayFromRealHP(this.healthPoints)];
+
         healthPoints += 20;  //!! valeur berk , omb3d nsgmohom 
         if (this.healthPoints > 100)
         {
@@ -161,6 +182,23 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     {
         // building.remainningPointsToCapture = building.remainningPointsToCapture - healthPoints;
         building.remainningPointsToCapture -= (int)(healthPoints * playerOwner.Co.GetCaputeBoost(this));
+
+        // animate the capture
+
+        // 0 : white
+        // 1 : blue
+        // 2 : red
+
+        if (this.playerOwner == GameController.Instance.player1) { 
+            StartCoroutine(building.PlayCaptureAnimation(1));
+            building.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[1];
+        }
+
+        if (this.playerOwner == GameController.Instance.player2){
+            StartCoroutine(building.PlayCaptureAnimation(2));
+            building.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[2];
+        }
+
         if (building.remainningPointsToCapture <= 0) building.GetCaptured(this);
     }
 

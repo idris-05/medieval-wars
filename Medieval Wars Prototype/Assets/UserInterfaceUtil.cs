@@ -44,6 +44,27 @@ public class UserInterfaceUtil : MonoBehaviour
 
     public GameObject RedDaggerPrefab;
 
+    public List<Sprite> FlagSprites;
+
+    public GameObject FlagPrefab;
+
+    public GameObject FlagHolder;
+
+    public GameObject CaptureEffect;
+
+    public GameObject BuySpawnEffect;
+
+    public GameObject RecieveSupplyIconPrefab;
+
+    public GameObject RecieveHealEffectPrefab;
+
+    public SupplyLackApple SupplyLackApplePrefab;
+
+    // 0 : white
+    // 1 : blue
+    // 2 : red
+
+
     // public GameObject HighlightLightPrefab;
 
     // public Light2D HighlightLight;

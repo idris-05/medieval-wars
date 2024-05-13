@@ -1,4 +1,7 @@
+using System.Collections;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Building : Terrain
 {
@@ -8,11 +11,35 @@ public class Building : Terrain
     public int remainningPointsToCapture;
     public int MaxRemainningPointsToCapture;
 
+    public GameObject captureFlag;
+
+    // 0 : white
+    // 1 : blue
+    // 2 : red
+
+    private void Start()
+    {
+        this.captureFlag = Instantiate(UserInterfaceUtil.Instance.FlagPrefab, new Vector3(-16 + this.col + 0.5f - 0.3f, 9 - this.row - 0.5f  - 0.5f + 0.1f, -1), Quaternion.identity , UserInterfaceUtil.Instance.FlagHolder.transform);
+
+        if ( this.playerOwner == null )                            this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[0];
+        if ( this.playerOwner == GameController.Instance.player1 ) this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[1];
+        if ( this.playerOwner == GameController.Instance.player2 ) this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[2];
+    }
 
     void Update()
     {
-        if (remainningPointsToCapture == MaxRemainningPointsToCapture) return;
-        if (MapGrid.Instance.grid[row, col].occupantUnit == null) ResetRemainingPointsToCapture();
+        // if (remainningPointsToCapture == MaxRemainningPointsToCapture) return;
+        
+
+        if (MapGrid.Instance.grid[row, col].occupantUnit == null) 
+        { 
+            ResetRemainingPointsToCapture();
+            if ( playerOwner == null )                            captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[0];
+            if ( playerOwner == GameController.Instance.player1 ) captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[1];
+            if ( playerOwner == GameController.Instance.player2 ) captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[2];
+        }
+
+
     }
 
     public void GetCaptured(Unit unit)
@@ -96,6 +123,23 @@ public class Building : Terrain
         // this.color = color; // r7 yji sprite w7do5er g3 ,3ndo la couleur ljdida .
     }
 
+    public IEnumerator PlayCaptureAnimation(int capturingColor)
+    {
+        // 0 : white
+        // 1 : blue
+        // 2 : red
+
+        GameObject captureEffect = Instantiate(UserInterfaceUtil.Instance.CaptureEffect, new Vector3(-16 + this.col + 0.5f, 9 - this.row - 0.4f , -1), Quaternion.identity);
+
+        if ( capturingColor == 1 ) captureEffect.GetComponent<SpriteRenderer>().color = Color.blue;
+        if ( capturingColor == 2 ) captureEffect.GetComponent<SpriteRenderer>().color = Color.red;
+
+        yield return new WaitForSeconds(0.67f);
+
+        Destroy(captureEffect.gameObject);
+
+        yield break;
+    }
 
 
 

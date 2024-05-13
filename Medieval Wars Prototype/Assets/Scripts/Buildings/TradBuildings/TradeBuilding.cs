@@ -48,6 +48,7 @@ public class TradeBuilding : Building
         player.availableFunds -= (int)player.Co.GetUnitCost(unit.unitIndex);
         // GameController.Instance.SpawnUnit(player.playerNumber, row, col, unit);
         Unit tradedUnit = GameController.Instance.SpawnUnit(GameController.Instance.currentPlayerInControl, row, col, unit);
+        StartCoroutine(tradedUnit.unitView.PlaySpawnAnimationWhenBought());
         tradedUnit.TransitionToNumbState();
     }
 
