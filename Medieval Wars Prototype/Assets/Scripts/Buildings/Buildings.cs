@@ -8,6 +8,13 @@ public class Building : Terrain
     public int remainningPointsToCapture;
     public int MaxRemainningPointsToCapture;
 
+
+    void Update()
+    {
+        if (remainningPointsToCapture == MaxRemainningPointsToCapture) return;
+        if (MapGrid.Instance.grid[row, col].occupantUnit == null) ResetRemainingPointsToCapture();
+    }
+
     public void GetCaptured(Unit unit)
     {
         Debug.Log("building is now owned by the player :  " + unit.playerOwner.ToString());

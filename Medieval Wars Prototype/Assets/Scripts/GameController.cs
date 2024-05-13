@@ -369,14 +369,10 @@ public class GameController : MonoBehaviour
         {
             if (cellsPath.Count > 0)
             {
-                // if (cellsPath[cellsPath.Count - 1].occupantUnit is UnitAttack) // added this to forbid moving to the same cell as ur ally attacking unit
-                // {
-                //     Debug.Log("Can't move on ally UnitAttack");
-                // }
-                // else
-                // {
+                // this verification to avoid the case where the player can drop a unit clicking E (the position where it's droped is totally wrong) .
                 if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE)
                 {
+                    // if there is a transporter unit that already has loaded another unit .
                     if (cellsPath[cellsPath.Count - 1].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit != null) return;
                     GridCellController.Instance.OnCellSelection(cellsPath[cellsPath.Count - 1]);
                 }
@@ -453,9 +449,13 @@ public class GameController : MonoBehaviour
     // this function is used to end the turn of the current player
     private void EndTurn()
     {
+        if (UnitController.Instance.CurrentActionStateBasedOnClickedButton != UnitUtil.ActionToDoWhenButtonIsClicked.NONE) return;
         //! KI YEKLIKI 3lA UNIT NA7OULOU BOUTON T3 END TURN
         //! WE DO NOT HAVE TO DO MANY THINGS HERE BECAUSE WE WILL NOT LET THE PLAYER END HIS TURN UNLESS HE IS IN THE "NONE" STATE
         // currentPlayerInControl.UpdatePlayerStats(); // normalement tessra f end day mchi f turn ????? .
+
+
+        CancelScript.Instance.OnCancelButtonClicked();
 
         ResetAllCellsAttributsInEndTurn();
         ResetAllUnitsAttributsInEndTurn();

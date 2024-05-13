@@ -183,6 +183,8 @@ public class UnitView : MonoBehaviour
             (MapGrid.Instance.grid[row, column].occupantUnit as UnitTransport).Load(unit);
         }
 
+        if (unit.numbState == false) UnitController.Instance.OnUnitSelection(unit);
+
     }
 
     private UnitUtil.AnimationState WhichMoveAnimationToPlayWhenMoving(Vector3 targetPosition)
