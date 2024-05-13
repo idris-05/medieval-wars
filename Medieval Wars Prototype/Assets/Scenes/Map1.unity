@@ -28424,6 +28424,8 @@ MonoBehaviour:
   CO2Fill: {fileID: 2106195969}
   CO1: {fileID: 2094096460}
   CO2: {fileID: 85251854}
+  CO1Funds: {fileID: 911418849}
+  CO2Funds: {fileID: 178151423}
 --- !u!225 &1600021634
 CanvasGroup:
   m_ObjectHideFlags: 0

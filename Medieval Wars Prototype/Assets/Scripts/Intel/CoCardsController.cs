@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CoCardsController : MonoBehaviour
 {
@@ -55,6 +56,9 @@ public class CoCardsController : MonoBehaviour
     public GameObject CO1;
     public GameObject CO2;
 
+    public GameObject CO1Funds;
+    public GameObject CO2Funds;
+
 
     void Start()
     {
@@ -65,6 +69,8 @@ public class CoCardsController : MonoBehaviour
     {
 
         if (!TheCoCardIsLocked && !IsTheCardActivated) ActivateCard();
+
+        UpdateCOFunds();
         // Get the mouse position in screen coordinates
         mousePos = Input.mousePosition;
 
@@ -191,5 +197,11 @@ public class CoCardsController : MonoBehaviour
         TheCoCardIsLocked = false;
     }
 
+
+    public void UpdateCOFunds()
+    {
+        CO1Funds.GetComponent<Text>().text = GameController.Instance.player1.availableFunds.ToString();
+        CO2Funds.GetComponent<Text>().text = GameController.Instance.player2.availableFunds.ToString();
+    }
 
 }
