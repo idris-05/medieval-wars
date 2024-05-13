@@ -70,7 +70,6 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
         unitView.ResetHighlightedUnit();
         
-
         // indirect units can't attack after moving .
         if (this is UnitAttack unitAttack && unitAttack.minAttackRange > 1) unitAttack.hasAttacked = true;
     }
@@ -96,9 +95,15 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         Destroy(this.unitView.HealthIcon.gameObject);
         this.unitView.ChangeAnimationState(UnitUtil.AnimationState.GROUND_EXPLOSION);
         yield return new WaitForSeconds(1);
-        playerOwner.unitList.Remove(this);
+        this.playerOwner.unitList.Remove(this);
         this.occupiedCell.occupantUnit = null;
+
+        Player playerOwner = this.playerOwner;
+        
         Destroy(this.gameObject);
+
+        if (playerOwner.unitList.Count == 0) GameController.Instance.EndGame(playerOwner == GameController.Instance.player1 ? GameController.Instance.player2 : GameController.Instance.player1);
+        
         yield break;
     }
 
