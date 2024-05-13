@@ -107,37 +107,8 @@ public class GameController : MonoBehaviour
 
 
         arrowSystem = FindAnyObjectByType<ArrowSystem>();
-        SpawnUnit(player1, 3, 6, EnglishUnitPrefabsList[0]);
-        SpawnUnit(player1, 2, 4, EnglishUnitPrefabsList[1]);
-        SpawnUnit(player1, 15, 10, EnglishUnitPrefabsList[2]);
-        SpawnUnit(player1, 12, 12, EnglishUnitPrefabsList[3]);
-        // SpawnUnit(player1, 7, 21, EnglishUnitPrefabsList[4]);
-        SpawnUnit(player1, 6, 6, EnglishUnitPrefabsList[4]);
-        SpawnUnit(player1, 4, 5, EnglishUnitPrefabsList[4]);
-        //SpawnUnit(player1, 14, 1, EnglishUnitPrefabsList[5]);
-        SpawnUnit(player1, 6, 2, EnglishUnitPrefabsList[6]);
-        // SpawnUnit(player1, 7, 0, EnglishUnitPrefabsList[0]);
-        //  SpawnUnit(player1, 4, 1, EnglishUnitPrefabsList[8]);
-        SpawnUnit(player1, 7, 9, EnglishUnitPrefabsList[9]);
-        //SpawnUnit(player1, 11, 0, EnglishUnitPrefabsList[4]);
-
-
-
-        SpawnUnit(player2, 4, 25, FrenchUnitPrefabsList[0]);
-        SpawnUnit(player2, 8, 29, FrenchUnitPrefabsList[1]);
-        SpawnUnit(player2, 15, 23, FrenchUnitPrefabsList[2]);
-        //SpawnUnit(player2, 13 ,4, FrenchUnitPrefabsList[3]);
-        SpawnUnit(player2, 6, 26, FrenchUnitPrefabsList[4]);
-        SpawnUnit(player2, 8, 24, FrenchUnitPrefabsList[4]);
-        // SpawnUnit(player2, 7, 1, FrenchUnitPrefabsList[4]);
-        //SpawnUnit(player2, 14, 4, FrenchUnitPrefabsList[5]);
-        SpawnUnit(player2, 5, 23, FrenchUnitPrefabsList[6]);
-        // SpawnUnit(player1, 7, 0, FrenchUnitPrefabsList[0]);
-        //SpawnUnit(player2, 4, 4, FrenchUnitPrefabsList[8]);
-        SpawnUnit(player2, 8, 19, FrenchUnitPrefabsList[9]);
-        //SpawnUnit(player1, 6, 1, FrenchUnitPrefabsList[10]);
-        // SpawnUnit(player1, 11, 0, FrenchUnitPrefabsList[0]);
-
+        SpawnUnitsAndBuildings.Instance.SpawnUnitsForMAP1();
+        SpawnUnitsAndBuildings.Instance.CorrectBuildingsPlayerOwner();
     }
 
 

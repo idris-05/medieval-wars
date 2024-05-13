@@ -75,9 +75,12 @@ public class Building : Terrain
 
     public void AffetcBuildingToPlayer(Player player)
     {
-        Debug.Log("building wlaa ta3 palyer number  " + GameController.Instance.currentPlayerInControl.ToString());
         if (playerOwner) playerOwner.RemoveBuilding(this);
+
         playerOwner = player;
+
+        this.spriteRenderer.sprite = SpawnUnitsAndBuildings.Instance.GetNewBuildingSprite(player, this);
+
         player.AddBuilding(this);
     }
 
