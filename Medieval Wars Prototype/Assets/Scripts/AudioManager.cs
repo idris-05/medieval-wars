@@ -1,13 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System.Data.Common;
 // using Unity.VisualScripting;
 using UnityEngine.Audio;
-using Unity.Mathematics;
-using UnityEngine.Accessibility;
 
 public class AudioManager : MonoBehaviour
 {
@@ -23,15 +17,17 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         //Load User's last Music Volume change:
-        if (!PlayerPrefs.HasKey("musicVolume"))
+        if (!PlayerPrefs.HasKey("musicVolume") && !PlayerPrefs.HasKey("ONButton") && !PlayerPrefs.HasKey("OFFButton"))
         {
             Save(0.35f);
+            PlayerPrefs.SetInt("ONButton", 1);
+            PlayerPrefs.SetInt("OFFButton", 0);
         }
         Load();
     }
 
     //Change MusicVolume:
-     public void SetMusicVolume()
+    public void SetMusicVolume()
     {
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(volumeSlider.value) * 20);
         Save(volumeSlider.value);
@@ -49,6 +45,18 @@ public class AudioManager : MonoBehaviour
     public void Load()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        if (PlayerPrefs.GetInt("ONNButton") == 1)
+        {
+            isMuted = false;
+            ONButton.SetActive(true);
+            OFFButton.SetActive(false);
+        }
+        if (PlayerPrefs.GetInt("OFFButton") == 1)
+        {
+            isMuted = true;
+            ONButton.SetActive(false);
+            OFFButton.SetActive(true);
+        }
     }
 
     //Save the Player's volume change.
@@ -57,16 +65,20 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat("musicVolume", volumeValue);
     }
 
-    /*----------------------------------------------------------------*/
-
     public void SetMuted()
     {
         isMuted = true;
+        PlayerPrefs.SetInt("ONButton", 0);
+        PlayerPrefs.SetInt("OFFButton", 1);
+
     }
 
     public void SetunMuted()
     {
         isMuted = false;
+        PlayerPrefs.SetInt("ONButton", 1);
+        PlayerPrefs.SetInt("OFFButton", 0);
+
     }
 
     public void Playclick()
@@ -75,12 +87,6 @@ public class AudioManager : MonoBehaviour
         {
             clickSFX.Play();
         }
-    }
-
-    public void StartGame(){
-        SceneManager.LoadScene(1);
-
-
     }
 
 }

@@ -1,0 +1,1724 @@
+fileFormatVersion: 2
+guid: b0526368ec6656340a2894b4f6de813e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rainCatleSprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5656
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2322ca9f647f98449a38216902dfba24
+      internalID: 1185735633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_1
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 5656
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2196a71d3045de248b9b336f1f62d3e1
+      internalID: -540048008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_2
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 5656
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e271441865bd84cac784b8cec3942e
+      internalID: 2099356489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_3
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 5656
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4975763ce90c1642b999205aa3a1303
+      internalID: 402907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_4
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 5656
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053e89a54b0968d4e9d2f5bac4e5bb2f
+      internalID: 1911811854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5252
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0874947a8a7d0f943b9730e572c17d00
+      internalID: -1709998376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_6
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 5252
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792510fae4a225b46ba4f09ac361a24c
+      internalID: -1602937449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_7
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 5252
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff54f8a1862d4f14fa2ab09d12512856
+      internalID: 1718944657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_8
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 5252
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15cf372c955d5d74e89f82325bd3bee9
+      internalID: 1399458439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_9
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 5252
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2eddf554fa1e164e9c18fd3a56b61d7
+      internalID: -1599804134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4848
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12765de4d5136b438d8ca0a6dbf2d4b
+      internalID: 1820214292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_11
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 4848
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f090386e4396bee4e90daf389bdf3c9c
+      internalID: 240805928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_12
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 4848
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f8a3bac982c30a419b851ce03cca2da
+      internalID: 1935305580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_13
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 4848
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393725b9d77217f4881d1efc7ff8adf9
+      internalID: -1957833739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_14
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 4848
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c224cfed02dd2445ba9d6a1679b74b2
+      internalID: 77225372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4444
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 140dbe8c489d1814fa8d8446b041e4a1
+      internalID: -150242087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_16
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 4444
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee1f919289ac5448970ca6587911084
+      internalID: 56947847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_17
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 4444
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0c97bd42e980f439d2b8fe8a61ffd5
+      internalID: 1694581107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_18
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 4444
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340c229a83c5dc249b15f21a56183ad7
+      internalID: -822061049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_19
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 4444
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94392bdcd0c564a4d87434ce0bb4207c
+      internalID: -7940255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4040
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fa55d6672bfcd4e8a04fee6befac1a
+      internalID: -20348001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_21
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 4040
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1182a6eac5846c44fb3e9bee488db836
+      internalID: -1421994738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_22
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 4040
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0807c94fec8a43149ac7ba1cfe8ee284
+      internalID: -968849988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_23
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 4040
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159d19370dbb4fd44a9c103e4e3fc5e4
+      internalID: 1090829581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_24
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 4040
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47bbfe35afe6e54c8e7fd2a133dec42
+      internalID: 899678923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3636
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117fa4f9c8f0c6f418b734f87f24a557
+      internalID: -1450203109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_26
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 3636
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3665bf3f9fa399f4bb5e6488bdf8a521
+      internalID: -566950814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_27
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3636
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ef37a8c266623438d7f98f8e8f35de
+      internalID: -1060893345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_28
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 3636
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c1a7ab6facede47b14315a1dfab9f3
+      internalID: 1337167566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_29
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3636
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef12341833487784f90aec8f3387c782
+      internalID: 1989499717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3232
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb4d4a1ab99ce9449e8abe59fb11aa1
+      internalID: -816299472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_31
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 3232
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138a03760ab799647a02f9aeaf29d35d
+      internalID: 2039046140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_32
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3232
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd755e5dd7ace8041a24e1b76ddebf94
+      internalID: -988144678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_33
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 3232
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792868f761063df4f8a45b2ddea6cb31
+      internalID: -60681997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_34
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3232
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e83aadfd8f4d114fb7d4d8213a2c9ca
+      internalID: -162839658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2828
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b2360fe8138a345a0fa6690b4d7485
+      internalID: -418449957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_36
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2828
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ec47814eb0ee2468bde1e311ce5ea9
+      internalID: -1380693846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_37
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2828
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a3d7a7c040e844ea2ab139577b6ca2
+      internalID: -2122124579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_38
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2828
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f3c6d8c321baa429bf23a9904c550c
+      internalID: -1165141729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_39
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2828
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7b28193c0f98c419c274530a7fbbe4
+      internalID: 346780005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2424
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f6fd224ac8f3d24c8fd360519026a1e
+      internalID: 479513599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_41
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2424
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bedf1f583a37aef4e82949a5ef61fecf
+      internalID: -1178657964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_42
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2424
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c60eae9041713e468b41c26d070c0be
+      internalID: 1840367433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_43
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2424
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452996f385c84224ba4f3488723e9fc3
+      internalID: 511067324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_44
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2424
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8c4b3c2c21dbb4bb8ee0958a074d15
+      internalID: -330613545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2020
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27934d6d9746e624ca31611ebb7c3a9e
+      internalID: 576843716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_46
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2020
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d235bcda28f1a428f4a67af826888a
+      internalID: 903841099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_47
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2020
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2e1aa23b2690f41bb50d16c9750af9
+      internalID: -1968443598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_48
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2020
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b7ce37f4e8fef446a9d4b0204a91986
+      internalID: 317537345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_49
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2020
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21faaf7c1b444384384648de78389135
+      internalID: 271864683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1616
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f6e9c81c564184189666d34f14b5d6
+      internalID: 1660387809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_51
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1616
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43432c3e6dbca42498ac50d59b6d3ae5
+      internalID: -1149064610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_52
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1616
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 950b9f76f6d36c44f9310ac196ed8c93
+      internalID: -352675280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_53
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1616
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775fbb03be6273f4296d0087c1092e62
+      internalID: 366489046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_54
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1616
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b7c98e95e4e1745b391af8b3b34c7f
+      internalID: -2085207865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1212
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ede1dd32fc412048aec14b8d22a1b96
+      internalID: -1536619366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_56
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1212
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef101850e6fe5a48b09df024710a279
+      internalID: 1431607755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_57
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1212
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12a902717c65e240ac27ec420650f35
+      internalID: 1085854122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_58
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1212
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9dddd6e0cf6a14e986c48bae7f15df
+      internalID: -727559970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_59
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1212
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da8882ab0b49f949bde3b4463f3c651
+      internalID: 1619432856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 808
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a643d1c402fcb49956e6ab0fcd0590
+      internalID: 1406706828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_61
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 808
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0b79ba54d982e4893ec8d7c9223c64
+      internalID: 948084505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_62
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 808
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df3928067d8cb844b7a042a06dc1a41
+      internalID: -223081934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_63
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 808
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c33219c2a8d68489afc969d4d69df6
+      internalID: -135970525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_64
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 808
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ced3f3fb764fca4fbf0887bdbfe1a04
+      internalID: 1768445578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 404
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffed291a9f146a34d8df176af4a0da18
+      internalID: -1104578932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_66
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 404
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdcbb592425cd5d4a8068428a7c87021
+      internalID: 377829239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_67
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 404
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f7ae74b0cb5b1f45ae551c926cb705e
+      internalID: 1108801050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_68
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 404
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1190d60e042fadd4f98218c543c50445
+      internalID: 1283242778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_69
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 404
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0525bc99db2cc304ea99914bbf2d8d13
+      internalID: 1993054656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2c9fce4c0f6d34d97583bbb19da84c
+      internalID: 810809946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainCatleSprite_71
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 720
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1434c82d1187f03499917a1fa7eeaa2a
+      internalID: 1248094155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      rainCatleSprite_0: 1185735633
+      rainCatleSprite_1: -540048008
+      rainCatleSprite_10: 1820214292
+      rainCatleSprite_11: 240805928
+      rainCatleSprite_12: 1935305580
+      rainCatleSprite_13: -1957833739
+      rainCatleSprite_14: 77225372
+      rainCatleSprite_15: -150242087
+      rainCatleSprite_16: 56947847
+      rainCatleSprite_17: 1694581107
+      rainCatleSprite_18: -822061049
+      rainCatleSprite_19: -7940255
+      rainCatleSprite_2: 2099356489
+      rainCatleSprite_20: -20348001
+      rainCatleSprite_21: -1421994738
+      rainCatleSprite_22: -968849988
+      rainCatleSprite_23: 1090829581
+      rainCatleSprite_24: 899678923
+      rainCatleSprite_25: -1450203109
+      rainCatleSprite_26: -566950814
+      rainCatleSprite_27: -1060893345
+      rainCatleSprite_28: 1337167566
+      rainCatleSprite_29: 1989499717
+      rainCatleSprite_3: 402907
+      rainCatleSprite_30: -816299472
+      rainCatleSprite_31: 2039046140
+      rainCatleSprite_32: -988144678
+      rainCatleSprite_33: -60681997
+      rainCatleSprite_34: -162839658
+      rainCatleSprite_35: -418449957
+      rainCatleSprite_36: -1380693846
+      rainCatleSprite_37: -2122124579
+      rainCatleSprite_38: -1165141729
+      rainCatleSprite_39: 346780005
+      rainCatleSprite_4: 1911811854
+      rainCatleSprite_40: 479513599
+      rainCatleSprite_41: -1178657964
+      rainCatleSprite_42: 1840367433
+      rainCatleSprite_43: 511067324
+      rainCatleSprite_44: -330613545
+      rainCatleSprite_45: 576843716
+      rainCatleSprite_46: 903841099
+      rainCatleSprite_47: -1968443598
+      rainCatleSprite_48: 317537345
+      rainCatleSprite_49: 271864683
+      rainCatleSprite_5: -1709998376
+      rainCatleSprite_50: 1660387809
+      rainCatleSprite_51: -1149064610
+      rainCatleSprite_52: -352675280
+      rainCatleSprite_53: 366489046
+      rainCatleSprite_54: -2085207865
+      rainCatleSprite_55: -1536619366
+      rainCatleSprite_56: 1431607755
+      rainCatleSprite_57: 1085854122
+      rainCatleSprite_58: -727559970
+      rainCatleSprite_59: 1619432856
+      rainCatleSprite_6: -1602937449
+      rainCatleSprite_60: 1406706828
+      rainCatleSprite_61: 948084505
+      rainCatleSprite_62: -223081934
+      rainCatleSprite_63: -135970525
+      rainCatleSprite_64: 1768445578
+      rainCatleSprite_65: -1104578932
+      rainCatleSprite_66: 377829239
+      rainCatleSprite_67: 1108801050
+      rainCatleSprite_68: 1283242778
+      rainCatleSprite_69: 1993054656
+      rainCatleSprite_7: 1718944657
+      rainCatleSprite_70: 810809946
+      rainCatleSprite_71: 1248094155
+      rainCatleSprite_8: 1399458439
+      rainCatleSprite_9: -1599804134
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
