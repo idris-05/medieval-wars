@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6845883e0dd055c4d915381d137bb69c, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2874,6 +2874,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273547690}
   m_CullTransparentMesh: 1
+--- !u!1 &303530689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303530690}
+  m_Layer: 0
+  m_Name: FlagHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &303530690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303530689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &322461928
 GameObject:
   m_ObjectHideFlags: 0
@@ -6984,6 +7015,17 @@ MonoBehaviour:
   - {fileID: 6249424385124616150, guid: afbca295d1b35004a87adec8da862172, type: 3}
   GlowLinesThatExistOnTheScene: []
   RedDaggerPrefab: {fileID: 866456591013805216, guid: f3bf99f278a9b72469266011b2760165, type: 3}
+  FlagSprites:
+  - {fileID: 21300000, guid: 2c5b91d36eb8b99468fe67410a6c5842, type: 3}
+  - {fileID: 21300000, guid: 7639bb40b720d4b4b81f81c431790e98, type: 3}
+  - {fileID: 21300000, guid: bedf338cbfe251241bc5cedd0706a11e, type: 3}
+  FlagPrefab: {fileID: 1097444546240589881, guid: a0f1c4eba32a2314ea0414d8c7fbe125, type: 3}
+  FlagHolder: {fileID: 303530689}
+  CaptureEffect: {fileID: 1852637920556342819, guid: c9de16950dcb5c84492867bc4438f690, type: 3}
+  BuySpawnEffect: {fileID: 1852637920556342819, guid: 14527432b560b8d4fbed8aafa9e8fee6, type: 3}
+  RecieveSupplyIconPrefab: {fileID: 2871618518787079472, guid: c8d0d40268ce199418e5b2115ff76b83, type: 3}
+  RecieveHealEffectPrefab: {fileID: 4798594595734673737, guid: 03fe6ad3e2963d84c9f98539cd7f99c7, type: 3}
+  SupplyLackApplePrefab: {fileID: 1032605869672785251, guid: ee33e659186796248b7ba83e0fc6b3ad, type: 3}
 --- !u!4 &620215953
 Transform:
   m_ObjectHideFlags: 0
@@ -16051,6 +16093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPosition: {fileID: 934178361}
+  confiner: {fileID: 2046519194}
 --- !u!1 &950617694
 GameObject:
   m_ObjectHideFlags: 0
@@ -18082,7 +18125,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000bdb5eb8cad8cdbd40bcb73cf752ceaa2af03eff7916cf3b4c989408aa389bd8cb78b4fc607c9b4198bd82d751f49996717f258322f1147cf2bb8ef9a
+  m_ApplyToSortingLayers: 00000000bdb5eb8cad8cdbd40bcb73cf752ceaa2af03eff7916cf3b4c989408aa389bd8cb78b4fc607c9b4198bd82d751f49996717f258322f1147cf2bb8ef9a7ddcd2e55bd5662fb15e30b6b1928392970327c3
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -31437,3 +31480,4 @@ SceneRoots:
   - {fileID: 562856389}
   - {fileID: 1155577729}
   - {fileID: 115372566}
+  - {fileID: 303530690}
