@@ -11,9 +11,10 @@ public class ENTERlogic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-           StartCoroutine(LoadMainMenu());
+            StartCoroutine(LoadMainMenu());
         }
     }
+
     IEnumerator LoadMainMenu()
     {
         transitionAnim.SetTrigger("End");
