@@ -191,7 +191,7 @@ MonoBehaviour:
   playerOwner: {fileID: 0}
   unitView: {fileID: -37594020221508082}
   unitIndex: 2
-  unitName: 0
+  unitName: 2
   occupiedCell: {fileID: 0}
   row: 0
   col: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   ration: 99
   rationPerDay: 1
   lineOfSight: 2
+  RationReduceWhileMoving: 0
   hasMoved: 0
   numbState: 0
   walkableGridCells: []

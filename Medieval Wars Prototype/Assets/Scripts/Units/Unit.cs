@@ -93,11 +93,11 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         // w occupant Unit t3 cell li kan fiha ? wla w7dha tweli null , l3fayes li kima hadi wchnohom kamel
         this.unitView.ChangeAnimationState(UnitUtil.AnimationState.DIE_ANIMATION);
         yield return new WaitForSeconds(1.6f);
+        Destroy(this.unitView.HealthIcon.gameObject);
         this.unitView.ChangeAnimationState(UnitUtil.AnimationState.GROUND_EXPLOSION);
         yield return new WaitForSeconds(1);
         playerOwner.unitList.Remove(this);
         this.occupiedCell.occupantUnit = null;
-        Destroy(this.unitView.HealthIcon);
         Destroy(this.gameObject);
         yield break;
     }

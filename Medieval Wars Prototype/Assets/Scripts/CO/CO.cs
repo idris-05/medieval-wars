@@ -92,10 +92,10 @@ public class CO : MonoBehaviour
         fill2.GetComponent<Image>().fillAmount = targetFillAmount;
     }
 
-    // void Update()
-    // {
-    //     UpdateCoPowerBarView();
-    // }
+    void Update()
+    {
+         UpdateCoPowerBarView();
+    }
 
 
     public virtual void ActivateDailyPower()

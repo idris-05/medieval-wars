@@ -246,7 +246,7 @@ public class UnitView : MonoBehaviour
     public void HighlightAsSelected()
     {
 
-        this.spriteRenderer.material.color = new Color(171, 0, 255, 255);
+        this.spriteRenderer.material.color = Color.white;
     }
 
     public void HighlightAsInNumbState()
@@ -271,11 +271,13 @@ public class UnitView : MonoBehaviour
     public void HideUnitWhenLoaded()
     {
         gameObject.SetActive(false);
+        this.HealthIcon.gameObject.SetActive(false);
         // hide unit when it get loaded on transporter unit .
     }
     public void ShowUnitAfterDrop()
     {
         gameObject.SetActive(true);
+        this.HealthIcon.gameObject.SetActive(true);
         this.spriteRenderer.color = Color.white;
         // show unit after it get dropped from the transporter unit .
     }

@@ -135,11 +135,12 @@ MonoBehaviour:
   ration: 0
   rationPerDay: 0
   lineOfSight: 0
+  RationReduceWhileMoving: 0
   hasMoved: 0
   numbState: 0
   walkableGridCells: []
-  attackBoost: 0
-  specialAttackBoost: 0
+  attackBoost: 1
+  specialAttackBoost: 1
   defenseBoost: 0
   specialDefenseBoost: 0
   UnitCost: 0
