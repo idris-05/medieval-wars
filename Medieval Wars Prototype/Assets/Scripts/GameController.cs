@@ -448,6 +448,12 @@ public class GameController : MonoBehaviour
             foreach (Unit unit in player.unitList)
             {
                 unit.ConsumeDailyRation();
+                if (unit is UnitTransport unitTransport)
+                {
+                    unitTransport.GetSuppliableUnits();
+                    unitTransport.SupplyAllSuppliableUnits();
+                    unitTransport.ResetSuppliableUnits();
+                }
             }
 
             foreach (Building building in player.buildingList)
@@ -458,13 +464,27 @@ public class GameController : MonoBehaviour
             if (player.Co.isSuperPowerActivated) player.Co.DeactivateSuperPower();
         }
 
+        EndDayController.Instance.AnimateTheEndDayPanel();
+
     }
 
     // this function is used to switch the turn of the players    
     public void SwitchPlayeTurn()
     {
         // playerTurn = (playerTurn == 1) ? 2 : 1;  // if playerTurn == 1, then playerTurn = 2, else playerTurn = 1
-        currentPlayerInControl = (currentPlayerInControl == player1) ? player2 : player1;
+        if (currentPlayerInControl == player1)
+        {
+            currentPlayerInControl = player2;
+            CoCardsController.Instance.CO1.SetActive(false);
+            CoCardsController.Instance.CO2.SetActive(true);
+        }
+        else
+        {
+            currentPlayerInControl = player1;
+            CoCardsController.Instance.CO2.SetActive(false);
+            CoCardsController.Instance.CO1.SetActive(true);
+
+        }
     }
 
     // this function is used to reset all the gridCells to their original state in the end of the turn

@@ -43,13 +43,17 @@ public class CoCardsController : MonoBehaviour
 
     public Vector3 CardPosition = new Vector3(0, 430, 0);
     // Initial position of the card in both right and left sides
-    public Vector3 HidenPositionOfTheCard = new Vector3(0, 630, 0);
+    public Vector3 HidenPositionOfTheCard = new Vector3(0, 730, 0);
 
     Vector3 mousePos;
 
 
     [SerializeField] public GameObject CO1Fill;
     [SerializeField] public GameObject CO2Fill;
+
+
+    public GameObject CO1;
+    public GameObject CO2;
 
 
     void Start()

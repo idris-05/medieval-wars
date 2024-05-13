@@ -29,6 +29,7 @@ public class MainMenuController : MonoBehaviour
 
 
     public GameObject mainMenu;
+    public GameObject dark;
 
     public void ActivateMenu()
     {
@@ -37,6 +38,7 @@ public class MainMenuController : MonoBehaviour
         MiniIntelController.Instance.DesActivateCard();
         CoCardsController.Instance.LockTheCOCard();
         CoCardsController.Instance.DesActivateCard();
+        dark.SetActive(true);
         mainMenu.SetActive(true);
         ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
     }
@@ -45,6 +47,7 @@ public class MainMenuController : MonoBehaviour
     public void DeactivateMenu()
     {
         mainMenu.SetActive(false);
+        dark.SetActive(false);
         MiniIntelController.Instance.UnLockTheMiniCard();
         MiniIntelController.Instance.ActivateCard();
         CoCardsController.Instance.UnLockTheCOCard();
