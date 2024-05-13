@@ -41,9 +41,9 @@ public class CoCardsController : MonoBehaviour
 
 
 
-    public Vector3 CardPosition = new Vector3(-498, 365, 0);
+    public Vector3 CardPosition = new Vector3(0, 430, 0);
     // Initial position of the card in both right and left sides
-    public Vector3 HidenPositionOfTheCard = new Vector3(-498, 700, 0);
+    public Vector3 HidenPositionOfTheCard = new Vector3(0, 630, 0);
 
     Vector3 mousePos;
 
