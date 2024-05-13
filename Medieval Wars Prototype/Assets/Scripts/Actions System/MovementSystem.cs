@@ -54,10 +54,12 @@ public class MovementSystem : MonoBehaviour
 
             if (UnitUtil.CanLoadThatUnit[unitTransport.unitIndex, unit.unitIndex])
             {
+                if (unitTransport.loadedUnit != null) return;
                 unit.unitView.ResetHighlitedWalkableCells();
 
                 unit.PrepareUnitToGetLoadedInTransporter();
                 unit.unitView.AnimateMovement(row, col, true);
+                unit.ration -= unit.RationReduceWhileMoving;
 
                 return;
             }
@@ -72,6 +74,7 @@ public class MovementSystem : MonoBehaviour
         //! hna n7ssbo moveCost ( n7ssbo ch7al n9ssolha men ration ki mchat ) wnmdoh parametre lel UpdateAttributsAfterMoving .
         unit.UpdateAttributsAfterMoving(row, col);
         unit.unitView.AnimateMovement(row, col, false);
+        unit.ration -= unit.RationReduceWhileMoving;
         unit.unitView.ResetHighlitedWalkableCells();
 
     }

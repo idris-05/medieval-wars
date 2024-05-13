@@ -116,6 +116,8 @@ public class UnitView : MonoBehaviour
 
     public void AnimateMovement(int row, int column, bool loadIntended)
     {
+        bool firstCellIgnoredWhenReducingRation = false;
+        unit.RationReduceWhileMoving = 0;
         gridCellTheUnitIsMovingTowards = MapGrid.Instance.grid[row, column];
 
         // Store the starting position
@@ -128,7 +130,14 @@ public class UnitView : MonoBehaviour
         foreach (GridCell gridCell in GameController.Instance.cellsPath)
 
         {
-
+            if (firstCellIgnoredWhenReducingRation)
+            {
+                unit.RationReduceWhileMoving += unit.playerOwner.Co.GetMoveCost(gridCell.occupantTerrain, unit);
+            }
+            else
+            {
+                firstCellIgnoredWhenReducingRation = true;
+            }
             // Calculate target position
             Vector3 targetPosition = CalculateWorldPosition(gridCell.row, gridCell.column);
             targetPositions.Add(targetPosition);

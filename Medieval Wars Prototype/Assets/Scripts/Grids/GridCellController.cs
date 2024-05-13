@@ -39,7 +39,7 @@ public class GridCellController : MonoBehaviour
 
                 Unit unitToMove = UnitController.Instance.selectedUnit;
 
-                ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitToMove.walkableGridCells);
+                // ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitToMove.walkableGridCells);
                 MovementSystem.Instance.Movement(unitToMove, cellThatGotClickedOn.row, cellThatGotClickedOn.column);
                 /* CancelScript.Instance.Cancel();
 
@@ -53,14 +53,14 @@ public class GridCellController : MonoBehaviour
 
 
             case UnitUtil.ActionToDoWhenButtonIsClicked.DROP:
-                
+
                 Debug.Log("cell clicked on drop state");
                 UnitTransport unitTransport = UnitController.Instance.selectedUnit as UnitTransport;
                 ManageInteractableObjects.Instance.ResetSpecificCellsBackToTheirOriginalLayer(unitTransport.dropableCells);
                 unitTransport.ResetDropableCells();
                 StartCoroutine(unitTransport.Drop(cellThatGotClickedOn));
                 CancelScript.Instance.Cancel();
-                
+
                 break;
 
             default:

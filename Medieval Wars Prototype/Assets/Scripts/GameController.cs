@@ -376,7 +376,10 @@ public class GameController : MonoBehaviour
                 // else
                 // {
                 if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE)
+                {
+                    if (cellsPath[cellsPath.Count - 1].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit != null) return;
                     GridCellController.Instance.OnCellSelection(cellsPath[cellsPath.Count - 1]);
+                }
                 // }
             }
         }

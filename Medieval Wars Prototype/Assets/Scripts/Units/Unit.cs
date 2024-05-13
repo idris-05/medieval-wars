@@ -23,7 +23,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public float rationPerDay;
     public int lineOfSight;
-
+    public int RationReduceWhileMoving ;
 
 
     public bool hasMoved;
@@ -69,6 +69,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         this.col = col;
 
         unitView.ResetHighlightedUnit();
+        
 
         // indirect units can't attack after moving .
         if (this is UnitAttack unitAttack && unitAttack.minAttackRange > 1) unitAttack.hasAttacked = true;

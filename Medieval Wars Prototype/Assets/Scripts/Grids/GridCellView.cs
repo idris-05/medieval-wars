@@ -159,7 +159,7 @@ public class GridCellView : MonoBehaviour
     public void LowerGlowLineHighlight(int WhichHighlight)
     {
 
-        if (WhichHighlight == 2) { Debug.Log("4"); SetIndexOfThePrefab(4); };
+        if (WhichHighlight == 2) { Debug.Log("4"); SetIndexOfThePrefab(4); }
         if (WhichHighlight == 1) { Debug.Log("2"); SetIndexOfThePrefab(2); }
         if (WhichHighlight == 0) { Debug.Log("0"); SetIndexOfThePrefab(0); }
 
