@@ -118,35 +118,7 @@ public class GameController : MonoBehaviour
 
 
 
-    public void LoadbuildingsToMap(SavingSystem.playerUnitsInfos playerInfos)
-    {
-        Player player;
-        if (playerInfos.player == 1)
-        {
-            player = player1;
-        }
-        else
-        {
-            if (playerInfos.player == 2)
-            {
-                player = player2;
-            }
-            else
-            {
-                player = playerNeutre;
-
-            }
-        }
-        player.buildingList.Clear();
-        foreach (SavingSystem.Buildingdata buildingdata in playerInfos.buildings)
-        {
-            Building building;
-            building = SpawnBuilding(player, buildingdata.row, buildingdata.col, (Building)indexTerrainprefab[buildingdata.Buildingtype]);
-            building.remainningPointsToCapture = buildingdata.remainningPointsToCapture;
-        }
-
-
-    }
+   
 
 
     // this function is used to spawn a unit on the map
@@ -205,76 +177,8 @@ public class GameController : MonoBehaviour
 
 
 
-    public void LaodUnitsToMap(SavingSystem.playerUnitsInfos playerinfos)
-    {
-        Player player = playerinfos.player == 1 ? player1 : player2;
-        player.unitList.Clear();
-        List<SavingSystem.UnitData> loadedUnitsData = new List<SavingSystem.UnitData>();
-        foreach (SavingSystem.UnitData unitData in playerinfos.unitdatas)
-        {
-            if (unitData.loadedUnit != null)
-            {
-                loadedUnitsData.Add(unitData.loadedUnit);
-            }
-        }
+   
 
-        foreach (SavingSystem.UnitData unitData in playerinfos.unitdatas)
-        {
-            if (!loadedUnitsData.Contains(unitData))
-            {
-                if (unitData.durability == -1)
-                {
-                    UnitTransport unit;
-                    unit = (UnitTransport)SpawnUnit(player, unitData.row, unitData.col, indexUnitprefab[unitData.type]);
-                    unit.healthPoints = unitData.hp;
-                    unit.hasMoved = unitData.hasMoved;
-                    unit.numbState = unitData.numbState;
-                    unit.ration = unitData.rations;
-                    unit.hasSupply = unitData.hasSupply;
-                    /// DEJA VU i instentiated it deja !!!!???????
-                    if (unitData.loadedUnit != null)
-                    {
-                        unit.loadedUnit = (UnitAttack)SpawnUnit(player, unitData.row, unitData.col, indexUnitprefab[unitData.loadedUnit.type]);
-                        unit.Load(unit.loadedUnit);
-                        unit.loadedUnit.healthPoints = unitData.loadedUnit.hp;
-                        unit.loadedUnit.hasMoved = unitData.loadedUnit.hasMoved;
-                        unit.loadedUnit.numbState = unitData.loadedUnit.numbState;
-                        unit.loadedUnit.ration = unitData.loadedUnit.rations;
-                        ((UnitAttack)unit.loadedUnit).durability = unitData.durability;
-                        ((UnitAttack)unit.loadedUnit).hasAttacked = unitData.hasAttacked;
-                    }
-                }
-                else
-                {
-                    UnitAttack unit;
-                    unit = (UnitAttack)SpawnUnit(player, unitData.row, unitData.col, indexUnitprefab[unitData.type]);
-                    unit.durability = unitData.durability;
-                    unit.healthPoints = unitData.hp;
-                    unit.hasMoved = unitData.hasMoved;
-                    unit.numbState = unitData.numbState;
-                    unit.ration = unitData.rations;
-                    unit.hasAttacked = unitData.hasAttacked;
-                }
-            }
-
-        }
-    }
-
-
-
-    public void loadplayer(string path)
-    {
-        SavingSystem.playerUnitsInfos unitPlayerdatas = new SavingSystem.playerUnitsInfos();
-        unitPlayerdatas.unitdatas = new List<SavingSystem.UnitData>();
-        unitPlayerdatas = SavingSystem.Infoload(path);
-        Debug.Log("loaded");
-        if (unitPlayerdatas.player != 0)
-        {
-            LaodUnitsToMap(unitPlayerdatas);
-        }
-        LoadbuildingsToMap(unitPlayerdatas);
-
-    }
 
 
 
@@ -282,7 +186,7 @@ public class GameController : MonoBehaviour
     {
         SavingSystem.SavePlayer(player1, SavingSystem.PATH1, 1);
         SavingSystem.SavePlayer(player2, SavingSystem.PATH2, 2);
-        SavingSystem.SavePlayer(playerNeutre, SavingSystem.PATHN, 0);
+        SavingSystem.SaveGame();
 
         Debug.Log("saved");
     }
@@ -290,18 +194,18 @@ public class GameController : MonoBehaviour
 
     public void load()
     {
-        loadplayer(SavingSystem.PATH1);
-        loadplayer(SavingSystem.PATH2);
-        loadplayer(SavingSystem.PATHN);
+        SavingSystem.loadplayer(SavingSystem.PATH1);
+        SavingSystem.loadplayer(SavingSystem.PATH2);
+       SavingSystem.LoadGameToGame();
 
         Debug.Log("loaded");
     }
 
 
-    public Building SpawnBuilding(Player player, int row, int col, Building buildingprefab)
+    public Building changeBuilding(Player player, int row, int col, Building buildingprefab)
     {
 
-        Building building = Instantiate(buildingprefab, new Vector3(-16 + col + 0.5f, 9 - row - 0.5f, -1), Quaternion.identity);
+        /* Building building = Instantiate(buildingprefab, new Vector3(-16 + col + 0.5f, 9 - row - 0.5f, -1), Quaternion.identity);
 
 
         building.playerOwner = player;
@@ -314,9 +218,9 @@ public class GameController : MonoBehaviour
 
         building.row = row;
 
-        building.col = col;
+        building.col = col;*/
 
-        return building;
+        return building; 
 
     }
 
