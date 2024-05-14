@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1965938827
+  m_SortingLayerID: 1907408343
   m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 252919372, guid: 4da6e9e2bc5b98c4480444660971dfcb, type: 3}
@@ -110,6 +110,7 @@ MonoBehaviour:
   HealthIcon: {fileID: 0}
   redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
+  SupplyLackApple: {fileID: 0}
 --- !u!61 &3401246308674629183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,6 +180,7 @@ MonoBehaviour:
   ration: 50
   rationPerDay: 0
   lineOfSight: 3
+  RationReduceWhileMoving: 0
   hasMoved: 0
   numbState: 0
   walkableGridCells: []

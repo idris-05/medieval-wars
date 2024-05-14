@@ -41,3 +41,66 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FoundationWhenHighlighted
+    uniqueID: 3791382087
+    locked: 0
+  - name: TerrainBuildingWhenHighlighted
+    uniqueID: 3611914531
+    locked: 0
+  - name: WalkableLines
+    uniqueID: 737391453
+    locked: 0
+  - name: Foundation
+    uniqueID: 3251635931
+    locked: 0
+  - name: ButtonsInGame
+    uniqueID: 2973735561
+    locked: 0
+  - name: TerrainBuilding
+    uniqueID: 3697201979
+    locked: 0
+  - name: BlockInteractionsLayer
+    uniqueID: 2583547001
+    locked: 0
+  - name: Cursor
+    uniqueID: 3622110619
+    locked: 0
+  - name: EmptyWhiteSquare
+    uniqueID: 4222143503
+    locked: 0
+  - name: GlowLinesWhenHighlighted
+    uniqueID: 2155748181
+    locked: 0
+  - name: Unit
+    uniqueID: 1907408343
+    locked: 0
+  - name: Damageicon
+    uniqueID: 1832490555
+    locked: 0
+  - name: NegativeTarget
+    uniqueID: 1346811949
+    locked: 0
+  - name: RedDagger
+    uniqueID: 3834059573
+    locked: 0
+  - name: CaptureFlag
+    uniqueID: 827030309
+    locked: 0
+  - name: CaptureEffect
+    uniqueID: 4111283759
+    locked: 0
+  - name: SuppliedIcon
+    uniqueID: 2351449069
+    locked: 0
+  - name: HealEffect
+    uniqueID: 2931985185
+    locked: 0
+  - name: UnitHealthIcon
+    uniqueID: 4115564805
+    locked: 0
+  - name: SupplyLackApple
+    uniqueID: 1340596969
+    locked: 0
+  - name: BuySpawnEffect
+    uniqueID: 2643207773
+    locked: 0

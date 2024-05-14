@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1259115375
+  m_SortingLayerID: -597765317
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -444578368, guid: e4d26958b6a60fa458084993e311aadd, type: 3}
@@ -107,6 +107,7 @@ MonoBehaviour:
   playerOwner: {fileID: 0}
   remainningPointsToCapture: 200
   MaxRemainningPointsToCapture: 200
+  captureFlag: {fileID: 0}
 --- !u!61 &-3995754052808977431
 BoxCollider2D:
   m_ObjectHideFlags: 0

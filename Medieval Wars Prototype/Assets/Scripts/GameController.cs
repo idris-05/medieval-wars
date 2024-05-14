@@ -344,7 +344,15 @@ public class GameController : MonoBehaviour
                 if (UnitController.Instance.CurrentActionStateBasedOnClickedButton == UnitUtil.ActionToDoWhenButtonIsClicked.MOVE)
                 {
                     // if there is a transporter unit that already has loaded another unit .
+                    if (cellsPath.Count == 1)
+                    {
+                        GridCellController.Instance.OnCellSelection(cellsPath[0]);
+                        return;
+                    }
                     if (cellsPath[cellsPath.Count - 1].occupantUnit is UnitTransport unitTransport && unitTransport.loadedUnit != null) return;
+                    if (cellsPath[cellsPath.Count - 1].occupantUnit is UnitTransport unitTransport1 && unitTransport1.loadedUnit == null && !UnitUtil.CanLoadThatUnit[unitTransport1.unitIndex, UnitController.Instance.selectedUnit.unitIndex]) return;
+                    if (cellsPath[cellsPath.Count - 1].occupantUnit is UnitAttack unitAttack && unitAttack != null) return;
+
                     GridCellController.Instance.OnCellSelection(cellsPath[cellsPath.Count - 1]);
                 }
                 // }

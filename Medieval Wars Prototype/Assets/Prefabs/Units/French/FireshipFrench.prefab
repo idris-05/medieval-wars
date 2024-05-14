@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1965938827
+  m_SortingLayerID: 1907408343
   m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 1858329538, guid: 443cfc7d40661814d887bc48997c9bd8, type: 3}
@@ -110,6 +110,7 @@ MonoBehaviour:
   HealthIcon: {fileID: 0}
   redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
+  SupplyLackApple: {fileID: 0}
 --- !u!61 &-2080499793171882692
 BoxCollider2D:
   m_ObjectHideFlags: 0

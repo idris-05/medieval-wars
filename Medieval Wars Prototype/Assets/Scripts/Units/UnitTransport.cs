@@ -81,7 +81,7 @@ public class UnitTransport : Unit
         foreach (GridCell cell in dropableCellsCondidates)
         {
             //!!!!!! + lazem hadik unit li 7ab tdropiha t9der t3mchi 3la terrain li ayken f cell hadik . moveCost != -1 .
-            if (cell.occupantUnit == null) this.dropableCells.Add(cell);
+            if (cell.occupantUnit == null && this.playerOwner.Co.GetMoveCost(cell.occupantTerrain, loadedUnit) != 999) this.dropableCells.Add(cell);
         }
     }
 

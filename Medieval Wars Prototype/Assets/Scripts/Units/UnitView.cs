@@ -458,7 +458,7 @@ public class UnitView : MonoBehaviour
 
         GameObject recieveHealEffectPrefab = Instantiate(UserInterfaceUtil.Instance.RecieveHealEffectPrefab, new Vector3(-16 + this.unit.col + 0.5f, 9 - this.unit.row -0.5f, -1), Quaternion.identity);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         Destroy(recieveHealEffectPrefab.gameObject);
 

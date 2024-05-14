@@ -24,7 +24,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     public float rationPerDay;
     public int lineOfSight;
-    public int RationReduceWhileMoving ;
+    public int RationReduceWhileMoving;
 
 
     public bool hasMoved;
@@ -60,7 +60,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
 
     private void Update()
     {
-        if (this.ration <= 20 && this.unitView.SupplyLackApple == null && this.healthPoints > 0 )
+        if (this.ration <= 20 && this.unitView.SupplyLackApple == null && this.healthPoints > 0)
         {
             this.unitView.SupplyLackApple = Instantiate(UserInterfaceUtil.Instance.SupplyLackApplePrefab, new Vector3(-16 + this.col + 0.5f, 9 - this.row - 0.5f, -1), Quaternion.identity);
             this.unitView.SupplyLackApple.unit = this;
@@ -86,7 +86,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         this.col = col;
 
         unitView.ResetHighlightedUnit();
-        
+
         // indirect units can't attack after moving .
         if (this is UnitAttack unitAttack && unitAttack.minAttackRange > 1) unitAttack.hasAttacked = true;
     }
@@ -117,11 +117,11 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         this.occupiedCell.occupantUnit = null;
 
         Player playerOwner = this.playerOwner;
-        
+
         Destroy(this.gameObject);
 
         if (playerOwner.unitList.Count == 0) GameController.Instance.EndGame(playerOwner == GameController.Instance.player1 ? GameController.Instance.player2 : GameController.Instance.player1);
-        
+
         yield break;
     }
 
@@ -186,15 +186,17 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
         // animate the capture
 
         // 0 : white
-        // 1 : blue
-        // 2 : red
+        // 1 : red
+        // 2 : blue
 
-        if (this.playerOwner == GameController.Instance.player1) { 
+        if (this.playerOwner == GameController.Instance.player1)
+        {
             StartCoroutine(building.PlayCaptureAnimation(1));
             building.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[1];
         }
 
-        if (this.playerOwner == GameController.Instance.player2){
+        if (this.playerOwner == GameController.Instance.player2)
+        {
             StartCoroutine(building.PlayCaptureAnimation(2));
             building.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[2];
         }

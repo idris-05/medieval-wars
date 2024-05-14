@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1259115375
+  m_SortingLayerID: -597765317
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 185408329, guid: f6ba3cb90a8c96342a9c7e0244711340, type: 3}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4296508215607433218
@@ -107,6 +107,7 @@ MonoBehaviour:
   playerOwner: {fileID: 0}
   remainningPointsToCapture: 200
   MaxRemainningPointsToCapture: 200
+  captureFlag: {fileID: 0}
 --- !u!61 &-6278274438545611416
 BoxCollider2D:
   m_ObjectHideFlags: 0

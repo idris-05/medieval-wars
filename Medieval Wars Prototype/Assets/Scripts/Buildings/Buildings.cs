@@ -19,24 +19,24 @@ public class Building : Terrain
 
     private void Start()
     {
-        this.captureFlag = Instantiate(UserInterfaceUtil.Instance.FlagPrefab, new Vector3(-16 + this.col + 0.5f - 0.3f, 9 - this.row - 0.5f  - 0.5f + 0.1f, -1), Quaternion.identity , UserInterfaceUtil.Instance.FlagHolder.transform);
+        this.captureFlag = Instantiate(UserInterfaceUtil.Instance.FlagPrefab, new Vector3(-16 + this.col + 0.5f - 0.3f, 9 - this.row - 0.5f - 0.5f + 0.1f, -1), Quaternion.identity, UserInterfaceUtil.Instance.FlagHolder.transform);
 
-        if ( this.playerOwner == null )                            this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[0];
-        if ( this.playerOwner == GameController.Instance.player1 ) this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[1];
-        if ( this.playerOwner == GameController.Instance.player2 ) this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[2];
+        if (this.playerOwner == null) this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[0];
+        if (this.playerOwner == GameController.Instance.player1) this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[1];
+        if (this.playerOwner == GameController.Instance.player2) this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[2];
     }
 
     void Update()
     {
         // if (remainningPointsToCapture == MaxRemainningPointsToCapture) return;
-        
 
-        if (MapGrid.Instance.grid[row, col].occupantUnit == null) 
-        { 
+
+        if (MapGrid.Instance.grid[row, col].occupantUnit == null)
+        {
             ResetRemainingPointsToCapture();
-            if ( playerOwner == null )                            captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[0];
-            if ( playerOwner == GameController.Instance.player1 ) captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[1];
-            if ( playerOwner == GameController.Instance.player2 ) captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[2];
+            if (playerOwner == null) captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[0];
+            if (playerOwner == GameController.Instance.player1) captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[1];
+            if (playerOwner == GameController.Instance.player2) captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[2];
         }
 
 
@@ -70,6 +70,7 @@ public class Building : Terrain
     private void SupplyUnit(Unit unit)
     {
         unit.RecieveRationSupply();
+        StartCoroutine(unit.unitView.PlaySRecieveRationSupplyAnimation());
 
         UnitAttack unitAttack = unit as UnitAttack;
         if (unitAttack) unitAttack.durability = UnitUtil.maxDurabilities[unit.unitIndex];
@@ -126,13 +127,13 @@ public class Building : Terrain
     public IEnumerator PlayCaptureAnimation(int capturingColor)
     {
         // 0 : white
-        // 1 : blue
-        // 2 : red
+        // 1 : red
+        // 2 : bleu
 
-        GameObject captureEffect = Instantiate(UserInterfaceUtil.Instance.CaptureEffect, new Vector3(-16 + this.col + 0.5f, 9 - this.row - 0.4f , -1), Quaternion.identity);
+        GameObject captureEffect = Instantiate(UserInterfaceUtil.Instance.CaptureEffect, new Vector3(-16 + this.col + 0.5f, 9 - this.row - 0.4f, -1), Quaternion.identity);
 
-        if ( capturingColor == 1 ) captureEffect.GetComponent<SpriteRenderer>().color = Color.blue;
-        if ( capturingColor == 2 ) captureEffect.GetComponent<SpriteRenderer>().color = Color.red;
+        if (capturingColor == 1) captureEffect.GetComponent<SpriteRenderer>().color = Color.red;
+        if (capturingColor == 2) captureEffect.GetComponent<SpriteRenderer>().color = Color.blue;
 
         yield return new WaitForSeconds(0.67f);
 
