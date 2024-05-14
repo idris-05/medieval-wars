@@ -7,6 +7,7 @@ public class UnitAttack : Unit
 {
     public int attackRange;
     public int minAttackRange;
+    public int maxDurability;
     public int durability;
     public bool hasAttacked;
 

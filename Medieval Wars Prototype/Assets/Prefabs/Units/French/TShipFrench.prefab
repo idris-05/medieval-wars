@@ -209,7 +209,7 @@ MonoBehaviour:
   specialAttackBoost: 1
   defenseBoost: 0
   specialDefenseBoost: 0
-  UnitCost: 0
+  UnitCost: 12000
   loadedUnit: {fileID: 0}
   hasSupply: 0
   dropableCells: []

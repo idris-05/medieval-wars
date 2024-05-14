@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6708084785945425338}
   - component: {fileID: 6366300627526364787}
   - component: {fileID: 741290124033678844}
-  - component: {fileID: 2450528608605376197}
   - component: {fileID: 9038703396222941493}
+  - component: {fileID: 6017756071126579409}
   m_Layer: 0
   m_Name: BanditEnglish
   m_TagString: Untagged
@@ -150,33 +150,12 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6708084785945425338}
   boxCollider2D: {fileID: 6366300627526364787}
   moveSpeed: 3
-  animator: {fileID: 2450528608605376197}
+  animator: {fileID: 6017756071126579409}
   currentAnimatonState: 0
   HealthIcon: {fileID: 0}
   redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
   SupplyLackApple: {fileID: 0}
---- !u!95 &2450528608605376197
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7564386543175023750}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a4d9bfe8cd6b834590c482a31689d64, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &9038703396222941493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +176,7 @@ MonoBehaviour:
   row: 0
   col: 0
   healthPoints: 100
-  moveRange: 8
+  moveRange: 5
   ration: 80
   rationPerDay: 0
   lineOfSight: 5
@@ -209,10 +188,32 @@ MonoBehaviour:
   specialAttackBoost: 1
   defenseBoost: 0
   specialDefenseBoost: 0
-  UnitCost: 0
+  UnitCost: 4000
   attackRange: 1
   minAttackRange: 0
-  durability: 999
+  maxDurability: 35
+  durability: 35
   hasAttacked: 0
   enemiesInRange: []
   attackableGridCells: []
+--- !u!95 &6017756071126579409
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7564386543175023750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9815f2db83f28484f90d9457141135e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

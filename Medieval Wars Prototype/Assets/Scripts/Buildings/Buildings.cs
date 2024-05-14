@@ -46,6 +46,16 @@ public class Building : Terrain
     {
         Debug.Log("building is now owned by the player :  " + unit.playerOwner.ToString());
 
+        if (this.playerOwner == GameController.Instance.player1)
+        {
+            this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[1];
+        }
+
+        if (this.playerOwner == GameController.Instance.player2)
+        {
+            this.captureFlag.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.FlagSprites[2];
+        }
+
         if (this.terrainName == TerrainsUtils.TerrainName.CASTLE && this.playerOwner != null)
         {
             // owner ta3 biulding hada 5sser , tssema l winner howa l'owner ta3 unit;

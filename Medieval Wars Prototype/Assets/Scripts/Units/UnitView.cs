@@ -40,6 +40,8 @@ public class UnitView : MonoBehaviour
 
     public SupplyLackApple SupplyLackApple;
 
+    public DurabityLackSword durabilityLackSword;
+
 
 
     void OnMouseEnter()

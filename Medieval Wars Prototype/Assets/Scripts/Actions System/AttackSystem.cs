@@ -242,18 +242,18 @@ public class AttackSystem : MonoBehaviour
     }
 
     public static int[,] baseDamage = {
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {70, 75, 40, 65, 90, 55, 85, 15, 80, 80, 60, 70},
-    {80, 80, 50, 95, 95, 85, 90, 25, 90, 85, 30, 80},
-    {-1, -1, 55, 55, -1, 42, -1, -1, -1, -1, -1, -1},
-    {12, 15, -1, -1, 55, -1, 45, 1, 12, 25, -1, 5},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {75, 70, -1, -1, -1, -1, -1, 5, 85, 85, -1, 55},
-    {105, 105, 10, 55, 105, 35, -1, 65, 105, 105, 45, 85},
-    {45, 45, -1, -1, 70, -1, 65, 1, 35, 55, -1, 6},
-    {80, 80, 55, 85, 95, 60, 90, 25, 90, 85, 85, 80},
-    {-1, -1, 55, 25, -1, 95, -1, -1, -1, -1, 55, -1},
-    {75, 70, 1, 5, 75, 10, 70, 10, 85, 85, 1, 55},
+    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+    {70, 75, 40, 65, 90, 55, 85, 15, 80, 80, 70},
+    {80, 80, 50, 95, 95, 85, 90, 25, 90, 85, 80},
+    {-1, -1, 55, 55, -1, 42, -1, -1, -1, -1, -1},
+    {12, 15, -1, -1, 55, -1, 45, 1, 12, 25, 5},
+    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+    {75, 70, -1, -1, -1, -1, -1, 5, 85, 85, 55},
+    {105, 105, 10, 55, 105, 35, -1, 65, 105, 105, 85},
+    {45, 45, -1, -1, 70, -1, 65, 1, 35, 55, 6},
+    {80, 80, 55, 85, 95, 60, 90, 25, 90, 85, 80},
+    {-1, -1, 55, 25, -1, 95, -1, -1, -1, -1, -1},
+    {75, 70, 1, 5, 75, 10, 70, 10, 85, 85, 55},
     };
 
 
@@ -330,19 +330,18 @@ public class AttackSystem : MonoBehaviour
 
     // column counter attack the row 
     public static bool[,] CounterAttackMatrix = {
-    //             Caravan  Archers  Carac    Fireship  Infantry  T-ship  SpikeMan  R-chalvary  Bandit  Catapulte  RamShip  Chalvary
-    /* Caravan */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
-    /* Archers */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
-    /* Carac */    {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
-    /* Fireship */ {false,  false,   false,   true,     false,    false,  false,    false,      false,  false,      true,   false},
-    /* Infantry */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true},
-    /* T-ship */   {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
-    /* SpikeMan */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true},
-    /* R-chalvary*/{false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true},
-    /* Bandit */   {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true},
-    /* Catapulte*/ {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,     false,   false},
-    /* RamShip */  {false,  false,   false,   true,     false,    false,  false,    false,      false,  false,     true ,   false},
-    /* Chalvary */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,     false,   true}
+    //             Caravan  Archers     Carac    Fireship  Infantry     T-ship  SpikeMan  R-chalvary       Bandit  Catapulte      Chalvary
+    /* Caravan */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
+    /* Archers */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
+    /* Carac */    {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
+    /* Fireship */ {false,  false,   false,   true,     false,    false,  false,    false,      false,  false,        false},
+    /* Infantry */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true},
+    /* T-ship */   {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
+    /* SpikeMan */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true},
+    /* R-chalvary*/{false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true},
+    /* Bandit */   {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true},
+    /* Catapulte*/ {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
+    /* Chalvary */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true}
     };
 
 
@@ -461,6 +460,8 @@ public class AttackSystem : MonoBehaviour
         int inflictedDamage = CalculateDamage(AttackingUnit, DefendingUnit);
         DefendingUnit.RecieveDamage(inflictedDamage);
 
+        AttackingUnit.durability = AttackingUnit.durability - 1;
+
         float correctDamageToCalculateTheCoPowerAddition = DefendingUnit.GetTheCorectDamageToCalculateTheCoPowerAddition(inflictedDamage);
         DefendingUnit.TakeCoPowerAddition(false, correctDamageToCalculateTheCoPowerAddition);
         AttackingUnit.TakeCoPowerAddition(true, correctDamageToCalculateTheCoPowerAddition);
@@ -495,6 +496,9 @@ public class AttackSystem : MonoBehaviour
 
         inflictedDamage = CalculateDamage(DefendingUnit, AttackingUnit);
         AttackingUnit.RecieveDamage(inflictedDamage);
+
+        (DefendingUnit as UnitAttack).durability = (DefendingUnit as UnitAttack).durability - 1;
+
 
         correctDamageToCalculateTheCoPowerAddition = AttackingUnit.GetTheCorectDamageToCalculateTheCoPowerAddition(inflictedDamage);
         AttackingUnit.TakeCoPowerAddition(false, correctDamageToCalculateTheCoPowerAddition);

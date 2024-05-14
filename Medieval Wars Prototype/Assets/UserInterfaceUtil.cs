@@ -60,6 +60,8 @@ public class UserInterfaceUtil : MonoBehaviour
 
     public SupplyLackApple SupplyLackApplePrefab;
 
+    public DurabityLackSword DurabilityLackSwordPrefab;
+
     // 0 : white
     // 1 : blue
     // 2 : red

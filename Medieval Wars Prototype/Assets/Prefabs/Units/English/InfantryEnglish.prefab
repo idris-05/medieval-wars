@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 1907408343
   m_SortingLayer: 11
   m_SortingOrder: 10
-  m_Sprite: {fileID: -738146212, guid: 476a4198da5eb7b45bd114e4811b8860, type: 3}
+  m_Sprite: {fileID: -887939382, guid: 476a4198da5eb7b45bd114e4811b8860, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,10 +209,11 @@ MonoBehaviour:
   specialAttackBoost: 1
   defenseBoost: 0
   specialDefenseBoost: 0
-  UnitCost: 0
+  UnitCost: 1000
   attackRange: 1
   minAttackRange: 0
-  durability: 999
+  maxDurability: 35
+  durability: 35
   hasAttacked: 0
   enemiesInRange: []
   attackableGridCells: []

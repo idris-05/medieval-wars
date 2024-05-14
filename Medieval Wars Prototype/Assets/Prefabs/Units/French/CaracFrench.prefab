@@ -209,10 +209,11 @@ MonoBehaviour:
   specialAttackBoost: 1
   defenseBoost: 0
   specialDefenseBoost: 0
-  UnitCost: 0
+  UnitCost: 28000
   attackRange: 6
   minAttackRange: 2
-  durability: 9
+  maxDurability: 20
+  durability: 20
   hasAttacked: 0
   enemiesInRange: []
   attackableGridCells: []

@@ -197,10 +197,10 @@ MonoBehaviour:
   row: 0
   col: 0
   healthPoints: 100
-  moveRange: 5
+  moveRange: 3
   ration: 50
   rationPerDay: 0
-  lineOfSight: 3
+  lineOfSight: 1
   RationReduceWhileMoving: 0
   hasMoved: 0
   numbState: 0
@@ -209,10 +209,11 @@ MonoBehaviour:
   specialAttackBoost: 1
   defenseBoost: 0
   specialDefenseBoost: 0
-  UnitCost: 0
+  UnitCost: 6000
   attackRange: 3
   minAttackRange: 2
-  durability: 9
+  maxDurability: 30
+  durability: 30
   hasAttacked: 0
   enemiesInRange: []
   attackableGridCells: []

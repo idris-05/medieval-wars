@@ -166,7 +166,7 @@ Animator:
   m_GameObject: {fileID: 5265668595456362624}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 468b02c13dc9d0347ac8fe48215ffb94, type: 2}
+  m_Controller: {fileID: 9100000, guid: 745f6518e0d471946bb38487b3bacb74, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   specialAttackBoost: 1
   defenseBoost: 0
   specialDefenseBoost: 0
-  UnitCost: 0
+  UnitCost: 12000
   loadedUnit: {fileID: 0}
   hasSupply: 0
   dropableCells: []

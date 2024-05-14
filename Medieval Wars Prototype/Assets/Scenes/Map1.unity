@@ -7300,6 +7300,7 @@ MonoBehaviour:
   RecieveSupplyIconPrefab: {fileID: 2871618518787079472, guid: c8d0d40268ce199418e5b2115ff76b83, type: 3}
   RecieveHealEffectPrefab: {fileID: 4798594595734673737, guid: 03fe6ad3e2963d84c9f98539cd7f99c7, type: 3}
   SupplyLackApplePrefab: {fileID: 1032605869672785251, guid: ee33e659186796248b7ba83e0fc6b3ad, type: 3}
+  DurabilityLackSwordPrefab: {fileID: 1657692711029926587, guid: b12dfe565a50bf840acc2840eeae2a77, type: 3}
 --- !u!4 &620215953
 Transform:
   m_ObjectHideFlags: 0
@@ -16854,33 +16855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e1b8b0be8dc8e48ac89b8cac9467ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexUnitprefab:
-  - {fileID: 8140647179921404389, guid: 2dce3126da85e1341a561e103aca0400, type: 3}
-  - {fileID: 6347348056930444706, guid: 70a07c19d8856c540bc116841b1110bb, type: 3}
-  - {fileID: 7402292167805963577, guid: e088fc5fcd238a24c82ae3b51765b3b1, type: 3}
-  - {fileID: 937128572457343561, guid: d6a42dea9c1410c4b9e6adeef88913eb, type: 3}
-  - {fileID: -7903265091803169806, guid: 467eae19dd2f13b4b93c0090b426fd85, type: 3}
-  - {fileID: 1497539411760277250, guid: 8d408999cb152014090248f4a5c4b86b, type: 3}
-  - {fileID: 4933627757567371145, guid: c393188c78c2662448927b6459991748, type: 3}
-  - {fileID: 0}
-  - {fileID: -1773237437592595331, guid: 46ead012e265a7e4f81043891962c394, type: 3}
-  - {fileID: 414456203307262216, guid: 461b6d8b04725c14fb9bb7114607f95a, type: 3}
-  - {fileID: 0}
-  indexTerrainprefab:
-  - {fileID: 5325541284361048668, guid: 2e6e85324e93c674884291b113162ac2, type: 3}
-  - {fileID: 4296508215607433218, guid: d6aeb6b6f5fecc94cbadf7c6a92e740d, type: 3}
-  - {fileID: 1800816366441984461, guid: c4ab1bc078ff44d42a1b511652d44d1d, type: 3}
-  - {fileID: 8206504721708744211, guid: 39ad22bc7030b74419b57073b4418c8b, type: 3}
-  - {fileID: -4500310601642790188, guid: da434be78c1ac1e4b8cf5357fe3eaf13, type: 3}
-  - {fileID: 424858643333420328, guid: d94de2f28cb9e08449ff2666c2021eed, type: 3}
-  - {fileID: 424858643333420328, guid: 44c400b1f8428594bab0ae65c0faae8f, type: 3}
-  - {fileID: 424858643333420328, guid: c8337c5a9ecb80b41b18eaf6264bde9f, type: 3}
-  - {fileID: 424858643333420328, guid: 3917409f6aa3a1b4381781732a482d56, type: 3}
-  - {fileID: 424858643333420328, guid: 609f69657bbf00a4ea5b6fb2b692756f, type: 3}
-  - {fileID: 424858643333420328, guid: eb8190de027ae1749a1da72801d7e14f, type: 3}
-  - {fileID: 424858643333420328, guid: b44e0ff2f38197b41ab697271e7512cb, type: 3}
-  - {fileID: 424858643333420328, guid: 0738168fc9589bd4b9dfa8849a1f0ec8, type: 3}
-  - {fileID: 424858643333420328, guid: e0980d24eb0adca44b09cdf708b5a96a, type: 3}
   arrowSystem: {fileID: 1392421041}
   cellsPath: []
   arrow: []
@@ -16894,11 +16868,10 @@ MonoBehaviour:
   - {fileID: -7903265091803169806, guid: 467eae19dd2f13b4b93c0090b426fd85, type: 3}
   - {fileID: 1497539411760277250, guid: 8d408999cb152014090248f4a5c4b86b, type: 3}
   - {fileID: 4933627757567371145, guid: c393188c78c2662448927b6459991748, type: 3}
-  - {fileID: 2654075239046433566, guid: 1a3018928b5980f4099c963ead4ed263, type: 3}
+  - {fileID: 3284759905298691425, guid: 1a3018928b5980f4099c963ead4ed263, type: 3}
   - {fileID: -1773237437592595331, guid: 46ead012e265a7e4f81043891962c394, type: 3}
   - {fileID: 414456203307262216, guid: 461b6d8b04725c14fb9bb7114607f95a, type: 3}
-  - {fileID: 0}
-  - {fileID: 2654075239046433566, guid: a0862b3303e015b47b19a850ad586e35, type: 3}
+  - {fileID: -3839175867553137211, guid: a0862b3303e015b47b19a850ad586e35, type: 3}
   EnglishUnitPrefabsList:
   - {fileID: 1874917203889462343, guid: 36addd8e39955534b8378c7276b2a6d6, type: 3}
   - {fileID: 5506565301965629597, guid: 419e3631cd51d134a8c2148f5f670747, type: 3}
@@ -16907,11 +16880,10 @@ MonoBehaviour:
   - {fileID: 7471181132396668834, guid: 108dc027f9135a0428febb0662570844, type: 3}
   - {fileID: 4483021511005176020, guid: 61a777fa2015e614aa342f314dce75d0, type: 3}
   - {fileID: 2774372643729787346, guid: 831a41b378d4b1f4e835adf3d036e69f, type: 3}
-  - {fileID: 2654075239046433566, guid: bfd178fbfe1c1a94fa36d5e2a4c4d568, type: 3}
+  - {fileID: 4021918938175873746, guid: bfd178fbfe1c1a94fa36d5e2a4c4d568, type: 3}
   - {fileID: 9038703396222941493, guid: 457454bd727f02a41b069a6cc416fc9a, type: 3}
   - {fileID: 8389441414927597819, guid: 9b58a9fc72358de4194673046ca48de8, type: 3}
-  - {fileID: 0}
-  - {fileID: 2654075239046433566, guid: 44cf77413587a7d4498306caec7c5ca1, type: 3}
+  - {fileID: -8409976296019379608, guid: 44cf77413587a7d4498306caec7c5ca1, type: 3}
   currentPlayerInControl: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
@@ -26865,7 +26837,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bea0c79f703eb9f4dbea52e2e9ff8a2f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5183fbc2e8d7eeb4986138fe19fa6287, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29450,6 +29422,7 @@ MonoBehaviour:
   EndDayPanel: {fileID: 1752091188}
   EndDayPanelBackground: {fileID: 732292807}
   EndDayPanelText: {fileID: 799867846}
+  IsEndDayPanelActivated: 0
 --- !u!1 &1760440606
 GameObject:
   m_ObjectHideFlags: 0
@@ -32069,7 +32042,7 @@ SpriteRenderer:
   m_SortingLayerID: 737391453
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9be332907c0a5b049afc85671c71dd80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ab957c7a7e720a49a3149472c8d9f5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
