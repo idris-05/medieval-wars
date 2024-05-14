@@ -93,21 +93,18 @@ public static class TerrainsUtils
     public static int[] defenceStars = { 3, 3, 3, 4, 3, 0, 0, 0, 0, 0, 1, 1, 2, 4 };
 
     public static string[] ReportTerrain => new string[] {
-                "Barracks are the main building of the army, they are used to train infantry units.",
-                "Docks are used to build ships and transport units.",
-                "Stables are used to train cavalry units.",
-                "Castles are the main building of the army, they are used to train infantry units.",
-                "Villages are used to build ships and transport units.",
-                "Roads are used to build ships and transport units.",
-                "Bridges are used to train cavalry units.",
-                "Rivers are used to train cavalry units.",
-                "Seas are used to train cavalry units.",
-                "Shoals are used to train cavalry units.",
-                "Reefs are used to train cavalry units.",
-                "Plains are used to train cavalry units.",
-                "Woods are used to train cavalry units.",
-                "Mountains are used to train cavalry units."
-            };
+        "Allied Barracks deploy,supply and restore HP to ground no horsed Unit",
+        "Allied Docks deploy,supply and restore HP to naval Units",
+        "Allied Stables deploy, supply and restore hp to horsed unit",
+        "A castle if battle ends captured non horsed Units gets Hp and supplies",
+        "Non horsed Units get HP and supplies from Allied Villages",
+        "Easy to traverse but offers no defensive cover",
+        "A bridge allows units to traverse rivers but offers no terrain benefits",
+        "A gentle, flowing river. Only infantry units can ford rivers",
+        "A body of water only naval Units can traverse seas",
+        "A sandy shoal. Ships load and unload units here"
+    };
+
 
 
 }

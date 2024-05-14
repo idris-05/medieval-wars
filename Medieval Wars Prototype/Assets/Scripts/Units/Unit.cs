@@ -107,7 +107,7 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public IEnumerator Die()
     {
         // w occupant Unit t3 cell li kan fiha ? wla w7dha tweli null , l3fayes li kima hadi wchnohom kamel
-        Destroy(this.unitView.SupplyLackApple.gameObject);
+        Destroy(this.unitView.SupplyLackApple != null ? this.unitView.SupplyLackApple.gameObject : null);
         this.unitView.ChangeAnimationState(UnitUtil.AnimationState.DIE_ANIMATION);
         yield return new WaitForSeconds(1.6f);
         Destroy(this.unitView.HealthIcon.gameObject);

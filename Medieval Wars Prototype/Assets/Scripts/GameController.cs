@@ -173,8 +173,8 @@ public class GameController : MonoBehaviour
 
         Debug.Log("cell li rah yesra fiha le probleme  " + unit.occupiedCell.row + " " + unit.occupiedCell.column);
 
-        if (player == player1) unit.unitView.spriteRenderer.material.color = Color.black; // set the outline to Blue
-        if (player == player2) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255); // set the outline to Red
+        if (player == player1) unit.unitView.spriteRenderer.material.color = Color.red; // set the outline to Blue
+        if (player == player2) unit.unitView.spriteRenderer.material.color = Color.blue; // set the outline to Red
         unit.unitView.spriteRenderer.material.SetFloat(Shader.PropertyToID("_Thickness"), 0.001f);
         // create the unit's health indicator
         SpawnHealthIcon(unit);

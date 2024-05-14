@@ -106,7 +106,7 @@ public class AttackSystem : MonoBehaviour
                 if (nextRow >= 0 && nextRow < MapGrid.Instance.Rows && nextCol >= 0 && nextCol < MapGrid.Instance.Columns)
                 {
 
-                    if (MathF.Abs(row) + MathF.Abs(col) <= moveRange && MathF.Abs(row) + MathF.Abs(col) > unit.minAttackRange)
+                    if (MathF.Abs(row) + MathF.Abs(col) <= moveRange && MathF.Abs(row) + MathF.Abs(col) >= unit.minAttackRange)
                     {
                         unit.attackableGridCells.Add(MapGrid.Instance.grid[nextRow, nextCol]);
                         // mapGrid.grid[nextRow, nextCol].gridCellView.HighlightAsAttackable();

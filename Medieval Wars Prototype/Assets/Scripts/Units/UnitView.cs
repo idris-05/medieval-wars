@@ -265,8 +265,8 @@ public class UnitView : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            if (this.unit.playerOwner == GameController.Instance.player1) unit.unitView.spriteRenderer.material.color = Color.black;
-            if (this.unit.playerOwner == GameController.Instance.player2) unit.unitView.spriteRenderer.material.color = new Color(255, 0, 0, 255);
+            if (this.unit.playerOwner == GameController.Instance.player1) unit.unitView.spriteRenderer.material.color = Color.red;
+            if (this.unit.playerOwner == GameController.Instance.player2) unit.unitView.spriteRenderer.material.color = Color.blue;
             spriteRenderer.color = Color.white;
             Destroy(this.redDagger);
         }
