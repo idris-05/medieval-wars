@@ -1,7 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 
 
@@ -39,7 +43,11 @@ public class GameController : MonoBehaviour
     //! GridCellsWhenMadeInteractable : -3
     //! UnitsWhenMade(Attackable/Suppliable) : -3
     //! ActionButtons : -4
-
+    public GameObject endGamePanel;
+    public GameObject endGamText;
+    public GameObject endGameImage;
+    public GameObject endGameBackGround;
+    public bool EndGameActivated = false;
 
 
 
@@ -130,6 +138,12 @@ public class GameController : MonoBehaviour
 
         SpawnUnitsAndBuildings.Instance.CorrectBuildingsPlayerOwner();
 
+        if (ScenesManager.Load == true)
+        {
+            Debug.Log("load map " + ScenesManager.mapToLoad);
+            load();
+        }
+
         // EndDayController.Instance.AnimateTheEndDayPanel();
 
     }
@@ -203,7 +217,8 @@ public class GameController : MonoBehaviour
 
     public void save()
     {
-        SavingSystem.ClearAllJSONFiles(1);
+        SavingSystem.GetThePathForLoad(ScenesManager.mapToLoad);
+        // SavingSystem.ClearAllJSONFiles();
         SavingSystem.SavePlayer(player1, SavingSystem.PATH1, 1);
         SavingSystem.SavePlayer(player2, SavingSystem.PATH2, 2);
         SavingSystem.SaveGame();
@@ -214,6 +229,7 @@ public class GameController : MonoBehaviour
 
     public void load()
     {
+
         DestroyAllUnitsForLoad();
         SavingSystem.loadplayer(SavingSystem.PATH1);
         SavingSystem.loadplayer(SavingSystem.PATH2);
@@ -293,19 +309,19 @@ public class GameController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            // currentPlayerInControl.Co.ActivateSuperPower();
-            SavingSystem.ClearAllJSONFiles(1);
+            currentPlayerInControl.Co.ActivateSuperPower();
+            // EndGame(player1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            save();
+        // if (Input.GetKeyDown(KeyCode.Y))
+        // {
+        //     save();
 
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            load();
-        }
+        // }
+        // if (Input.GetKeyDown(KeyCode.T))
+        // {
+        //     load();
+        // }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -487,11 +503,40 @@ public class GameController : MonoBehaviour
 
     public void EndGame(Player playerWinner)
     {
-        //
+        endGamePanel.SetActive(true);
+        endGamText.SetActive(true);
+        endGameImage.SetActive(true);
+        endGameBackGround.SetActive(true);
+        EndGameActivated = true;
+
+        CoCardsController.Instance.DesActivateCard();
+        CoCardsController.Instance.LockTheCOCard();
+
+        MiniIntelController.Instance.DesActivateCard();
+        MiniIntelController.Instance.LockTheMiniCard();
+
+        InfoCardController.Instance.DesActivateCard();
+
+        if (playerWinner == player1) endGamText.GetComponent<Text>().text = "Player 1 Wins";
+        else endGamText.GetComponent<Text>().text = "Player 2 Wins";
         Debug.Log("NED GAME : player " + playerWinner.ToString() + " wins");
+        StartCoroutine(wait(7f));
+        // endGamePanel.SetActive(false);
+
+        ScenesManager.Instance.StartMainMenu();
+
+
     }
 
 
-
+    public IEnumerator wait(float time)
+    {
+        yield return new WaitForSeconds(time);
+        endGameImage.SetActive(false);
+        endGamText.SetActive(false);
+        endGamePanel.SetActive(false);
+        endGameBackGround.SetActive(false);
+        EndGameActivated = false;
+    }
 
 }

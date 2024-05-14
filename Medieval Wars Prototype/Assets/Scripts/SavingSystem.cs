@@ -8,9 +8,12 @@ using Newtonsoft.Json;
 public class SavingSystem : MonoBehaviour
 {
 
-    public static string PATH1 = Path.Combine(Application.dataPath, "player1stats.json");
-    public static string PATH2 = Path.Combine(Application.dataPath, "player2stats.json");
-    public static string PATHN = Path.Combine(Application.dataPath, "GamesInfos.json");
+    // public static string PATH1 = Path.Combine(Application.dataPath, "player1stats.json");
+    // public static string PATH2 = Path.Combine(Application.dataPath, "player2stats.json");
+    // public static string PATHN = Path.Combine(Application.dataPath, "GamesInfos.json");
+    public static string PATH1;
+    public static string PATH2;
+    public static string PATHN;
     private static GameController instance;
     public static GameController Instance
     {
@@ -34,6 +37,35 @@ public class SavingSystem : MonoBehaviour
     }
 
 
+    public static void GetThePathForLoad(int mapToLpoad)
+    {
+        switch (mapToLpoad)
+        {
+            case 1:
+                PATH1 = Path.Combine(Application.dataPath, "player1stats.json");
+                PATH2 = Path.Combine(Application.dataPath, "player2stats.json");
+                PATHN = Path.Combine(Application.dataPath, "GamesInfos.json");
+                break;
+            case 2:
+                PATH1 = Path.Combine(Application.dataPath, "player1stats2.json");
+                PATH2 = Path.Combine(Application.dataPath, "player2stats2.json");
+                PATHN = Path.Combine(Application.dataPath, "GamesInfos2.json");
+                break;
+            case 3:
+                PATH1 = Path.Combine(Application.dataPath, "player1stats3.json");
+                PATH2 = Path.Combine(Application.dataPath, "player2stats3.json");
+                PATHN = Path.Combine(Application.dataPath, "GamesInfos3.json");
+                break;
+            case 4:
+                PATH1 = Path.Combine(Application.dataPath, "player1stats4.json");
+                PATH2 = Path.Combine(Application.dataPath, "player2stats4.json");
+                PATHN = Path.Combine(Application.dataPath, "GamesInfos4.json");
+                break;
+            default:
+                Debug.Log("map number is not valid");
+                break;
+        }
+    }
     public struct Coinfo
     {
         public COUtil.COName coName;
@@ -178,6 +210,21 @@ public class SavingSystem : MonoBehaviour
         }
     }
 
+
+    public static bool IsEmpty(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            return string.IsNullOrEmpty(json.Trim());
+        }
+        else
+        {
+            Debug.LogError("File not found at path: " + filePath);
+            return true; // Treat as empty if file doesn't exist
+        }
+    }
+    
     public static void loadplayer(string path)
     {
         SavingSystem.playerUnitsInfos unitPlayerdatas = new SavingSystem.playerUnitsInfos();
@@ -257,6 +304,7 @@ public class SavingSystem : MonoBehaviour
         };
         foreach (GridCell item in GameController.Instance.mapGrid.grid)
         {
+            Debug.Log(item.row + " " + item.column + " " + item.occupantTerrain + " " + item.occupantUnit);
             if (item.occupantTerrain is Building building)
             {
                 if (building.playerOwner == null)
@@ -388,11 +436,11 @@ public class SavingSystem : MonoBehaviour
 
 
 
-    public static void ClearAllJSONFiles(int mapNumber)
-    {
-        File.WriteAllText(PATH1, string.Empty);
-        File.WriteAllText(PATH2, string.Empty);
-        File.WriteAllText(PATHN, string.Empty);
-    }
+    // public static void ClearAllJSONFiles(int mapNumber)
+    // {
+    //     File.WriteAllText(PATH1, string.Empty);
+    //     File.WriteAllText(PATH2, string.Empty);
+    //     File.WriteAllText(PATHN, string.Empty);
+    // }
 
 }

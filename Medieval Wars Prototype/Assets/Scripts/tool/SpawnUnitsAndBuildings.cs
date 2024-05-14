@@ -172,7 +172,7 @@ public class SpawnUnitsAndBuildings : MonoBehaviour
     {
         GameController.Instance.SpawnUnit(GameController.Instance.player1, 3, 6, GameController.Instance.EnglishUnitPrefabsList[0]);
         GameController.Instance.SpawnUnit(GameController.Instance.player1, 2, 4, GameController.Instance.EnglishUnitPrefabsList[1]);
-        GameController.Instance.SpawnUnit(GameController.Instance.player1, 15, 10, GameController.Instance.EnglishUnitPrefabsList[2]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 15, 10, GameController.Instance.EnglishUnitPrefabsList[2]);
         //GameController.Instance.SpawnUnit(GameController.Instance.player1, 12, 12, GameController.Instance.EnglishUnitPrefabsList[3]);
         // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 21, GameController.Instance.EnglishUnitPrefabsList[4]); 
         GameController.Instance.SpawnUnit(GameController.Instance.player1, 6, 6, GameController.Instance.EnglishUnitPrefabsList[4]);
@@ -193,7 +193,7 @@ public class SpawnUnitsAndBuildings : MonoBehaviour
 
         GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 25, GameController.Instance.FrenchUnitPrefabsList[0]);
         GameController.Instance.SpawnUnit(GameController.Instance.player2, 8, 29, GameController.Instance.FrenchUnitPrefabsList[1]);
-        GameController.Instance.SpawnUnit(GameController.Instance.player2, 15, 23, GameController.Instance.FrenchUnitPrefabsList[2]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player2, 15, 23, GameController.Instance.FrenchUnitPrefabsList[2]);
         //GameController.Instance.SpawnUnit(GameController.Instance.player2, 13 ,4, GameController.Instance.FrenchUnitPrefabsList[3]);
         GameController.Instance.SpawnUnit(GameController.Instance.player2, 6, 26, GameController.Instance.FrenchUnitPrefabsList[4]);
         GameController.Instance.SpawnUnit(GameController.Instance.player2, 8, 24, GameController.Instance.FrenchUnitPrefabsList[4]);

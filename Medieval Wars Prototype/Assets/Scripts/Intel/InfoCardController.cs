@@ -155,6 +155,7 @@ public class InfoCardController : MonoBehaviour
     public void UpdateTerrainBIGIntel(Terrain terrain, Vector3 mousePositionWhenClickOnTerrain)
     {
         if (EndDayController.Instance.IsEndDayPanelActivated) return;
+        if (GameController.Instance.EndGameActivated) return ;
         if (!IsTheCardActivated) ActivateCard();
 
         mousePosition = mousePositionWhenClickOnTerrain;

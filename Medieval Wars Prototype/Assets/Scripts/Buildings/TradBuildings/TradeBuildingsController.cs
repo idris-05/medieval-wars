@@ -222,18 +222,16 @@ public class TradeBuildingsController : MonoBehaviour
         Transform stableTransform = stable.transform;
         CO currentPlayerCO = currentPlayerInControl.Co;
 
-        // stableTransform.Find("Cavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(10);
-        // stableTransform.Find("RCavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(7);
-        stableTransform.Find("Cavalry").Find("Button").GetComponent<Button>().interactable = false;
-        stableTransform.Find("RCavalry").Find("Button").GetComponent<Button>().interactable = false;
+        stableTransform.Find("Cavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(10);
+        stableTransform.Find("RCavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(7);
         stableTransform.Find("Caravan").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(0);
 
         stableTransform.Find("Cavalry").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(10).ToString();
         stableTransform.Find("RCavalry").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(7).ToString();
         stableTransform.Find("Caravan").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(0).ToString();
 
-        // stableTransform.Find("Cavalry").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[10].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[10].unitView.spriteRenderer.sprite;
-        // stableTransform.Find("RCavalry").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[7].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[7].unitView.spriteRenderer.sprite;
+        stableTransform.Find("Cavalry").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[10].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[10].unitView.spriteRenderer.sprite;
+        stableTransform.Find("RCavalry").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[7].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[7].unitView.spriteRenderer.sprite;
         stableTransform.Find("Caravan").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[0].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[0].unitView.spriteRenderer.sprite;
 
     }
