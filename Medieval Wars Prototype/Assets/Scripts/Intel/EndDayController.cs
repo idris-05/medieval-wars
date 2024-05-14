@@ -31,6 +31,8 @@ public class EndDayController : MonoBehaviour
     public GameObject EndDayPanelBackground;
     public GameObject EndDayPanelText;
 
+    public bool IsEndDayPanelActivated;
+
 
     public void AnimateTheEndDayPanel()
     {
@@ -48,6 +50,15 @@ public class EndDayController : MonoBehaviour
 
     public void ActivateEndDayPanel()
     {
+        ManageInteractableObjects.Instance.ActivateBlockInteractionsLayer();
+        IsEndDayPanelActivated = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor to prevent it from moving
+
+        CoCardsController.Instance.canvasGroup.alpha = 0;
+        InfoCardController.Instance.canvasGroup.alpha = 0;
+        MiniIntelController.Instance.canvasGroup.alpha = 0;
+
         EndDayPanel.SetActive(true);
         EndDayPanelBackground.SetActive(true);
         EndDayPanelText.SetActive(true);
@@ -56,6 +67,15 @@ public class EndDayController : MonoBehaviour
 
     public void DeactivateEndDayPanel()
     {
+        ManageInteractableObjects.Instance.DesctivateBlockInteractionsLayer();
+        IsEndDayPanelActivated = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+
+        CoCardsController.Instance.canvasGroup.alpha = 1;
+        InfoCardController.Instance.canvasGroup.alpha = 1;
+        MiniIntelController.Instance.canvasGroup.alpha = 1;
+
         EndDayPanel.SetActive(false);
         EndDayPanelBackground.SetActive(false);
         EndDayPanelText.SetActive(false);

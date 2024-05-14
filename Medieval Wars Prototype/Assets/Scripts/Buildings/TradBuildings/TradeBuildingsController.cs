@@ -205,6 +205,13 @@ public class TradeBuildingsController : MonoBehaviour
         barrackTransform.Find("Bandit").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(8).ToString();
         barrackTransform.Find("Spear Man").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(6).ToString();
         barrackTransform.Find("Catapult").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(9).ToString();
+
+        barrackTransform.Find("Infantry").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[4].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[4].unitView.spriteRenderer.sprite;
+        barrackTransform.Find("Archer").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[1].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[1].unitView.spriteRenderer.sprite;
+        barrackTransform.Find("Bandit").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[8].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[8].unitView.spriteRenderer.sprite;
+        barrackTransform.Find("Spear Man").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[6].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[6].unitView.spriteRenderer.sprite;
+        barrackTransform.Find("Catapult").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[9].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[9].unitView.spriteRenderer.sprite;
+
     }
 
     public void UpdateAllUnitsCostInTheDisplayForStable()
@@ -215,13 +222,20 @@ public class TradeBuildingsController : MonoBehaviour
         Transform stableTransform = stable.transform;
         CO currentPlayerCO = currentPlayerInControl.Co;
 
-        stableTransform.Find("Cavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(10);
-        stableTransform.Find("RCavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(7);
+        // stableTransform.Find("Cavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(10);
+        // stableTransform.Find("RCavalry").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(7);
+        stableTransform.Find("Cavalry").Find("Button").GetComponent<Button>().interactable = false;
+        stableTransform.Find("RCavalry").Find("Button").GetComponent<Button>().interactable = false;
         stableTransform.Find("Caravan").Find("Button").GetComponent<Button>().interactable = playerFunds >= currentPlayerCO.GetUnitCost(0);
 
         stableTransform.Find("Cavalry").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(10).ToString();
         stableTransform.Find("RCavalry").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(7).ToString();
         stableTransform.Find("Caravan").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(0).ToString();
+
+        // stableTransform.Find("Cavalry").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[10].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[10].unitView.spriteRenderer.sprite;
+        // stableTransform.Find("RCavalry").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[7].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[7].unitView.spriteRenderer.sprite;
+        stableTransform.Find("Caravan").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[0].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[0].unitView.spriteRenderer.sprite;
+
     }
 
     public void UpdateAllUnitsCostInTheDisplayForDock()
@@ -239,6 +253,10 @@ public class TradeBuildingsController : MonoBehaviour
         dockTransform.Find("Carrack").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(2).ToString();
         dockTransform.Find("Fire Ship").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(3).ToString();
         dockTransform.Find("TShip").Find("Price").GetComponent<Text>().text = currentPlayerCO.GetUnitCost(5).ToString();
+
+        dockTransform.Find("Carrack").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[2].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[2].unitView.spriteRenderer.sprite;
+        dockTransform.Find("Fire Ship").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[3].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[3].unitView.spriteRenderer.sprite;
+        dockTransform.Find("TShip").Find("Image").GetComponent<Image>().sprite = currentPlayerInControl == GameController.Instance.player1 ? GameController.Instance.EnglishUnitPrefabsList[5].unitView.spriteRenderer.sprite : GameController.Instance.FrenchUnitPrefabsList[5].unitView.spriteRenderer.sprite;
     }
 
 

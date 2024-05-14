@@ -57,7 +57,7 @@ public class TradeBuilding : Building
 
     public void OnMouseDown()
     {
-        if (this.playerOwner == null) return;
+        if (this.playerOwner != GameController.Instance.currentPlayerInControl) return; 
         TradeBuildingsController.Instance.ActivateOneTradeBuilding(this);
         TradeBuildingsController.Instance.currentTradeBuilding = this;
     }

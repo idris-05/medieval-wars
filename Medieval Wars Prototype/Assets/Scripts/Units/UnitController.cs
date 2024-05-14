@@ -119,6 +119,8 @@ public class UnitController : MonoBehaviour
                 UnitAttack attackingUnit = selectedUnit as UnitAttack;
 
                 ManageInteractableObjects.Instance.ResetSpecificUnitsBackToTheirOriginalLayer(attackingUnit.enemiesInRange);
+                ButtonsUI.Instance.HideButtons();
+                ButtonsUI.Instance.buttonsToDisplay.Clear();
 
                 StartCoroutine(AttackAndFollowUp(attackingUnit, unitThatGotClickedOn));
 

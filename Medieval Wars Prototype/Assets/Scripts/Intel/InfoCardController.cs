@@ -154,6 +154,7 @@ public class InfoCardController : MonoBehaviour
 
     public void UpdateTerrainBIGIntel(Terrain terrain, Vector3 mousePositionWhenClickOnTerrain)
     {
+        if (EndDayController.Instance.IsEndDayPanelActivated) return;
         if (!IsTheCardActivated) ActivateCard();
 
         mousePosition = mousePositionWhenClickOnTerrain;
@@ -174,7 +175,7 @@ public class InfoCardController : MonoBehaviour
         TerrainMoveCostSea.GetComponent<Text>().text = TerrainsUtils.MoveCost[terrain.TerrainIndex, SeaIndex].ToString();
         TerrainMoveCostTShip.GetComponent<Text>().text = TerrainsUtils.MoveCost[terrain.TerrainIndex, TShipIndex].ToString();
 
-        TerrainReport.GetComponent<Text>().text = TerrainsUtils.ReportTerrain[terrain.TerrainIndex];
+        // TerrainReport.GetComponent<Text>().text = TerrainsUtils.ReportTerrain[terrain.TerrainIndex];
 
         AnimateTheCardMouvement(mousePositionWhenClickOnTerrain);
         numberOfQKeyclicked = 1;

@@ -80,6 +80,9 @@ public class Building : Terrain
 
     private void HealUnit(Unit unit)
     {
+        int HealCost = (int)Mathf.Floor(unit.playerOwner.Co.GetUnitCost(unit.unitIndex) * 0.2f);
+        if (unit.playerOwner.availableFunds < HealCost) return;
+        unit.playerOwner.availableFunds -= HealCost;
         unit.Heal();
     }
 
@@ -93,8 +96,8 @@ public class Building : Terrain
 
         if (BuildingsUtil.BuildingCanHealAndSupplyThatUnit[this.TerrainIndex, unit.unitIndex])
         {
-            HealUnit(unit);
-            SupplyUnit(unit);
+            if (unit.healthPoints < 100) HealUnit(unit);
+            if (unit.ration < UnitUtil.maxRations[unit.unitIndex]) SupplyUnit(unit);
         }
 
     }

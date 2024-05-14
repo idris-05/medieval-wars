@@ -99,6 +99,8 @@ public class GameController : MonoBehaviour
         player2.Co = coForTest2;
         coForTest1.playerOwner = player1;
         coForTest2.playerOwner = player2;
+
+        CurrentDayCounter = 1;
     }
 
     // This method is called when the object is first enabled in the scene.
@@ -109,6 +111,9 @@ public class GameController : MonoBehaviour
         arrowSystem = FindAnyObjectByType<ArrowSystem>();
         SpawnUnitsAndBuildings.Instance.SpawnUnitsForMAP1();
         SpawnUnitsAndBuildings.Instance.CorrectBuildingsPlayerOwner();
+        
+        // EndDayController.Instance.AnimateTheEndDayPanel();
+
     }
 
 

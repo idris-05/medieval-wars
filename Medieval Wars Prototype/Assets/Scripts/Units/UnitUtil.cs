@@ -70,19 +70,18 @@ public class UnitUtil : MonoBehaviour
 
     // row Load the column
     public static bool[,] CanLoadThatUnit = {
-    //             Caravan  Archers  Carac    Fireship  Infantry  T-ship  SpikeMan  R-chalvary  Bandit  Catapulte  RamShip  Chalvary
-    /* Caravan */  {false,  true ,   false,   false,    true ,    false,  true ,    false,      true ,   false,     false,   false},
-    /* Archers */  {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
-    /* Carac */    {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
-    /* Fireship */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
-    /* Infantry */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
-    /* T-ship */   {true ,  true ,   false,   false,    true ,    false,  true ,    true ,      true ,   true ,     false,   true },
-    /* SpikeMan */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
-    /* R-chalvary*/{false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
-    /* Bandit */   {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
-    /* Catapulte*/ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
-    /* RamShip */  {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false},
-    /* Chalvary */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false,   false}
+    //             Caravan  Archers  Carac    Fireship  Infantry  T-ship  SpikeMan  R-chalvary  Bandit  Catapulte  Chalvary
+    /* Caravan */  {false,  true ,   false,   false,    true ,    false,  true ,    false,      true ,   false,     false},
+    /* Archers */  {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false},
+    /* Carac */    {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false},
+    /* Fireship */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false},
+    /* Infantry */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false},
+    /* T-ship */   {true ,  true ,   false,   false,    true ,    false,  true ,    true ,      true ,   true ,     true },
+    /* SpikeMan */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false},
+    /* R-chalvary*/{false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false},
+    /* Bandit */   {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false},
+    /* Catapulte*/ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false},
+    /* Chalvary */ {false,  false,   false,   false,    false,    false,  false,    false,      false,   false,     false}
     };
 
 

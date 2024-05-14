@@ -59,6 +59,9 @@ public class CoCardsController : MonoBehaviour
     public GameObject CO1Funds;
     public GameObject CO2Funds;
 
+    public GameObject DayCO1;
+    public GameObject DayCO2;
+
 
     void Start()
     {
@@ -71,6 +74,7 @@ public class CoCardsController : MonoBehaviour
         if (!TheCoCardIsLocked && !IsTheCardActivated) ActivateCard();
 
         UpdateCOFunds();
+        UpdateDay();
         // Get the mouse position in screen coordinates
         mousePos = Input.mousePosition;
 
@@ -113,6 +117,11 @@ public class CoCardsController : MonoBehaviour
     }
 
 
+    public void UpdateDay()
+    {
+        DayCO1.GetComponent<Text>().text = "D-" + GameController.Instance.CurrentDayCounter.ToString();
+        DayCO2.GetComponent<Text>().text = "D-" + GameController.Instance.CurrentDayCounter.ToString();
+    }
 
     private IEnumerator AnimateCardWhenItAppears()
     {
