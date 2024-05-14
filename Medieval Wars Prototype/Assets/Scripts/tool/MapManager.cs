@@ -81,8 +81,8 @@ public class MapManager : MonoBehaviour
 
     void Awake()
     {
-         InitializeListOfTerrainSpritesLists();
-         LoadMapData();
+        InitializeListOfTerrainSpritesLists();
+        LoadMapData(ScenesManager.mapToLoad);
     }
 
     // !!!!!
@@ -255,7 +255,7 @@ public class MapManager : MonoBehaviour
 
 
 
-    public void LoadMapData()
+    public void LoadMapData(int mapToLoad)
     {
         MapGrid.Instance.CreateMapGridCellsMatrix();
 
@@ -275,7 +275,27 @@ public class MapManager : MonoBehaviour
         listOfTerrainSpritesLists[13] = MountainTileSprites;
         listOfTerrainSpritesLists[14] = AccessoriesSprites;
 
-        string jsonFilePath = "map_data.json"; // Path to the JSON file containing map data
+        string jsonFilePath = "map_data1.json"; // Path to the JSON file containing map data
+
+        switch (mapToLoad)
+        {
+            case 1:
+                jsonFilePath = "map_data1.json";
+                break;
+            case 2:
+                jsonFilePath = "map_data2.json";
+                break;
+            case 3:
+                jsonFilePath = "map_data3.json";
+                break;
+            case 4:
+                jsonFilePath = "map_data4.json";
+                break;
+            default:
+                Debug.Log("map not found");
+                break;
+        }
+
 
         if (!File.Exists(jsonFilePath))
         {

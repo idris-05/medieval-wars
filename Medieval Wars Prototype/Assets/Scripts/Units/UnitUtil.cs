@@ -99,9 +99,9 @@ public class UnitUtil : MonoBehaviour
         7000   // Cavalry
     };
 
-    public readonly static float[] AdditionInYPpositionForEnglishUnits = { 0.6125f, 0.625f, 0.6218f, 0.625f, 0.618f, 0.618f, 0.6214f, 0.6214f, 0.6309f, 0.625f, 0.6337f };
+    public readonly static float[] AdditionInYPpositionForEnglishUnits = { 0.6125f, 0.625f, 0.6218f, 0.625f, 0.618f, 0.6509f, 0.6214f, 0.7268f, 0.6309f, 0.625f, 0.6337f };
 
-    public readonly static float[] AdditionInYPpositionForFrenshUnits = { 0.6129651f, 0.622f, 0.632f, 0.6380554f, 0.6230013f, 0.655f, 0.6179832f, 0.6214f, 0.587934f, 0.6430734f, 0.6337f };
+    public readonly static float[] AdditionInYPpositionForFrenshUnits = { 0.6129651f, 0.622f, 0.632f, 0.6380554f, 0.6230013f, 0.655f, 0.6179832f, 0.6901f, 0.587934f, 0.6430734f, 0.7403f };
 
     //     CARAVAN,
     //     ARCHERS,

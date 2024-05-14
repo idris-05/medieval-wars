@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
+    public static int mapToLoad; 
     [SerializeField] Animator transitionAnim;
     public void StartMainMenu()
     {
@@ -22,7 +23,9 @@ public class ScenesManager : MonoBehaviour
 
     public void StartMap(int mapId)
     {
-        StartCoroutine(LoadMap(mapId));
+        mapToLoad = mapId;
+        Debug.Log("StartMap map" + mapId);
+        StartCoroutine(LoadMap(1));
     }
 
     IEnumerator LoadMap(int mapId)

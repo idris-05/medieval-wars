@@ -115,7 +115,7 @@ public class UnitView : MonoBehaviour
 
     public void SetUnitPosition(int newRow, int newCol)
     {
-        float yposition = this.unit.playerOwner == GameController.Instance.player1 ? UnitUtil.AdditionInYPpositionForEnglishUnits[unit.unitIndex] : UnitUtil.AdditionInYPpositionForEnglishUnits[unit.unitIndex];
+        float yposition = this.unit.playerOwner == GameController.Instance.player1 ? UnitUtil.AdditionInYPpositionForEnglishUnits[unit.unitIndex] : UnitUtil.AdditionInYPpositionForFrenshUnits[unit.unitIndex];
         Vector3 position = new Vector3(-16 + newCol + 0.5f, 9 - newRow - 0.5f + yposition - 0.5f, -1);
         transform.position = position;
     }

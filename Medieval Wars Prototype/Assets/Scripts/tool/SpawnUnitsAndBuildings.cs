@@ -168,6 +168,158 @@ public class SpawnUnitsAndBuildings : MonoBehaviour
     }
 
 
+    public void SpawnUnitsForMAP2()
+    {
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 3, 6, GameController.Instance.EnglishUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 2, 4, GameController.Instance.EnglishUnitPrefabsList[1]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 15, 10, GameController.Instance.EnglishUnitPrefabsList[2]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 12, 12, GameController.Instance.EnglishUnitPrefabsList[3]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 21, GameController.Instance.EnglishUnitPrefabsList[4]); 
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 6, 6, GameController.Instance.EnglishUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 4, 5, GameController.Instance.EnglishUnitPrefabsList[4]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 14, 9, GameController.Instance.EnglishUnitPrefabsList[5]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 6, 2, GameController.Instance.EnglishUnitPrefabsList[6]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 0, GameController.Instance.EnglishUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 4, 1, GameController.Instance.EnglishUnitPrefabsList[8]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 9, GameController.Instance.EnglishUnitPrefabsList[9]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 11, 0, GameController.Instance.EnglishUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 1, 10, GameController.Instance.EnglishUnitPrefabsList[7]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 10, 7, GameController.Instance.EnglishUnitPrefabsList[10]);
+
+
+
+
+
+
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 25, GameController.Instance.FrenchUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 8, 29, GameController.Instance.FrenchUnitPrefabsList[1]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 15, 23, GameController.Instance.FrenchUnitPrefabsList[2]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 13 ,4, GameController.Instance.FrenchUnitPrefabsList[3]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 6, 26, GameController.Instance.FrenchUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 8, 24, GameController.Instance.FrenchUnitPrefabsList[4]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player2, 7, 1, GameController.Instance.FrenchUnitPrefabsList[4]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 14, 4, GameController.Instance.FrenchUnitPrefabsList[5]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 5, 23, GameController.Instance.FrenchUnitPrefabsList[6]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 0, GameController.Instance.FrenchUnitPrefabsList[0]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 4, GameController.Instance.FrenchUnitPrefabsList[8]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 8, 19, GameController.Instance.FrenchUnitPrefabsList[9]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 6, 1, GameController.Instance.FrenchUnitPrefabsList[10]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 11, 0, GameController.Instance.FrenchUnitPrefabsList[0]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 13, 24, GameController.Instance.FrenchUnitPrefabsList[5]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 15, 26, GameController.Instance.FrenchUnitPrefabsList[3]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 11, 27, GameController.Instance.FrenchUnitPrefabsList[10]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 13, 30, GameController.Instance.FrenchUnitPrefabsList[7]);
+    }
+
+
+    public void SpawnUnitsForMAP3()
+    {
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 3, 6, GameController.Instance.EnglishUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 2, 4, GameController.Instance.EnglishUnitPrefabsList[1]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 15, 10, GameController.Instance.EnglishUnitPrefabsList[2]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 12, 12, GameController.Instance.EnglishUnitPrefabsList[3]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 21, GameController.Instance.EnglishUnitPrefabsList[4]); 
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 5, 6, GameController.Instance.EnglishUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 4, 5, GameController.Instance.EnglishUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 14, 9, GameController.Instance.EnglishUnitPrefabsList[5]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 5, 2, GameController.Instance.EnglishUnitPrefabsList[6]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 0, GameController.Instance.EnglishUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 4, 1, GameController.Instance.EnglishUnitPrefabsList[8]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 3, 4, GameController.Instance.EnglishUnitPrefabsList[9]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 11, 0, GameController.Instance.EnglishUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 1, 8, GameController.Instance.EnglishUnitPrefabsList[7]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 10, 7, GameController.Instance.EnglishUnitPrefabsList[10]);
+
+
+
+
+
+
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 25, GameController.Instance.FrenchUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 2, 29, GameController.Instance.FrenchUnitPrefabsList[1]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 10, 24, GameController.Instance.FrenchUnitPrefabsList[2]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 13 ,4, GameController.Instance.FrenchUnitPrefabsList[3]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 22, GameController.Instance.FrenchUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 5, 23, GameController.Instance.FrenchUnitPrefabsList[4]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player2, 7, 1, GameController.Instance.FrenchUnitPrefabsList[4]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 14, 4, GameController.Instance.FrenchUnitPrefabsList[5]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 5, 23, GameController.Instance.FrenchUnitPrefabsList[6]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 0, GameController.Instance.FrenchUnitPrefabsList[0]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 4, GameController.Instance.FrenchUnitPrefabsList[8]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 8, 15, GameController.Instance.FrenchUnitPrefabsList[9]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 6, 1, GameController.Instance.FrenchUnitPrefabsList[10]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 11, 0, GameController.Instance.FrenchUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 10, 22, GameController.Instance.FrenchUnitPrefabsList[5]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 10, 23, GameController.Instance.FrenchUnitPrefabsList[3]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 15, 30, GameController.Instance.FrenchUnitPrefabsList[10]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 13, 30, GameController.Instance.FrenchUnitPrefabsList[7]);
+
+
+    }
+
+
+    public void SpawnUnitsForMAP4()
+    {
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 3, 6, GameController.Instance.EnglishUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 2, 4, GameController.Instance.EnglishUnitPrefabsList[1]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 15, 10, GameController.Instance.EnglishUnitPrefabsList[2]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 12, 12, GameController.Instance.EnglishUnitPrefabsList[3]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 21, GameController.Instance.EnglishUnitPrefabsList[4]); 
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 5, 6, GameController.Instance.EnglishUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 4, 5, GameController.Instance.EnglishUnitPrefabsList[4]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 14, 9, GameController.Instance.EnglishUnitPrefabsList[5]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 5, 2, GameController.Instance.EnglishUnitPrefabsList[6]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 0, GameController.Instance.EnglishUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 4, 1, GameController.Instance.EnglishUnitPrefabsList[8]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 3, 4, GameController.Instance.EnglishUnitPrefabsList[9]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 11, 0, GameController.Instance.EnglishUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 1, 8, GameController.Instance.EnglishUnitPrefabsList[7]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 10, 7, GameController.Instance.EnglishUnitPrefabsList[10]);
+
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 15, 2, GameController.Instance.EnglishUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 14, 3, GameController.Instance.EnglishUnitPrefabsList[7]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 12, 3, GameController.Instance.EnglishUnitPrefabsList[6]);
+
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 10, 1, GameController.Instance.EnglishUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 11, 5, GameController.Instance.EnglishUnitPrefabsList[1]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 3, 10, GameController.Instance.EnglishUnitPrefabsList[10]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 14, 16, GameController.Instance.EnglishUnitPrefabsList[10]);
+
+
+
+
+
+
+
+
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 25, GameController.Instance.FrenchUnitPrefabsList[0]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 2, 29, GameController.Instance.FrenchUnitPrefabsList[1]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 10, 24, GameController.Instance.FrenchUnitPrefabsList[2]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 13 ,4, GameController.Instance.FrenchUnitPrefabsList[3]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 22, GameController.Instance.FrenchUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 5, 23, GameController.Instance.FrenchUnitPrefabsList[4]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player2, 7, 1, GameController.Instance.FrenchUnitPrefabsList[4]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 14, 4, GameController.Instance.FrenchUnitPrefabsList[5]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 5, 23, GameController.Instance.FrenchUnitPrefabsList[6]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 0, GameController.Instance.FrenchUnitPrefabsList[0]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 4, GameController.Instance.FrenchUnitPrefabsList[8]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 8, 15, GameController.Instance.FrenchUnitPrefabsList[9]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player1, 6, 1, GameController.Instance.FrenchUnitPrefabsList[10]);
+        // GameController.Instance.SpawnUnit(GameController.Instance.player1, 11, 0, GameController.Instance.FrenchUnitPrefabsList[0]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 10, 22, GameController.Instance.FrenchUnitPrefabsList[5]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 10, 23, GameController.Instance.FrenchUnitPrefabsList[3]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 15, 30, GameController.Instance.FrenchUnitPrefabsList[10]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player2, 13, 30, GameController.Instance.FrenchUnitPrefabsList[7]);
+
+
+
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 3, 24, GameController.Instance.EnglishUnitPrefabsList[4]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 3, 25, GameController.Instance.EnglishUnitPrefabsList[7]);
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 11, 26, GameController.Instance.EnglishUnitPrefabsList[6]);
+
+        GameController.Instance.SpawnUnit(GameController.Instance.player1, 15, 24, GameController.Instance.EnglishUnitPrefabsList[0]);
+    }
+
     public void CorrectBuildingsPlayerOwner()
     {
         foreach (Building building in FindObjectsOfType<Building>())

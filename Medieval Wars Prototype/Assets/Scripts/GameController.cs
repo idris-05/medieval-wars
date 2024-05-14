@@ -109,7 +109,25 @@ public class GameController : MonoBehaviour
 
         mapGrid = MapGrid.Instance;
         arrowSystem = FindAnyObjectByType<ArrowSystem>();
-        SpawnUnitsAndBuildings.Instance.SpawnUnitsForMAP1();
+        switch (ScenesManager.mapToLoad)
+        {
+            case 1:
+                SpawnUnitsAndBuildings.Instance.SpawnUnitsForMAP1();
+                break;
+            case 2:
+                SpawnUnitsAndBuildings.Instance.SpawnUnitsForMAP2();
+                break;
+            case 3:
+                SpawnUnitsAndBuildings.Instance.SpawnUnitsForMAP3();
+                break;
+            case 4:
+                SpawnUnitsAndBuildings.Instance.SpawnUnitsForMAP4();
+                break;
+            default:
+                Debug.Log("No map to load");
+                break;
+        }
+
         SpawnUnitsAndBuildings.Instance.CorrectBuildingsPlayerOwner();
 
         // EndDayController.Instance.AnimateTheEndDayPanel();
@@ -126,7 +144,7 @@ public class GameController : MonoBehaviour
     {
         // instantiate the unit at the specified position , the position is calculated based on the row and column of the grid cell 
         // Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + 0.125f, -1), Quaternion.identity);
-        float yposition = player == player1 ? UnitUtil.AdditionInYPpositionForEnglishUnits[unitPrefab.unitIndex] : UnitUtil.AdditionInYPpositionForEnglishUnits[unitPrefab.unitIndex];
+        float yposition = player == player1 ? UnitUtil.AdditionInYPpositionForEnglishUnits[unitPrefab.unitIndex] : UnitUtil.AdditionInYPpositionForFrenshUnits[unitPrefab.unitIndex];
         Unit unit = Instantiate(unitPrefab, new Vector3(-16 + column + 0.5f, 9 - row - 0.5f + yposition - 0.5f, -1), Quaternion.identity);
 
         // -0.5f deux foix , parceque f tableau hadak t3 les positions rani zayed 0.5 , donc n3awed nn7iha . 
