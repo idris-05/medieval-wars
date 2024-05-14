@@ -151,7 +151,7 @@ public class SpawnUnitsAndBuildings : MonoBehaviour
         GameController.Instance.SpawnUnit(GameController.Instance.player2, 8, 24, GameController.Instance.FrenchUnitPrefabsList[4]);
         // GameController.Instance.SpawnUnit(GameController.Instance.player2, 7, 1, GameController.Instance.FrenchUnitPrefabsList[4]);
         //GameController.Instance.SpawnUnit(GameController.Instance.player2, 14, 4, GameController.Instance.FrenchUnitPrefabsList[5]);
-        GameController.Instance.SpawnUnit(GameController.Instance.player2, 5, 23, GameController.Instance.FrenchUnitPrefabsList[6]);
+        //GameController.Instance.SpawnUnit(GameController.Instance.player2, 5, 23, GameController.Instance.FrenchUnitPrefabsList[6]);
         // GameController.Instance.SpawnUnit(GameController.Instance.player1, 7, 0, GameController.Instance.FrenchUnitPrefabsList[0]);
         //GameController.Instance.SpawnUnit(GameController.Instance.player2, 4, 4, GameController.Instance.FrenchUnitPrefabsList[8]);
         GameController.Instance.SpawnUnit(GameController.Instance.player2, 8, 19, GameController.Instance.FrenchUnitPrefabsList[9]);

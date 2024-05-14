@@ -252,10 +252,8 @@ public class AttackSystem : MonoBehaviour
     {105, 105, 10, 55, 105, 35, -1, 65, 105, 105, 85},
     {45, 45, -1, -1, 70, -1, 65, 1, 35, 55, 6},
     {80, 80, 55, 85, 95, 60, 90, 25, 90, 85, 80},
-    {-1, -1, 55, 25, -1, 95, -1, -1, -1, -1, -1},
     {75, 70, 1, 5, 75, 10, 70, 10, 85, 85, 55},
     };
-
 
     // in this matrix
     // Column is the Attacker
@@ -328,21 +326,21 @@ public class AttackSystem : MonoBehaviour
     */
 
 
-    // column counter attack the row 
     public static bool[,] CounterAttackMatrix = {
-    //             Caravan  Archers     Carac    Fireship  Infantry     T-ship  SpikeMan  R-chalvary       Bandit  Catapulte      Chalvary
-    /* Caravan */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
-    /* Archers */  {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
-    /* Carac */    {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
-    /* Fireship */ {false,  false,   false,   true,     false,    false,  false,    false,      false,  false,        false},
-    /* Infantry */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true},
-    /* T-ship */   {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
-    /* SpikeMan */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true},
-    /* R-chalvary*/{false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true},
-    /* Bandit */   {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true},
-    /* Catapulte*/ {false,  false,   false,   false,    false,    false,  false,    false,      false,  false,        false},
-    /* Chalvary */ {false,  false,   false,   false,    true,     false,  true,     true,       true,   false,        true}
-    };
+    //             Caravan  Archers  Carrack    Fireship  Infantry  T-ship  SpearMan  R-cavalry     Bandit     Catapult   Cavalry
+    /* Caravan */  {false,  false,   false,     false,    false,    false,    false,    false,      false,     false,     false},
+    /* Archers */  {false,  false,   false,     false,    false,    false,    false,    false,      false,     false,     false},
+    /* Carrack */  {false,  false,   false,     false,    false,    false,    false,    false,      false,     false,     false},
+    /* Fireship */ {false,  false,   false,     true,     false,    false,    false,    false,      false,     false,     false},
+    /* Infantry */ {false,  false,   false,     false,    true,     false,    true,     true,       true,      false,     true },
+    /* T-ship */   {false,  false,   false,     false,    false,    false,    false,    false,      false,     false,     false},
+    /* SpearMan */ {false,  false,   false,     false,    true,     false,    true,     true,       true,      false,     true },
+    /* R-cavalry*/ {false,  false,   false,     false,    true,     false,    true,     true,       true,      false,     true },
+    /* Bandit */   {false,  false,   false,     false,    true,     false,    true,     true,       true,      false,     true },
+    /* Catapult*/  {false,  false,   false,     false,    false,    false,    false,    false,      false,     false,     false},
+    /* Cavalry */  {false,  false,   false,     false,    true,     false,    true,     true,       true,      false,     true }
+};
+
 
 
     public static int CalculateDamage(Unit AttackingUnit, Unit DefendingUnit)
