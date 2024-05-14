@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndDayController : MonoBehaviour
 {
@@ -29,7 +30,6 @@ public class EndDayController : MonoBehaviour
     public GameObject EndDayPanel;
     public GameObject EndDayPanelBackground;
     public GameObject EndDayPanelText;
-    public GameObject EndDayPanelDark;
 
 
     public void AnimateTheEndDayPanel()
@@ -51,7 +51,7 @@ public class EndDayController : MonoBehaviour
         EndDayPanel.SetActive(true);
         EndDayPanelBackground.SetActive(true);
         EndDayPanelText.SetActive(true);
-        EndDayPanelDark.SetActive(true);
+        EndDayPanelText.GetComponent<Text>().text = "Day " + GameController.Instance.CurrentDayCounter;
     }
 
     public void DeactivateEndDayPanel()
@@ -59,6 +59,5 @@ public class EndDayController : MonoBehaviour
         EndDayPanel.SetActive(false);
         EndDayPanelBackground.SetActive(false);
         EndDayPanelText.SetActive(false);
-        EndDayPanelDark.SetActive(false);
     }
 }
