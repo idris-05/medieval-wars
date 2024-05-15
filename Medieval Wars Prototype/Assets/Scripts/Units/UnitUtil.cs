@@ -155,16 +155,16 @@ public class UnitUtil : MonoBehaviour
 
 
     public static string[] unitReport = {
-    "Caravan",
-    "Archers",
-    "Carrack",
-    "Fire Ship",
-    "Infantry",
-    "T-Ship",
-    "SpearMan",
-    "R-Cavalry",
-    "Bandit",
-    "Catapult",
-    "Cavalry" };
+    "caravan units transports foot soldiers ammo, gas and rations",
+    "A long-range indirect  unit. Archer units can deal heavy damage to ground units from a distance but are vulnerable to direct attacks.",
+    "carracs have a larger attack range than even the catapult ",
+    "fire ships are strong against carracs",
+    "The basic ground unit used for capturing properties. It is weak in combat but essential for capturing cities and bases.",
+    "Tship can transport two ground units if the Tship sinks the units vanish",
+    "Similar to Infantry but stronger in combat. SpearMans are effective against other infantry units ",
+    "The Royal cavalry is a versatile armored unit, excelling in offense and defense with formidable power and sturdy armor.",
+    "A fast, lightly armored unit with long sight range. Bandit units are ideal for scouting enemy positions and exploiting weaknesses.",
+    "Similar to archers but with even longer range.  units",
+    "A versatile armored unit effective against most ground units. The cavalry have strong offensive capabilities and decent mobility." };
 
 }

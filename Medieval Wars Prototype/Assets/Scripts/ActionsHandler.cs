@@ -126,7 +126,10 @@ public class ActionsHandler : MonoBehaviour
             {
                 //!!!!! if (BuildingsUtil.BuildingCanHealAndSupplyThatUnit[building.TerrainIndex, unitThatGotClickedOn.unitIndex]) hadi t3 3fssa w7do5ra 
                 // {
-                ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[6]);
+                if (unitThatGotClickedOn.canCaptureBuildings)
+                {
+                    ButtonsUI.Instance.buttonsToDisplay.Add(actionButtons[6]);
+                }
                 // }
             }
 

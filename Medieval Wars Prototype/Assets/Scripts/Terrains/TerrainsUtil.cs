@@ -102,7 +102,11 @@ public static class TerrainsUtils
         "A bridge allows units to traverse rivers but offers no terrain benefits",
         "A gentle, flowing river. Only infantry units can ford rivers",
         "A body of water only naval Units can traverse seas",
-        "A sandy shoal. Ships load and unload units here"
+        "A sandy shoal. Ships load and unload units here",
+        "In fog of war units hidden here can only be seen by adjacent units",
+        "a rich green plain, Eazy to traverse but offers little defensive cover",
+        "In Fog of War , units hidden here can only be seen by by adjacent units ",
+        "a steep mountain a infantry units add 3 to their vision range from here"
     };
 
 

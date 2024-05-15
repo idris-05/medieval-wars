@@ -176,7 +176,7 @@ public class InfoCardController : MonoBehaviour
         TerrainMoveCostSea.GetComponent<Text>().text = TerrainsUtils.MoveCost[terrain.TerrainIndex, SeaIndex].ToString();
         TerrainMoveCostTShip.GetComponent<Text>().text = TerrainsUtils.MoveCost[terrain.TerrainIndex, TShipIndex].ToString();
 
-        // TerrainReport.GetComponent<Text>().text = TerrainsUtils.ReportTerrain[terrain.TerrainIndex];
+        TerrainReport.GetComponent<Text>().text = TerrainsUtils.ReportTerrain[terrain.TerrainIndex];
 
         AnimateTheCardMouvement(mousePositionWhenClickOnTerrain);
         numberOfQKeyclicked = 1;

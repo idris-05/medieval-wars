@@ -156,6 +156,7 @@ MonoBehaviour:
   redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
   SupplyLackApple: {fileID: 0}
+  durabilityLackSword: {fileID: 0}
 --- !u!95 &8016670086705515748
 Animator:
   serializedVersion: 5
@@ -204,6 +205,7 @@ MonoBehaviour:
   RationReduceWhileMoving: 0
   hasMoved: 0
   numbState: 0
+  canCaptureBuildings: 1
   walkableGridCells: []
   attackBoost: 1
   specialAttackBoost: 1

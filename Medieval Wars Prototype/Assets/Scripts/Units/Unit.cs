@@ -30,6 +30,8 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public bool hasMoved;
     public bool numbState;
 
+    public bool canCaptureBuildings;
+
 
     public List<GridCell> walkableGridCells = new List<GridCell>(); // this list will contain the grid cells that the unit can move to
     //
