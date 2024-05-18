@@ -220,7 +220,7 @@ public class SavingSystem : MonoBehaviour
         }
         else
         {
-            Debug.LogError("File not found at path: " + filePath);
+            Debug.Log("File not found at path: " + filePath);
             return true; // Treat as empty if file doesn't exist
         }
     }
