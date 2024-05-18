@@ -104,13 +104,14 @@ MonoBehaviour:
   unitTransform: {fileID: 6477392939008543992}
   spriteRenderer: {fileID: 1334311877762421964}
   boxCollider2D: {fileID: 9038905501126419647}
-  moveSpeed: 3
+  moveSpeed: 7
   animator: {fileID: 2656467592150605835}
   currentAnimatonState: 0
   HealthIcon: {fileID: 0}
   redDagger: {fileID: 0}
   WhereTOSpawnDamageIcon: 0
   SupplyLackApple: {fileID: 0}
+  durabilityLackSword: {fileID: 0}
 --- !u!61 &9038905501126419647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -204,6 +205,7 @@ MonoBehaviour:
   RationReduceWhileMoving: 0
   hasMoved: 0
   numbState: 0
+  canCaptureBuildings: 0
   walkableGridCells: []
   attackBoost: 1
   specialAttackBoost: 1

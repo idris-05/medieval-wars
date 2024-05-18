@@ -149,7 +149,7 @@ MonoBehaviour:
   unitTransform: {fileID: 3865657049105381963}
   spriteRenderer: {fileID: 7049025695125009108}
   boxCollider2D: {fileID: 2535128964439952144}
-  moveSpeed: 2
+  moveSpeed: 5
   animator: {fileID: 8016670086705515748}
   currentAnimatonState: 0
   HealthIcon: {fileID: 0}
