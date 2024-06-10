@@ -8,9 +8,9 @@ using Newtonsoft.Json;
 public class SavingSystem : MonoBehaviour
 {
 
-    // public static string PATH1 = Path.Combine(Application.dataPath, "player1stats.json");
-    // public static string PATH2 = Path.Combine(Application.dataPath, "player2stats.json");
-    // public static string PATHN = Path.Combine(Application.dataPath, "GamesInfos.json");
+    // public static string PATH1 = Path.Combine(Application.streamingAssetsPath, "player1stats.json");
+    // public static string PATH2 = Path.Combine(Application.streamingAssetsPath, "player2stats.json");
+    // public static string PATHN = Path.Combine(Application.streamingAssetsPath, "GamesInfos.json");
     public static string PATH1;
     public static string PATH2;
     public static string PATHN;
@@ -42,24 +42,24 @@ public class SavingSystem : MonoBehaviour
         switch (mapToLpoad)
         {
             case 1:
-                PATH1 = Path.Combine(Application.dataPath, "player1stats.json");
-                PATH2 = Path.Combine(Application.dataPath, "player2stats.json");
-                PATHN = Path.Combine(Application.dataPath, "GamesInfos.json");
+                PATH1 = Path.Combine(Application.streamingAssetsPath, "player1stats.json");
+                PATH2 = Path.Combine(Application.streamingAssetsPath, "player2stats.json");
+                PATHN = Path.Combine(Application.streamingAssetsPath, "GamesInfos.json");
                 break;
             case 2:
-                PATH1 = Path.Combine(Application.dataPath, "player1stats2.json");
-                PATH2 = Path.Combine(Application.dataPath, "player2stats2.json");
-                PATHN = Path.Combine(Application.dataPath, "GamesInfos2.json");
+                PATH1 = Path.Combine(Application.streamingAssetsPath, "player1stats2.json");
+                PATH2 = Path.Combine(Application.streamingAssetsPath, "player2stats2.json");
+                PATHN = Path.Combine(Application.streamingAssetsPath, "GamesInfos2.json");
                 break;
             case 3:
-                PATH1 = Path.Combine(Application.dataPath, "player1stats3.json");
-                PATH2 = Path.Combine(Application.dataPath, "player2stats3.json");
-                PATHN = Path.Combine(Application.dataPath, "GamesInfos3.json");
+                PATH1 = Path.Combine(Application.streamingAssetsPath, "player1stats3.json");
+                PATH2 = Path.Combine(Application.streamingAssetsPath, "player2stats3.json");
+                PATHN = Path.Combine(Application.streamingAssetsPath, "GamesInfos3.json");
                 break;
             case 4:
-                PATH1 = Path.Combine(Application.dataPath, "player1stats4.json");
-                PATH2 = Path.Combine(Application.dataPath, "player2stats4.json");
-                PATHN = Path.Combine(Application.dataPath, "GamesInfos4.json");
+                PATH1 = Path.Combine(Application.streamingAssetsPath, "player1stats4.json");
+                PATH2 = Path.Combine(Application.streamingAssetsPath, "player2stats4.json");
+                PATHN = Path.Combine(Application.streamingAssetsPath, "GamesInfos4.json");
                 break;
             default:
                 Debug.Log("map number is not valid");
