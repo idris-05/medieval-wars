@@ -43,6 +43,7 @@ public class ScenesManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(1);
         transitionAnim.SetTrigger("Start");
+        Load = false ;
     }
 
     public void StartMap(int mapId)

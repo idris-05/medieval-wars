@@ -148,13 +148,14 @@ public class Unit : MonoBehaviour       // this class will not be instantiated ,
     public void Heal()
     {
         StartCoroutine(this.unitView.PlaySRecieveHealAnimation());
-        this.unitView.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[GameUtil.GetHPToDisplayFromRealHP(this.healthPoints)];
-
+        
         healthPoints += 20;  //!! valeur berk , omb3d nsgmohom 
         if (this.healthPoints > 100)
         {
             this.healthPoints = 100;
         }
+        this.unitView.HealthIcon.GetComponent<SpriteRenderer>().sprite = UserInterfaceUtil.Instance.numbersFromZeroToTenSpritesForHealth[GameUtil.GetHPToDisplayFromRealHP(this.healthPoints)];
+
     }
 
     public void RecieveRationSupply()
