@@ -10,6 +10,9 @@ Medieval Wars is a medieval adaptation of the classic turn-based strategy game, 
 
 <div align="center">
 	<img src="./Medieval Wars Prototype/Assets/images/mw.gif" width="600">
+    <img src="./Medieval Wars Prototype/Assets/images/map.png" width="600">
+    <img src="./Medieval Wars Prototype/Assets/images/path.png" width="600">
+    <img src="./Medieval Wars Prototype/Assets/images/ui.png" width="600">
 </div>
 
 # Download and Feedback
